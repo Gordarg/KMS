@@ -12,5 +12,6 @@ class about
     const TITLE = "GORDCMS";
     const NAME = "Gord Content Management System";
     const META_KEYWORDS = "My, Key, WORDS, SEO";
+    const META_DESCRIPTION = "Website description here.";
 }
 
