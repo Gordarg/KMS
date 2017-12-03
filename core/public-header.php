@@ -6,7 +6,7 @@ use core\about;
 <html>
 <head>
 <title><?php echo about::TITLE ?></title>
-<meta charset="UTF-8">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8">
 <meta name="keywords" content="<?php echo about::META_KEYWORDS ?>" />
 <meta name="description" content="<?php echo about::META_DESCRIPTION ?>" />
 <!-- needs attention -->
