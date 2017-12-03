@@ -4,12 +4,12 @@ namespace core;
 class functionalities
 {
 
-    function makeAbstract(string $input, int $lenght, string $allowed_tags = null)
+    function makeAbstract($input, $lenght, $allowed_tags = null)
     {
         return substr(strip_tags($input, $allowed_tags), 0, $lenght);
     }
     
-    function getMime(string $filename){
+    function getMime($filename){
         
         if(function_exists('mime_content_type')&&$mode==0){
             $mimetype = mime_content_type($filename);
