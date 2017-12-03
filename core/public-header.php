@@ -51,7 +51,10 @@ use core\about;
 				src="icons/youtube.svg" /> <img
 				class="w3-left w3-padding-small rexa-social"
 				title="اینستاگرام ما را دنبال کنید" alt="instagram"
-				src="icons/instagram.svg" />
+				src="icons/instagram.svg" /> <a href="archive.php"> <img
+				class="w3-left w3-padding-small rexa-social"
+				title="ارشیو ما را دنبال کنید" alt="archive"
+				src="icons/library.png" /></a>
 		</div>
 
 		<!-- Start page content -->
