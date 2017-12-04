@@ -2,7 +2,7 @@
 <footer data-aos="fade-up" class="w3-row-padding w3-padding-32">
 	<div class="w3-third">
 		<h3>همراهان ما</h3>
-		<p>در اینجا اسم اسپانسر های ما قرار میگیرد</p>
+		<p><?php echo about::SPONSOR ?></p>
 		<p>
 			برگرفته از سامانه ی مدیریت محتوی <a href="http://gordarg.com"
 				target="_blank">گُرد</a>
