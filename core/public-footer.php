@@ -1,3 +1,7 @@
+<?php 
+require_once 'core/about.php';
+use core\about;
+?>
 <!-- Footer -->
 <footer data-aos="fade-up" class="w3-row-padding w3-padding-32">
 	<div class="w3-third">
