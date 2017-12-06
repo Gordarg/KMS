@@ -1,4 +1,4 @@
 1- password for filemanger
 2- edit fill the form
 3- sponser
-4-font size
+4- font size for post title, view.php
