@@ -10,7 +10,7 @@ $row = mysqli_fetch_array($result);
 include ('core/public-header.php');
 echo '<div class="w3-full">';
 echo '<img src="download.php?id=' . $Id . '" alt="' . $row["Title"] . '" style="width:100%">';
-echo '<h3>' . $row['Title'] . '</h3>';
+echo '<h1 class="large">' . $row['Title'] . '</h1>';
 echo '<p>' . $row['Body']  . '</p>';
 echo '</div>';
 include ('core/public-footer.php');
