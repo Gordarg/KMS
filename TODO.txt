@@ -1,7 +1,5 @@
 1- password for filemanger
 2- edit fill the form
-3- sponser
-4- font size for post title, view.php
 5- font type
 6- draft
 7- delete image
