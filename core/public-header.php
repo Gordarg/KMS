@@ -10,6 +10,10 @@ use core\about;
 <meta name="keywords" content="<?php echo about::META_KEYWORDS ?>" />
 <meta name="description" content="<?php echo about::META_DESCRIPTION ?>" />
 <!-- needs attention -->
+	<meta property="og:title" content="GORDCMS">
+	<meta property="og:description" content="Gordarg Content Management System">
+	<meta property="og:image" content="logo.png">
+	<!-- <meta property="og:url" content="[FAST READ URL FOR THIS CONTENT]">	 -->
 <meta name="revised" content="Tutorialspoint, 3/7/2014" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="styles/bootstrap.css">
