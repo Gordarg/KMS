@@ -51,7 +51,7 @@ include ('core/public-header.php');
 // echo '<tr><td>' . htmlentities($field) . '</td><td>' . htmlentities($value) . '</td></tr>';
 // }
 // echo '<tr><td colspan="2">&nbsp;</td></tr>';
-// }
+// }row
 // echo '</table>';
 ?>
 
@@ -176,7 +176,6 @@ if (isset($_POST["submit"])) {
     {
         $post_result = mysqli_query($conn, $post_query);
         header("Location: admin.php");
-        exit();
     }
 }
 ?>
