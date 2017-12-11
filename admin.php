@@ -125,7 +125,7 @@ $datetime = date('Y-m-d h:i', time());
     $category_num = mysqli_num_rows($category_result);
     for ($i = 0; $i < $category_num; $i ++) {
         $category_row = mysqli_fetch_array($category_result);
-        echo '<option value="' . $row['Id'] . '">' . $row['Name'] . '</option>';
+        echo '<option value="' . $category_row['Id'] . '">' . $category_row['Name'] . '</option>';
     }
     ?>
     </select> <label for="bpdy">متن</label>
