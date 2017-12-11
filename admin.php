@@ -172,9 +172,12 @@ if (isset($_POST["insert"])) {
     $post_query = "DELETE FROM posts WHERE `Id` = " . $Id . ";";
 }
 if (isset($_POST["submit"])) {
-    $post_result = mysqli_query($conn, $post_query);
-    header("Location: admin.php");
-    exit();
+    if (mysqli_real_escape_string($conn, $_POST['title']) != "")
+    {
+        $post_result = mysqli_query($conn, $post_query);
+        header("Location: admin.php");
+        exit();
+    }
 }
 ?>
 </form>

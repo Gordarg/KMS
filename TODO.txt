@@ -1,9 +1,7 @@
 1- password for filemanger
-5- font type
 6- draft
 7- delete image
 8- page refresh for update 
 9- image update bug
-10- required title field 
 11- offline backup
 12- Show messages and error codes
