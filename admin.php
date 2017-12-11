@@ -106,22 +106,30 @@ action="<?php echo (isset($_SERVER['HTTPS']) ? "https" : "http") .
 date_default_timezone_set('Asia/Tehran');
 $datetime = date('Y-m-d h:i', time());
 ?>
-		<input type="hidden" name="userid" value="<?php echo $UserId; ?>" /> <input
-		type="hidden" name="submit" value="<?php echo $datetime; ?>" /> <label
-		for="title">عنوان</label> <input name="title"
-		placeholder="عنوان را وارد نمایید" type="text" /> <label
-		for="categoryid">دسته بندی</label> <select name="categoryid">
+
+<?php if ($Id != "") {
+ $IId = mysqli_real_escape_string($conn, $Id);
+ $query = "select Username, Title, Submit, Body from post_details where ID=" . $IId . ";";
+ $result = mysqli_query($conn, $query);
+ $row = mysqli_fetch_array($result);       
+}?>
+
+    <input type="hidden" name="userid" value="<?php echo $UserId; ?>" /> <input
+    type="hidden" name="submit" value="<?php echo $datetime; ?>" /> <label
+    for="title">عنوان</label> <input name="title"
+    placeholder="عنوان را وارد نمایید" type="text" value="<?php echo $row["Title"]?>" /> <label
+    for="categoryid">دسته بندی</label> <select name="categoryid">
     <?php
     $category_query = "select Id, Name from categories";
     $category_result = mysqli_query($conn, $category_query);
     $category_num = mysqli_num_rows($category_result);
     for ($i = 0; $i < $category_num; $i ++) {
-        $row = mysqli_fetch_array($category_result);
+        $category_row = mysqli_fetch_array($category_result);
         echo '<option value="' . $row['Id'] . '">' . $row['Name'] . '</option>';
     }
     ?>
     </select> <label for="bpdy">متن</label>
-	<textarea name="body"></textarea>
+	<textarea name="body"><?php echo $row['Body']?></textarea>
 	<label for="bpdy">پرونده</label> <input type="file" name="content"
 		id="file" />
 	<?php
@@ -132,6 +140,7 @@ if ($Id == "") {
     echo '<input type="submit" name="update" value="به روز رسانی" />';
     echo '<input type="submit" name="delete" value="حذف" />';
     echo '<a href="admin.php">انصراف</a>';
+
 }
 
 // $uploadOk = 1;
@@ -164,6 +173,8 @@ if (isset($_POST["insert"])) {
 }
 if (isset($_POST["submit"])) {
     $post_result = mysqli_query($conn, $post_query);
+    header("Location: admin.php");
+    exit();
 }
 ?>
 </form>
