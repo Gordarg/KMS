@@ -5,3 +5,26 @@
 9- image update bug
 11- offline backup
 12- Show messages and error codes
+13- Version control
+14- SEO: Url Routing
+15- SEO: <meta name="language" content="english" />
+16- SEO: Sitemap Generator : https://support.google.com/webmasters/answer/183668?hl=en
+17- SEO: Contact info : https://www.w3schools.com/tags/tag_address.asp
+18- SEO: Privacy Policy
+19- SEO: Terms of Service (TOS)
+20- SEO: RSS
+21- SEO: rel=”canonical”
+22- SEO: Microdata
+23- SEO: 
+24- Image Resize
+25- Versioning for Content
+26- Application Version
+27- Accounting
+28- Content compression
+29- SEO: Twitter card
+30- SEO: rel="nofollow"
+31- SEO: <meta itemprop="name" content="ماهنامه پیوست">
+32- SEO: <meta itemprop="description" content="ماهنامه اطلاع رسانی، پژوهشی، تحلیلی و فرهنگی پیوست">
+33- SEO: <meta property="fb:admins" content="100001867037114">
+32- Search page
+33- Create unfollow links from tags to search page
