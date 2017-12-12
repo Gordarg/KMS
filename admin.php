@@ -9,19 +9,11 @@ function YouAreNotAuthorized()
 }
 if (! isset($_SERVER['PHP_AUTH_USER'])) {
     YouAreNotAuthorized();
-    // header('Location: index.php');
 } else {
     $username = $_SERVER['PHP_AUTH_USER'];
     $password = $_SERVER['PHP_AUTH_PW'];
-    
-    // SQL Injection Prevention
-    // settype($username, 'varchar');
-    // settype($password, 'varchar');
-    
-    // Connect to database
     include ('core/database_conn.php');
-    
-    // SQL Injection Protection Method 2
+
     $username_safe = mysqli_real_escape_string($conn, $username);
     $password_safe = mysqli_real_escape_string($conn, $password);
     
@@ -42,22 +34,6 @@ include ('core/public-header.php');
 
 ?>
 
-
-<?php
-// echo '<table>';
-// $select_result = mysqli_query($conn, "SELECT * FROM `post_details`");
-// while($row = mysqli_fetch_assoc($select_result)) {
-// foreach($row as $field => $value) {
-// echo '<tr><td>' . htmlentities($field) . '</td><td>' . htmlentities($value) . '</td></tr>';
-// }
-// echo '<tr><td colspan="2">&nbsp;</td></tr>';
-// }row
-// echo '</table>';
-?>
-
-
-
-
 <table class="table table-bordered">
 	<thead>
 		<tr>
@@ -70,12 +46,6 @@ include ('core/public-header.php');
 	</thead>
 	<tbody>
         <?php
-        // $connect = mysql_connect("localhost","root", "root");
-        // if (!$connect) {
-        // die(mysql_error());
-        // }
-        // mysql_select_db("apploymentdevs");
-        
         require_once 'core/functionalities.php';
         use core\functionalities;
         $functionalitiesInstance = new functionalities();
@@ -83,13 +53,13 @@ include ('core/public-header.php');
         $select_result = mysqli_query($conn, "SELECT * FROM post_details ORDER BY `Submit` DESC");
         while ($row = mysqli_fetch_array($select_result)) {
             ?>
-                <tr>
-			<td><a href="admin.php?id=<?php echo $row['ID']?>">ویرایش و حذف</a></td>
-			<td><?php echo $row['ID']?></td>
-			<td><?php echo $row['Title']?></td>
-			<td><a href="download.php?id=<?php echo $row['ID']?>">بارگزاری</a></td>
-			<td><?php echo $functionalitiesInstance->makeAbstract($row['Body'], 80)  ?></td>
-		</tr>
+            <tr>
+                <td><a href="admin.php?id=<?php echo $row['ID']?>">ویرایش و حذف</a></td>
+                <td><?php echo $row['ID']?></td>
+                <td><?php echo $row['Title']?></td>
+                <td><a href="download.php?id=<?php echo $row['ID']?>">بارگزاری</a></td>
+                <td><?php echo $functionalitiesInstance->makeAbstract($row['Body'], 80)  ?></td>
+            </tr>
 
             <?php
         }
@@ -109,29 +79,31 @@ $datetime = date('Y-m-d h:i', time());
 
 <?php if ($Id != "") {
  $IId = mysqli_real_escape_string($conn, $Id);
- $query = "select Username, Title, Submit, Body from post_details where ID=" . $IId . ";";
+ $query = "select Username, Title, Submit, Body, CategoryID from post_details where ID=" . $IId . ";";
  $result = mysqli_query($conn, $query);
- $row = mysqli_fetch_array($result);       
+ $row = mysqli_fetch_array($result);
 }?>
 
-    <input type="hidden" name="userid" value="<?php echo $UserId; ?>" /> <input
-    type="hidden" name="submit" value="<?php echo $datetime; ?>" /> <label
-    for="title">عنوان</label> <input name="title"
-    placeholder="عنوان را وارد نمایید" type="text" value="<?php echo $row["Title"]?>" /> <label
-    for="categoryid">دسته بندی</label> <select name="categoryid">
+    <input type="hidden" name="userid" value="<?php echo $UserId; ?>" />
+    <input type="hidden" name="submit" value="<?php echo $datetime; ?>" />
+    <label for="title">عنوان</label>
+    <input name="title" placeholder="عنوان را وارد نمایید" type="text" value="<?php echo $row["Title"]?>" />
+    <label for="categoryid">دسته بندی</label>
+    <select name="categoryid">
     <?php
     $category_query = "select Id, Name from categories";
     $category_result = mysqli_query($conn, $category_query);
     $category_num = mysqli_num_rows($category_result);
     for ($i = 0; $i < $category_num; $i ++) {
         $category_row = mysqli_fetch_array($category_result);
-        echo '<option value="' . $category_row['Id'] . '">' . $category_row['Name'] . '</option>';
+        echo '  <option value="' . $category_row['Id'] . '"' . (($category_row['Id'] == $row['CategoryID'])?(" selected") : ("")) . '>' . $category_row['Name'] . '</option>';
     }
     ?>
-    </select> <label for="bpdy">متن</label>
+    </select>
+    <label for="body">متن</label>
 	<textarea name="body"><?php echo $row['Body']?></textarea>
-	<label for="bpdy">پرونده</label> <input type="file" name="content"
-		id="file" />
+	<label for="bpdy">پرونده</label>
+    <input type="file" name="content" id="file" />
 	<?php
 
 if ($Id == "") {
@@ -142,14 +114,6 @@ if ($Id == "") {
     echo '<a href="admin.php">انصراف</a>';
 
 }
-
-// $uploadOk = 1;
-// $fileMime = ($_FILES['content']['size'] == 0 /*&& $_FILES['content']['error'] == 0*/)
-// ? ("")
-// : (mime_content_type($_FILES["content"]["tmp_name"]));
-// if ($fileMime != "image/jpg" && $fileMime != "image/png" && $fileMime != "image/jpeg" && $fileMime != "image/gif") {
-//     $uploadOk = 0;
-// }
 
 if ($_FILES['content']['size'] == 0)
     $uploadOk = 0;
@@ -176,6 +140,7 @@ if (isset($_POST["submit"])) {
     {
         $post_result = mysqli_query($conn, $post_query);
         header("Location: admin.php");
+        
     }
 }
 ?>
