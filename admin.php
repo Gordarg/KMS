@@ -86,6 +86,9 @@ $datetime = date('Y-m-d h:i', time());
 
     <input type="hidden" name="userid" value="<?php echo $UserId; ?>" />
     <input type="hidden" name="submit" value="<?php echo $datetime; ?>" />
+    <label for="type">نوع</label>
+    <input type="radio" name="type" value="FILE">فایل
+    <input type="radio" name="type" value="POST">پست
     <label for="title">عنوان</label>
     <input name="title" placeholder="عنوان را وارد نمایید" type="text" value="<?php echo $row["Title"]?>" />
     <label for="categoryid">دسته بندی</label>
