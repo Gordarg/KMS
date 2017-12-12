@@ -45,14 +45,19 @@ use core\about;
 <meta http-equiv="content-type" content="text/html;charset=UTF-8">
 <meta name="keywords" content="<?php echo about::META_KEYWORDS ?>" />
 <meta name="description" content="<?php echo about::META_DESCRIPTION ?>" />
-<meta name="language" content="persian" />
+<meta name="language" content="Farsi" />
+<meta name="geo.region" CONTENT="IR" />
+<meta name="googlebot" content="INDEX, follow" />
+<meta name="robots" content="index, follow"/>
+<meta charset="utf-8">
 <!-- needs attention -->
+	<!-- <meta name="author" content="<-BlogAuthor->"> -->
 	<!-- <meta itemprop="name" content="عنوان در این جا قرار می گیرد"> -->
 	<!-- <meta itemprop="description" content="خلاصه در این جا قرار می گیرد""> -->
 	<!-- <meta property="fb:admins" content="100001867037114"> -->
-	<meta property="og:title" content="GORDCMS">
-	<meta property="og:description" content="Gordarg Content Management System">
-	<meta property="og:image" content="logo.png">
+	<!-- <meta property="og:title" content="GORDCMS"> -->
+	<!-- <meta property="og:description" content="Gordarg Content Management System"> -->
+	<!-- <meta property="og:image" content="logo.png"> -->
 	<!-- <meta property="og:url" content="[FAST READ URL FOR THIS CONTENT]">	 -->
 <meta name="revised" content="Tutorialspoint, 3/7/2014" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
