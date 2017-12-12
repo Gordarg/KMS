@@ -45,7 +45,11 @@ use core\about;
 <meta http-equiv="content-type" content="text/html;charset=UTF-8">
 <meta name="keywords" content="<?php echo about::META_KEYWORDS ?>" />
 <meta name="description" content="<?php echo about::META_DESCRIPTION ?>" />
+<meta name="language" content="persian" />
 <!-- needs attention -->
+	<!-- <meta itemprop="name" content="عنوان در این جا قرار می گیرد"> -->
+	<!-- <meta itemprop="description" content="خلاصه در این جا قرار می گیرد""> -->
+	<!-- <meta property="fb:admins" content="100001867037114"> -->
 	<meta property="og:title" content="GORDCMS">
 	<meta property="og:description" content="Gordarg Content Management System">
 	<meta property="og:image" content="logo.png">
