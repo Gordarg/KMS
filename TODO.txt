@@ -4,9 +4,9 @@
 8- page refresh for update 
 9- image update bug
 11- offline backup
-12- Show messages and error codes
+12- Show messages and error pages
 13- Version control
-14- SEO: Url Routing
+14- SEO: Url Routing -> (must be) show/Id/key1-keyword-keyworddd
 15- SEO: <meta name="language" content="english" />
 16- SEO: Sitemap Generator : https://support.google.com/webmasters/answer/183668?hl=en
 17- SEO: Contact info : https://www.w3schools.com/tags/tag_address.asp
@@ -15,7 +15,7 @@
 20- SEO: RSS
 21- SEO: rel=”canonical”
 22- SEO: Microdata
-23- SEO: 
+23- SEO: Content type : https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Content_categories
 24- Image Resize
 25- Versioning for Content
 26- Application Version
@@ -28,3 +28,15 @@
 33- SEO: <meta property="fb:admins" content="100001867037114">
 32- Search page
 33- Create unfollow links from tags to search page
+34- Generate dynamic keywords
+35- Cache files comming from DB 
+36- Backlinks
+37- Statistics
+38- SEO: menu in header tag
+39- SEO: Demographics : https://searchengineland.com/connecting-demographics-search-queries-243440
+40- SEO: Trending
+41- SEO: meta-number for page clicks
+42- SEO: Cloaking for Bing and Google
+43- SEO: Error 301
+44- Allow themes and static pages
+45- Backend set page properties
