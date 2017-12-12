@@ -26,8 +26,10 @@ $size = strlen($content);
 // header("Content-type: " . $type);
 header('Content-Disposition: attachment; filename="' . $name . '"');
 header("Content-Transfer-Encoding: binary");
-header('Expires: 0');
-header('Pragma: no-cache');
+// header('Expires: 0');
+// header('Pragma: no-cache');
+header("Expires: ".gmdate("D, d M Y H:i:s", time()+1800)." GMT");
+header("Cache-Control: max-age=1800");
 header("Content-Length: " . $size);
 
 echo $content;

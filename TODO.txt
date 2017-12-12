@@ -29,7 +29,7 @@
 32- Search page
 33- Create unfollow links from tags to search page
 34- Generate dynamic keywords
-35- Cache files comming from DB 
+35- Cache files comming from DB : TEST REQUIRED
 36- Backlinks
 37- Statistics
 38- SEO: menu in header tag
