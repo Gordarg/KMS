@@ -40,3 +40,5 @@
 43- SEO: Error 301
 44- Allow themes and static pages
 45- Backend set page properties
+46- Refresh bug after update
+47- Use enums for category
