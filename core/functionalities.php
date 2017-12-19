@@ -6,7 +6,10 @@ class functionalities
 
     function makeAbstract($input, $lenght, $allowed_tags = null)
     {
-        return mb_substr(strip_tags($input, $allowed_tags), 0, $lenght, "utf-8") . " ...";
+        // mb_internal_encoding('UTF-8');     
+        // return mb_substr(strip_tags($input, $allowed_tags), 0, $lenght, "UTF-8") . " ...";
+        
+        return (substr(strip_tags($input, $allowed_tags), 0, $lenght) . " ...");
     }
     
     function getMime($filename){
