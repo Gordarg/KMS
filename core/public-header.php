@@ -90,13 +90,13 @@ include ('core/database_conn.php');
         ?>
 	</nav>
 
-	<div class="w3-top">
+	<header class="w3-top" role="banner">
 		<div class="w3-white w3-xlarge"
 			style="max-width: 1200px; margin: auto">
 			<div class="w3-button w3-padding-16 w3-right" onclick="w3_open()">☰</div>
 			<div class="w3-center w3-padding-16"><?php echo about::NAME ?></div>
 		</div>
-	</div>
+	</header>
 
 	<div data-aos="rexa-blur" class="w3-main w3-content w3-padding"
 		style="max-width: 1200px; margin-top: 100px">
