@@ -31,7 +31,6 @@ if (! isset($_SERVER['PHP_AUTH_USER'])) {
 }
 $Id = $_GET['id'];
 include ('core/public-header.php');
-
 ?>
 
 <table class="table table-bordered">
@@ -52,19 +51,18 @@ include ('core/public-header.php');
         
         $select_result = mysqli_query($conn, "SELECT * FROM post_details WHERE `Type` = 'POST' ORDER BY `Submit` DESC");
         while ($row = mysqli_fetch_array($select_result)) {
-            ?>
-            <tr>
-                <td><a href="admin.php?id=<?php echo $row['ID']?>">ویرایش و حذف</a></td>
-                <td><?php echo $row['ID']?></td>
-                <td><?php echo $row['Title']?></td>
-                <td><a href="download.php?id=<?php echo $row['ID']?>">بارگزاری</a></td>
-                <td><?php echo $functionalitiesInstance->makeAbstract($row['Body'], 80)  ?></td>
-            </tr>
-
-            <?php
+        ?>
+        <tr>
+            <td><a href="admin.php?id=<?php echo $row['ID']?>">ویرایش و حذف</a></td>
+            <td><?php echo $row['ID']?></td>
+            <td><?php echo $row['Title']?></td>
+            <td><a href="download.php?id=<?php echo $row['ID']?>">بارگزاری</a></td>
+            <td><?php echo $functionalitiesInstance->makeAbstract($row['Body'], 80)  ?></td>
+        </tr>
+        <?php
         }
         ?>
-            </tbody>
+    </tbody>
 </table>
 </body>
 

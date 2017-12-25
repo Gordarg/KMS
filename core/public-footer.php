@@ -16,15 +16,15 @@ use core\about;
 	<div class="w3-third">
 		<h3>یادداشت ها</h3>
 		<ul class="w3-ul w3-hoverable">
-          <?php
-        include ('core/database_conn.php');
-        $footer_query = "select ID from post_details where `CategoryName` = 'monthly' order by `Submit` desc limit 2;-- offset 1";
+        <?php
+        include ('core/database_conn.php');        
+        $footer_query = "select ID from post_details where `Level` = '3' order by `Submit` desc limit 2;-- offset 1";
         $footer_result = mysqli_query($conn, $footer_query);
         $footer_num = mysqli_num_rows($footer_result);
         for ($i = 0; $i < $footer_num; $i ++) {
             $footer_row = mysqli_fetch_array($footer_result);
             $_GET['id'] = $footer_row['ID'];
-            $_GET["type"] = 'monthly';
+            $_GET["level"] = '3';
             include ('show.php');
         }
         // include('core/database_close.php');

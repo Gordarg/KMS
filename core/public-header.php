@@ -1,6 +1,7 @@
 <?php 
 require_once 'core/about.php';
 use core\about;
+include ('core/database_conn.php');
 ?>
 <!DOCTYPE html>
 
@@ -73,11 +74,22 @@ use core\about;
 		class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-right"
 		style="display: none; z-index: 2; width: 40%; min-width: 300px"
 		id="mySidebar">
-		<a href="javascript:void(0)" onclick="w3_close()"
-			class="w3-bar-item w3-button">☰</a> <a href="./"
-			onclick="w3_close()" class="w3-bar-item w3-button">خانه</a> <a
-			href="admin.php" onclick="w3_close()" class="w3-bar-item w3-button">ادمین</a>
+		<a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button">☰</a> <a href="./" onclick="w3_close()" class="w3-bar-item w3-button">خانه</a>
+		<a href="admin.php" onclick="w3_close()" class="w3-bar-item w3-button">ادمین</a>
+		<hr />
+		<?php
+        $category_query = "SELECT Id, Name FROM categories;";
+        $category_result = mysqli_query($conn, $category_query);
+        $category_num = mysqli_num_rows($category_result);
+        for ($i = 0; $i < $category_num; $i ++) {
+			$category_row = mysqli_fetch_array($category_result);
+			echo '<a rel="nofollow" href="archive.php?CategoryID=' . $category_row["Id"] . '" onclick="w3_close()" class="w3-bar-item w3-button">' . $category_row["Name"] . '</a>';
+            
+        }
+        // include('core/database_close.php');
+        ?>
 	</nav>
+
 	<div class="w3-top">
 		<div class="w3-white w3-xlarge"
 			style="max-width: 1200px; margin: auto">

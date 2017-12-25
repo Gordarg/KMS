@@ -3,13 +3,13 @@
 <?php
 echo '<div class="head-post-row w3-row-padding w3-padding-16"">';
 include ('core/database_conn.php');
-$header_query = "select ID from post_details where `CategoryName` = 'daily' order by `Submit` desc";
+$header_query = "select ID from post_details where `Level` = '1' order by `Submit` desc";
 $header_result = mysqli_query($conn, $header_query);
 $header_num = mysqli_num_rows($header_result);
 for ($i = 0; $i < $header_num; $i ++) {
     $header_row = mysqli_fetch_array($header_result);
     $_GET['id'] = $header_row['ID'];
-    $_GET["type"] = 'daily';
+    $_GET["level"] = '1';
     include ('show.php');
     if (($i + 1) % 4 == 0) {
         echo '</div>';
@@ -33,13 +33,13 @@ echo '</div>';
   
   <?php
 include ('core/database_conn.php');
-$header_query = "select ID from post_details where `CategoryName` = 'weekly' order by `Submit` desc limit 1";
+$header_query = "select ID from post_details where `Level` = '2' order by `Submit` desc limit 1";
 $header_result = mysqli_query($conn, $header_query);
 $header_num = mysqli_num_rows($header_result);
 for ($i = 0; $i < $header_num; $i ++) {
     $header_row = mysqli_fetch_array($header_result);
     $_GET['id'] = $header_row['ID'];
-    $_GET["type"] = 'weekly';
+    $_GET["level"] = '2';
     include ('show.php');
 }
 // include('core/database_close.php');
