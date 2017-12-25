@@ -26,7 +26,6 @@
 32- SEO: <meta itemprop="description" content="ماهنامه اطلاع رسانی، پژوهشی، تحلیلی و فرهنگی پیوست">
 33- SEO: <meta property="fb:admins" content="100001867037114">
 32- Search page
-33- Create unfollow links from tags to search page
 34- Generate dynamic keywords
 35- Cache files comming from DB : TEST REQUIRED
 36- Backlinks
@@ -46,3 +45,5 @@
 54- Exclude config files (about.php, robots.txt, keywords) from core and root folders
 55- Registration and Edit Profile (Admin can view other users, visitor can only comment and normal users can send posts)
 56- View posts by users and a description of user
+57- Keywords: A- Mined Overal Keyword (Home page : Create unfollow links from tags to search page) . B- for each post (Keywords must link internal posts)
+58- Post offers
