@@ -32,7 +32,6 @@
 35- Cache files comming from DB : TEST REQUIRED
 36- Backlinks
 37- Statistics
-38- SEO: menu in header tag
 39- SEO: Demographics : https://searchengineland.com/connecting-demographics-search-queries-243440
 40- SEO: Trending
 41- SEO: meta-number for page clicks
@@ -42,3 +41,13 @@
 45- Backend set page properties
 46- Refresh bug after update
 47- Use enums for category
+
+
+
+48- Dynamic menu
+49- Registration
+50- Static pages
+51- Profile
+
+
+52- Compress images and then convert them to "Data URI's"
