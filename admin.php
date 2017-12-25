@@ -50,7 +50,7 @@ include ('core/public-header.php');
         use core\functionalities;
         $functionalitiesInstance = new functionalities();
         
-        $select_result = mysqli_query($conn, "SELECT * FROM post_details ORDER BY `Submit` DESC");
+        $select_result = mysqli_query($conn, "SELECT * FROM post_details WHERE `Type` = 'POST' ORDER BY `Submit` DESC");
         while ($row = mysqli_fetch_array($select_result)) {
             ?>
             <tr>
