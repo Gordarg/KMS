@@ -8,11 +8,11 @@ $query = "select Username, Title, Submit, Body from post_details where ID=" . $I
 $result = mysqli_query($conn, $query);
 $row = mysqli_fetch_array($result);
 include ('core/public-header.php');
-echo '<div class="w3-full">';
+echo '<article class="w3-full">';
 echo '<img src="download.php?id=' . $Id . '" alt="' . $row["Title"] . '" style="width:100%">';
 echo '<h1 class="large">' . $row['Title'] . '</h1>';
 echo '<p>' . $row['Body']  . '</p>';
-echo '</div>';
+echo '</article>';
 include ('core/public-footer.php');
 
 ?>

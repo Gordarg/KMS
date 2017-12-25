@@ -47,3 +47,4 @@
 56- View posts by users and a description of user
 57- Keywords: A- Mined Overal Keyword (Home page : Create unfollow links from tags to search page) . B- for each post (Keywords must link internal posts)
 58- Post offers
+59- Comment (Must use <article>) and Like
