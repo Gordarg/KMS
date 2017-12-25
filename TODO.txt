@@ -40,14 +40,9 @@
 45- Backend set page properties
 46- Refresh bug after update
 47- Use enums for category
-
-
-
-48- Dynamic menu
-49- Registration (And other survey types)
 50- Static pages
-51- Profile
-
-
 52- Compress images and then convert them to "Data URI's"
 53- Dynamic layout
+54- Exclude config files (about.php, robots.txt, keywords) from core and root folders
+55- Registration and Edit Profile (Admin can view other users, visitor can only comment and normal users can send posts)
+56- View posts by users and a description of user
