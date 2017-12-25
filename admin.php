@@ -86,9 +86,19 @@ $datetime = date('Y-m-d h:i', time());
 
     <input type="hidden" name="userid" value="<?php echo $UserId; ?>" />
     <input type="hidden" name="submit" value="<?php echo $datetime; ?>" />
-    <label for="type">نوع</label>
-    <input type="radio" name="type" value="FILE">فایل
-    <input type="radio" name="type" value="POST">پست
+    
+    <div class="switch-field">
+
+        <div class="switch-title">قصد ارسال چه محتوایی دارید؟</div>
+
+        <input id="switch_right" type="radio" value="" name="type" value="FILE" <?php echo (($row["Type"] == "FILE") ? 'checked="checked"' : "") ?>>
+        <label for="switch_right">فایل</label>
+
+        <input id="switch_left" type="radio" name="type" value="POST" <?php echo (($row["Type"] == "FILE") ? '' : 'checked="checked"') ?>>
+        <label for="switch_left">پست</label>
+
+    </div>
+
     <label for="title">عنوان</label>
     <input name="title" placeholder="عنوان را وارد نمایید" type="text" value="<?php echo $row["Title"]?>" />
     <label for="categoryid">دسته بندی</label>
@@ -123,17 +133,22 @@ if ($_FILES['content']['size'] == 0)
     else $uploadOk = 1;
 
 if (isset($_POST["insert"])) {
+
     if ($uploadOk == 0) {
-        $post_query = "INSERT INTO posts (`Title`,`Submit`,`Body`,`CategoryId`,`UserId`) VALUES(" . "'" . mysqli_real_escape_string($conn, $_POST['title']) . "'" . ", " . "'" . mysqli_real_escape_string($conn, $_POST['submit']) . "'" . ", " . "'" . mysqli_real_escape_string($conn, $_POST['body']) . "'" . ", " . "'" . mysqli_real_escape_string($conn, $_POST['categoryid']) . "'" . ", " . "'" . mysqli_real_escape_string($conn, $_POST['userid']) . "'" . ");";
+        $post_query = "INSERT INTO posts (`Title`,`Submit`,`Body`,`CategoryId`,`UserId`, `Type`) VALUES(" . "'" . mysqli_real_escape_string($conn, $_POST['title']) . "'" . ", " . "'" . mysqli_real_escape_string($conn, $_POST['submit']) . "'" . ", " . "'" . mysqli_real_escape_string($conn, $_POST['body']) . "'" . ", " . "'" . mysqli_real_escape_string($conn, $_POST['categoryid']) . "'" . ", " . "'" . mysqli_real_escape_string($conn, $_POST['userid']) . "'" .
+        ", " . "'" . mysqli_real_escape_string($conn, $_POST['type']) . "'" .
+        ");";
     }
     else if ($uploadOk == 1) {
-        $post_query = "INSERT INTO posts (`Title`,`Submit`,`Content`,`Body`,`CategoryId`,`UserId`) VALUES(" . "'" . mysqli_real_escape_string($conn, $_POST['title']) . "'" . ", " . "'" . mysqli_real_escape_string($conn, $_POST['submit']) . "'" . ", " . "'" . mysqli_real_escape_string($conn, file_get_contents($_FILES['content']['tmp_name'])) . "'" . ", " . "'" . mysqli_real_escape_string($conn, $_POST['body']) . "'" . ", " . "'" . mysqli_real_escape_string($conn, $_POST['categoryid']) . "'" . ", " . "'" . mysqli_real_escape_string($conn, $_POST['userid']) . "'" . ");";
+        $post_query = "INSERT INTO posts (`Title`,`Submit`,`Content`,`Body`,`CategoryId`,`UserId`, `Type`) VALUES(" . "'" . mysqli_real_escape_string($conn, $_POST['title']) . "'" . ", " . "'" . mysqli_real_escape_string($conn, $_POST['submit']) . "'" . ", " . "'" . mysqli_real_escape_string($conn, file_get_contents($_FILES['content']['tmp_name'])) . "'" . ", " . "'" . mysqli_real_escape_string($conn, $_POST['body']) . "'" . ", " . "'" . mysqli_real_escape_string($conn, $_POST['categoryid']) . "'" . ", " . "'" . mysqli_real_escape_string($conn, $_POST['userid']) . "'" .
+        ", " . "'" . mysqli_real_escape_string($conn, $_POST['type']) . "'" .
+        ");";
     }
 } else if (isset($_POST["update"])) {
     if ($uploadOk == 0) {
-        $post_query = "UPDATE posts SET `Title` = '" . mysqli_real_escape_string($conn, $_POST['title']) . "', `Submit` = '" . mysqli_real_escape_string($conn, $_POST['submit']) . "', `Body` =  '" . mysqli_real_escape_string($conn, $_POST['body']) . "', `CategoryId` =  '" . mysqli_real_escape_string($conn, $_POST['categoryid']) . "', `UserId` = '" . mysqli_real_escape_string($conn, $_POST['userid']) . "' WHERE `Id` = " . $Id . ";";
+        $post_query = "UPDATE posts SET `Type` = '" . mysqli_real_escape_string($conn, $_POST['type']) . "', `Title` = '" . mysqli_real_escape_string($conn, $_POST['title']) . "', `Submit` = '" . mysqli_real_escape_string($conn, $_POST['submit']) . "', `Body` =  '" . mysqli_real_escape_string($conn, $_POST['body']) . "', `CategoryId` =  '" . mysqli_real_escape_string($conn, $_POST['categoryid']) . "', `UserId` = '" . mysqli_real_escape_string($conn, $_POST['userid']) . "' WHERE `Id` = " . $Id . ";";
     } else if ($uploadOk == 1) {
-        $post_query = "UPDATE posts SET `Title` = '" . mysqli_real_escape_string($conn, $_POST['title']) . "', `Submit` = '" . mysqli_real_escape_string($conn, $_POST['submit']) . "', `Body` =  '" . mysqli_real_escape_string($conn, $_POST['body']) . "', `CategoryId` =  '" . mysqli_real_escape_string($conn, $_POST['categoryid']) . "', `UserId` = '" . mysqli_real_escape_string($conn, $_POST['userid']) . "', `Content` = '" . mysqli_real_escape_string($conn, file_get_contents($_FILES['content']['tmp_name'])) . "' WHERE `Id` = " . $Id . ";";
+        $post_query = "UPDATE posts SET `Type` = '" . mysqli_real_escape_string($conn, $_POST['type']) . "', `Title` = '" . mysqli_real_escape_string($conn, $_POST['title']) . "', `Submit` = '" . mysqli_real_escape_string($conn, $_POST['submit']) . "', `Body` =  '" . mysqli_real_escape_string($conn, $_POST['body']) . "', `CategoryId` =  '" . mysqli_real_escape_string($conn, $_POST['categoryid']) . "', `UserId` = '" . mysqli_real_escape_string($conn, $_POST['userid']) . "', `Content` = '" . mysqli_real_escape_string($conn, file_get_contents($_FILES['content']['tmp_name'])) . "' WHERE `Id` = " . $Id . ";";
     }
 } else if (isset($_POST["delete"])) {
     $post_query = "DELETE FROM posts WHERE `Id` = " . $Id . ";";
