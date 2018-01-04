@@ -77,7 +77,7 @@ $datetime = date('Y-m-d h:i', time());
 
 <?php if ($Id != "") {
  $IId = mysqli_real_escape_string($conn, $Id);
- $query = "select Username, Title, Submit, Body, CategoryID from post_details where ID=" . $IId . ";";
+ $query = "select * from post_details where ID=" . $IId . ";";
  $result = mysqli_query($conn, $query);
  $row = mysqli_fetch_array($result);
 }?>
@@ -85,22 +85,45 @@ $datetime = date('Y-m-d h:i', time());
     <input type="hidden" name="userid" value="<?php echo $UserId; ?>" />
     <input type="hidden" name="submit" value="<?php echo $datetime; ?>" />
     
+    <!-- <fieldset> -->
+    <!-- <legend>پیشرفته:</legend> -->
     <div class="switch-field">
 
         <div class="switch-title">قصد ارسال چه محتوایی دارید؟</div>
 
-        <input id="switch_right" type="radio" value="" name="type" value="FILE" <?php echo (($row["Type"] == "FILE") ? 'checked="checked"' : "") ?>>
+        <input id="switch_right" type="radio" name="type" value="FILE" <?php echo (($row["Type"] == "FILE") ? 'checked="checked"' : "") ?>>
         <label for="switch_right">فایل</label>
 
-        <input id="switch_left" type="radio" name="type" value="POST" <?php echo (($row["Type"] == "FILE") ? '' : 'checked="checked"') ?>>
+        <input id="switch_1" type="radio" name="type" value="SURV" <?php echo (($row["Type"] == "SURV") ? 'checked="checked"' : '') ?>/>
+        <label for="switch_1">سنجش</label>
+
+        <input id="switch_2" type="radio" name="type" value="ARTL" <?php echo (($row["Type"] == "ARTL") ? 'checked="checked"' : '') ?>/>
+        <label for="switch_2">مقاله</label>
+
+        <input id="switch_3" type="radio" name="type" value="QUST" <?php echo (($row["Type"] == "QUST") ? 'checked="checked"' : '') ?>/>
+        <label for="switch_3">پرسش</label>
+
+        <input id="switch_4" type="radio" name="type" value="ANSR" <?php echo (($row["Type"] == "ANSR") ? 'checked="checked"' : '') ?>/>
+        <label for="switch_4">پاسخ</label>
+
+        <input id="switch_5" type="radio" name="type" value="COMT" <?php echo (($row["Type"] == "COMT") ? 'checked="checked"' : '') ?>/>
+        <label for="switch_5">دیدگاه</label>
+
+        <input id="switch_left" type="radio" name="type" value="POST" <?php echo (($row["Type"] == "POST") ? 'checked="checked"' : '') ?>/>
         <label for="switch_left">پست</label>
 
     </div>
+    <!-- </fieldset> -->
 
     <label for="title">عنوان</label>
     <input name="title" placeholder="عنوان را وارد نمایید" type="text" value="<?php echo $row["Title"]?>" />
-    <label for="categoryid">دسته بندی</label>
-    <select name="categoryid">
+
+    <label for="refrenceid">مرجع</label>
+    <input name="refrenceid" type="text" value="<?php echo $row["RefrenceId"]?>" />
+
+    <label for="categoryid">انتخاب دسته بندی</label>
+    <input type="text" name="categoryid" list="categories" />
+    <datalist id="categories" name="categoryid">
     <?php
     $category_query = "select Id, Name from categories";
     $category_result = mysqli_query($conn, $category_query);
@@ -110,12 +133,29 @@ $datetime = date('Y-m-d h:i', time());
         echo '  <option value="' . $category_row['Id'] . '"' . (($category_row['Id'] == $row['CategoryID'])?(" selected") : ("")) . '>' . $category_row['Name'] . '</option>';
     }
     ?>
-    </select>
+    </datalist>
     <label for="body">متن</label>
 	<textarea name="body"><?php echo $row['Body']?></textarea>
 	<label for="bpdy">پرونده</label>
     <input type="file" name="content" id="file" />
 	<?php
+
+
+/*
+
+TODO: if category was int, just insert.
+      else, create new category
+
+TODO: create drafting and publish mechanisms
+      based on user role
+
+
+
+    echo '<input type="submit" name="draft" value="پیش‌نویس" />';
+    echo '<input type="submit" name="edit" value="ویرایش" />';
+    echo '<input type="submit" name="publish" value="انتشار عمومی" />';
+    echo '<input type="submit" name="burn" value="لغو انتشار" />';
+*/
 
 if ($Id == "") {
     echo '<input type="submit" name="insert" value="ارسال" />';
@@ -123,7 +163,6 @@ if ($Id == "") {
     echo '<input type="submit" name="update" value="به روز رسانی" />';
     echo '<input type="submit" name="delete" value="حذف" />';
     echo '<a href="admin.php">انصراف</a>';
-
 }
 
 if ($_FILES['content']['size'] == 0)
@@ -148,9 +187,14 @@ if (isset($_POST["insert"])) {
     } else if ($uploadOk == 1) {
         $post_query = "UPDATE posts SET `Type` = '" . mysqli_real_escape_string($conn, $_POST['type']) . "', `Title` = '" . mysqli_real_escape_string($conn, $_POST['title']) . "', `Submit` = '" . mysqli_real_escape_string($conn, $_POST['submit']) . "', `Body` =  '" . mysqli_real_escape_string($conn, $_POST['body']) . "', `CategoryId` =  '" . mysqli_real_escape_string($conn, $_POST['categoryid']) . "', `UserId` = '" . mysqli_real_escape_string($conn, $_POST['userid']) . "', `Content` = '" . mysqli_real_escape_string($conn, file_get_contents($_FILES['content']['tmp_name'])) . "' WHERE `Id` = " . $Id . ";";
     }
-} else if (isset($_POST["delete"])) {
+}
+/*
+// NOTE: NO PHYSICAL DELETION
+
+else if (isset($_POST["delete"])) {
     $post_query = "DELETE FROM posts WHERE `Id` = " . $Id . ";";
 }
+*/
 if (isset($_POST["submit"])) {
     if (mysqli_real_escape_string($conn, $_POST['title']) != "")
     {
@@ -161,6 +205,7 @@ if (isset($_POST["submit"])) {
 }
 ?>
 </form>
+<script src="scripts/admin.js"></script>
 <?php
 include ('core/public-footer.php');
 // include ('core/database_close.php');
