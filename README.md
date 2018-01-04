@@ -1,5 +1,8 @@
-#**GORD CMS**
-Gord Content Management System Project
+#**GORD*CMS***
+![](logo.png)
+> Open knowledge for everyone
+
+------------
 
 ##Post lifecycle
 1. Draft (It's first comming idea)
