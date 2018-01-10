@@ -91,25 +91,25 @@ $datetime = date('Y-m-d h:i', time());
 
         <div class="switch-title">قصد ارسال چه محتوایی دارید؟</div>
 
-        <input id="switch_right" type="radio" name="type" value="FILE" <?php echo (($row["Type"] == "FILE") ? 'checked="checked"' : "") ?>>
+        <input id="switch_right" onchange="mode();" type="radio" name="type" value="FILE" <?php echo (($row["Type"] == "FILE") ? 'checked="checked"' : "") ?>>
         <label for="switch_right">فایل</label>
 
-        <input id="switch_1" type="radio" name="type" value="SURV" <?php echo (($row["Type"] == "SURV") ? 'checked="checked"' : '') ?>/>
+        <input id="switch_1" onchange="mode();" type="radio" name="type" value="SURV" <?php echo (($row["Type"] == "SURV") ? 'checked="checked"' : '') ?>/>
         <label for="switch_1">سنجش</label>
 
-        <input id="switch_2" type="radio" name="type" value="ARTL" <?php echo (($row["Type"] == "ARTL") ? 'checked="checked"' : '') ?>/>
+        <input id="switch_2" onchange="mode();" type="radio" name="type" value="ARTL" <?php echo (($row["Type"] == "ARTL") ? 'checked="checked"' : '') ?>/>
         <label for="switch_2">مقاله</label>
 
-        <input id="switch_3" type="radio" name="type" value="QUST" <?php echo (($row["Type"] == "QUST") ? 'checked="checked"' : '') ?>/>
+        <input id="switch_3" onchange="mode();" type="radio" name="type" value="QUST" <?php echo (($row["Type"] == "QUST") ? 'checked="checked"' : '') ?>/>
         <label for="switch_3">پرسش</label>
 
-        <input id="switch_4" type="radio" name="type" value="ANSR" <?php echo (($row["Type"] == "ANSR") ? 'checked="checked"' : '') ?>/>
+        <input id="switch_4" onchange="mode();" type="radio" name="type" value="ANSR" <?php echo (($row["Type"] == "ANSR") ? 'checked="checked"' : '') ?>/>
         <label for="switch_4">پاسخ</label>
 
-        <input id="switch_5" type="radio" name="type" value="COMT" <?php echo (($row["Type"] == "COMT") ? 'checked="checked"' : '') ?>/>
+        <input id="switch_5" onchange="mode();" type="radio" name="type" value="COMT" <?php echo (($row["Type"] == "COMT") ? 'checked="checked"' : '') ?>/>
         <label for="switch_5">دیدگاه</label>
 
-        <input id="switch_left" type="radio" name="type" value="POST" <?php echo (($row["Type"] == "POST") ? 'checked="checked"' : '') ?>/>
+        <input id="switch_left" onchange="mode();" type="radio" name="type" value="POST" <?php echo (($row["Type"] == "POST") ? 'checked="checked"' : '') ?>/>
         <label for="switch_left">پست</label>
 
     </div>
@@ -200,12 +200,12 @@ if (isset($_POST["submit"])) {
     {
         $post_result = mysqli_query($conn, $post_query);
         header("Location: admin.php");
-        
     }
 }
 ?>
 </form>
 <script src="scripts/admin.js"></script>
+
 <?php
 include ('core/public-footer.php');
 // include ('core/database_close.php');
