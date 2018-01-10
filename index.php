@@ -2,7 +2,7 @@
   
 <?php
 echo '<div class="head-post-row w3-row-padding w3-padding-16"">';
-include ('core/database_conn.php');
+include ('core/init.php');
 $header_query = "select ID from post_details where `Level` = '1' order by `Submit` desc";
 $header_result = mysqli_query($conn, $header_query);
 $header_num = mysqli_num_rows($header_result);
@@ -32,7 +32,7 @@ echo '</div>';
 ?>
   
   <?php
-include ('core/database_conn.php');
+include ('core/init.php');
 $header_query = "select ID from post_details where `Level` = '2' order by `Submit` desc limit 1";
 $header_result = mysqli_query($conn, $header_query);
 $header_num = mysqli_num_rows($header_result);

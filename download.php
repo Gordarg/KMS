@@ -1,5 +1,5 @@
 <?php
-include ('core/database_conn.php');
+include ('core/init.php');
 require_once 'core/functionalities.php';
 use core\functionalities;
 

@@ -50,3 +50,4 @@
 59- Comment (Must use <article>) and Like
 60- Use markdown editor
 61- Log all changes to posts with version controlling
+62- Validate anti forgery tokens and create unique forms with isssetPost['UNIQUE VAL']

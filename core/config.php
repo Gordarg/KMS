@@ -1,7 +1,7 @@
 <?php
 namespace core;
 
-class about
+class config
 {
     const ConnectionString_SERVER  = "localhost";
     const ConnectionString_USERNAME  = "root";
@@ -14,4 +14,4 @@ class about
     const META_KEYWORDS = "My, Key, WORDS, SEO";
     const META_DESCRIPTION = "Website description here.";
 }
-
+?>

@@ -1,12 +1,12 @@
 <?php 
-require_once 'core/about.php';
-use core\about;
+require_once 'core/config.php';
+use core\config;
 ?>
 <!-- Footer -->
 <footer data-aos="fade-up" class="w3-row-padding w3-padding-32">
 	<div class="w3-third">
 		<h3>همراهان ما</h3>
-		<p><?php echo about::SPONSOR ?></p>
+		<p><?php echo config::SPONSOR ?></p>
 		<p>
 			برگرفته از سامانه ی مدیریت محتوی <a href="http://gordarg.com"
 				target="_blank">گُرد</a>
@@ -17,7 +17,7 @@ use core\about;
 		<h3>یادداشت ها</h3>
 		<ul class="w3-ul w3-hoverable">
         <?php
-        include ('core/database_conn.php');        
+        include ('core/init.php');        
         $footer_query = "select ID from post_details where `Level` = '3' order by `Submit` desc limit 2;-- offset 1";
         $footer_result = mysqli_query($conn, $footer_query);
         $footer_num = mysqli_num_rows($footer_result);
@@ -119,6 +119,11 @@ use core\about;
         });
 
 </script>
-
+<?php
+/*
+    TODO: Outsource Javascript files.
+    Smae for public-header
+*/
+?>
 </body>
 </html>

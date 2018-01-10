@@ -1,7 +1,7 @@
 <?php
     require_once 'core/functionalities.php';
     use core\functionalities;
-    include('core/database_conn.php');
+    include('core/init.php');
     
     $functionalitiesInstance = new functionalities();
 

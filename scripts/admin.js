@@ -13,28 +13,40 @@ $('input:radio').change(function(event) {
   });
 */
 
+/*
 function mode(){
 
     switch($(event.target).attr('value'))
     {
         case "FILE":
-        alert('hi');
+            window.location = "admin.php?type=FILE";
             break;
         case "SURV":
+            window.location = "admin.php?type=SURV";
             break;
         case "ARTL":
+            window.location = "admin.php?type=ARTL";
             break;
         case "QUST":
+            window.location = "admin.php?type=QUST";
             break;
         case "ANSR":
+            window.location = "admin.php?type=ANSR";
             break;
         case "COMT":
+            window.location = "admin.php?type=COMT";
             break;
         case "POST":
+            window.location = "admin.php?type=POST";
             break;
             
         default:
             break;
     }
     
+}
+*/
+function mode()
+{
+    window.location = "admin.php?type=" + $(event.target).attr('value');
 }

@@ -1,10 +1,10 @@
 <?php
-require_once 'core/about.php';
-use core\about;
+require_once 'config.php';
+use core\config;
 
-$conn = new mysqli(about::ConnectionString_SERVER,about::ConnectionString_USERNAME,about::ConnectionString_PASSWORD,about::ConnectionString_DATABASE);
-
+$conn = new mysqli(config::ConnectionString_SERVER,config::ConnectionString_USERNAME,config::ConnectionString_PASSWORD,config::ConnectionString_DATABASE);
 if ($conn->connect_error) {
     die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
 }
+
 ?>

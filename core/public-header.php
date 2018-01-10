@@ -1,7 +1,7 @@
 <?php 
-require_once 'core/about.php';
-use core\about;
-include ('core/database_conn.php');
+require_once 'core/config.php';
+use core\config;
+include ('core/init.php');
 ?>
 <!DOCTYPE html>
 
@@ -42,10 +42,10 @@ include ('core/database_conn.php');
 
 <html>
 <head>
-<title><?php echo about::TITLE ?></title>
+<title><?php echo config::TITLE ?></title>
 <meta http-equiv="content-type" content="text/html;charset=UTF-8">
-<meta name="keywords" content="<?php echo about::META_KEYWORDS ?>" />
-<meta name="description" content="<?php echo about::META_DESCRIPTION ?>" />
+<meta name="keywords" content="<?php echo config::META_KEYWORDS ?>" />
+<meta name="description" content="<?php echo config::META_DESCRIPTION ?>" />
 <meta name="language" content="Farsi" />
 <meta name="geo.region" CONTENT="IR" />
 <meta name="googlebot" content="INDEX, follow" />
@@ -75,7 +75,7 @@ include ('core/database_conn.php');
 		style="display: none; z-index: 2; width: 40%; min-width: 300px"
 		id="mySidebar">
 		<a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button">☰</a> <a href="./" onclick="w3_close()" class="w3-bar-item w3-button">خانه</a>
-		<a href="admin.php" onclick="w3_close()" class="w3-bar-item w3-button">ورود</a>
+		<a href="admin.php?type=POST" onclick="w3_close()" class="w3-bar-item w3-button">ورود</a>
 		<a href="profile.php" onclick="w3_close()" class="w3-bar-item w3-button">ثبت نام</a>
 		<hr />
 		<?php
@@ -94,7 +94,7 @@ include ('core/database_conn.php');
 		<div class="w3-white w3-xlarge"
 			style="max-width: 1200px; margin: auto">
 			<div class="w3-button w3-padding-16 w3-right" onclick="w3_open()">☰</div>
-			<div class="w3-center w3-padding-16"><?php echo about::NAME ?></div>
+			<div class="w3-center w3-padding-16"><?php echo config::NAME ?></div>
 		</div>
 	</header>
 
