@@ -22,3 +22,5 @@ Where should it be placed? that's what matters.
 - Survey. Yes. Write it! It can contain questions. **SURV**
 - **QUST**. About questions: Just write them down.
 - **ANSR**. An answer. Users can answer the questions.
+- **CHAT**. Chat will allow users to send short messages to each other. maybe for to check-out something or notice that to each other. They can use it for a healthy break, share ideas faster to have a better performance.
+- If there is another language avaiable, **TRNL** will make translation available!
