@@ -1,8 +1,9 @@
+
 <label for="title">عنوان</label>
-<input name="title" placeholder="عنوان را وارد نمایید" type="text" value="<?php echo $row["Title"]?>" />
+<input name="title" placeholder="عنوان را وارد نمایید" type="text" value="<?php echo $functionalitiesInstance->ifexistsidx($row,'Title')  ?>" />
 
 <label for="refrenceid">مرجع</label>
-<input name="refrenceid" type="text" value="<?php echo $row["RefrenceId"]?>" />
+<input name="refrenceid" type="text" value="<?php echo $functionalitiesInstance->ifexistsidx($row,'RefrenceId')  ?>" />
 
 <label for="categoryid">انتخاب دسته بندی</label>
 <input type="text" name="categoryid" list="categories" />
@@ -18,6 +19,6 @@ for ($i = 0; $i < $category_num; $i ++) {
 ?>
 </datalist>
 <label for="body">متن</label>
-<textarea name="body"><?php echo $row['Body']?></textarea>
+<textarea name="body"><?= $functionalitiesInstance->ifexistsidx($row,'Body')  ?></textarea>
 <label for="bpdy">پرونده</label>
 <input type="file" name="content" id="file" />

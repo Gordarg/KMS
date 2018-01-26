@@ -1,6 +1,7 @@
 <?php
 require_once 'core/functionalities.php';
 use core\functionalities;
+$functionalitiesInstance = new functionalities();
 include('core/init.php');
 include('core/public-header.php');
 $CategoryID = $_GET['CategoryID'];
@@ -16,7 +17,6 @@ $CategoryID = $_GET['CategoryID'];
 	</thead>
 	<tbody>
         <?php
-        $functionalitiesInstance = new functionalities();
 		$select_query = "SELECT * FROM post_details" .
 		(($CategoryID != "") ? (' WHERE `CategoryID` = ' . $CategoryID) : ("")) .
 		" ORDER BY `Submit` DESC";

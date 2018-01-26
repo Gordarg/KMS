@@ -1,11 +1,28 @@
 <?php
 namespace core;
 
+/*
+
+TODO: make functions static
+
+
+*/
+
 class functionalities
 {
+    function ifexists($varname)
+    {
+      return(isset($$varname)?$varname:null);
+    }
+
+    function ifexistsidx($var,$index)
+    {
+        return(isset($var[$index])?$var[$index]:null);
+    }
 
     function makeAbstract($input, $lenght, $allowed_tags = null)
     {
+        // TODO : bug : question mark at the end of the string for persian characters
         // mb_internal_encoding('UTF-8');     
         // return mb_substr(strip_tags($input, $allowed_tags), 0, $lenght, "UTF-8") . " ...";
         
