@@ -1,3 +1,6 @@
+0- Change Post.Id to Post.DetailedId
+0.1- Search by Post.MasterId (GUID)
+
 1- password for filemanger
 6- draft
 7- delete image
