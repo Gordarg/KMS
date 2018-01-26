@@ -4,6 +4,7 @@
         /*
         TODO: Modify queries.
         TODO: If there was a master ID, update (insert new version) else insert.
+        NOTE: There is a trigger in database that will fill the MasterId field with automatic value if your Guid.NewId() / newid() is not present.
         */
 
         $post_query = "INSERT INTO posts (`Title`,`Submit`,`Body`,`CategoryId`,`UserId`, `Type`) VALUES(" . "'" . mysqli_real_escape_string($conn, $_POST['title']) . "'" . ", " . "'" . mysqli_real_escape_string($conn, $_POST['submit']) . "'" . ", " . "'" . mysqli_real_escape_string($conn, $_POST['body']) . "'" . ", " . "'" . mysqli_real_escape_string($conn, $_POST['categoryid']) . "'" . ", " . "'" . mysqli_real_escape_string($conn, $_POST['userid']) . "'" .

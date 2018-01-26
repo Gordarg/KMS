@@ -15,6 +15,9 @@ if (! isset($_SERVER['PHP_AUTH_USER'])) {
     $username = $_SERVER['PHP_AUTH_USER'];
     $password = $_SERVER['PHP_AUTH_PW'];
 
+    $db = new database_connection();
+    $conn  = $db->open();
+
     $username_safe = mysqli_real_escape_string($conn, $username);
     $password_safe = mysqli_real_escape_string($conn, $password);
 

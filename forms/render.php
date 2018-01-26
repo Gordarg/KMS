@@ -2,47 +2,34 @@
 $parent = realpath(dirname(__FILE__) . '/..');
 require_once  $parent . '/core/functionalities.php';
 use core\functionalities;
+require_once $parent . '/semi-orm/Posts.php';
+use orm\Posts;
 $functionalitiesInstance = new functionalities();
 include_once $parent . '/core/auth.php';
-
 $Type = $_GET['type'];
-
-$Id = null;
+$db = new database_connection();
+$conn  = $db->open();
 $row=[];
-if (isset( $_GET["id"])) 
-{ 
-    $Id = mysqli_real_escape_string($conn, $_GET["id"]);
-    $query = "select * from post_details where ID=" . $Id . ";";
-    $result = mysqli_query($conn, $query);
-    if ($result)
-    $row = mysqli_fetch_array($result);
-}
+$Id = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id'));
+$post = new Posts($conn);
+$row = $post->FirstOrDefault($Id);
 ?>
 
 <form action="<?php
 echo $path
 ?>" method="post" enctype="multipart/form-data">
-
 <?php
-
-
 /*
 TODO: Hidden fields for Id, UserId, and ...
 */
-
-
 switch ($Type)
 {
     case "POST":
     include('POST.php');
     break;
 }
-?>
 
-
-<?php
 /*
-
 TODO: if category was int, just insert.
       else, create new category
 
@@ -65,5 +52,4 @@ if ($Type != "")
     }
 }
 ?>
-
 </form>

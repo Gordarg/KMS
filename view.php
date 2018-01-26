@@ -14,5 +14,4 @@ echo '<h1 class="large">' . $row['Title'] . '</h1>';
 echo '<p>' . $row['Body']  . '</p>';
 echo '</article>';
 include ('core/public-footer.php');
-
 ?>

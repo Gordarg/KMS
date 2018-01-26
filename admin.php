@@ -29,6 +29,9 @@ include ('core/public-header.php');
     <input id="switch_5" onchange="mode();" type="radio" name="type" value="COMT" <?php echo (($_GET['type'] == "COMT") ? 'checked="checked"' : '') ?>/>
     <label for="switch_5">دیدگاه</label>
 
+    <input id="switch_6" onchange="mode();" type="radio" name="type" value="TRNL" <?php echo (($_GET['type'] == "TRNL") ? 'checked="checked"' : '') ?>/>
+    <label for="switch_6">ترجمه</label>
+
     <input id="switch_left" onchange="mode();" type="radio" name="type" value="POST" <?php echo (($_GET['type'] == "POST") ? 'checked="checked"' : '') ?>/>
     <label for="switch_left">پست</label>
 
