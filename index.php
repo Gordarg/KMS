@@ -2,8 +2,6 @@
 include ('core/init.php');
 require_once 'semi-orm/Posts.php';
 use orm\Posts;
-$db = new database_connection();
-$conn  = $db->open();
 $rows=[];
 $post = new Posts($conn);
 $rows = $post->ToList();
@@ -37,7 +35,6 @@ foreach ($rows as $row) {
     */
     if ($row['Level'] != '2')
         continue;
-    $header_num++;
     $_GET['id'] = $row['ID'];
     $_GET["level"] = '2';
     $_GET["type"] = 'POST';

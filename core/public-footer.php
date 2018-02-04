@@ -1,6 +1,9 @@
 <?php 
+include ('core/init.php');
 require_once 'core/config.php';
 use core\config;
+require_once 'semi-orm/Posts.php';
+use orm\Posts;
 ?>
 <!-- Footer -->
 <footer data-aos="fade-up" class="w3-row-padding w3-padding-32">
@@ -17,13 +20,13 @@ use core\config;
 		<h3>یادداشت ها</h3>
 		<ul class="w3-ul w3-hoverable">
         <?php
+        $rows = (new Posts($conn))->ToList();
         foreach ($rows as $row) {
             /*
             TODO: Top 2
             */
             if ($row['Level'] != '3')
                 continue;
-            $header_num++;
             $_GET['id'] = $row['ID'];
             $_GET["level"] = '3';
             $_GET["type"] = 'POST';
@@ -33,6 +36,19 @@ use core\config;
       </ul>
 	</div>
 
+    function SetHeaderVisibility($visible_head_posts){
+    $('.w3-main').children('.head-post-row').each(function (index) {
+        $(this).hide();
+        if (index  == $visible_head_posts * 2 || index  == $visible_head_posts * 2 + 1 )
+            $(this).show();
+    });
+    };
+    SetHeaderVisibility(0);
+    $('#paging').children('a').each(function (index) {
+        $(this).on("click", function(){
+            SetHeaderVisibility(index );
+        });
+    });
 	<div class="w3-third w3-serif">
 		<h3>واژگان کلیدی</h3>
 		<p>
