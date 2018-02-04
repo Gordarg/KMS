@@ -1,49 +1,48 @@
-<?php include('core/public-header.php')?>
-  
 <?php
-echo '<div class="head-post-row w3-row-padding w3-padding-16"">';
 include ('core/init.php');
-$header_query = "select ID from post_details where `Level` = '1' order by `Submit` desc";
-$header_result = mysqli_query($conn, $header_query);
-$header_num = mysqli_num_rows($header_result);
-for ($i = 0; $i < $header_num; $i ++) {
-    $header_row = mysqli_fetch_array($header_result);
-    $_GET['id'] = $header_row['ID'];
+require_once 'semi-orm/Posts.php';
+use orm\Posts;
+$db = new database_connection();
+$conn  = $db->open();
+$rows=[];
+$post = new Posts($conn);
+$rows = $post->ToList();
+
+include('core/public-header.php');
+
+$header_num = 0;
+foreach ($rows as $row) {
+    if ($row['Level'] != '1')
+        continue;
+    $header_num++;
+    $_GET['id'] = $row['ID'];
     $_GET["level"] = '1';
-    include ('show.php');
-    if (($i + 1) % 4 == 0) {
+    $_GET["type"] = 'POST';
+    include ('views/render.php');
+    if (($header_num + 1) % 4 == 0) {
         echo '</div>';
         echo '<div class="head-post-row w3-row-padding w3-padding-16">';
     }
 }
-echo '</div>';
-
-echo '<div class="w3-center w3-padding-32">';
-echo '<div class="w3-bar" id="paging">';
-echo '<!--<a class="w3-bar-item w3-button w3-hover-black">«</a>-->';
+echo '<div class="w3-center w3-padding-32"><div class="w3-bar" id="paging">';
 echo '<a class="w3-bar-item w3-black w3-button">1</a>';
 for ($k = 1; $k <= (int) ($header_num / 8); $k ++) {
     echo '<a class="w3-bar-item w3-button w3-hover-black">' . ($k + 1) . '</a>';
 }
-echo '<!--<a class="w3-bar-item w3-button w3-hover-black">»</a>-->';
-echo '</div>';
-echo '</div>';
-// include('core/database_close.php');
-?>
-  
-  <?php
-include ('core/init.php');
-$header_query = "select ID from post_details where `Level` = '2' order by `Submit` desc limit 1";
-$header_result = mysqli_query($conn, $header_query);
-$header_num = mysqli_num_rows($header_result);
-for ($i = 0; $i < $header_num; $i ++) {
-    $header_row = mysqli_fetch_array($header_result);
-    $_GET['id'] = $header_row['ID'];
+echo '</div></div>';
+
+foreach ($rows as $row) {
+    /*
+    TODO: Top 1
+    */
+    if ($row['Level'] != '2')
+        continue;
+    $header_num++;
+    $_GET['id'] = $row['ID'];
     $_GET["level"] = '2';
-    include ('show.php');
+    $_GET["type"] = 'POST';
+    include ('views/render.php');
 }
-// include('core/database_close.php');
+
+include('core/public-footer.php')
 ?>
-  
-<?php include('core/public-footer.php')?>
-  

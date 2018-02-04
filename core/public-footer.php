@@ -17,17 +17,18 @@ use core\config;
 		<h3>یادداشت ها</h3>
 		<ul class="w3-ul w3-hoverable">
         <?php
-        include ('core/init.php');        
-        $footer_query = "select ID from post_details where `Level` = '3' order by `Submit` desc limit 2;-- offset 1";
-        $footer_result = mysqli_query($conn, $footer_query);
-        $footer_num = mysqli_num_rows($footer_result);
-        for ($i = 0; $i < $footer_num; $i ++) {
-            $footer_row = mysqli_fetch_array($footer_result);
-            $_GET['id'] = $footer_row['ID'];
+        foreach ($rows as $row) {
+            /*
+            TODO: Top 2
+            */
+            if ($row['Level'] != '3')
+                continue;
+            $header_num++;
+            $_GET['id'] = $row['ID'];
             $_GET["level"] = '3';
-            include ('show.php');
+            $_GET["type"] = 'POST';
+            include ('views/render.php');
         }
-        // include('core/database_close.php');
         ?>
       </ul>
 	</div>
@@ -86,7 +87,6 @@ use core\config;
       scrollTop: $(window).height()
     }, 1200);
   });
-  // Script to open and close sidebar
   function w3_open() {
       document.getElementById("mySidebar").style.display = "block";
   }
@@ -94,7 +94,7 @@ use core\config;
       document.getElementById("mySidebar").style.display = "none";
   }
   $( "*" ).each(function( index ) {
-    $(this).qtip({ // Grab some elements to apply the tooltip to
+    $(this).qtip({
         content: {
             text: $(this).attr('title')
         },
@@ -103,26 +103,25 @@ use core\config;
         }
     });
   });
-  
-        function SetHeaderVisibility($visible_head_posts){
-        $('.w3-main').children('.head-post-row').each(function (index) {
-            $(this).hide();
-            if (index  == $visible_head_posts * 2 || index  == $visible_head_posts * 2 + 1 )
-            	$(this).show();
+    function SetHeaderVisibility($visible_head_posts){
+    $('.w3-main').children('.head-post-row').each(function (index) {
+        $(this).hide();
+        if (index  == $visible_head_posts * 2 || index  == $visible_head_posts * 2 + 1 )
+            $(this).show();
+    });
+    };
+    SetHeaderVisibility(0);
+    $('#paging').children('a').each(function (index) {
+        $(this).on("click", function(){
+            SetHeaderVisibility(index );
         });
-        };
-        SetHeaderVisibility(0);
-        $('#paging').children('a').each(function (index) {
-          $(this).on("click", function(){
-        	  SetHeaderVisibility(index );
-            });
-        });
+    });
 
 </script>
 <?php
 /*
     TODO: Outsource Javascript files.
-    Smae for public-header
+    Same for public-header
 */
 ?>
 </body>
