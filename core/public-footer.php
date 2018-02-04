@@ -36,19 +36,6 @@ use orm\Posts;
       </ul>
 	</div>
 
-    function SetHeaderVisibility($visible_head_posts){
-    $('.w3-main').children('.head-post-row').each(function (index) {
-        $(this).hide();
-        if (index  == $visible_head_posts * 2 || index  == $visible_head_posts * 2 + 1 )
-            $(this).show();
-    });
-    };
-    SetHeaderVisibility(0);
-    $('#paging').children('a').each(function (index) {
-        $(this).on("click", function(){
-            SetHeaderVisibility(index );
-        });
-    });
 	<div class="w3-third w3-serif">
 		<h3>واژگان کلیدی</h3>
 		<p>
