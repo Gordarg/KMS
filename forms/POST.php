@@ -1,9 +1,8 @@
-
 <label for="title">عنوان</label>
 <input name="title" placeholder="عنوان را وارد نمایید" type="text" value="<?php echo $functionalitiesInstance->ifexistsidx($row,'Title')  ?>" />
 
-<label for="refrenceid">مرجع</label>
-<input name="refrenceid" type="text" value="<?php echo $functionalitiesInstance->ifexistsidx($row,'RefrenceId')  ?>" />
+<label for="index">مرجع</label>
+<input name="index" type="text" value="<?php echo $functionalitiesInstance->ifexistsidx($row,'Index')  ?>" />
 
 <label for="categoryid">انتخاب دسته بندی</label>
 <input type="text" name="categoryid" list="categories" />

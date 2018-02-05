@@ -39,7 +39,7 @@
     if ((isset($_POST["delete"])) or (isset($_POST["insert"])))
     {
         // echo $post_query;
-        header("Location: " . $path);
         // TODO: $post_result = mysqli_query($conn, $post_query);
+        // header("Location: " . $path);
     }
 ?>

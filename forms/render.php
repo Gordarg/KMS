@@ -17,10 +17,19 @@ $row = $post->FirstOrDefault($Id);
 ?>
 
 <form  method="post" action="<?php echo $path?>" enctype="multipart/form-data">
+
+<input type="hidden" name="type" />
+<input type="hidden" name="level" />
+<input type="hidden" name="submit" />
+<input type="hidden" name="masterid" />
+<input type="hidden" name="userid" />
+<input type="hidden" name="refrenceid" value="<?php echo $functionalitiesInstance->ifexistsidx($row,'RefrenceId') ?>" />
+
 <?php
 /*
-TODO: Hidden fields for Id, UserId, and ...
+TODO: Fill Hidden fields for Id, UserId, and ... above
 */
+
 switch ($Type)
 {
     case "POST":
