@@ -13,11 +13,10 @@ $row=[];
 $Id = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id'));
 $post = new Posts($conn);
 $row = $post->FirstOrDefault($Id);
+// include ($parent . '/forms/submit.php');
 ?>
 
-<form action="<?php
-echo $path
-?>" method="post" enctype="multipart/form-data">
+<form  method="post" action="<?php echo $path?>" enctype="multipart/form-data">
 <?php
 /*
 TODO: Hidden fields for Id, UserId, and ...
