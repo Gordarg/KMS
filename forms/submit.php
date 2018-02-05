@@ -5,6 +5,7 @@
         */
 
         /*
+        TODO: Status
         TODO: Modify queries.
         TODO: If there was a master ID, update (insert new version) else insert.
         NOTE: There is a trigger in database that will fill the MasterId field with automatic value if your Guid.NewId() / newid() is not present.
