@@ -13,6 +13,8 @@ include ('values.php');
 ?>
 
 <form  method="post" action="<?php echo $path?>" enctype="multipart/form-data">
+<input type="hidden" name="masterid" value="<?= $MasterID ?>" />
+<input type="hidden" name="id" value="<?= (($Id == null) ? "NULL" : $Id) ?>" />
 <input type="hidden" name="type" value="<?= $Type ?>" />
 <?php
 switch ($Type)
@@ -42,8 +44,8 @@ if ($Type != "")
     } else {
         echo '<input type="submit" name="update" value="به روز رسانی" />';
         echo '<input type="submit" name="delete" value="حذف" />';
-        echo '<a href="admin.php">انصراف</a>';
     }
+    echo '<a href="admin.php">انصراف</a>';
 }
 ?>
 </form>

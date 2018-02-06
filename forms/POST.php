@@ -1,9 +1,8 @@
 <input type="hidden" name="submit" value="<?= $Submit ?>" />
-<input type="hidden" name="masterid" value="<?= $MasterID ?>" />
 <input type="hidden" name="userid" value="<?= $UserID ?>" />
 <input type="hidden" name="index" value="<?= $Index ?>" />
 <input type="hidden" name="refrenceid" value="<?= $RefrenceID ?>" />
-<input type="hidden" name="refrenceid" value="<?= $Status ?>" />
+<input type="hidden" name="status" value="<?= $Status ?>" />
 
 <label for="title">عنوان</label>
 <input name="title" placeholder="عنوان را وارد نمایید" type="text" value="<?= $Title ?>" />
@@ -27,6 +26,6 @@ for ($i = 0; $i < $category_num; $i ++) {
 ?>
 </datalist>
 <label for="body">متن</label>
-<textarea name="body"><?= $functionalitiesInstance->ifexistsidx($row,'Body')  ?></textarea>
+<textarea name="body"><?= $Body  ?></textarea>
 <label for="body">پرونده</label>
 <input type="file" name="content" id="file" />
