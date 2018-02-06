@@ -16,18 +16,15 @@ class Posts implements semi_orm
             return $row = mysqli_fetch_array($result);
         return $row = [];
     }
-    function ToList($Skip = 0 , $Take = -1, $OrderField = 'Id', $OrderArrange = 'ASC')
+    function ToList($Skip = 0 , $Take = 10, $OrderField = 'Id', $OrderArrange = 'ASC', $Clause = '')
     {
-        /*
-        TODO: Parameters
-        */
-        $query = "select * from post_details order by `Submit` desc";
+        $query = "SELECT * FROM `post_details` " . $Clause . " ORDER BY `" . $OrderField . "` " . $OrderArrange . " LIMIT ". $Take . " OFFSET " . $Skip . ";";
         $result = mysqli_query($this->conn, $query);
         $rows = array();
-        // if ($result)
-        while(($row = mysqli_fetch_array($result))) {
-            $rows[] = $row;
-        }
+        if ($result)
+            while(($row = mysqli_fetch_array($result))) {
+                $rows[] = $row;
+            }
         return $rows;       
     }
 }

@@ -55,3 +55,4 @@
 61- Log all changes to posts with version controlling
 62- Validate anti forgery tokens and create unique forms with isssetPost['UNIQUE VAL']
 63- Cirlces -> Add users to groups and assign posts with those groups (circles) or individual people.
+64- No Select *

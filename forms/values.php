@@ -2,7 +2,6 @@
 $Type = $_GET['type'];
 $Id = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id'));
 $Row = $Post->FirstOrDefault($Id);
-$Row=[];
 
 // Default Values
 // TODO

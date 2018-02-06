@@ -3,8 +3,11 @@ require_once 'core/functionalities.php';
 use core\functionalities;
 $functionalitiesInstance = new functionalities();
 include('core/init.php');
+require_once 'semi-orm/Posts.php';
+use orm\Posts;
 include('core/public-header.php');
-$CategoryID = $_GET['CategoryID'];
+$CategoryID = $functionalitiesInstance->ifexistsidx($_GET,'CategoryID');
+$rows = (new Posts($conn))->ToList(0, 48, "Submit", "DESC", ((isset($CategoryID)? ("WHERE `CategoryID` = " . $CategoryID) : '' )));
 ?>
 <table class="table table-bordered">
 	<thead>
@@ -16,13 +19,8 @@ $CategoryID = $_GET['CategoryID'];
 		</tr>
 	</thead>
 	<tbody>
-        <?php
-		$select_query = "SELECT * FROM post_details" .
-		(($CategoryID != "") ? (' WHERE `CategoryID` = ' . $CategoryID) : ("")) .
-		" ORDER BY `Submit` DESC";
-		$select_result = mysqli_query($conn,
-			$select_query);
-        while ($row = mysqli_fetch_array($select_result)) {
+		<?php
+		foreach ($rows as $row) {
 		?>
         <tr>
 			<td><?php echo $row['ID']?></td>

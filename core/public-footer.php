@@ -20,11 +20,8 @@ use orm\Posts;
 		<h3>یادداشت ها</h3>
 		<ul class="w3-ul w3-hoverable">
         <?php
-        $rows = (new Posts($conn))->ToList();
+        $rows = (new Posts($conn))->ToList(0, 2, "Submit", "DESC", "WHERE Level = 3");
         foreach ($rows as $row) {
-            /*
-            TODO: Top 2
-            */
             if ($row['Level'] != '3')
                 continue;
             $_GET['id'] = $row['ID'];

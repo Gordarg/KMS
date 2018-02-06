@@ -40,7 +40,7 @@
         /* TODO:
         Get last inserted id
         */
-        $_POST['id'] = 17;
+        $_POST['id'] =  mysqli_insert_id($conn);
 
         if ($_FILES['content']['size'] > 0) 
             $query = "UPDATE posts SET `Content` = '" . mysqli_real_escape_string($conn, file_get_contents($_FILES['content']['tmp_name'])) . "' WHERE `Id` = '" . $_POST['id'] . "';";

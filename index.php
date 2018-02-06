@@ -4,7 +4,7 @@ require_once 'semi-orm/Posts.php';
 use orm\Posts;
 $rows=[];
 $post = new Posts($conn);
-$rows = $post->ToList();
+$rows = $rows = (new Posts($conn))->ToList(0, 48, "Submit", "DESC", "WHERE `Level` = 1 OR `Level` = 2");
 
 include('core/public-header.php');
 
@@ -30,15 +30,13 @@ for ($k = 1; $k <= (int) ($header_num / 8); $k ++) {
 echo '</div></div>';
 
 foreach ($rows as $row) {
-    /*
-    TODO: Top 1
-    */
     if ($row['Level'] != '2')
         continue;
     $_GET['id'] = $row['ID'];
     $_GET["level"] = '2';
     $_GET["type"] = 'POST';
     include ('views/render.php');
+        break;
 }
 
 include('core/public-footer.php')
