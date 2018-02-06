@@ -10,6 +10,7 @@ $Row = (new Posts($conn))->FirstOrDefault($Id);
 include ('core/public-header.php');
 echo '<article class="w3-full">';
 echo '<img src="download.php?id=' . $Id . '" alt="' . $Row["Title"] . '" style="width:100%">';
+include ('navigation/post_edit.php');
 echo '<h1 class="large">' . $Row['Title'] . '</h1>';
 echo '<a href="archive.php?CategoryID=' . $Row['CategoryID'] . '" class="medium">' . $Row['CategoryName'] . '</a>';
 echo '<p>' . $Row['Body']  . '</p>';
