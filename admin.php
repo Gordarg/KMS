@@ -32,6 +32,9 @@ include ('core/public-header.php');
     <input id="switch_6" onchange="mode();" type="radio" name="type" value="TRNL" <?php echo (($_GET['type'] == "TRNL") ? 'checked="checked"' : '') ?>/>
     <label for="switch_6">ترجمه</label>
 
+    <input id="switch_7" onchange="mode();" type="radio" name="type" value="TRNL" <?php echo (($_GET['type'] == "QUOT") ? 'checked="checked"' : '') ?>/>
+    <label for="switch_7">فراز</label>
+
     <input id="switch_left" onchange="mode();" type="radio" name="type" value="POST" <?php echo (($_GET['type'] == "POST") ? 'checked="checked"' : '') ?>/>
     <label for="switch_left">پست</label>
 

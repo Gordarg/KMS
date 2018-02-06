@@ -1,4 +1,5 @@
 <?php
+    include('securitycheck.php');
     if (isset($_POST["insert"])) {
         /*
         TODO: this if clause is not triggered
@@ -16,7 +17,7 @@
         // ", " . "'" . mysqli_real_escape_string($conn, $_POST['type']) . "'" .
         // ");";
 
-        $post_query = "INSERT INTO `gordcms`.`posts` (`MasterId`, `Title`, `Submit`, `Type`, `Level`, `Body`, `CategoryId`, `UserId`, `Status`, `RefrenceId`, `Index`, `Deleted`) VALUES ('"
+        $post_query = "INSERT INTO `posts` (`MasterId`, `Title`, `Submit`, `Type`, `Level`, `Body`, `CategoryId`, `UserId`, `Status`, `RefrenceId`, `Index`, `Deleted`) VALUES ('"
         . mysqli_real_escape_string($conn, $_POST['masterid']) . "','"
         . mysqli_real_escape_string($conn, $_POST['title']) . "','"
         . mysqli_real_escape_string($conn, $_POST['submit']) . "','"
@@ -39,7 +40,7 @@
     } 
     if ((isset($_POST["delete"])) or (isset($_POST["insert"])))
     {
-        // echo $post_query;
+        echo $post_query;
         // TODO: $post_result = mysqli_query($conn, $post_query);
         // header("Location: " . $path);
     }

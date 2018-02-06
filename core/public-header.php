@@ -79,14 +79,15 @@ include ('core/init.php');
 		<a href="profile.php" onclick="w3_close()" class="w3-bar-item w3-button">ثبت نام</a>
 		<hr />
 		<?php
+		/* TODO
         $category_query = "SELECT Id, Name FROM categories;";
         $category_result = mysqli_query($conn, $category_query);
         $category_num = mysqli_num_rows($category_result);
         for ($i = 0; $i < $category_num; $i ++) {
 			$category_row = mysqli_fetch_array($category_result);
 			echo '<a rel="nofollow" href="archive.php?CategoryID=' . $category_row["Id"] . '" onclick="w3_close()" class="w3-bar-item w3-button">' . $category_row["Name"] . '</a>';
-        }
-        // include('core/database_close.php');
+		}
+		*/
         ?>
 	</nav>
 

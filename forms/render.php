@@ -1,45 +1,31 @@
 <?php
 $parent = realpath(dirname(__FILE__) . '/..');
+include_once $parent . '/core/auth.php';
 require_once  $parent . '/core/functionalities.php';
 use core\functionalities;
 require_once $parent . '/semi-orm/Posts.php';
 use orm\Posts;
 $functionalitiesInstance = new functionalities();
-include_once $parent . '/core/auth.php';
-$Type = $_GET['type'];
 $db = new database_connection();
 $conn  = $db->open();
-$row=[];
-$Id = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id'));
-$post = new Posts($conn);
-$row = $post->FirstOrDefault($Id);
-// include ($parent . '/forms/submit.php');
+$Post = new Posts($conn);
+include ('values.php');
 ?>
 
 <form  method="post" action="<?php echo $path?>" enctype="multipart/form-data">
-
-<input type="hidden" name="type" />
-<input type="hidden" name="level" />
-<input type="hidden" name="submit" />
-<input type="hidden" name="masterid" />
-<input type="hidden" name="userid" />
-<input type="hidden" name="refrenceid" value="<?php echo $functionalitiesInstance->ifexistsidx($row,'RefrenceId') ?>" />
-
+<input type="hidden" name="type" value="<?= $Type ?>" />
 <?php
-/*
-TODO: Fill Hidden fields for Id, UserId, and ... above
-*/
-
 switch ($Type)
 {
     case "POST":
     include('POST.php');
     break;
 }
-
 /*
-TODO: if category was int, just insert.
-      else, create new category
+TODO: 
+        in posts
+        if category was int, just insert.
+        else, create new category
 
 TODO: create drafting and publish mechanisms
       based on user role

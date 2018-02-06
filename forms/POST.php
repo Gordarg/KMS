@@ -1,8 +1,15 @@
-<label for="title">عنوان</label>
-<input name="title" placeholder="عنوان را وارد نمایید" type="text" value="<?php echo $functionalitiesInstance->ifexistsidx($row,'Title')  ?>" />
+<input type="hidden" name="submit" value="<?= $Submit ?>" />
+<input type="hidden" name="masterid" value="<?= $MasterID ?>" />
+<input type="hidden" name="userid" value="<?= $UserID ?>" />
+<input type="hidden" name="index" value="<?= $Index ?>" />
+<input type="hidden" name="refrenceid" value="<?= $RefrenceID ?>" />
+<input type="hidden" name="refrenceid" value="<?= $Status ?>" />
 
-<label for="index">مرجع</label>
-<input name="index" type="text" value="<?php echo $functionalitiesInstance->ifexistsidx($row,'Index')  ?>" />
+<label for="title">عنوان</label>
+<input name="title" placeholder="عنوان را وارد نمایید" type="text" value="<?= $Title ?>" />
+
+<label for="level">مرتبه</label>
+<input name="level" value="<?= $Level ?>"  type="number" name="quantity" min="1" max="3" />
 
 <label for="categoryid">انتخاب دسته بندی</label>
 <input type="text" name="categoryid" list="categories" />
@@ -14,7 +21,7 @@ $category_result = mysqli_query($conn, $category_query);
 $category_num = mysqli_num_rows($category_result);
 for ($i = 0; $i < $category_num; $i ++) {
     $category_row = mysqli_fetch_array($category_result);
-    echo '  <option value="' . $category_row['Id'] . '"' . (($category_row['Id'] == $row['CategoryID'])?(" selected") : ("")) . '>' . $category_row['Name'] . '</option>';
+    echo '  <option value="' . $category_row['Id'] . '"' . (($category_row['Id'] == $CategoryID)?(" selected") : ("")) . '>' . $category_row['Name'] . '</option>';
 }
 */
 ?>
