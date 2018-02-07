@@ -21,9 +21,9 @@ CREATE SCHEMA IF NOT EXISTS `gordcms` DEFAULT CHARACTER SET latin1 ;
 USE `gordcms` ;
 
 -- -----------------------------------------------------
--- Table `gordcms`.`categories`
+-- Table `categories`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `gordcms`.`categories` (
+CREATE TABLE IF NOT EXISTS `categories` (
   `Id` INT(11) NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(50) NULL DEFAULT NULL,
   PRIMARY KEY (`Id`))
@@ -33,9 +33,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `gordcms`.`users`
+-- Table `users`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `gordcms`.`users` (
+CREATE TABLE IF NOT EXISTS `users` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(45) NULL DEFAULT NULL,
   `password` TINYTEXT NULL DEFAULT NULL,
@@ -47,9 +47,9 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `gordcms`.`posts`
+-- Table `posts`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `gordcms`.`posts` (
+CREATE TABLE IF NOT EXISTS `posts` (
   `Id` INT(11) NOT NULL AUTO_INCREMENT,
   `Title` VARCHAR(400) NOT NULL,
   `Submit` DATETIME NOT NULL,
@@ -62,12 +62,12 @@ CREATE TABLE IF NOT EXISTS `gordcms`.`posts` (
   INDEX `fk_posts_user_idx` (`UserId` ASC),
   CONSTRAINT `fk_posts_category`
     FOREIGN KEY (`CategoryId`)
-    REFERENCES `gordcms`.`categories` (`Id`)
+    REFERENCES `categories` (`Id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_posts_user`
     FOREIGN KEY (`UserId`)
-    REFERENCES `gordcms`.`users` (`id`)
+    REFERENCES `users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -77,16 +77,17 @@ DEFAULT CHARACTER SET = latin1;
 USE `gordcms` ;
 
 -- -----------------------------------------------------
--- Placeholder table for view `gordcms`.`post_details`
+-- Placeholder table for view `post_details`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `gordcms`.`post_details` (`ID` INT, `Title` INT, `Submit` INT, `CategoryID` INT, `CategoryName` INT, `UserID` INT, `Username` INT, `Body` INT, `Content` INT);
+CREATE TABLE IF NOT EXISTS `post_details` (`ID` INT, `Title` INT, `Submit` INT, `CategoryID` INT, `CategoryName` INT, `UserID` INT, `Username` INT, `Body` INT, `Content` INT);
 
 -- -----------------------------------------------------
--- View `gordcms`.`post_details`
+-- View `post_details`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `gordcms`.`post_details`;
+DROP TABLE IF EXISTS `post_details`;
 USE `gordcms`;
-CREATE  OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `gordcms`.`post_details` AS select `gordcms`.`posts`.`Id` AS `ID`,`gordcms`.`posts`.`Title` AS `Title`,`gordcms`.`posts`.`Submit` AS `Submit`,`gordcms`.`categories`.`Id` AS `CategoryID`,`gordcms`.`categories`.`Name` AS `CategoryName`,`gordcms`.`users`.`id` AS `UserID`,`gordcms`.`users`.`username` AS `Username`,`gordcms`.`posts`.`Body` AS `Body`,`gordcms`.`posts`.`Content` AS `Content` from ((`gordcms`.`posts` join `gordcms`.`users` on((`gordcms`.`posts`.`UserId` = `gordcms`.`users`.`id`))) join `gordcms`.`categories` on((`gordcms`.`posts`.`CategoryId` = `gordcms`.`categories`.`Id`)));
+CREATE  OR REPLACE 
+VIEW `post_details` AS select `posts`.`Id` AS `ID`,`posts`.`Title` AS `Title`,`posts`.`Submit` AS `Submit`,`categories`.`Id` AS `CategoryID`,`categories`.`Name` AS `CategoryName`,`users`.`id` AS `UserID`,`users`.`username` AS `Username`,`posts`.`Body` AS `Body`,`posts`.`Content` AS `Content` from ((`posts` join `users` on((`posts`.`UserId` = `users`.`id`))) join `categories` on((`posts`.`CategoryId` = `categories`.`Id`)));
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

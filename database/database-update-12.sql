@@ -1,7 +1,5 @@
 CREATE 
-    ALGORITHM = UNDEFINED 
-    DEFINER = `root`@`localhost` 
-    SQL SECURITY DEFINER
+ OR REPLACE
 VIEW `post_details` AS
     SELECT 
         `posts`.`MasterId` AS `MasterID`,
