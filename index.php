@@ -6,7 +6,7 @@ $rows=[];
 $post = new Posts($conn);
 $rows = $rows = (new Posts($conn))->ToList(0, 48, "Submit", "DESC", "WHERE `Level` = 1 OR `Level` = 2");
 
-include('core/public-header.php');
+include ('core/public-header.php');
 
 $header_num = 0;
 foreach ($rows as $row) {
@@ -39,5 +39,5 @@ foreach ($rows as $row) {
         break;
 }
 
-include('core/public-footer.php')
+include ('core/public-footer.php');
 ?>

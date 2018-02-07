@@ -1,6 +1,3 @@
-0- Change Post.Id to Post.DetailedId
-0.1- Search by Post.MasterId (GUID)
-
 1- password for filemanger
 6- draft
 7- delete image
@@ -52,7 +49,8 @@
 58- Post offers
 59- Comment (Must use <article>) and Like
 60- Use markdown editor
-61- Log all changes to posts with version controlling
 62- Validate anti forgery tokens and create unique forms with isssetPost['UNIQUE VAL']
 63- Cirlces -> Add users to groups and assign posts with those groups (circles) or individual people.
 64- No Select *
+65- <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+66- Combine Scripts->JS, Styles->CSS
