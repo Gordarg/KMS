@@ -27,6 +27,12 @@ class Posts implements semi_orm
             }
         return $rows;       
     }
+    function GetValueById($Id, $Name)
+    {
+        $query = "select `" . $Name . "` from post_details where ID='" . $Id . "';";
+        $result = mysqli_query($this->conn, $query);
+        return (mysqli_fetch_array($result))[$Name];
+    }
 }
 
 ?>

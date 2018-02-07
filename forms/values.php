@@ -23,11 +23,10 @@ $Body = '';
 $Status = 'Publish';
 $Content = null;
 
-// TODO
-// if Row found (it's updating)
+if ($Id != null)
+    $MasterID = $Post->GetValueById($Id, 'MasterID');
 switch ($Type)
 {
-    // TODO: fill out $MasterID for any type
     case "POST":
         $Title = $functionalitiesInstance->ifexistsidx($Row,'Title');
         $Level = $functionalitiesInstance->ifexistsidx($Row,'Level');
@@ -38,5 +37,4 @@ switch ($Type)
         $RefrenceID = $functionalitiesInstance->ifexistsidx($Row,'RefrenceID');
         break;
 }
-
 ?>
