@@ -11,7 +11,7 @@
 <input name="level" value="<?= $Level ?>"  type="number" name="quantity" min="1" max="3" />
 
 <label for="categoryid">انتخاب دسته بندی</label>
-<input type="text" name="categoryid" list="categories" />
+<input type="text" value="<?= $CategoryID ?>" name="categoryid" list="categories" />
 <datalist id="categories" name="categoryid">
 <?php
 /* TODO

@@ -7,6 +7,10 @@ $Id = mysqli_real_escape_string($conn, $_GET["id"]);
 require_once 'semi-orm/Posts.php';
 use orm\Posts;
 $Row = (new Posts($conn))->FirstOrDefault($Id);
+if ($Row == [])
+{
+    exit(header("HTTP/1.0 404 Not Found"));
+}
 include ('core/public-header.php');
 echo '<article class="w3-full">';
 echo '<img src="download.php?id=' . $Id . '" alt="' . $Row["Title"] . '" style="width:100%">';

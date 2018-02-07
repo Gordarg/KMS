@@ -2,8 +2,7 @@
 function YouAreNotAuthorized()
 {
     header('WWW-Authenticate: Basic realm="My Realm"');
-    header('HTTP/1.0 401 Unauthorized');
-    exit();
+    exit(header("HTTP/1.0 401 Unauthorized")); 
 }
 if (! isset($_SERVER['PHP_AUTH_USER'])) {
     YouAreNotAuthorized();
