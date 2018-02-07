@@ -45,7 +45,7 @@ if ($Type != "")
         echo '<input type="submit" name="update" value="به روز رسانی" />';
         echo '<input type="submit" name="delete" value="حذف" />';
     }
-    echo '<a href="admin.php">انصراف</a>';
+    echo '<a href="index.php">انصراف</a>';
 }
 ?>
 </form>

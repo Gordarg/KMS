@@ -18,11 +18,13 @@
         . ");";
     }
     else if (isset($_POST["delete"])) {      
-        $query = "UPDATE posts SET `Deleted` = '1' WHERE `Id` = " . $_POST['id'] . ";";
+       
+        $query = "UPDATE posts SET `Deleted` = 1 WHERE `Id` = " . $_POST['id'] . ";";
+        echo $query;
     }
     if ((isset($_POST["delete"])) or (isset($_POST["update"])) or (isset($_POST["insert"])))
     {
-        $result = mysqli_query($conn, $query);
+        mysqli_query($conn, $query);
         header("Location: " . $path);
     }
     if ((isset($_POST["update"])) or (isset($_POST["insert"])))
@@ -30,6 +32,6 @@
         $_POST['id'] =  mysqli_insert_id($conn);
         if ($_FILES['content']['size'] > 0) 
             $query = "UPDATE posts SET `Content` = '" . mysqli_real_escape_string($conn, file_get_contents($_FILES['content']['tmp_name'])) . "' WHERE `Id` = '" . $_POST['id'] . "';";
-        $result = mysqli_query($conn, $query);
+        mysqli_query($conn, $query);
     }
 ?>
