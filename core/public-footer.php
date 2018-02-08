@@ -104,20 +104,6 @@ use orm\Posts;
         }
     });
   });
-    function SetHeaderVisibility($visible_head_posts){
-    $('.w3-main').children('.head-post-row').each(function (index) {
-        $(this).hide();
-        if (index  == $visible_head_posts * 2 || index  == $visible_head_posts * 2 + 1 )
-            $(this).show();
-    });
-    };
-    SetHeaderVisibility(0);
-    $('#paging').children('a').each(function (index) {
-        $(this).on("click", function(){
-            SetHeaderVisibility(index );
-        });
-    });
-
 </script>
 <?php
 /*
