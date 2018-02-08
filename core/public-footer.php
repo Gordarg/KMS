@@ -6,7 +6,7 @@ require_once 'semi-orm/Posts.php';
 use orm\Posts;
 ?>
 <!-- Footer -->
-<footer data-aos="fade-up" class="w3-row-padding w3-padding-32">
+<footer class="w3-row-padding w3-padding-32">
 	<div class="w3-third">
 		<h3>همراهان ما</h3>
 		<p><?php echo config::SPONSOR ?></p>
@@ -78,10 +78,6 @@ use orm\Posts;
     });
 
   $('html').smoothScroll();
-    easing: 'ease-out-back',
-  AOS.init({
-    duration: 1000
-  });
   hljs.initHighlightingOnLoad();
   $('.hero__scroll').on('click', function(e) {
     $('html, body').animate({

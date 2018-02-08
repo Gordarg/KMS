@@ -100,7 +100,7 @@ include ('core/init.php');
 		</div>
 	</header>
 
-	<div data-aos="rexa-blur" class="w3-main w3-content w3-padding"
+	<div class="w3-main w3-content w3-padding"
 		style="max-width: 1200px; margin-top: 100px">
 		<div class="w3-container w3-padding-32 w3-center">
 			<img class="w3-left w3-padding-small rexa-social"

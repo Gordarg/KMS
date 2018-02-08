@@ -9,14 +9,14 @@ switch ($_GET["level"])
         echo '</article>';  
         break;
     case "1":
-        echo '<article class="w3-quarter" data-aos="rexa-blur">';
+        echo '<article class="w3-quarter">';
         echo '<img src="download.php?id=' . $row['ID'] . '" alt="' . $row["Title"] . '" style="width:100%">';
         echo '<h3><a href="view.php?id=' . $row['ID'] . '">' . $row['Title'] . '</h3></a>';
         echo '<p>' . $functionalitiesInstance->makeAbstract($row['Body'], 480)  . '</p>';
         echo '</article>';
         break;
     case "2":
-        echo '<article data-aos="zoom-in-up" class="w3-container w3-padding-32 w3-center">';
+        echo '<article class="w3-container w3-padding-32 w3-center">';
         echo $row['Submit'] . '<br>';
         echo '<div class="w3-padding-32">';
         echo '<h4><b>' . $row['Username'] . '</b></h4>';

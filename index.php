@@ -8,11 +8,9 @@ $rows = $rows = (new Posts($conn))->ToList(0, 48, "Submit", "DESC", "WHERE `Leve
 
 include ('core/public-header.php');
 
-$header_num = -1;
 foreach ($rows as $row) {
     if ($row['Level'] != '1')
         continue;
-    $header_num++;
     $_GET['id'] = $row['ID'];
     $_GET["level"] = '1';
     $_GET["type"] = 'POST';
