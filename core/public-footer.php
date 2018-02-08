@@ -37,7 +37,8 @@ use orm\Posts;
 		<h3>واژگان کلیدی</h3>
 		<p>
           <?php
-        $keywords = file_get_contents('./keywords.txt', FILE_USE_INCLUDE_PATH);
+        $keywords = //file_get_contents('./keywords.txt', FILE_USE_INCLUDE_PATH);
+        config::META_KEYWORDS;
         $keywords_arr = explode(',', $keywords);
         foreach ($keywords_arr as $keywordsArr) {
             echo '<span class="w3-tag w3-dark-grey w3-small w3-margin-bottom"> ' . $keywordsArr . ' </span>' . ' ';
