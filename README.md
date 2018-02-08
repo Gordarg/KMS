@@ -1,5 +1,5 @@
 #**GORD*CMS***
-![](logo.png)
+![](Gordarg.png)
 > Open knowledge for everyone
 
 ------------

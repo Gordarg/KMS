@@ -1,18 +1,12 @@
 <?php
 function YouAreNotAuthorized()
 {
-    header('WWW-Authenticate: Basic realm="My Realm"');
-    exit(header("HTTP/1.0 401 Unauthorized")); 
+    exit(header("Location: login.php")); 
 }
-if (! isset($_SERVER['PHP_AUTH_USER'])) {
+include ('init.php');
+require_once ('authentication.php');
+$auth = new auth();
+$UserId = $auth->login();
+if ($UserId == null)
     YouAreNotAuthorized();
-} else {
-    
-    include ('init.php');
-    require_once ('authentication.php');
-    $auth = new auth();
-    $UserId = $auth->login();
-    if ($UserId == null)
-        YouAreNotAuthorized();
-}
 ?>

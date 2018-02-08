@@ -70,7 +70,7 @@ label {
 
 
 .float-label {
-  left: 0;
+  right: 0;
   top: 7px;
   font-size: 16px;
   pointer-events: none;
@@ -240,7 +240,7 @@ label {
   color: #1d1d1d;
   cursor: pointer;
   display: inline-block;
-  float: left;
+  float: right;
   height: 14px;
   margin: 0 14px 14px 1px;
   outline-color: #eaeaea;
@@ -266,13 +266,13 @@ label {
   transform: rotate(-45deg) scaleY(0.5);
 }
 
-// Checkbox colors
+
 .checkbox .chk-span.checked {
   border-left-color: #03a9f4;
   border-bottom-color: #03a9f4;
 }
 
-// focus state
+
 .checkbox input[type='checkbox']:focus ~ label {
   
   color: #03a9f4;

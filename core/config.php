@@ -8,10 +8,10 @@ class config
     const ConnectionString_PASSWORD = "123";
     const ConnectionString_DATABASE = "gordcms";
 
-    const TITLE = "GORDCMS";
-    const NAME = "Gord Content Management System";
+    const TITLE = "گُرد";
+    const NAME = "سامانه‌ی مدیریت محتوی گرد";
     const SPONSOR = "";
-    const META_KEYWORDS = "My, Key, WORDS, SEO";
-    const META_DESCRIPTION = "Website description here.";
+    const META_KEYWORDS = "کلمات, کلیدی, من, SEO";
+    const META_DESCRIPTION = "درباره‌ی این اَرگ";
 }
 ?>

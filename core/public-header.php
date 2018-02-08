@@ -75,7 +75,8 @@ include ('core/init.php');
 		style="display: none; z-index: 2; width: 40%; min-width: 300px"
 		id="mySidebar">
 		<a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button">☰</a> <a href="./" onclick="w3_close()" class="w3-bar-item w3-button">خانه</a>
-		<a href="admin.php?type=POST" onclick="w3_close()" class="w3-bar-item w3-button">ورود</a>
+		<a href="login.php" onclick="w3_close()" class="w3-bar-item w3-button">ورود</a>
+		<a href="login.php?way=bye" onclick="w3_close()" class="w3-bar-item w3-button">خروج</a>
 		<a href="profile.php" onclick="w3_close()" class="w3-bar-item w3-button">ثبت نام</a>
 		<hr />
 		<?php
