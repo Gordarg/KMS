@@ -9,6 +9,8 @@ class config
     const ConnectionString_DATABASE = "gordcms";
 
     const TITLE = "گُرد";
+    const LANGUAGE = "Farsi";
+    const REGION = "IR";
     const NAME = "سامانه‌ی مدیریت محتوی گرد";
     const SPONSOR = "";
     const META_KEYWORDS = "کلمات, کلیدی, من, SEO";

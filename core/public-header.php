@@ -46,14 +46,14 @@ include ('core/init.php');
 <meta http-equiv="content-type" content="text/html;charset=UTF-8">
 <meta name="keywords" content="<?php echo config::META_KEYWORDS ?>" />
 <meta name="description" content="<?php echo config::META_DESCRIPTION ?>" />
-<meta name="language" content="Farsi" />
-<meta name="geo.region" CONTENT="IR" />
+<meta name="language" content="<?php echo config::LANGUAGE ?>" />
+<meta name="geo.region" CONTENT="<?php echo config::REGION ?>" />
 <meta name="googlebot" content="INDEX, follow" />
 <meta name="robots" content="index, follow"/>
 <meta charset="utf-8">
 <!-- needs attention -->
 	<!-- <meta name="author" content="<-BlogAuthor->"> -->
-	<!-- <meta itemprop="name" content="عنوان در این جا قرار می گیرد"> -->
+<meta itemprop="name" content="<?php echo config::META_DESCRIPTION ?>">
 	<!-- <meta itemprop="description" content="خلاصه در این جا قرار می گیرد""> -->
 	<!-- <meta property="fb:admins" content="100001867037114"> -->
 	<!-- <meta property="og:title" content="GORDCMS"> -->
