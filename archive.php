@@ -2,7 +2,6 @@
 require_once 'core/functionalities.php';
 use core\functionalities;
 $functionalitiesInstance = new functionalities();
-include('core/init.php');
 require_once 'semi-orm/Posts.php';
 use orm\Posts;
 include('core/public-header.php');

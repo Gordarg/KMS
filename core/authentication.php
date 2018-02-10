@@ -2,9 +2,9 @@
 
 class auth{
     function login(){
-        session_start(); 
         if (! isset($_SESSION['PHP_AUTH_USER']))
             return null;
+        
         $username = $_SESSION['PHP_AUTH_USER'];
         $password = $_SESSION['PHP_AUTH_PW'];
 

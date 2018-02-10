@@ -88,7 +88,8 @@ if (defined('FM_EMBED')) {
 
     session_cache_limiter('');
     session_name('filemanager');
-    session_start();
+    if (session_status() == PHP_SESSION_NONE) 
+        session_start();
 }
 
 if (empty($auth_users)) {

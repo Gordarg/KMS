@@ -1,17 +1,15 @@
 <?php
+  include ('core/init.php');
    if (isset($_GET['way']) && ($_GET['way'] == 'bye'))
    {
-      unset($_SESSION['PHP_AUTH_USER']);
-      unset($_SESSION['PHP_AUTH_PW']);
-      session_destroy();
-      exit(header("Location: login.php"));
+    session_destroy();
+    exit(header("Location: login.php"));
    }
    if (isset($_POST['login']))
-   { 
-     session_start();
-     $_SESSION['PHP_AUTH_USER'] = $_POST['username'];
-     $_SESSION['PHP_AUTH_PW'] = $_POST['password'];
-     exit(header("Location: admin.php?type=POST"));
+   {
+    $_SESSION['PHP_AUTH_USER'] = $_POST['username'];
+    $_SESSION['PHP_AUTH_PW'] = $_POST['password'];
+    exit(header("Location: admin.php?type=POST"));
    }
    include_once ('core/public-header.php');   
    ?>

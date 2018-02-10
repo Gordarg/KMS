@@ -1,7 +1,6 @@
 <?php
 require_once 'core/functionalities.php';
 use core\functionalities;
-include('core/init.php');
 $functionalitiesInstance = new functionalities();
 $Id = mysqli_real_escape_string($conn, $_GET["id"]);
 require_once 'semi-orm/Posts.php';

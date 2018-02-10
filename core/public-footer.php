@@ -1,5 +1,4 @@
 <?php 
-include ('core/init.php');
 require_once 'core/config.php';
 use core\config;
 require_once 'semi-orm/Posts.php';
