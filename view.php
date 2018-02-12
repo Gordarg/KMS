@@ -1,4 +1,5 @@
 <?php
+require_once 'core/init.php';
 require_once 'core/functionalities.php';
 use core\functionalities;
 $functionalitiesInstance = new functionalities();
