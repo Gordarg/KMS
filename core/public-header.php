@@ -37,7 +37,7 @@ include ('core/init.php');
  /soooydNMMMMMMMMMmdyo+/:-.``    ``.-:/oyhmMMMMMMMMdo-                                              
  `/ymMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMds/`                                                 
      `-+shmMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNdy+-`                                                     
-            .:/osyhdmNNMMMMMMMNNmdhys+/-`                                                               
+            .:/osyhdmNNMMMMMMMNNmdhys+/-`                                                           
 -->
 
 <html>
