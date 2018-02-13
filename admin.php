@@ -1,8 +1,8 @@
 <?php
+include_once ('core/init.php');
 include ('core/auth.php');
 require_once 'core/functionalities.php';
 use core\functionalities;
-$path = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]" . "$_SERVER[REQUEST_URI]";
 include ('forms/submit.php');
 include ('core/public-header.php');
 ?>

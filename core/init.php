@@ -6,4 +6,6 @@ if (session_status() == PHP_SESSION_NONE)
 include_once 'database_conn.php';
 $db = new database_connection();
 $conn  = $db->open();
+$npath=(isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+$path = $npath . "$_SERVER[REQUEST_URI]";
 ?>

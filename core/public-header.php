@@ -68,6 +68,18 @@ include ('core/init.php');
 <link rel="stylesheet" href="styles/aos.css">
 <link rel="stylesheet" href="styles/qtip.css">
 <link rel="stylesheet" href="styles/ezdz.css">
+<?php
+$items =  explode('/',preg_replace("/[^a-zA-Z0-9_\-\/اآبپتثجچحخدذرزسشصضطظعغفقکگلمنوهی]/","-",str_replace("://", "/", $path)));
+for ($i=2; $i < count($items); $i++ )
+{
+	echo '<link href="' . $npath . '/Styles';
+	for ($j=0; $j < $i; $j++ )
+		echo '/' . $items[$j];
+	echo '.css" rel="stylesheet" />';
+	echo '
+';
+}
+?>
 </head>
 <body>
 	<nav

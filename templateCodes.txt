@@ -1,0 +1,77 @@
+STYLE SHEETSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+
+
+
+   @{
+        string[] items = Context.Request.Path.ToString().Split('/');
+        int i = 1;
+        foreach (var item in items)
+        {
+
+            string path = "";
+            try
+            {
+                int n = 1;
+                while (n <= i)
+                {
+                    path += "/" + items[n];
+                    n++;
+                }
+        <link href="@(Context.Request.Url.Scheme +"://" + Context.Request.Url.Host + ":" + Context.Request.Url.Port + "/Styles" + path + ".css")" rel="stylesheet" />
+                i++;
+            }
+            catch { }
+        }
+        }
+
+
+
+MENU ACCEPTING SUB CATEGORIESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+
+
+<ul class="sf-menu">
+    @{
+        var list = new DbController.Model_Group().Select().OrderBy(s => s.Index).ToList();
+        int i = 0;
+        while (i < list.Count)
+        {
+            DbController.Model_Group.MenuItem currentItem = list[i];
+
+            @Html.Raw("<li>")
+            @Html.ActionLink(currentItem.OtherProps.Name + " (" + currentItem.OtherProps.Posts.ToString() + ")", "Group", new { Controller = "Documents", Id = currentItem.OtherProps.Id })
+
+
+            int d = currentItem.Depth;
+            if (i != list.Count - 1)
+            {
+                d = d - list[i + 1].Depth;
+            }
+
+            if (d == 0)
+            {
+                @Html.Raw("</li>")
+            }
+            else if (d > 0)
+            {
+                int a = 0;
+                while (a < d)
+                {
+                    @Html.Raw("</li></ul>")
+                    a++;
+                }
+            }
+            else if (d < 0)
+            {
+                d = d * -1;
+                int a = 0;
+                while (a < d)
+                {
+                    @Html.Raw("<ul>")
+                    a++;
+                }
+            }
+            i++;
+        }
+
+    }
+</ul>
