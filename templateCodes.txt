@@ -75,3 +75,64 @@ MENU ACCEPTING SUB CATEGORIESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
 
     }
 </ul>
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxxx
+
+
+
+
+
+
+
+
+<script src="scripts/jquery.js"></script>
+<script src="scripts/highlight.js"></script>
+<script src="scripts/aos.js"></script>
+<script src="scripts/smooth-scroll.js"></script>
+<script src="scripts/qtip.js"></script>
+<script src="scripts/paginathing.js"></script>
+<script src="scripts/ezdz.js"></script>
+<script src="scripts/tinymce/tinymce.min.js"></script>
+<script>
+	$('input[type="file"]').ezdz();
+	$('table tbody').paginathing({
+		perPage: 5,
+		});
+    tinymce.init({
+        selector: 'textarea',
+        theme: 'modern',
+        // plugins: 'print preview fullpage searchreplace autolink directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount imagetools contextmenu colorpicker textpattern help',
+        plugins: 'print preview searchreplace autolink directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount imagetools contextmenu colorpicker textpattern help',
+        toolbar1: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
+        image_advtab: true,
+        templates: [
+            { title: 'Test template 1', content: 'Test 1' },
+            { title: 'Test template 2', content: 'Test 2' }
+        ]
+    });
+
+  $('html').smoothScroll();
+  hljs.initHighlightingOnLoad();
+  $('.hero__scroll').on('click', function(e) {
+    $('html, body').animate({
+      scrollTop: $(window).height()
+    }, 1200);
+  });
+  function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+  }
+  function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+  }
+  $( "*" ).each(function( index ) {
+    $(this).qtip({
+        content: {
+            text: $(this).attr('title')
+        },
+        style:{
+          classes: 'qtip-dark qtip-rounded'
+        }
+    });
+  });
+</script>

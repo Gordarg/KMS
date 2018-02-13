@@ -39,7 +39,6 @@ include ('core/public-header.php');
     <label for="switch_left">پست</label>
 
 </div>
-<script src="scripts/admin.js"></script>
 
 <?php
 include ('forms/render.php');
