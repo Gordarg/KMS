@@ -14,15 +14,8 @@
 <input type="text" value="<?= $CategoryID ?>" name="categoryid" list="categories" />
 <datalist id="categories" name="categoryid">
 <?php
-/* TODO
-$category_query = "select Id, Name from categories";
-$category_result = mysqli_query($conn, $category_query);
-$category_num = mysqli_num_rows($category_result);
-for ($i = 0; $i < $category_num; $i ++) {
-    $category_row = mysqli_fetch_array($category_result);
+foreach ($Category->ToList(0, 48, "Name", "DESC", "") as $category_row)
     echo '  <option value="' . $category_row['Id'] . '"' . (($category_row['Id'] == $CategoryID)?(" selected") : ("")) . '>' . $category_row['Name'] . '</option>';
-}
-*/
 ?>
 </datalist>
 <label for="body">متن</label>

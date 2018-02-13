@@ -2,6 +2,8 @@
 require_once 'core/config.php';
 use core\config;
 include ('core/init.php');
+require_once 'semi-orm/Categories.php';
+use orm\Categories;
 ?>
 <!DOCTYPE html>
 
@@ -87,20 +89,14 @@ for ($i=2; $i < count($items); $i++ )
 		style="display: none; z-index: 2; width: 40%; min-width: 300px"
 		id="mySidebar">
 		<a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button">☰</a> <a href="./" onclick="w3_close()" class="w3-bar-item w3-button">خانه</a>
-		<a href="login.php" onclick="w3_close()" class="w3-bar-item w3-button">ورود</a>
+		<a href="register.php" onclick="w3_close()" class="w3-bar-item w3-button">ثبت نام</a>
+		<a href="admin.php" onclick="w3_close()" class="w3-bar-item w3-button">ورود</a>
+		<a href="profile.php" onclick="w3_close()" class="w3-bar-item w3-button">تنظیمات</a>
 		<a href="login.php?way=bye" onclick="w3_close()" class="w3-bar-item w3-button">خروج</a>
-		<a href="profile.php" onclick="w3_close()" class="w3-bar-item w3-button">ثبت نام</a>
 		<hr />
 		<?php
-		/* TODO
-        $category_query = "SELECT Id, Name FROM categories;";
-        $category_result = mysqli_query($conn, $category_query);
-        $category_num = mysqli_num_rows($category_result);
-        for ($i = 0; $i < $category_num; $i ++) {
-			$category_row = mysqli_fetch_array($category_result);
+		foreach ((new Categories($conn))->ToList(0, 48, "Name", "DESC", "") as $category_row)
 			echo '<a rel="nofollow" href="archive.php?CategoryID=' . $category_row["Id"] . '" onclick="w3_close()" class="w3-bar-item w3-button">' . $category_row["Name"] . '</a>';
-		}
-		*/
         ?>
 	</nav>
 

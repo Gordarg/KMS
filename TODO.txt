@@ -1,8 +1,7 @@
 1- password for filemanger
 6- draft
 7- delete image
-8- page refresh for update 
-9- image update bug
+8- page redirect for update 
 11- offline backup
 12- Show messages and error pages
 13- Version control
