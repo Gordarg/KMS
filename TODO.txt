@@ -54,3 +54,4 @@
 65- <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
 66- Combine Scripts->JS, Styles->CSS
 67- SubCategories
+68- ul li SEO IMPORTANT!!!!!
