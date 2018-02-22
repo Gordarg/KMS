@@ -53,11 +53,8 @@
 64- No Select *
 65- <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
 66- Combine Scripts->JS, Styles->CSS
-<<<<<<< HEAD
 67- SubCategories and category management
 68- Use Master Id for posts view and edit
 69- Field for AttachementDeleted, If AttachementDeleted then LoadNothing else LoadLastestAttachement.
-=======
 67- SubCategories
 68- ul li SEO IMPORTANT!!!!!
->>>>>>> 89caf305d233c28f31b2d7fb6ae21bc1e7c557e9
