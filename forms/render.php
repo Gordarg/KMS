@@ -27,11 +27,6 @@ switch ($Type)
     break;
 }
 /*
-TODO: 
-        in posts
-        if category was int, just insert.
-        else, create new category
-
 TODO: create drafting and publish mechanisms
       based on user role
 
@@ -46,6 +41,7 @@ if ($Type != "")
         echo '<input type="submit" name="insert" value="ارسال" />';
     } else {
         echo '<input type="submit" name="update" value="به روز رسانی" />';
+        echo '<input type="submit" name="clear" value="حذف پیوست" />';
         echo '<input type="submit" name="delete" value="حذف" />';
     }
     echo '<a href="index.php">انصراف</a>';

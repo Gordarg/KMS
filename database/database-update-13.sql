@@ -1,0 +1,3 @@
+ALTER TABLE `posts` 
+CHANGE COLUMN `Deleted` `Deleted` BIT(1) NOT NULL DEFAULT 0 ,
+ADD COLUMN `ContentDeleted` BIT(1) NOT NULL DEFAULT 0 AFTER `Deleted`;

@@ -22,6 +22,10 @@
         $query = "UPDATE posts SET `Deleted` = 1 WHERE `Id` = " . $_POST['id'] . ";";
         echo $query;
     }
+    else if (isset($_POST["clear"]))
+    {
+        $query = "UPDATE posts SET `ContentDeleted` = 1 WHERE `Id` = " . $_POST['id'] . ";";
+    }
     if ((isset($_POST["delete"])) or (isset($_POST["update"])) or (isset($_POST["insert"])))
     {
         mysqli_query($conn, $query);
