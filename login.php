@@ -7,59 +7,39 @@
    }
    if (isset($_POST['login']))
    {
-    $_SESSION['PHP_AUTH_USER'] = $_POST['username'];
-    $_SESSION['PHP_AUTH_PW'] = $_POST['password'];
+    $_SESSION['PHP_AUTH_USER'] = $_POST['user'];
+    $_SESSION['PHP_AUTH_PW'] = $_POST['pass'];
     exit(header("Location: admin.php?type=POST"));
    }
    include_once ('core/public-header.php');   
    ?>
-<script src="js/modernizr.js" type="text/javascript"></script>
-<link rel="stylesheet" href="css/normalize.css">
-<link rel='stylesheet prefetch' href='css/gubja.css'>
-<link rel='stylesheet prefetch' href='css/yaozl.css'>
-<link rel="stylesheet" href="css/style.css">
-<div class="container">
-   <div id="login" class="signin-card">
-      <div class="logo-image">
-         <img src="Gordarg.png" alt="نام‌واره‌ی گردرگ" title="گردرگ" width="138">
-      </div>
-      <h1 class="display1">ورود به سیستم</h1>
-      <p class="subhead">سامانه‌ی مدیریت محتوی گرد</p>
-      <form action="login.php" method="POST" class="" role="form">
-         <div id="form-login-username" class="form-group">
-            <input id="username" class="form-control" name="username" type="text" size="18" alt="login" required />
-            <span class="form-highlight"></span>
-            <span class="form-bar"></span>
-            <label for="username" class="float-label">نام کاربری</label>
-         </div>
-         <div id="form-login-password" class="form-group">
-            <input id="passwd" class="form-control" name="password" type="password" size="18" alt="password" required>
-            <span class="form-highlight"></span>
-            <span class="form-bar"></span>
-            <label for="password" class="float-label">کلمه‌ی عبور</label>
-         </div>
-         <div id="form-login-remember" class="form-group">
-            <div class="checkbox checkbox-default">       
-               <input id="remember" type="checkbox" value="yes" alt="Remember me" class="">
-               <label for="remember">مرا به خاطر بسپار</label>      
-            </div>
-         </div>
-         <div>
-            <input class="btn btn-block btn-info ripple-effect" type="submit" name="login" value="ورود" />
-         </div>
-         <div class="gordafarid-image">
-           <a href="#">
-            <img src="Gordafarid.png" alt="gordafarid" title="ورود با گردآفرید - غیر فعال" width="50">
-           </a>
-         </div>
-       </div>
-   </form>
+
+<div id="id01" class="modal">
+
+  <form class="modal-content animate" action="login.php" method="post">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="Gordarg.png" alt="Gordarg logo" class="avatar">
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="user" required>
+
+      <label for="pass"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="pass" required>
+
+      <button type="submit" name="login" >Login</button>
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <span class="psw">Forgot <a href="#">password?</a>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>   
+    </div>
+    </div>
+
+
+  </form>
 </div>
-</div>
-<script src='js/jquery.min.js'></script>
-<script src='js/gubja.js'></script>
-<script src='js/yaozl.js'></script>
-<script  src="js/index.js"></script>
-<?php
-   include_once ('core/public-footer.php');
-   ?>
+
+ <?php include_once ('core/public-footer.php'); ?> 
