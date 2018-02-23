@@ -15,7 +15,7 @@ $Category = new Categories($conn);
 include ('values.php');
 ?>
 
-<form  method="post" action="<?php echo $path?>" enctype="multipart/form-data">
+<form  method="post" action="<?= /*TODO*/ 'admin.php?type=' . $Type ?>" enctype="multipart/form-data">
 <input type="hidden" name="masterid" value="<?= $MasterID ?>" />
 <input type="hidden" name="id" value="<?= (($Id == null) ? "NULL" : $Id) ?>" />
 <input type="hidden" name="type" value="<?= $Type ?>" />

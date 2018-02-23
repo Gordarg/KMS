@@ -12,6 +12,21 @@ $Q = (new functionalities())->ifexistsidx($_GET,'Q');
 </form>
 
 <?php
-echo $Q; // Search by this
+$a="SELECT * FROM `post_details` WHERE Title LIKE '%".$Q."%';";
+$b=mysqli_query($conn,$a);
+if(mysqli_num_rows($b)>0){
+echo"<table>";
+echo"<tr><th>پیش نمایش</th></tr>";
+while($row = mysqli_fetch_array($b)){
+    echo"<tr>";
+    echo"<td>" . $row['Body']. "</td>";
+    echo "</td>";
+}
+echo"</table>";
+}
+else{
+    echo "نتیجه یافت نشد";
+}
+
 include ('core/public-footer.php');
 ?>
