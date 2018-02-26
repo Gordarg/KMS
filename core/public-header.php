@@ -65,6 +65,11 @@ use orm\Categories;
 <meta name="revised" content="Tutorialspoint, 3/7/2014" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <?php
+/* TODO:
+
+page without query string css and js
+
+*/
 $items =  explode('/',preg_replace("/[^a-zA-Z0-9_\-\/اآبپتثجچحخدذرزسشصضطظعغفقکگلمنوهی]/","-",str_replace("://", "/", $path)));
 for ($i=2; $i < count($items); $i++ )
 {
@@ -84,8 +89,10 @@ for ($i=2; $i < count($items); $i++ )
 		id="mySidebar">
 		<a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button">☰</a> <a href="./" onclick="w3_close()" class="w3-bar-item w3-button">خانه</a>
 		<a href="register.php" onclick="w3_close()" class="w3-bar-item w3-button">ثبت نام</a>
-		<a href="admin.php" onclick="w3_close()" class="w3-bar-item w3-button">ورود</a>
+		<a href="admin.php?type=POST" onclick="w3_close()" class="w3-bar-item w3-button">ورود</a>
 		<a href="profile.php" onclick="w3_close()" class="w3-bar-item w3-button">تنظیمات</a>
+		<a href="search.php" onclick="w3_close()" class="w3-bar-item w3-button">جستوجو</a>
+		<a href="category.php" onclick="w3_close()" class="w3-bar-item w3-button">مدیریت دسته ها </a>
 		<a href="login.php?way=bye" onclick="w3_close()" class="w3-bar-item w3-button">خروج</a>
 		<hr />
 		<?php

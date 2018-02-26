@@ -7,7 +7,7 @@ class config
 
     const ConnectionString_SERVER  = "localhost";
     const ConnectionString_USERNAME  = "root";
-    const ConnectionString_PASSWORD = "123";
+    const ConnectionString_PASSWORD = "";
     const ConnectionString_DATABASE = "gordcms";
 
     const TITLE = "گُرد";
