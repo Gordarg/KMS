@@ -45,6 +45,7 @@ use orm\Categories;
 <html>
 <head>
 <title><?php echo config::TITLE ?></title>
+<meta charset="utf-8">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8">
 <meta name="keywords" content="<?php echo config::META_KEYWORDS ?>" />
 <meta name="description" content="<?php echo config::META_DESCRIPTION ?>" />
