@@ -9,7 +9,7 @@ interface semi_orm
     function GetValueById($Id, $Field);
     /*
     function Insert(); // TODO: object as input
-    function Delete($Id);
+    function Delete($Id); // TODO: object as input
     function Update($Id); // TODO: object as input
     */
 }

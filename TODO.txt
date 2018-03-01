@@ -17,9 +17,7 @@
 28- Content compression
 29- SEO: Twitter card
 32.1- SEO: Keywords for any page
-32- Search page
 34- Generate dynamic keywords
-35- Cache files comming from DB : TEST REQUIRED
 36- Backlinks
 37- Statistics
 39- SEO: Demographics : https://searchengineland.com/connecting-demographics-search-queries-243440
@@ -37,7 +35,7 @@
 57- Keywords: A- Mined Overal Keyword (Home page : Create unfollow links from tags to search page) . B- for each post (Keywords must link internal posts)
 58- Post offers
 59- Comment (Must use <article>) and Like
-60- Use markdown editor
+60- Use markdown editor and renderer
 62- Validate anti forgery tokens and create unique forms with isssetPost['UNIQUE VAL']
 63- Cirlces -> Add users to groups and assign posts with those groups (circles) or individual people.
 64- No Select *
@@ -49,3 +47,4 @@
 71- ul li SEO IMPORTANT!!!!!
 72- DATABASE: Post_Details: Do not show `Content` if `ContentDeleted` = 1
 73- DATABASE: Post_Details: Use previous `Content` field value if this record's `Content` is null and that records `Content` is not null and `ContentDeleted` = 0
+74- Allow plugins

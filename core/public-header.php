@@ -69,11 +69,7 @@ for ($i=2; $i < count($items); $i++ )
 		<a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button">☰</a> <a href="./" onclick="w3_close()" class="w3-bar-item w3-button">خانه</a>
 		<a href="search.php" onclick="w3_close()" class="w3-bar-item w3-button">جستوجو</a>
 		<a href="register.php" onclick="w3_close()" class="w3-bar-item w3-button">ثبت نام</a>
-		<a href="profile.php" onclick="w3_close()" class="w3-bar-item w3-button">حساب کاربری</a>
-		<a href="login.php?way=bye" onclick="w3_close()" class="w3-bar-item w3-button">خروج</a>
-		<a href="admin.php?type=POST" onclick="w3_close()" class="w3-bar-item w3-button">محتوی</a>
-		<a href="category.php" onclick="w3_close()" class="w3-bar-item w3-button">دسته‌بندی‌ها</a>
-		<a href="tinyfilemanager.php?p=<?=config::Url_PATH?>" onclick="w3_close()" class="w3-bar-item w3-button">پرونده‌ها</a>
+		<?php include ('navigation/menu.php'); ?>
 		<hr />
 		<?php
 		foreach ((new Categories($conn))->ToList(0, 48, "Name", "DESC", "") as $category_row)

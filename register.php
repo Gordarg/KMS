@@ -1,4 +1,7 @@
 <?php
+
+/* TODO : IMPORTANTTTTT!!!!!!!!!!!!!!!!!!!!! */
+
 if(isset($_POST["btn"]))
 {
     
@@ -9,8 +12,7 @@ if(isset($_POST["btn"]))
 		exit;
 		
     }
-    
-	$conn = mysqli_connect("localhost","root","","gordcms");
+
 	$a="INSERT INTO `users` (`id`, `username`, `password`, `Image`, `Active`, `Role`) VALUES (NULL, 'kokab', '123', NULL, b'1', 'VSTOR')";
     $b=mysqli_query($conn, $a);
     

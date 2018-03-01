@@ -6,7 +6,7 @@ require_once 'semi-orm/Posts.php';
 use orm\Posts;
 $Q = (new functionalities())->ifexistsidx($_GET,'Q');
 ?>
-<form class="example" method="GET" action="Search.php">
+<form class="example" method="GET" action="search.php">
     <input type="text" name="Q" placeholder="عبارت را وارد نمائید" value="<?= $Q ?>" />
     <input type="submit" value = "جستجو" />
 </form>

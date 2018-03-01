@@ -11,16 +11,13 @@ OPTIMIZATION
 include ('core/public-header.php');
 
 
-$db = mysqli_connect('localhost', 'root', '123', 'gordcms');
-
-
 $name = "";
 $id = 0;
 $update = false;
 
 if (isset($_POST['save'])) {
     $name = $_POST['name'];
-    mysqli_query($db, "INSERT INTO categories (Name) VALUES ('$name')"); 
+    mysqli_query($conn, "INSERT INTO categories (Name) VALUES ('$name')"); 
     // header('location: category.php');
 }
 
@@ -30,7 +27,7 @@ if (isset($_POST['update'])) {
 	$id = $_POST['id'];
 	$name = $_POST['name'];
 	$address = $_POST['address'];
-	mysqli_query($db, "UPDATE categories SET name='$name' WHERE Id=$id");
+	mysqli_query($conn, "UPDATE categories SET name='$name' WHERE Id=$id");
 	// header('location: category.php');
 }
 
@@ -39,7 +36,7 @@ if (isset($_POST['update'])) {
 
 if (isset($_GET['del'])) {
 	$id = $_GET['del'];
-	mysqli_query($db, "DELETE FROM categories WHERE Id=$id"); 
+	mysqli_query($conn, "DELETE FROM categories WHERE Id=$id"); 
 	// header('location: category.php');
 }
 
@@ -50,7 +47,7 @@ if (isset($_GET['del'])) {
 if (isset($_GET['edit'])) {
     $id = $_GET['edit'];
     $update = true;
-    $record = mysqli_query($db, "SELECT * FROM categories WHERE Id=$id");
+    $record = mysqli_query($conn, "SELECT * FROM categories WHERE Id=$id");
 
     if (count($record) == 1 ) {
         $n = mysqli_fetch_array($record);
@@ -72,7 +69,7 @@ if (isset($_GET['edit'])) {
 	</form>
 
 
-    <?php $results = mysqli_query($db, "SELECT * FROM categories"); ?>
+    <?php $results = mysqli_query($conn, "SELECT * FROM categories"); ?>
 
 <table>
 	<thead>
