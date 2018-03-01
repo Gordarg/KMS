@@ -20,13 +20,12 @@
     else if (isset($_POST["delete"])) {      
        
         $query = "UPDATE posts SET `Deleted` = 1 WHERE `Id` = " . $_POST['id'] . ";";
-        echo $query;
     }
     else if (isset($_POST["clear"]))
     {
         $query = "UPDATE posts SET `ContentDeleted` = 1 WHERE `Id` = " . $_POST['id'] . ";";
     }
-    if ((isset($_POST["delete"])) or (isset($_POST["update"])) or (isset($_POST["insert"])))
+    if (!empty($_POST))
     {
         mysqli_query($conn, $query);
     }
@@ -34,7 +33,7 @@
     {
         $_POST['id'] =  mysqli_insert_id($conn);
         if ($_FILES['content']['size'] > 0) 
-            $query = "UPDATE posts SET `Content` = '" . mysqli_real_escape_string($conn, file_get_contents($_FILES['content']['tmp_name'])) . "' WHERE `Id` = '" . $_POST['id'] . "';";
+        $query = "UPDATE posts SET `Content` = '" . mysqli_real_escape_string($conn, file_get_contents($_FILES['content']['tmp_name'])) . "' WHERE `Id` = '" . $_POST['id'] . "';";
         mysqli_query($conn, $query);
     }
     if (!empty($_POST))
