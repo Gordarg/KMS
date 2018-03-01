@@ -8,7 +8,7 @@ $rows = (new Posts($conn))->ToList(0, 48, "Submit", "DESC", "WHERE `Level` = 1 O
 foreach ($rows as $row) {
     if ($row['Level'] != '1')
         continue;
-    $_GET['id'] = $row['ID'];
+    $_GET['masterid'] = $row['MasterID'];
     $_GET["level"] = '1';
     $_GET["type"] = 'POST';
     include ('views/render.php');
@@ -17,7 +17,7 @@ foreach ($rows as $row) {
 foreach ($rows as $row) {
     if ($row['Level'] != '2')
         continue;
-    $_GET['id'] = $row['ID'];
+    $_GET['masterid'] = $row['MasterID'];
     $_GET["level"] = '2';
     $_GET["type"] = 'POST';
     include ('views/render.php');

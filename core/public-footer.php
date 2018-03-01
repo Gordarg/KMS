@@ -21,7 +21,7 @@ use orm\Posts;
         foreach ($rows as $row) {
             if ($row['Level'] != '3')
                 continue;
-            $_GET['id'] = $row['ID'];
+            $_GET['masterid'] = $row['MasterID'];
             $_GET["level"] = '3';
             $_GET["type"] = 'POST';
             include ('views/render.php');

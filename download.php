@@ -5,8 +5,7 @@ use core\functionalities;
 
 $Id = mysqli_real_escape_string($conn, $_GET["id"]);
 
-$query = "select Content
-        from post_details where ID=" . $Id . ";";
+$query = "SELECT `Content` FROM `post_details` where MasterID='" . $Id . "';";
 
 $result = mysqli_query($conn, $query);
 $content = mysqli_fetch_array($result)["Content"];
@@ -21,8 +20,7 @@ $content = mysqli_fetch_array($result)["Content"];
 $name = "Gord-" . $Id;
 $size = strlen($content);
 
-// Please send the content-type :(
-
+// TODO:
 // header("Content-type: " . $type);
 header('Content-Disposition: attachment; filename="' . $name . '"');
 header("Content-Transfer-Encoding: binary");

@@ -10,7 +10,7 @@ class Posts implements semi_orm
     }
     function FirstOrDefault($Id)
     {
-        $query = "SELECT * FROM post_details WHERE ID=" . $Id . ";";
+        $query = "SELECT * FROM post_details WHERE MasterID='" . $Id . "';";
         $result = mysqli_query($this->conn, $query);
         if ($result)
             return $row = mysqli_fetch_array($result);

@@ -1,10 +1,10 @@
 <?php
 $Type = $_GET['type'];
 $Id = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id'));
-$row = $Post->FirstOrDefault($Id);
+if ($Id != null)
+    $MasterID = $Post->GetValueById($Id, 'MasterID');
+$row = $Post->FirstOrDefault($MasterID);
 
-// Default Values
-// TODO
 $Title = '';
 $RefrenceID = null;
 $MasterID = sprintf( '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
@@ -22,8 +22,6 @@ $Body = '';
 $Status = 'Publish';
 $Content = null;
 
-if ($Id != null)
-    $MasterID = $Post->GetValueById($Id, 'MasterID');
 switch ($Type)
 {
     case "POST":

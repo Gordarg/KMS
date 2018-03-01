@@ -29,7 +29,6 @@
     if ((isset($_POST["delete"])) or (isset($_POST["update"])) or (isset($_POST["insert"])))
     {
         mysqli_query($conn, $query);
-        header("Location: " . $path);
     }
     if ((isset($_POST["update"])) or (isset($_POST["insert"])))
     {
@@ -38,4 +37,6 @@
             $query = "UPDATE posts SET `Content` = '" . mysqli_real_escape_string($conn, file_get_contents($_FILES['content']['tmp_name'])) . "' WHERE `Id` = '" . $_POST['id'] . "';";
         mysqli_query($conn, $query);
     }
+    if (!empty($_POST))
+        header("Location: " . $npath . '/view.php?id=' . $_POST['masterid']);
 ?>
