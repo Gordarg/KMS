@@ -31,8 +31,8 @@ class Categories implements semi_orm
     {
         $query = "select `" . $Name . "` from categories where Id='" . $Id . "';";
         $result = mysqli_query($this->conn, $query);
-        $Row = mysqli_fetch_array($result);
-        return $Row[$Name];
+        $row = mysqli_fetch_array($result);
+        return $row[$Name];
     }
 }
 

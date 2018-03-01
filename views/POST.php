@@ -21,7 +21,7 @@ switch ($_GET["level"])
         echo '<div class="w3-padding-32">';
         echo '<h4><b>' . $row['Username'] . '</b></h4>';
         echo '<h2><a href="view.php?id=' . $row['ID'] . '">' . $row['Title'] . '</a></h2>';
-        echo  $functionalitiesInstance->makeAbstract($row['Body'], 960, "<img>") ;
+        echo $functionalitiesInstance->makeAbstract($row['Body'], 960, "<img>") ;
         echo '</div>';
         echo '</article>';
         break;

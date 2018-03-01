@@ -1,5 +1,5 @@
 <?php
-$parent = realpath(dirname(__FILE__) . '/..');
+/* TODO: Remove me */ $parent = realpath(dirname(__FILE__) . '/..');
 include_once $parent . '/core/auth.php';
 require_once  $parent . '/core/functionalities.php';
 use core\functionalities;

@@ -1,7 +1,6 @@
 1- password for filemanger
 6- draft
 7- delete image
-8- page redirect for update 
 11- offline backup
 12- Show messages and error pages
 13- Version control
@@ -21,8 +20,7 @@
 27- Accounting
 28- Content compression
 29- SEO: Twitter card
-31- SEO: <meta itemprop="name" content="ماهنامه پیوست">
-32- SEO: <meta itemprop="description" content="ماهنامه اطلاع رسانی، پژوهشی، تحلیلی و فرهنگی پیوست">
+32.1- SEO: Keywords for any page
 33- SEO: <meta property="fb:admins" content="100001867037114">
 32- Search page
 34- Generate dynamic keywords

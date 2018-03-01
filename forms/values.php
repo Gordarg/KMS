@@ -1,7 +1,7 @@
 <?php
 $Type = $_GET['type'];
 $Id = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id'));
-$Row = $Post->FirstOrDefault($Id);
+$row = $Post->FirstOrDefault($Id);
 
 // Default Values
 // TODO
@@ -27,13 +27,13 @@ if ($Id != null)
 switch ($Type)
 {
     case "POST":
-        $Title = $functionalitiesInstance->ifexistsidx($Row,'Title');
-        $Level = $functionalitiesInstance->ifexistsidx($Row,'Level');
-        $Body = $functionalitiesInstance->ifexistsidx($Row,'Body');
-        $CategoryID = $functionalitiesInstance->ifexistsidx($Row,'CategoryID');
+        $Title = $functionalitiesInstance->ifexistsidx($row,'Title');
+        $Level = $functionalitiesInstance->ifexistsidx($row,'Level');
+        $Body = $functionalitiesInstance->ifexistsidx($row,'Body');
+        $CategoryID = $functionalitiesInstance->ifexistsidx($row,'CategoryID');
         break;
     case "COMT":
-        $RefrenceID = $functionalitiesInstance->ifexistsidx($Row,'RefrenceID');
+        $RefrenceID = $functionalitiesInstance->ifexistsidx($row,'RefrenceID');
         break;
 }
 ?>

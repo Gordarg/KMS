@@ -4,6 +4,7 @@ use core\config;
 include ('core/init.php');
 require_once 'semi-orm/Categories.php';
 use orm\Categories;
+$parent = realpath(dirname(__FILE__) . '/..');
 ?>
 <!DOCTYPE html>
 
@@ -45,36 +46,14 @@ use orm\Categories;
 <html>
 <head>
 <title><?php echo config::TITLE ?></title>
-<meta http-equiv="content-type" content="text/html;charset=UTF-8">
-<meta name="keywords" content="<?php echo config::META_KEYWORDS ?>" />
-<meta name="description" content="<?php echo config::META_DESCRIPTION ?>" />
-<meta name="language" content="<?php echo config::LANGUAGE ?>" />
-<meta name="geo.region" CONTENT="<?php echo config::REGION ?>" />
-<meta name="googlebot" content="INDEX, follow" />
-<meta name="robots" content="index, follow"/>
-<meta charset="utf-8">
-<!-- needs attention -->
-	<!-- <meta name="author" content="<-BlogAuthor->"> -->
-<meta itemprop="name" content="<?php echo config::META_DESCRIPTION ?>">
-	<!-- <meta itemprop="description" content="خلاصه در این جا قرار می گیرد""> -->
-	<!-- <meta property="fb:admins" content="100001867037114"> -->
-	<!-- <meta property="og:title" content="GORDCMS"> -->
-	<!-- <meta property="og:description" content="Gordarg Content Management System"> -->
-	<!-- <meta property="og:image" content="logo.png"> -->
-	<!-- <meta property="og:url" content="[FAST READ URL FOR THIS CONTENT]">	 -->
-<meta name="revised" content="Tutorialspoint, 3/7/2014" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <?php
-/* TODO:
-
-page without query string css and js
-
-*/
-$items =  explode('/',preg_replace("/[^a-zA-Z0-9_\-\/اآبپتثجچحخدذرزسشصضطظعغفقکگلمنوهی]/","-",str_replace("://", "/", $path)));
+$_GET['yeild'] =  basename($_SERVER["SCRIPT_FILENAME"], ".php");
+include_once $parent . '/meta/render.php';
+$items =  explode('/',preg_replace("/[^a-zA-Z0-9_\-\/اآبپتثجچحخدذرزسشصضطظعغفقکگلمنوهی]/","-",str_replace("://", "/", str_replace("?", "/", $path))));
 for ($i=2; $i < count($items); $i++ )
 {
 	echo '<link href="' . $npath . '/css';
-	for ($j=2; $j <= $i; $j++ )
+	for ($j=3; $j <= $i; $j++ )
 		echo '/' . (($items[$j] == "")?"index-php":$items[$j]);
 	echo '.css" rel="stylesheet" />';
 	echo '

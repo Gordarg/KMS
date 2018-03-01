@@ -3,7 +3,7 @@
 include ('core/public-header.php');
 
 
-$db = mysqli_connect('localhost', 'root', '', 'gordcms');
+$db = mysqli_connect('localhost', 'root', '123', 'gordcms');
 
 
 $name = "";
