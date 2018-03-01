@@ -67,12 +67,13 @@ for ($i=2; $i < count($items); $i++ )
 		style="display: none; z-index: 2; width: 40%; min-width: 300px"
 		id="mySidebar">
 		<a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button">☰</a> <a href="./" onclick="w3_close()" class="w3-bar-item w3-button">خانه</a>
-		<a href="register.php" onclick="w3_close()" class="w3-bar-item w3-button">ثبت نام</a>
-		<a href="admin.php?type=POST" onclick="w3_close()" class="w3-bar-item w3-button">ورود</a>
-		<a href="profile.php" onclick="w3_close()" class="w3-bar-item w3-button">تنظیمات</a>
 		<a href="search.php" onclick="w3_close()" class="w3-bar-item w3-button">جستوجو</a>
-		<a href="category.php" onclick="w3_close()" class="w3-bar-item w3-button">مدیریت دسته ها </a>
+		<a href="register.php" onclick="w3_close()" class="w3-bar-item w3-button">ثبت نام</a>
+		<a href="profile.php" onclick="w3_close()" class="w3-bar-item w3-button">حساب کاربری</a>
 		<a href="login.php?way=bye" onclick="w3_close()" class="w3-bar-item w3-button">خروج</a>
+		<a href="admin.php?type=POST" onclick="w3_close()" class="w3-bar-item w3-button">محتوی</a>
+		<a href="category.php" onclick="w3_close()" class="w3-bar-item w3-button">دسته‌بندی‌ها</a>
+		<a href="tinyfilemanager.php?p=<?=config::Url_PATH?>" onclick="w3_close()" class="w3-bar-item w3-button">پرونده‌ها</a>
 		<hr />
 		<?php
 		foreach ((new Categories($conn))->ToList(0, 48, "Name", "DESC", "") as $category_row)

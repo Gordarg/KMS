@@ -1,4 +1,12 @@
 <?php
+include ('core/auth.php');
+
+/*
+TODO: IMPORTANT
+
+OPTIMIZATION
+
+*/
 
 include ('core/public-header.php');
 
