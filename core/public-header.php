@@ -46,6 +46,29 @@ $parent = realpath(dirname(__FILE__) . '/..');
 <html>
 <head>
 <title><?php echo config::TITLE ?></title>
+<<<<<<< HEAD
+=======
+<meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+<meta name="keywords" content="<?php echo config::META_KEYWORDS ?>" />
+<meta name="description" content="<?php echo config::META_DESCRIPTION ?>" />
+<meta name="language" content="<?php echo config::LANGUAGE ?>" />
+<meta name="geo.region" CONTENT="<?php echo config::REGION ?>" />
+<meta name="googlebot" content="INDEX, follow" />
+<meta name="robots" content="index, follow"/>
+<meta charset="utf-8">
+<!-- needs attention -->
+	<!-- <meta name="author" content="<-BlogAuthor->"> -->
+<meta itemprop="name" content="<?php echo config::META_DESCRIPTION ?>">
+	<!-- <meta itemprop="description" content="خلاصه در این جا قرار می گیرد""> -->
+	<!-- <meta property="fb:admins" content="100001867037114"> -->
+	<!-- <meta property="og:title" content="GORDCMS"> -->
+	<!-- <meta property="og:description" content="Gordarg Content Management System"> -->
+	<!-- <meta property="og:image" content="logo.png"> -->
+	<!-- <meta property="og:url" content="[FAST READ URL FOR THIS CONTENT]">	 -->
+<meta name="revised" content="Tutorialspoint, 3/7/2014" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+>>>>>>> db28529692b5a2c0580814618e4f03b0d7b76344
 <?php
 $_GET['yeild'] =  basename($_SERVER["SCRIPT_FILENAME"], ".php");
 include_once $parent . '/meta/render.php';
