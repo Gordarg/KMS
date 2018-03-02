@@ -12,12 +12,16 @@ $Q = (new functionalities())->ifexistsidx($_GET,'Q');
 </form>
 <div class="line"></div>
 <div class="table">
-
-</div>
-
 <?php
-
-$a="SELECT * FROM `post_details` WHERE Title LIKE '%".$Q."%';";
+$a="SELECT * FROM `post_details`
+WHERE
+`Title` LIKE '%".$Q."%'
+OR `CategoryName` LIKE '%".$Q."%'
+OR `Username` LIKE '%".$Q."%'
+OR `Body` LIKE '%".$Q."%'
+ORDER BY `Submit`
+Limit 10
+;";
 $b=mysqli_query($conn,$a);
 if(mysqli_num_rows($b)>0){
 echo '<div class="results">';
@@ -31,6 +35,9 @@ echo"</div>";
 else{
     echo "نتیجه یافت نشد";
 }
-;
+?>
+</div>
+
+<?php
 include ('core/public-footer.php');
 ?>
