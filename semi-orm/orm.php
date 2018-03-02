@@ -8,10 +8,8 @@ interface semi_orm
     function ToList($Skip = 0 , $Take = -1, $OrderField = 'Id', $OrderArrange = 'ASC'); // Return rows array
     function GetValueById($Id, $Field);
     function Insert($Values);
-    function Update($Id);
-    /*
-    function Delete($Id); // TODO: object as input
-    */
+    function Update($Id, $Values);
+    function Delete($Id);
 }
 
 ?>

@@ -53,9 +53,22 @@ class Posts implements semi_orm
 		mysqli_query($this->conn, $query);
 		// $this->SetValue('Id', mysqli_insert_id($conn));
     }
-    function Update($Values)
+    function Update($Id, $Values)
     {
-        
+        $query  = "UPDATE `posts` SET ";
+        for ($i= 0; $i < count($Values);){
+            $query .=
+            '`' .  $Values[$i][0] . '`' . " = " . $Values[$i][1]
+            
+            . ((++$i === count($Values)) ? "" : ", " );
+        }
+        $query = $query . " WHERE `Id` = " . $Id . ";";
+		mysqli_query($this->conn, $query);
+    }
+    function Delete($Id){
+        $this->Update($_POST['id'], [
+            ["Deleted", "1"],
+        ]);
     }
 }
 

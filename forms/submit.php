@@ -7,7 +7,6 @@
     $Post = new Posts($conn);
 
     if (isset($_POST["insert"]) || isset($_POST['update'])) {
-
         $Post->Insert([
             ["MasterId", "'" . mysqli_real_escape_string($conn, $_POST['masterid']) . "'"],
             ["Title", "'" . mysqli_real_escape_string($conn, $_POST['title']) . "'"],
@@ -24,19 +23,16 @@
         ]);
 
     }
-    else if (isset($_POST["delete"])) {      
-       
-        $query = "UPDATE posts SET `Deleted` = 1 WHERE `Id` = " . $_POST['id'] . ";";
+    else if (isset($_POST["delete"])) {
+        $Post->Delete($_POST['id']);
+        exit(header("Location: " . $npath ));
     }
     else if (isset($_POST["clear"]))
     {
-        $query = "UPDATE posts SET `ContentDeleted` = 1 WHERE `Id` = " . $_POST['id'] . ";";
+        $Post->Update($_POST['id'], [
+            ["ContentDeleted", "1"],
+        ]);
     }
-    if (!empty($_POST))
-    {
-        mysqli_query($conn, $query);
-    }
-    /*
     if ((isset($_POST["update"])) or (isset($_POST["insert"])))
     {
         $_POST['id'] =  mysqli_insert_id($conn);
@@ -44,7 +40,6 @@
         $query = "UPDATE posts SET `Content` = '" . mysqli_real_escape_string($conn, file_get_contents($_FILES['content']['tmp_name'])) . "' WHERE `Id` = '" . $_POST['id'] . "';";
         mysqli_query($conn, $query);
     }
-    */
     if (!empty($_POST))
-        header("Location: " . $npath . '/view.php?id=' . $_POST['masterid']);
+        exit(header("Location: " . $npath . '/view.php?id=' . $_POST['masterid']));
 ?>

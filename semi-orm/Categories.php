@@ -38,6 +38,14 @@ class Categories implements semi_orm
     {
         return;
     }
+    function Update($Id, $Values)
+    {
+        return;
+    }
+    function Delete($Id)
+    {
+        return;
+    }
 }
 
 ?>
