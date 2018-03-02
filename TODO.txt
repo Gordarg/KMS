@@ -43,8 +43,8 @@
 66- Combine Scripts->JS, Styles->CSS
 67- SubCategories and category management
 69- Field for AttachementDeleted, If AttachementDeleted then LoadNothing else LoadLastestAttachement.
-70- SubCategories
 71- ul li SEO IMPORTANT!!!!!
-72- DATABASE: Post_Details: Do not show `Content` if `ContentDeleted` = 1
-73- DATABASE: Post_Details: Use previous `Content` field value if this record's `Content` is null and that records `Content` is not null and `ContentDeleted` = 0
 74- Allow plugins
+
+75- Register with ORM
+76- Categories CRUD with ORM

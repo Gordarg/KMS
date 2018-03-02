@@ -10,7 +10,7 @@ class Categories implements semi_orm
     }
     function FirstOrDefault($Id)
     {
-        $query = "SELECT * FROM categories WHERE Id=" . $Id . ";";
+        $query = "SELECT * FROM `categories` WHERE `Id` = " . $Id . ";";
         $result = mysqli_query($this->conn, $query);
         if ($result)
             return $row = mysqli_fetch_array($result);
@@ -29,22 +29,24 @@ class Categories implements semi_orm
     }
     function GetValueById($Id, $Name)
     {
-        $query = "select `" . $Name . "` from categories where Id='" . $Id . "';";
+        $query = "SELECT `" . $Name . "` FROM `categories` WHERE `Id` = " . $Id . ";";
         $result = mysqli_query($this->conn, $query);
         $row = mysqli_fetch_array($result);
         return $row[$Name];
     }
     function Insert($Values)
-    {
-        return;
+	{
+     	$query  = "INSERT INTO `categories` (`Name`, `Father`) VALUES ('" . $Values['Name'] . "', " . $Values['Father'] . ");";
+		mysqli_query($this->conn, $query);
     }
     function Update($Id, $Values)
     {
-        return;
+        $query  = "UPDATE `categories` SET `Name` = '" . $Values['Name'] . "', `Father` = " . $Values['Father'] . " WHERE `Id` = " . $Id . ";";
+		mysqli_query($this->conn, $query);
     }
-    function Delete($Id)
-    {
-        return;
+    function Delete($Id){
+        $query  = "DELETE FROM `categories` WHERE `Id` = " . $Id . ";";
+		mysqli_query($this->conn, $query);
     }
 }
 
