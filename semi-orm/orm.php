@@ -7,10 +7,10 @@ interface semi_orm
     function FirstOrDefault($Id); // Select Record By Id
     function ToList($Skip = 0 , $Take = -1, $OrderField = 'Id', $OrderArrange = 'ASC'); // Return rows array
     function GetValueById($Id, $Field);
+    function Insert($Values);
+    function Update($Id);
     /*
-    function Insert(); // TODO: object as input
     function Delete($Id); // TODO: object as input
-    function Update($Id); // TODO: object as input
     */
 }
 

@@ -4,7 +4,6 @@ use core\config;
 include ('core/init.php');
 require_once 'semi-orm/Categories.php';
 use orm\Categories;
-$parent = realpath(dirname(__FILE__) . '/..');
 ?>
 <!DOCTYPE html>
 

@@ -34,6 +34,10 @@ class Categories implements semi_orm
         $row = mysqli_fetch_array($result);
         return $row[$Name];
     }
+    function Insert($Values)
+    {
+        return;
+    }
 }
 
 ?>

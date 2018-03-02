@@ -34,6 +34,29 @@ class Posts implements semi_orm
         $row = mysqli_fetch_array($result);
         return $row[$Name];
     }
+    function Insert($Values)
+	{
+     	$query  = "INSERT INTO `posts` (";
+        for ($i= 0; $i < count($Values);){
+            $query .= '`' .  $Values[$i][0] . '`'. ((++$i === count($Values)) ? "" : ", " );
+        }
+		$query = $query . ") VALUES (";
+        $i=0;
+		for (;$i < count($Values);){
+			$query = $query .
+            (
+                ($Values[$i][1] === NULL) ? "NULL" : ( $Values[$i][1])
+			)
+			. ((++$i === count($Values)) ? "" : ", " );
+		}
+        $query = $query . ");";
+		mysqli_query($this->conn, $query);
+		// $this->SetValue('Id', mysqli_insert_id($conn));
+    }
+    function Update($Values)
+    {
+        
+    }
 }
 
 ?>

@@ -10,4 +10,5 @@ include_once 'core/config.php';
 use core\config;
 $npath=(isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]" . config::Url_PATH;
 $path = $npath . "$_SERVER[REQUEST_URI]";
+$parent = realpath(dirname(__FILE__) . '/..');
 ?>
