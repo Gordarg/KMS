@@ -44,9 +44,9 @@
 69- Field for AttachementDeleted, If AttachementDeleted then LoadNothing else LoadLastestAttachement.
 74- Allow plugins
 
-75- Register with ORM
 76- Categories CRUD with ORM
 77- search
 71- ul li SEO IMPORTANT!!!!!
 59- Comment (Must use <article>) and Like
-78- 
+78- Archive
+79- 

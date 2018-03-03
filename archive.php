@@ -23,8 +23,8 @@ $rows = (new Posts($conn))->ToList(0, 48, "Submit", "DESC", ((isset($CategoryID)
 		?>
         <tr>
 			<td><?php echo $row['ID']?></td>
-			<td><a href="view.php?id=<?php echo $row['ID']?>"><?php echo $row['Title']?></a></td>
-			<td><a href="download.php?id=<?php echo $row['ID']?>">بارگزاری</a></td>
+			<td><a href="view.php?id=<?php echo $row['MasterID']?>"><?php echo $row['Title']?></a></td>
+			<td><a href="download.php?id=<?php echo $row['MasterID']?>">بارگزاری</a></td>
 			<td><?php echo $functionalitiesInstance->makeAbstract($row['Body'], 80)  ?></td>
 		</tr>
 		<?php

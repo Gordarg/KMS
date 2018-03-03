@@ -1,13 +1,20 @@
 <?php
 namespace orm;
-include_once ('abstract_semi_orm.php');
+include_once ('orm.php');
+class abstract_semi_orm implements semi_orm
+{
+    protected $conn ;
+    protected $table;
+    protected $pk   ;
 
-class Posts extends abstract_semi_orm
-{    
-
+    function __construct($database_connection = null, $table = null, $pk = "Id"){
+        $this->conn = $database_connection;
+        $this->table = $table;
+        $this->pk = $pk;
+    }
     function FirstOrDefault($Id)
     {
-        $query = "SELECT * FROM post_details WHERE MasterID='" . $Id . "';";
+        $query = "SELECT * FROM `" . $this->table . "` WHERE `" . $this->table . "` = '" . $Id . "';";
         $result = mysqli_query($this->conn, $query);
         if ($result)
             return $row = mysqli_fetch_array($result);
@@ -15,7 +22,7 @@ class Posts extends abstract_semi_orm
     }
     function ToList($Skip = 0 , $Take = 10, $OrderField = 'Id', $OrderArrange = 'ASC', $Clause = '')
     {
-        $query = "SELECT * FROM `post_details` " . $Clause . " ORDER BY `" . $OrderField . "` " . $OrderArrange . " LIMIT ". $Take . " OFFSET " . $Skip . ";";
+        $query = "SELECT * FROM `" . $this->table . "` " . $Clause . " ORDER BY `" . $OrderField . "` " . $OrderArrange . " LIMIT ". $Take . " OFFSET " . $Skip . ";";
         $result = mysqli_query($this->conn, $query);
         $rows = array();
         if ($result)
@@ -26,14 +33,14 @@ class Posts extends abstract_semi_orm
     }
     function GetValueById($Id, $Name)
     {
-        $query = "select `" . $Name . "` from post_details where ID='" . $Id . "';";
+        $query = "select `" . $Name . "` from `" . $this->table . "` where `" . $this->table . "` ='" . $Id . "';";
         $result = mysqli_query($this->conn, $query);
         $row = mysqli_fetch_array($result);
         return $row[$Name];
     }
     function Insert($Values)
 	{
-     	$query  = "INSERT INTO `posts` (";
+     	$query  = "INSERT INTO `" . $this->table . "` (";
         for ($i= 0; $i < count($Values);){
             $query .= '`' .  $Values[$i][0] . '`'. ((++$i === count($Values)) ? "" : ", " );
         }
@@ -48,24 +55,24 @@ class Posts extends abstract_semi_orm
 		}
         $query = $query . ");";
 		mysqli_query($this->conn, $query);
-		return mysqli_insert_id($conn);
+		return mysqli_insert_id($this->conn);
     }
     function Update($Id, $Values)
     {
-        $query  = "UPDATE `posts` SET ";
+        $query  = "UPDATE `" . $this->table . "` SET ";
         for ($i= 0; $i < count($Values);){
             $query .=
             '`' .  $Values[$i][0] . '`' . " = " . $Values[$i][1]
             
             . ((++$i === count($Values)) ? "" : ", " );
         }
-        $query = $query . " WHERE `Id` = " . $Id . ";";
+        $query = $query . " WHERE `. $this->pk .` = " . $Id . ";";
 		mysqli_query($this->conn, $query);
     }
     function Delete($Id){
-        $this->Update($_POST['id'], [
-            ["Deleted", "1"],
-        ]);
+        $query  = "DELETE FROM `" . $this->table . "` WHERE `" . $this->pk . "` = " . $Id . ";";
+		mysqli_query($this->conn, $query);
     }
 }
+
 ?>
