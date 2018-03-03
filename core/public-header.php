@@ -49,11 +49,14 @@ use orm\Categories;
 $_GET['yeild'] =  basename($_SERVER["SCRIPT_FILENAME"], ".php");
 include_once $parent . '/meta/render.php';
 $items =  explode('/',preg_replace("/[^a-zA-Z0-9_\-\/اآبپتثجچحخدذرزسشصضطظعغفقکگلمنوهی]/","-",str_replace("://", "/", str_replace("?", "/", $path))));
-for ($i=2; $i < count($items); $i++ )
+for ($i=1; $i < count($items); $i++ )
 {
 	echo '<link href="' . $npath . '/css';
-	for ($j=3; $j <= $i; $j++ )
-		echo '/' . (($items[$j] == "")?"index-php":$items[$j]);
+	if ($i == 1)
+	    echo '/master';
+    else
+    	for ($j=2; $j <= $i; $j++ )
+    		echo '/' . (($items[$j] == "")?"index-php":$items[$j]);
 	echo '.css" rel="stylesheet" />';
 	echo '
 ';
