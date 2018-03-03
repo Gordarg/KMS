@@ -1,7 +1,10 @@
 ALTER TABLE `categories` 
 ADD COLUMN `Father` INT(11) NULL AFTER `Name`,
 ADD INDEX `fk_categories_1_idx` (`Father` ASC);
-ALTER TABLE `gordcms`.`categories` 
+
+
+
+ALTER TABLE `categories` 
 ADD CONSTRAINT `fk_categories_1`
   FOREIGN KEY (`Father`)
   REFERENCES `categories` (`Id`)
