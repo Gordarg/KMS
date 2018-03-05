@@ -1,5 +1,11 @@
 <?php
 include ('core/auth.php');
+require_once $parent . '/semi-orm/Categories.php';
+use orm\Categories;
+$conn  = $db->open();
+$Category = new Categories($conn);
+
+
 
 /*
 TODO: IMPORTANT
@@ -15,10 +21,21 @@ $name = "";
 $id = 0;
 $update = false;
 
+
+
+
+
 if (isset($_POST['save'])) {
-    $name = $_POST['name'];
-    mysqli_query($conn, "INSERT INTO categories (Name) VALUES ('$name')"); 
-    // header('location: category.php');
+
+	/* IF UPDATE */
+
+	// Logic here
+
+	/* IF INSERT */
+
+	$Category->Insert([
+		['Name', "'" + $_POST['name'] + "'"]
+	]);
 }
 
 
