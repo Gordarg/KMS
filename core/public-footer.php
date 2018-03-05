@@ -45,17 +45,15 @@ use orm\Posts;
 </footer>
 </div>
 <?php
-for ($i=1; $i < count($items); $i++ )
+for ($i=1 + $c; $i < count($items); $i++ )
 {
     echo '<script type="text/javascript" src="' . $npath . '/js';
-    if ($i == 1)
+    if ($i == 1 + $c)
     echo '/master';
     else
-        for ($j=2; $j <= $i; $j++ )
+        for ($j=2 + $c; $j <= $i; $j++ )
             echo '/' . (($items[$j] == "")?"index-php":$items[$j]);
 	echo '.js" ></script>';
-	echo '
-';
 }
 ?>
 </body>
