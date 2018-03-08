@@ -3,11 +3,12 @@ namespace core;
 
 class config
 {
-    const Url_PATH = "/CMS";
+    const Url_PATH = "/CMS"; /* /Anything */
+    const Url_SUBDOMAIN = ""; /* Anything. */
 
     const ConnectionString_SERVER  = "localhost";
     const ConnectionString_USERNAME  = "root";
-    const ConnectionString_PASSWORD = "";
+    const ConnectionString_PASSWORD = "123";
     const ConnectionString_DATABASE = "gordcms";
 
     const TITLE = "گُرد";

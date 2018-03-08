@@ -48,15 +48,16 @@ use orm\Categories;
 <?php
 $_GET['yeild'] =  basename($_SERVER["SCRIPT_FILENAME"], ".php");
 include_once $parent . '/meta/render.php';
-$c = count(explode('/', config::Url_PATH));
+$c = 1 + count(explode('/', config::Url_PATH));
+$c -= count(explode('.', config::Url_SUBDOMAIN));
 $items =  explode('/',preg_replace("/[^a-zA-Z0-9_\-\/اآبپتثجچحخدذرزسشصضطظعغفقکگلمنوهی]/","-",str_replace("://", "/", str_replace("?", "/", $path))));
-for ($i=1 + $c; $i < count($items); $i++ )
+for ($i= $c + 1 ; $i < count($items); $i++ )
 {
 	echo '<link href="' . $npath . '/css';
-	if ($i == 1 + $c)
+	if ($i == $c + 1)
 	    echo '/master';
     else
-    	for ($j=2 + $c; $j <= $i; $j++ )
+    	for ($j= $c + 2; $j <= $i; $j++ )
     		echo '/' . (($items[$j] == "")?"index-php":$items[$j]);
 	echo '.css" rel="stylesheet" />';
 	echo '
