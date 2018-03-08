@@ -93,9 +93,6 @@ CREATE TABLE IF NOT EXISTS `posts` (
 ENGINE = InnoDB
 AUTO_INCREMENT = 51
 DEFAULT CHARACTER SET = latin1;
-
-USE `gordcms` ;
-
 -- -----------------------------------------------------
 -- Placeholder table for view `post_details`
 -- -----------------------------------------------------
@@ -105,18 +102,62 @@ CREATE TABLE IF NOT EXISTS `post_details` (`MasterID` INT, `Title` INT, `ID` INT
 -- View `post_details`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `post_details`;
-USE `gordcms`;
-CREATE  OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `post_details` AS select `T`.`MasterId` AS `MasterID`,`T`.`Title` AS `Title`,`T`.`Id` AS `ID`,`T`.`Submit` AS `Submit`,`T`.`CategoryId` AS `CategoryID`,`T`.`CategoryName` AS `CategoryName`,`T`.`UserId` AS `UserID`,`T`.`username` AS `Username`,`T`.`Body` AS `Body`,`T`.`Type` AS `Type`,`T`.`Level` AS `Level`,`T`.`RefrenceId` AS `RefrenceID`,`T`.`Index` AS `Index`,`T`.`Status` AS `Status`,(case when (`T`.`D2` >= `T`.`D1`) then NULL else `T`.`Content` end) AS `Content` from (select `posts`.`MasterId` AS `MasterId`,`posts`.`Id` AS `Id`,`posts`.`Title` AS `Title`,`posts`.`Submit` AS `Submit`,`posts`.`Type` AS `Type`,`posts`.`Level` AS `Level`,`posts`.`Content` AS `Content`,`posts`.`Body` AS `Body`,`posts`.`CategoryId` AS `CategoryId`,`posts`.`UserId` AS `UserId`,`posts`.`Status` AS `Status`,`posts`.`RefrenceId` AS `RefrenceId`,`posts`.`Index` AS `Index`,`posts`.`Deleted` AS `Deleted`,`posts`.`ContentDeleted` AS `ContentDeleted`,`categories`.`Name` AS `CategoryName`,`users`.`Username` AS `username`,(select `posts`.`Submit` AS `D1` from `posts` where ((`posts`.`Content` is not null) and (`posts`.`MasterId` = `posts`.`MasterId`)) order by `posts`.`Submit` desc limit 1) AS `D1`,(select `posts`.`Submit` AS `D2` from `posts` where ((`posts`.`ContentDeleted` = 1) and (`posts`.`MasterId` = `posts`.`MasterId`)) order by `posts`.`Submit` desc limit 1) AS `D2` from ((`posts` join `users` on((`posts`.`UserId` = `users`.`Id`))) join `categories` on((`posts`.`CategoryId` = `categories`.`Id`))) where (`posts`.`Id` in (select max(`posts`.`Id`) from `posts` group by `posts`.`MasterId`) and (`posts`.`Deleted` = 0))) `T`;
 
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-USE `gordcms`;
+CREATE OR REPLACE
+View `post_contents` AS
+SELECT
+        `posts`.*,
+        `categories`.`Name` AS `CategoryName`,
+        `users`.`username`,
+        (
+            SELECT  Submit as D1 FROM posts WHERE `Content` IS NOT NULL and `MasterId` = `posts`.`MasterId` order by `Submit` desc limit 1
+		) as D1
+		,
+		(
+            SELECT  Submit as D2 FROM posts WHERE `ContentDeleted` = 1 and `MasterId` = `posts`.`MasterId` order by `Submit` desc limit 1
+		) as D2
+    FROM
+        ((`posts`
+        JOIN `users` ON ((`posts`.`UserId` = `users`.`id`)))
+        JOIN `categories` ON ((`posts`.`CategoryId` = `categories`.`Id`)))
+    WHERE
+        (`posts`.`Id` IN (SELECT 
+                MAX(`posts`.`Id`)
+            FROM
+                `posts`
+            GROUP BY `posts`.`MasterId`)
+            AND (`posts`.`Deleted` = 0));
+
+CREATE 
+     OR REPLACE
+VIEW `post_details` AS
+		SELECT
+        T.`MasterId` as MasterID,
+        T.`Title`,
+        T.`Id` as ID,
+		T.`Submit`,
+		T.`CategoryID`,
+		T.`CategoryName`,
+		T.`UserId` as UserID,
+		T.`Username`,
+		T.`Body`,
+		T.`Type`,
+		T.`Level`,
+		T.`RefrenceId` as RefrenceID,
+		T.`Index`,
+		T.`Status`,
+		CASE WHEN D2 >= D1 THEN NULL ELSE `Content` END AS `Content`
+        FROM `post_contents` T;
+
+
+-- SET SQL_MODE=@OLD_SQL_MODE;
+-- SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+-- SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
 
 DELIMITER $$
-USE `gordcms`$$
+
 CREATE
-DEFINER=`root`@`localhost`
 TRIGGER `before_insert_post`
 BEFORE INSERT ON `posts`
 FOR EACH ROW
