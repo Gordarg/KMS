@@ -4,89 +4,49 @@ require_once $parent . '/semi-orm/Categories.php';
 use orm\Categories;
 $conn  = $db->open();
 $Category = new Categories($conn);
+require_once $parent . '/core/functionalities.php';
+use core\functionalities;
+$functionalitiesInstance = new functionalities();
 
+$Id = $functionalitiesInstance->ifexistsidx($_GET, 'id');
+$name = $fatherid = null;
+if ($Id != null)
+{
+	$row = (new Posts($conn))->FirstOrDefault($Id);
+	$name = $row['Name'];
+	$fatherid = $row['FatherId'];
+}
 
+if (isset($_POST))
+{
+	if (isset($_POST['save']) && $Id == null)
+		$Category->Insert([
+			["Name", "'" . mysqli_real_escape_string($conn, $_POST['name']) . "'"],
+			// ['FatherId',  $_POST['fatherid']]
+		]);
+	else if (isset($_POST['save']) && $Id != null)
+		$Category->Update([
+			['Id', "'" + $Id + "'"],
+			["Name", "'" . mysqli_real_escape_string($conn, $_POST['name']) . "'"],
+			// ['FatherId', $_POST['fatherid']]
+		]);
+	else if (isset($_POST['del'])) 
+		$Category->Delete([
+			['Id', "'" + $Id + "'"]
 
-/*
-TODO: IMPORTANT
-
-OPTIMIZATION
-
-*/
+		]);
+}
 
 include ('core/public-header.php');
-
-
-$name = "";
-$id = 0;
-$update = false;
-
-
-
-
-
-if (isset($_POST['save'])) {
-
-	/* IF UPDATE */
-
-	// Logic here
-
-	/* IF INSERT */
-
-	$Category->Insert([
-		['Name', "'" + $_POST['name'] + "'"]
-	]);
-}
-
-
-
-if (isset($_POST['update'])) {
-	$id = $_POST['id'];
-	$name = $_POST['name'];
-	$address = $_POST['address'];
-	mysqli_query($conn, "UPDATE categories SET name='$name' WHERE Id=$id");
-	// header('location: category.php');
-}
-
-
-
-
-if (isset($_GET['del'])) {
-	$id = $_GET['del'];
-	mysqli_query($conn, "DELETE FROM categories WHERE Id=$id"); 
-	// header('location: category.php');
-}
-
-
-
-
-
-if (isset($_GET['edit'])) {
-    $id = $_GET['edit'];
-    $update = true;
-    $record = mysqli_query($conn, "SELECT * FROM categories WHERE Id=$id");
-
-    if (count($record) == 1 ) {
-        $n = mysqli_fetch_array($record);
-        $name = $n['Name'];
-    }
-}
 ?>
 
-
-
-
 <form method="post" action="category.php" >
-		
-			<label>عنوان</label>
-            <input type="hidden" name="id" value="<?php echo $id; ?>">
-            <input type="text" name="name" value="<?php echo $name; ?>">
-			<button class="btn" type="submit" name="save" >ذخیره</button>
-		
-	</form>
+		<label>عنوان</label>
+		<input type="hidden" name="id" value="<?php echo $Id; ?>">
+		<input type="text" name="name" value="<?php echo $name; ?>">
+		<button class="btn" type="submit" name="save" >ذخیره</button>
+</form>
 
-
-    <?php $results = mysqli_query($conn, "SELECT * FROM categories"); ?>
 
 <table>
 	<thead>
@@ -96,14 +56,15 @@ if (isset($_GET['edit'])) {
 		</tr>
 	</thead>
 	
-	<?php while ($row = mysqli_fetch_array($results)) { ?>
+	<?php $results = mysqli_query($conn, "SELECT * FROM categories"); ?>
+	<?php while ($roww = mysqli_fetch_array($results)) { ?>
 		<tr>
-			<td><?php echo $row['Name']; ?></td>
+			<td><?php echo $roww['Name']; ?></td>
 			<td>
-				<a href="category.php?edit=<?php echo $row['Id']; ?>" class="edit_btn">ویرایش</a>
+				<a href="category.php?edit=<?php echo $roww['Id']; ?>" class="edit_btn">ویرایش</a>
 			</td>
 			<td>
-				<a href="category.php?del=<?php echo $row['Id']; ?>" class="del_btn">حذف</a>
+				<a href="category.php?del=<?php echo $roww['Id']; ?>" class="del_btn">حذف</a>
 			</td>
 		</tr>
 	<?php } ?>
