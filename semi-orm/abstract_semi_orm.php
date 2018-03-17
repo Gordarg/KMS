@@ -14,7 +14,7 @@ class abstract_semi_orm implements semi_orm
     }
     function FirstOrDefault($Id)
     {
-        $query = "SELECT * FROM `" . $this->table . "` WHERE `" . $this->table . "` = '" . $Id . "';";
+        $query = "SELECT * FROM `" . $this->table . "` WHERE `" . $this->pk . "` = '" . $Id . "';";
         $result = mysqli_query($this->conn, $query);
         if ($result)
             return $row = mysqli_fetch_array($result);
@@ -33,7 +33,7 @@ class abstract_semi_orm implements semi_orm
     }
     function GetValueById($Id, $Name)
     {
-        $query = "select `" . $Name . "` from `" . $this->table . "` where `" . $this->table . "` ='" . $Id . "';";
+        $query = "SELECT `" . $Name . "` FROM `" . $this->table . "` WHERE `" . $this->pk . "` ='" . $Id . "';";
         $result = mysqli_query($this->conn, $query);
         $row = mysqli_fetch_array($result);
         return $row[$Name];
@@ -66,8 +66,8 @@ class abstract_semi_orm implements semi_orm
             
             . ((++$i === count($Values)) ? "" : ", " );
         }
-        $query = $query . " WHERE `. $this->pk .` = " . $Id . ";";
-		mysqli_query($this->conn, $query);
+        $query = $query . " WHERE `" . $this->pk . "` = " . $Id . ";";
+        mysqli_query($this->conn, $query);
     }
     function Delete($Id){
         $query  = "DELETE FROM `" . $this->table . "` WHERE `" . $this->pk . "` = " . $Id . ";";

@@ -3,51 +3,52 @@ include ('core/auth.php');
 require_once $parent . '/semi-orm/Categories.php';
 use orm\Categories;
 $conn  = $db->open();
-$Category = new Categories($conn);
+$category = new Categories($conn);
 require_once $parent . '/core/functionalities.php';
 use core\functionalities;
 $functionalitiesInstance = new functionalities();
-
-$Id = $functionalitiesInstance->ifexistsidx($_GET, 'id');
-$name = $fatherid = null;
+$Id = $functionalitiesInstance->ifexistsidx($_GET, 'edit');
+$fatherid = $functionalitiesInstance->ifexistsidx($_GET, 'father');
+$name = null;
 if ($Id != null)
 {
-	$row = (new Posts($conn))->FirstOrDefault($Id);
+	$row = $category->FirstOrDefault($Id);
 	$name = $row['Name'];
-	$fatherid = $row['FatherId'];
 }
-
-if (isset($_POST))
+if (isset($_POST['save']) || isset($_POST['del']))
 {
+	$Id = $functionalitiesInstance->ifexistsidx($_POST, 'id');
 	if (isset($_POST['save']) && $Id == null)
-		$Category->Insert([
+		$category->Insert([
 			["Name", "'" . mysqli_real_escape_string($conn, $_POST['name']) . "'"],
-			// ['FatherId',  $_POST['fatherid']]
+			['Father',  ($fatherid == null) ? "NULL" : "'" . mysqli_real_escape_string($conn, $fatherid) . "'"]
 		]);
 	else if (isset($_POST['save']) && $Id != null)
-		$Category->Update([
-			['Id', "'" + $Id + "'"],
+		$category->Update($Id, [
 			["Name", "'" . mysqli_real_escape_string($conn, $_POST['name']) . "'"],
-			// ['FatherId', $_POST['fatherid']]
+			['Father',  ($fatherid == null) ? "NULL" : "'" . mysqli_real_escape_string($conn, $fatherid) . "'"]
 		]);
 	else if (isset($_POST['del'])) 
-		$Category->Delete([
-			['Id', "'" + $Id + "'"]
-
-		]);
+		$category->Delete(mysqli_real_escape_string($conn, $Id));
 }
 
 include ('core/public-header.php');
 ?>
 
 <form method="post" action="category.php" >
-		<label>عنوان</label>
-		<input type="hidden" name="id" value="<?php echo $Id; ?>">
-		<input type="text" name="name" value="<?php echo $name; ?>">
-		<button class="btn" type="submit" name="save" >ذخیره</button>
+	<label>عنوان</label>
+	<input type="hidden" name="id" value="<?php echo $Id; ?>">
+	<input type="text" name="name" value="<?php echo $name; ?>">
+	<input type="text" value="<?= $fatherid ?>" name="father" list="categories" />
+	<datalist id="categories" name="categoryid">
+	<?php
+		foreach ($category->ToList(0, 48, "Name", "DESC", "") as $category_row)
+			echo '<option value="' . $category_row['Id'] . '" >' . $category_row['Name'] . '</option>';
+	?>
+	</datalist>
+	<button class="btn" type="submit" name="save">ذخیره</button>
+	<button class="btn" type="submit" name="del">حذف</button>
 </form>
-
-
 <table>
 	<thead>
 		<tr>
@@ -56,15 +57,15 @@ include ('core/public-header.php');
 		</tr>
 	</thead>
 	
-	<?php $results = mysqli_query($conn, "SELECT * FROM categories"); ?>
-	<?php while ($roww = mysqli_fetch_array($results)) { ?>
+	<?php $results = $category->ToList(0, 100, 'Id', 'ASC', ($fatherid == NULL) ? "" : "WHERE `Father` = '" . $fatherid . "'"); ?>
+	<?php foreach ($results as $roww) { ?>
 		<tr>
 			<td><?php echo $roww['Name']; ?></td>
 			<td>
 				<a href="category.php?edit=<?php echo $roww['Id']; ?>" class="edit_btn">ویرایش</a>
 			</td>
 			<td>
-				<a href="category.php?del=<?php echo $roww['Id']; ?>" class="del_btn">حذف</a>
+				<a href="category.php?father=<?php echo $roww['Id']; ?>" class="del_btn">زیر شاخه‌ها</a>
 			</td>
 		</tr>
 	<?php } ?>
