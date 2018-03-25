@@ -3,8 +3,8 @@ namespace core;
 
 class config
 {
-    const Url_PATH = "/CMS"; /* /Anything */
-    const Url_SUBDOMAIN = ""; /* Anything. On Servers without subdomain you must declare '.' as subdomian because of 'www.' */
+    const Url_PATH = "/CMS"; //       /Anything
+    const Url_SUBDOMAIN = ""; //      Anything.
 
     const ConnectionString_SERVER  = "localhost";
     const ConnectionString_USERNAME  = "root";

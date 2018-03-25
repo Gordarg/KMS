@@ -49,7 +49,7 @@ use orm\Categories;
 $_GET['yeild'] =  basename($_SERVER["SCRIPT_FILENAME"], ".php");
 include_once $parent . '/meta/render.php';
 $c = 1 + count(explode('/', config::Url_PATH));
-$c -= count(explode('.', config::Url_SUBDOMAIN));
+$c -= count(explode('.', config::Url_SUBDOMAIN)); // TODO: BUG: dots in address has some problems; eg -> www. | .com
 $items =  explode('/',preg_replace("/[^a-zA-Z0-9_\-\/اآبپتثجچحخدذرزسشصضطظعغفقکگلمنوهی]/","-",str_replace("://", "/", str_replace("?", "/", $path))));
 for ($i= $c + 1 ; $i < count($items); $i++ )
 {
