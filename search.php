@@ -25,14 +25,14 @@ if ($Q != null)
     Limit 10
     ;";
     $b=mysqli_query($conn,$a);
-    if(mysqli_num_rows($b)>0){
-    echo '<div class="results">';
-    while($row = mysqli_fetch_array($b)){
-        echo '<div class="result">';
-        echo"<p>" . $row['Body']. "</p>";
-        echo "</div>";
-    }
-    echo"</div>";
+    if ($b->num_rows > 0) {
+        echo '<div class="results">';
+        while($row = mysqli_fetch_array($b)){
+            echo '<div class="result">';
+            echo"<p>" . $row['Body']. "</p>";
+            echo "</div>";
+        }
+        echo"</div>";
     }
     else{
         echo "نتیجه یافت نشد";
