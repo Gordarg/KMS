@@ -11,7 +11,9 @@ include_once ('core/public-header.php');
     <label for="email">ایمیل</label>
     <input type=" email" id="email" name="email" placeholder="ایمیل.">
     <label for="subject">موضوع</label>
-    <textarea id="subject" name="subject" placeholder="متن را بنویسید.." style="height:200px"></textarea>
+    <input type=" subject" id="subject" name="subject" placeholder="موضوع...">
+    <label for="text">متن</label>
+    <textarea id="text" name="text" placeholder="متن را بنویسید.." style="height:200px"></textarea>
 
     <input type="submit" value="ارسال">
   </form>
@@ -26,16 +28,18 @@ include_once ('core/public-header.php');
 @$EMail = addslashes($_POST['email']); 
 //متغیر دریافت موضوع پیام
 @$subject = addslashes($_POST['subject']); 
+//متغیر دریافت متن پیام
+@$subject = addslashes($_POST['text']); 
 //بخش ارسال مشخصات به ایمیل شما
-$header = "From: $EMail\n"
 . "Reply-To: $EMail\n";
 $header .= "Content-Type: text/plain; charset=UTF-8\n";
-$subject = '=?UTF-8?B?'.base64_encode($Ttitle).'?=';
+$subject = '=?UTF-8?B?'.base64_encode($subject).'?=';
 $email_to = "YOUR-EMAIL-HERE";
 $message = "آی پی مخاطب: $pfw_ip\n"
-. "نام و نام خانوادگی: $Name\n"
+. "نام و نام خانوادگی: $firstName\n"
 . "ایمیل: $EMail\n"
-. "متن پیام: $Message\n";
+. "موضوع پیام: $subject\n";
+. "متن پیام: $text\n";
 @mail($email_to, $subject ,$message ,$header ) ; 
 //درصورتی که فرم به درستی تکمیل شده باشد پیام زیر برای مخاطب نمایش داده می شود
 echo(" با تشکر ، پیام شما با موفقیت ارسال گردید");
