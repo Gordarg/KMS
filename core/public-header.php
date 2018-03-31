@@ -73,6 +73,7 @@ for ($i= $c + 1 ; $i < count($items); $i++ )
 		<a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button">☰</a> <a href="./" onclick="w3_close()" class="w3-bar-item w3-button">خانه</a>
 		<a href="search.php" onclick="w3_close()" class="w3-bar-item w3-button">جستوجو</a>
 		<a href="register.php" onclick="w3_close()" class="w3-bar-item w3-button">ثبت نام</a>
+		<a href="contactus.php" onclick="w3_close()" class="w3-bar-item w3-button">تماس باما</a>
 		<?php include ('helper/menu.php'); ?>
 		<hr />
 		<?php
