@@ -17,7 +17,7 @@ class config
     const SPONSOR = "";
     const META_KEYWORDS = "کلمات, کلیدی, من, SEO";
     const META_DESCRIPTION = "درباره‌ی این اَرگ";
-    const Email = "info@gordarg.com";
     
+    const WebMaster = "info@gordarg.com";
 }
 ?>
