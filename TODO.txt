@@ -49,4 +49,6 @@
 71- ul li SEO IMPORTANT!!!!!
 59- Comment (Must use <article>) and Like
 78- Archive
-79- 
+79- Auto update script to download and unzip last release form Github.com
+80- Auto install database on first run
+81- 
