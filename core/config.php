@@ -17,7 +17,7 @@ class config
     const SPONSOR = "";
     const META_KEYWORDS = "کلمات, کلیدی, من, SEO";
     const META_DESCRIPTION = "درباره‌ی این اَرگ";
-    $header = "From: $EMail\n"//آدرس یمیل خودر را برای دریافت ایمیل کاربران وارد کنید
+    const Email = "info@gordarg.com";
     
 }
 ?>
