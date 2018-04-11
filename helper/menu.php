@@ -10,7 +10,7 @@ if ($UserId == null)
 }
 ?>
 <a href="profile.php?id=<?php echo $_SESSION['PHP_AUTH_ID']?>" onclick="w3_close()" class="w3-bar-item w3-button">حساب کاربری</a>
-<a href="login.php?way=bye" onclick="w3_close()" class="w3-bar-item w3-button">خروج</a>
+<a href="./" onclick="w3_close()" class="w3-bar-item w3-button">خروج</a>
 <a href="admin.php?type=POST" onclick="w3_close()" class="w3-bar-item w3-button">محتوی</a>
 <a href="category.php" onclick="w3_close()" class="w3-bar-item w3-button">دسته‌بندی‌ها</a>
 <a href="tinyfilemanager.php?p=<?=core\config::Url_PATH?>" onclick="w3_close()" class="w3-bar-item w3-button">پرونده‌ها</a>
