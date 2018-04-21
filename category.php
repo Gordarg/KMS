@@ -31,7 +31,6 @@ if (isset($_POST['save']) || isset($_POST['del']))
 	else if (isset($_POST['del'])) 
 		$category->Delete(mysqli_real_escape_string($conn, $Id));
 }
-
 include ('core/public-header.php');
 ?>
 
@@ -56,7 +55,6 @@ include ('core/public-header.php');
 			<th colspan="2"></th>
 		</tr>
 	</thead>
-	
 	<?php $results = $category->ToList(0, 100, 'Id', 'ASC', ($fatherid == NULL) ? "" : "WHERE `Father` = '" . $fatherid . "'"); ?>
 	<?php foreach ($results as $roww) { ?>
 		<tr>
@@ -70,15 +68,5 @@ include ('core/public-header.php');
 		</tr>
 	<?php } ?>
 </table>
-
 <form>
-
-
-
-
-
-
-
-
-
 <?php include ('core/public-footer.php');?>

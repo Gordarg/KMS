@@ -6,7 +6,10 @@ $functionalitiesInstance = new functionalities();
 switch ($_GET['type'])
 {
     case "POST":
-    include('POST.php');
-    break;
+        include('POST.php');
+        break;
+    case "COMT":
+        include('COMT.php');
+        break;
 }
 ?>

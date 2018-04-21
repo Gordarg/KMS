@@ -22,3 +22,22 @@ foreach ($Category->ToList(0, 48, "Name", "DESC", "") as $category_row)
 <textarea name="body"><?= $Body  ?></textarea>
 <label for="body">پرونده</label>
 <input type="file" name="content" id="file" />
+<?php
+/*
+TODO: create drafting and publish mechanisms
+      based on user role
+
+    echo '<input type="submit" name="draft" value="پیش‌نویس" />';
+    echo '<input type="submit" name="edit" value="ویرایش" />';
+    echo '<input type="submit" name="publish" value="انتشار عمومی" />';
+    echo '<input type="submit" name="burn" value="لغو انتشار" />';
+*/
+if ($Id == "" ) {
+    echo '<input type="submit" name="insert" value="ارسال" />';
+} else {
+    echo '<input type="submit" name="update" value="به روز رسانی" />';
+    echo '<input type="submit" name="delete" value="حذف" />';
+    echo '<input type="submit" name="clear" value="حذف پیوست" />';
+}
+echo '<a href="index.php">انصراف</a>';
+?>

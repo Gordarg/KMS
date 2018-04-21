@@ -3,7 +3,6 @@ function YouAreNotAuthorized()
 {
     exit(header("Location: login.php")); 
 }
-
 include ('init.php');
 require_once ('authentication.php');
 $auth = new auth();

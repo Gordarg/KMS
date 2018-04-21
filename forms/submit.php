@@ -1,4 +1,7 @@
 <?php
+    require_once  $parent . '/core/functionalities.php';
+    use core\functionalities;
+    $functionalitiesInstance = new functionalities();
     include('securitycheck.php');
 
     require_once $parent . '/semi-orm/Posts.php';
@@ -9,19 +12,18 @@
     if (isset($_POST["insert"]) || isset($_POST['update'])) {
         $Post->Insert([
             ["MasterId", "'" . mysqli_real_escape_string($conn, $_POST['masterid']) . "'"],
-            ["Title", "'" . mysqli_real_escape_string($conn, $_POST['title']) . "'"],
+            ["Title", ($functionalitiesInstance->ifexistsidx($_POST, 'title') == NULL) ? "NULL" : "'" . mysqli_real_escape_string($conn, ($_POST['title'])) . "'"],
             ["Submit", "'" . mysqli_real_escape_string($conn, $_POST['submit']) . "'"],
             ["Type", "'" . mysqli_real_escape_string($conn, $_POST['type']) . "'"],
-            ["Level", "'" . mysqli_real_escape_string($conn, $_POST['level']) . "'"],
+            ["Level", ($functionalitiesInstance->ifexistsidx($_POST, 'level') == NULL) ? "NULL" : "'" . mysqli_real_escape_string($conn, ($_POST['level'])) . "'"],
             ["Body", "'" . mysqli_real_escape_string($conn, $_POST['body']) . "'"],
-            ["CategoryId", mysqli_real_escape_string($conn, $_POST['categoryid'])],
+            ["CategoryId", mysqli_real_escape_string($conn, (($functionalitiesInstance->ifexistsidx($_POST, 'categoryid') == NULL) ? "NULL" : $_POST['categoryid']))],
             ["UserId", mysqli_real_escape_string($conn, $_POST['userid'])],
             ["Status", "'" . mysqli_real_escape_string($conn, $_POST['status']) . "'"],
-            ["RefrenceId", mysqli_real_escape_string($conn, (($_POST['refrenceid'] == NULL) ? "NULL" : $_POST['refrenceid']))],
-            ["Index", mysqli_real_escape_string($conn, $_POST['index'])],
+            ["RefrenceId", ($functionalitiesInstance->ifexistsidx($_POST, 'refrenceid') == NULL) ? "NULL" : "'" . mysqli_real_escape_string($conn, ($_POST['refrenceid'])) . "'"],
+            ["Index", mysqli_real_escape_string($conn, (($functionalitiesInstance->ifexistsidx($_POST, 'index') == NULL) ? "NULL" : $_POST['index']))],
             ["Deleted", "0"],
         ]);
-
     }
     else if (isset($_POST["delete"])) {
         $Post->Delete($_POST['id']);

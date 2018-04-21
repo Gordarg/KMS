@@ -8,13 +8,8 @@ mt_rand( 0, 0x0fff ) | 0x4000,
 mt_rand( 0, 0x3fff ) | 0x8000,
 mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff ));
 
-$Id = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id'));
-if ($Id != null)
-    $MasterID = $Post->GetValueById($Id, 'MasterID');
-$row = $Post->FirstOrDefault($MasterID);
-
+$Id = null;
 $Title = '';
-$RefrenceID = null;
 $Index = '0';
 $CategoryID = null;
 $Submit = $datetime; // Comes from Init.php
@@ -23,6 +18,7 @@ $Level = 1;
 $Body = '';
 $Status = 'Publish';
 $Content = null;
+$RefrenceID = null;
 
 switch ($Type)
 {
@@ -31,9 +27,15 @@ switch ($Type)
         $Level = $functionalitiesInstance->ifexistsidx($row,'Level');
         $Body = $functionalitiesInstance->ifexistsidx($row,'Body');
         $CategoryID = $functionalitiesInstance->ifexistsidx($row,'CategoryID');
+        $Id = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id'));
+        if ($Id != null)
+            $MasterID = $Post->GetValueById($Id, 'MasterID');
+        $row = $Post->FirstOrDefault($MasterID);
         break;
     case "COMT":
         $RefrenceID = $functionalitiesInstance->ifexistsidx($row,'RefrenceID');
+        if ($RefrenceID == "")
+            $RefrenceID = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id'));
         break;
 }
 ?>

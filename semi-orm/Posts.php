@@ -48,7 +48,7 @@ class Posts extends abstract_semi_orm
 		}
         $query = $query . ");";
 		mysqli_query($this->conn, $query);
-		return mysqli_insert_id($conn);
+		return mysqli_insert_id($this->conn);
     }
     function Update($Id, $Values)
     {
