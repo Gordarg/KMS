@@ -5,11 +5,6 @@ require_once 'core/functionalities.php';
 use core\functionalities;
 include ('forms/submit.php');
 include ('core/public-header.php');
-/*
-
-TODO: Notice: Undefined index: type in C:\wamp\www\cms\admin.php on line 14
-
-*/
 ?>
 
 <div class="switch-field">
