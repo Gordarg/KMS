@@ -12,7 +12,7 @@ switch ($_GET['type'])
         include('COMT.php');
         break;
     case "KWRD":
-        include('COMT.php');
+        include('KWRD.php');
         break;
 }
 ?>

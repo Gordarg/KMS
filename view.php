@@ -20,20 +20,20 @@ echo '<h1 class="large">' . $row['Title'] . '</h1>';
 echo '<a href="archive.php?CategoryID=' . $row['CategoryID'] . '" class="medium">' . $row['CategoryName'] . '</a>';
 echo '<p>' . $row['Body']  . '</p>';
 echo '</article>';
-include ('helper/post_comment.php');
 include ('helper/post_keywords.php');
+include ('helper/post_comment.php');
 $rows=[];
-$rows = $post->ToList(0, 48, "Submit", "DESC", "WHERE `Type` = 'COMT' AND `RefrenceId`='" . mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id')) . "'");
-foreach ($rows as $row) {
-    $_GET['masterid'] = $row['MasterID'];
-    $_GET["type"] = 'COMT';
-    include ('views/render.php');
-}
-$rows=[];
-$rows = $post->ToList(0, 48, "Submit", "DESC", "WHERE `Type` = 'KWRD' AND `RefrenceId`='" . mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id')) . "'");
+$rows = $post->ToList(-1, -1, "Submit", "DESC", "WHERE `Type` = 'KWRD' AND `RefrenceId`='" . mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id')) . "'");
 foreach ($rows as $row) {
     $_GET['masterid'] = $row['MasterID'];
     $_GET["type"] = 'KWRD';
+    include ('views/render.php');
+}
+$rows=[];
+$rows = $post->ToList(-1, -1, "Submit", "DESC", "WHERE `Type` = 'COMT' AND `RefrenceId`='" . mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id')) . "'");
+foreach ($rows as $row) {
+    $_GET['masterid'] = $row['MasterID'];
+    $_GET["type"] = 'COMT';
     include ('views/render.php');
 }
 include ('core/public-footer.php');

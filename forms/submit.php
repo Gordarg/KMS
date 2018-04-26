@@ -44,5 +44,10 @@
         ]);
     }
     if (!empty($_POST))
-        exit(header("Location: " . $npath . '/view.php?id=' . $_POST['masterid']));
+    {
+        if ($_POST['type'] == "COMT" || $_POST['type'] == "KWRD")
+            exit(header("Location: " . $npath . '/view.php?id=' . $_POST['refrenceid']));
+        else
+            exit(header("Location: " . $npath . '/view.php?id=' . $_POST['masterid']));
+    }
 ?>

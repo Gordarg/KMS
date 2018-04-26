@@ -7,5 +7,5 @@ if ($UserId == null)
     return;
 $_GET['type'] = "KWRD";
 $Id = "";
-include_once ('forms/render.php');
+include ('forms/render.php');
 ?>

@@ -15,7 +15,11 @@ class Posts extends abstract_semi_orm
     }
     function ToList($Skip = 0 , $Take = 10, $OrderField = 'Id', $OrderArrange = 'ASC', $Clause = '')
     {
-        $query = "SELECT * FROM `post_details` " . $Clause . " ORDER BY `" . $OrderField . "` " . $OrderArrange . " LIMIT ". $Take . " OFFSET " . $Skip . ";";
+        $query = "SELECT * FROM `post_details` " . $Clause . " ORDER BY `" . $OrderField . "` " . $OrderArrange;
+        if ($Take != -1)
+            $query .= " LIMIT ". $Take;
+        if ($Skip != -1)
+            $query .= " OFFSET " . $Skip;
         $result = mysqli_query($this->conn, $query);
         $rows = array();
         if ($result)

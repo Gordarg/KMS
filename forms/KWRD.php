@@ -5,12 +5,4 @@
 
 <label for="body">کلمه‌ی کلیدی</label>
 <input type="text" name="body" value="<?= $Body  ?>" />
-<?php
-if ($Id == "" ) {
-    echo '<input type="submit" name="insert" value="ارسال" />';
-} else {
-    echo '<input type="submit" name="update" value="به روز رسانی" />';
-    echo '<input type="submit" name="delete" value="حذف" />';
-    echo '<input type="submit" name="clear" value="حذف پیوست" />';
-}
-?>
+<input type="submit" name="insert" value="ارسال" />

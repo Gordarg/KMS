@@ -80,7 +80,7 @@ for ($i= $c + 1 ; $i < count($items); $i++ )
 		<?php
 		foreach (
 			(new Categories($conn))
-			->ToList(0, 48, "Name", "DESC", "")
+			->ToList(-1, -1, "Name", "DESC", "")
 			as $category_row)
 			echo '<a rel="nofollow" href="archive.php?CategoryID=' . $category_row["Id"] . '" onclick="w3_close()" class="w3-bar-item w3-button">' . $category_row["Name"] . '</a>';
         ?>

@@ -37,5 +37,10 @@ switch ($Type)
         if ($RefrenceID == "")
             $RefrenceID = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id'));
         break;
+    case "KWRD":
+        $RefrenceID = $functionalitiesInstance->ifexistsidx($row,'RefrenceID');
+        if ($RefrenceID == "")
+            $RefrenceID = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id'));
+        break;
 }
 ?>

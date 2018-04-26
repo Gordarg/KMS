@@ -41,7 +41,7 @@ include ('core/public-header.php');
 	<input type="text" value="<?= $fatherid ?>" name="father" list="categories" />
 	<datalist id="categories" name="categoryid">
 	<?php
-		foreach ($category->ToList(0, 48, "Name", "DESC", "") as $category_row)
+		foreach ($category->ToList(-1, -1, "Name", "DESC", "") as $category_row)
 			echo '<option value="' . $category_row['Id'] . '" >' . $category_row['Name'] . '</option>';
 	?>
 	</datalist>
