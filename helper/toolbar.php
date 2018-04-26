@@ -8,4 +8,19 @@ if ($UserId == null)
 ?>
 <div class="toolbar">
     <!-- TODO: Admin panel here -->
+	<?php
+	$items =  explode('/',preg_replace("/[^a-zA-Z0-9_\-\/اآبپتثجچحخدذرزسشصضطظعغفقکگلمنوهی]/","-",str_replace("://", "/", str_replace("?", "/", $path))));
+	for ($i= $c + 1 ; $i < count($items); $i++ )
+	{
+		echo '<a href=tinyfilemanager.php?p=' . core\config::Url_PATH . '/css';
+		if ($i == $c + 1)
+			echo '/master';
+		else
+			for ($j= $c + 2; $j <= $i; $j++ )
+				echo '&view=' . (($items[$j] == "")?"index-php":$items[$j]);
+		echo '.css>ویرایش تم در لایه‌ی ' . $i . '</a>';
+		echo '
+	';
+	}
+	?>
 </div>
