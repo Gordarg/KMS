@@ -23,7 +23,12 @@ class abstract_semi_orm implements semi_orm
     function ToList($Skip = 0 , $Take = 10, $OrderField = 'Id', $OrderArrange = 'ASC', $Clause = '')
     {
         /* TODO: Take and Skip -1 will disable those parameters */
-        $query = "SELECT * FROM `" . $this->table . "` " . $Clause . " ORDER BY `" . $OrderField . "` " . $OrderArrange . " LIMIT ". $Take . " OFFSET " . $Skip . ";";
+        $query = "SELECT * FROM `" . $this->table . "` " . $Clause . " ORDER BY `" . $OrderField . "` " . $OrderArrange;
+        if ($Take != -1)
+            $query .= " LIMIT ". $Take;
+        if ($Skip != -1)
+            $query .= " OFFSET " . $Skip;
+        $query .= ";";
         $result = mysqli_query($this->conn, $query);
         $rows = array();
         if ($result)
