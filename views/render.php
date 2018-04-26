@@ -11,5 +11,8 @@ switch ($_GET['type'])
     case "COMT":
         include('COMT.php');
         break;
+    case "KWRD":
+        include('COMT.php');
+        break;
 }
 ?>

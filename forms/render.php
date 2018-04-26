@@ -28,6 +28,9 @@ switch ($Type)
     case "COMT":
         include('COMT.php');
         break;
+    case "KWRD":
+        include('KWRD.php');
+        break;
 }
 ?>
 </form>

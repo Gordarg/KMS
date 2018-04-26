@@ -3,8 +3,8 @@
 <input type="hidden" name="refrenceid" value="<?= $RefrenceID ?>" />
 <input type="hidden" name="status" value="<?= $Status ?>" />
 
-<label for="body">دیدگاه</label>
-<textarea name="body"><?= $Body  ?></textarea>
+<label for="body">کلمه‌ی کلیدی</label>
+<input type="text" name="body" value="<?= $Body  ?>" />
 <?php
 if ($Id == "" ) {
     echo '<input type="submit" name="insert" value="ارسال" />';

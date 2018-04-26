@@ -66,6 +66,7 @@ for ($i= $c + 1 ; $i < count($items); $i++ )
 ?>
 </head>
 <body>
+	<?php include ('helper/toolbar.php'); ?>
 	<nav
 		class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-right"
 		style="display: none; z-index: 2; width: 40%; min-width: 300px"

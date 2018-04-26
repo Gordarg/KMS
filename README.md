@@ -22,6 +22,7 @@ Where should it be placed? that's what matters.
 
 ##Post types
 - A post can be a **POST**! Just like any other letter you write on your blog.
+- There are keywords describing a post better. **KWRD**
 - It can be a **FILE**. Updload your files and write a little description for them. Your users can download them easily.
 - It can be a **COMT**. Comments are plain texts, maybe containing an attachement. These comments are depended to other posts.
 - It can be a **ARTCL**. Articles can contains **QUOT**.
