@@ -37,7 +37,7 @@ use orm\Posts;
         config::META_KEYWORDS;
         $keywords_arr = explode(',', $keywords);
         foreach ($keywords_arr as $keywordsArr) {
-            echo '<span class="w3-tag w3-dark-grey w3-small w3-margin-bottom"> ' . $keywordsArr . ' </span>' . ' ';
+            echo '<a rel="search" class="w3-tag w3-dark-grey w3-small w3-margin-bottom" href="search.php?Q=' . $keywordsArr . '"> ' . $keywordsArr . ' </a>' . ' ';
         }
         ?>
      </p>
