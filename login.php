@@ -18,23 +18,17 @@
 
   <form class="modal-content animate" action="login.php" method="post">
     <div class="imgcontainer">
-      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
       <img src="Gordarg.png" alt="Gordarg logo" class="avatar">
     </div>
 
     <div class="container">
-      <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="user" required>
+      <label for="uname"><b>نام کاربری</b></label>
+      <input type="text" placeholder="نام کاربری را وارد نمایید" name="user" required>
 
-      <label for="pass"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="pass" required>
+      <label for="pass"><b>کلمه‌ی عبور</b></label>
+      <input type="password" placeholder="کلمه‌ی عبور را وارد نمایید" name="pass" required>
 
-      <button type="submit" name="login" >Login</button>
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-        <span class="psw">Forgot <a href="#">password?</a>
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>   
+      <button type="submit" name="login" >ورود</button>
     </div>
     </div>
 
