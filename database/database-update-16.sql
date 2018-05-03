@@ -29,49 +29,49 @@ ADD CONSTRAINT `fk_posts_refrence`
 
 CREATE OR REPLACE VIEW `post_contents` AS
     SELECT 
-        `gordcms`.`posts`.`MasterId` AS `MasterId`,
-        `gordcms`.`posts`.`Id` AS `Id`,
-        `gordcms`.`posts`.`Title` AS `Title`,
-        `gordcms`.`posts`.`Submit` AS `Submit`,
-        `gordcms`.`posts`.`Type` AS `Type`,
-        `gordcms`.`posts`.`Level` AS `Level`,
-        `gordcms`.`posts`.`Content` AS `Content`,
-        `gordcms`.`posts`.`Body` AS `Body`,
-        `gordcms`.`posts`.`CategoryId` AS `CategoryId`,
-        `gordcms`.`posts`.`UserId` AS `UserId`,
-        `gordcms`.`posts`.`Status` AS `Status`,
-        `gordcms`.`posts`.`RefrenceId` AS `RefrenceId`,
-        `gordcms`.`posts`.`Index` AS `Index`,
-        `gordcms`.`posts`.`Deleted` AS `Deleted`,
-        `gordcms`.`posts`.`ContentDeleted` AS `ContentDeleted`,
-        `gordcms`.`categories`.`Name` AS `CategoryName`,
-        `gordcms`.`users`.`Username` AS `username`,
+        `posts`.`MasterId` AS `MasterId`,
+        `posts`.`Id` AS `Id`,
+        `posts`.`Title` AS `Title`,
+        `posts`.`Submit` AS `Submit`,
+        `posts`.`Type` AS `Type`,
+        `posts`.`Level` AS `Level`,
+        `posts`.`Content` AS `Content`,
+        `posts`.`Body` AS `Body`,
+        `posts`.`CategoryId` AS `CategoryId`,
+        `posts`.`UserId` AS `UserId`,
+        `posts`.`Status` AS `Status`,
+        `posts`.`RefrenceId` AS `RefrenceId`,
+        `posts`.`Index` AS `Index`,
+        `posts`.`Deleted` AS `Deleted`,
+        `posts`.`ContentDeleted` AS `ContentDeleted`,
+        `categories`.`Name` AS `CategoryName`,
+        `users`.`Username` AS `username`,
         (SELECT 
-                `gordcms`.`posts`.`Submit` AS `D1`
+                `posts`.`Submit` AS `D1`
             FROM
-                `gordcms`.`posts`
+                `posts`
             WHERE
-                ((`gordcms`.`posts`.`Content` IS NOT NULL)
-                    AND (`gordcms`.`posts`.`MasterId` = `gordcms`.`posts`.`MasterId`))
-            ORDER BY `gordcms`.`posts`.`Submit` DESC
+                ((`posts`.`Content` IS NOT NULL)
+                    AND (`posts`.`MasterId` = `posts`.`MasterId`))
+            ORDER BY `posts`.`Submit` DESC
             LIMIT 1) AS `D1`,
         (SELECT 
-                `gordcms`.`posts`.`Submit` AS `D2`
+                `posts`.`Submit` AS `D2`
             FROM
-                `gordcms`.`posts`
+                `posts`
             WHERE
-                ((`gordcms`.`posts`.`ContentDeleted` = 1)
-                    AND (`gordcms`.`posts`.`MasterId` = `gordcms`.`posts`.`MasterId`))
-            ORDER BY `gordcms`.`posts`.`Submit` DESC
+                ((`posts`.`ContentDeleted` = 1)
+                    AND (`posts`.`MasterId` = `posts`.`MasterId`))
+            ORDER BY `posts`.`Submit` DESC
             LIMIT 1) AS `D2`
     FROM
-        ((`gordcms`.`posts`
-        JOIN `gordcms`.`users` ON ((`gordcms`.`posts`.`UserId` = `gordcms`.`users`.`Id`)))
-        LEFT OUTER JOIN `gordcms`.`categories` ON ((`gordcms`.`posts`.`CategoryId` = `gordcms`.`categories`.`Id`)))
+        ((`posts`
+        JOIN `users` ON ((`posts`.`UserId` = `users`.`Id`)))
+        LEFT OUTER JOIN `categories` ON ((`posts`.`CategoryId` = `categories`.`Id`)))
     WHERE
-        (`gordcms`.`posts`.`Id` IN (SELECT 
-                MAX(`gordcms`.`posts`.`Id`)
+        (`posts`.`Id` IN (SELECT 
+                MAX(`posts`.`Id`)
             FROM
-                `gordcms`.`posts`
-            GROUP BY `gordcms`.`posts`.`MasterId`)
-            AND (`gordcms`.`posts`.`Deleted` = 0))
+                `posts`
+            GROUP BY `posts`.`MasterId`)
+            AND (`posts`.`Deleted` = 0))
