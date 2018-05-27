@@ -1,3 +1,7 @@
+81- circles
+82- multilanguage
+83- 
+
 6- draft
 11- offline backup
 12- Show messages and error pages
@@ -16,7 +20,6 @@
 27- Accounting
 28- Content compression
 29- SEO: Twitter card
-32.1- SEO: Keywords for any page
 34- Generate dynamic keywords
 36- Backlinks
 37- Statistics
@@ -25,7 +28,6 @@
 41- SEO: meta-number for page clicks
 42- SEO: Cloaking for Bing and Google
 43- SEO: Error 301
-44- Allow themes
 45- Backend set page properties
 46- Refresh bug after update
 50- Static pages
@@ -50,4 +52,5 @@
 78- Archive
 79- Auto update script to download and unzip last release form Github.com
 80- Auto install database on first run
-81- 
+
+84- Manage themes
