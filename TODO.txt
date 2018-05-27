@@ -1,6 +1,7 @@
 81- circles
 82- multilanguage
 83- File Manager
+86- REMOVE CATEGORIES (HANDLE CATEGORIES USING KEYWORDS)
 
 6- draft
 11- offline backup
