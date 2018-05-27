@@ -6,4 +6,4 @@ $UserId = $auth->login();
 if ($UserId == null)
         return;
 ?>
-<a href="admin.php?type=POST&id=<?= $row['ID'] ?>">ویرایش</a>
+<a href="admin.php?id=<?= $row['ID'] ?>">ویرایش</a>
