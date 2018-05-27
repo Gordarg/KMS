@@ -18,17 +18,16 @@ $Body = '';
 $Status = 'Publish';
 $Content = null;
 $RefrenceID = null;
-$row = $Post->FirstOrDefault($MasterID);
 switch ($Type)
 {
     case "POST":
+        $ID = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id'));
+        if ($ID != null)
+            $row = $Post->FirstOrDefault($ID);
         $Title = $functionalitiesInstance->ifexistsidx($row,'Title');
         $Level = $functionalitiesInstance->ifexistsidx($row,'Level');
         $Body = $functionalitiesInstance->ifexistsidx($row,'Body');
         $CategoryID = $functionalitiesInstance->ifexistsidx($row,'CategoryID');
-        $Id = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id'));
-        if ($Id != null)
-            $MasterID = $Post->GetValueById($Id, 'MasterID');
         break;
     case "COMT":
         $RefrenceID = $functionalitiesInstance->ifexistsidx($row,'RefrenceID');

@@ -1,11 +1,10 @@
 <?php
 /* TODO: Remove me */ $parent = realpath(dirname(__FILE__) . '/..');
-require_once ($parent . '/core/authentication.php');
+/* TODO: Draft Comments at First*/
 $auth = new auth();
 $UserId = $auth->login();
 if ($UserId == null)
     return;
 $_GET['type'] = "COMT";
-$Id = "";
 include ('forms/render.php');
 ?>

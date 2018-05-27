@@ -6,6 +6,5 @@ $UserId = $auth->login();
 if ($UserId == null)
     return;
 $_GET['type'] = "KWRD";
-$Id = "";
 include ('forms/render.php');
 ?>

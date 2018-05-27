@@ -11,7 +11,6 @@ $rows = (new Posts($conn))->ToList(0, 48, "Submit", "DESC", ((isset($CategoryID)
 <table class="table table-bordered">
 	<thead>
 		<tr>
-			<td>شناسه</td>
 			<td>عنوان</td>
 			<td>ضمیمه</td>
 			<td>متن</td>
@@ -22,7 +21,6 @@ $rows = (new Posts($conn))->ToList(0, 48, "Submit", "DESC", ((isset($CategoryID)
 		foreach ($rows as $row) {
 		?>
         <tr>
-			<td><?php echo $row['ID']?></td>
 			<td><a href="view.php?id=<?php echo $row['MasterID']?>"><?php echo $row['Title']?></a></td>
 			<td><a href="download.php?id=<?php echo $row['MasterID']?>">بارگزاری</a></td>
 			<td><?php echo $functionalitiesInstance->makeAbstract($row['Body'], 80)  ?></td>

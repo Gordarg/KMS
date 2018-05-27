@@ -4,11 +4,15 @@
 <input type="hidden" name="refrenceid" value="<?= $RefrenceID ?>" />
 <input type="hidden" name="status" value="<?= $Status ?>" />
 
-<label for="title">عنوان</label>
-<input name="title" placeholder="عنوان را وارد نمایید" type="text" value="<?= $Title ?>" />
+<label for="title"><?= $functionalitiesInstance->label("عنوان"); ?></label>
+<input name="title" placeholder="<?= $functionalitiesInstance->label("عنوان"); ?>" type="text" value="<?= $Title ?>" />
 
-<label for="level">مرتبه</label>
-<input name="level" value="<?= $Level ?>"  type="number" name="quantity" min="1" max="3" />
+<label for="level"><?= $functionalitiesInstance->label("مرتبه"); ?></label>
+<select name="level">
+  <option <?= ($Level == "1") ? "selected" : ""  ?> value="1">سریع - بالا</option>
+  <option <?= ($Level == "2") ? "selected" : ""  ?> value="2">متوسط - مرکز</option>
+  <option <?= ($Level == "3") ? "selected" : ""  ?> value="3">کند - پایین</option>
+</select>
 
 <label for="categoryid">انتخاب دسته بندی</label>
 <input type="text" value="<?= $CategoryID ?>" name="categoryid" list="categories" />

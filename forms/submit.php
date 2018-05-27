@@ -3,7 +3,7 @@
     use core\functionalities;
     $functionalitiesInstance = new functionalities();
     include('securitycheck.php');
-
+    require_once ($parent . '/core/authentication.php'); /* Check before send */
     require_once $parent . '/semi-orm/Posts.php';
     use orm\Posts;
     $conn  = $db->open();
