@@ -9,7 +9,7 @@
     $conn  = $db->open();
     $Post = new Posts($conn);
 
-    if (isset($_POST["insert"]) || isset($_POST['update'])) {
+    if (isset($_POST["insert"]) || isset($_POST['update']) || isset($_POST['clear'])) {
         $Post->Insert([
             ["MasterId", "'" . mysqli_real_escape_string($conn, $_POST['masterid']) . "'"],
             ["Title", ($functionalitiesInstance->ifexistsidx($_POST, 'title') == NULL) ? "NULL" : "'" . mysqli_real_escape_string($conn, ($_POST['title'])) . "'"],
@@ -17,7 +17,6 @@
             ["Type", "'" . mysqli_real_escape_string($conn, $_POST['type']) . "'"],
             ["Level", ($functionalitiesInstance->ifexistsidx($_POST, 'level') == NULL) ? "NULL" : "'" . mysqli_real_escape_string($conn, ($_POST['level'])) . "'"],
             ["Body", "'" . mysqli_real_escape_string($conn, $_POST['body']) . "'"],
-            ["CategoryId", mysqli_real_escape_string($conn, (($functionalitiesInstance->ifexistsidx($_POST, 'categoryid') == NULL) ? "NULL" : $_POST['categoryid']))],
             ["UserId", mysqli_real_escape_string($conn, $_POST['userid'])],
             ["Status", "'" . mysqli_real_escape_string($conn, $_POST['status']) . "'"],
             ["RefrenceId", ($functionalitiesInstance->ifexistsidx($_POST, 'refrenceid') == NULL) ? "NULL" : "'" . mysqli_real_escape_string($conn, ($_POST['refrenceid'])) . "'"],
@@ -29,13 +28,13 @@
         $Post->Delete($_POST['id']);
         exit(header("Location: " . $npath ));
     }
-    else if (isset($_POST["clear"]))
+    if (isset($_POST["clear"]))
     {
-        $Post->Update($_POST['id'], [
+        $Post->Update(mysqli_insert_id($conn),[
             ["ContentDeleted", "1"],
         ]);
     }
-    if ((isset($_POST["update"])) or (isset($_POST["insert"])))
+    else if ((isset($_POST["update"])) or (isset($_POST["insert"])))
     {
         if ($_FILES['content']['size'] > 0) 
         $Post->Update(mysqli_insert_id($conn), [

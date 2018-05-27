@@ -5,14 +5,14 @@ require_once 'core/functionalities.php';
 use core\functionalities;
 include ('master/public-header.php');
 
-$Id = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id'));
-if ($Id != null)
-    $MasterID = $Post->GetValueById($Id, 'MasterID');
-$row = $Post->FirstOrDefault($MasterID);
+/*
+TODO: HERE ATTENTION
+
+*/
 ?>
 
 <label for="title">نام کاربری</label>
-<input name="title" type="text" value="<?= $Title ?>" />
+<input name="title" type="text" value="" />
 
 <div class="pass">
     <label for="title">گذرواژه‌ی قبلی</label>

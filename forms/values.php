@@ -21,9 +21,10 @@ $RefrenceID = null;
 switch ($Type)
 {
     case "POST":
-        $ID = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id'));
-        if ($ID != null)
-            $row = $Post->FirstOrDefault($ID);
+        $Id = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id'));
+        if ($Id != null)
+            $MasterID = $Id;
+        $row = $Post->FirstOrDefault($Id);
         $Title = $functionalitiesInstance->ifexistsidx($row,'Title');
         $Level = $functionalitiesInstance->ifexistsidx($row,'Level');
         $Body = $functionalitiesInstance->ifexistsidx($row,'Body');
