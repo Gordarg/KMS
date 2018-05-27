@@ -18,9 +18,6 @@ $Body = '';
 $Status = 'Publish';
 $Content = null;
 $RefrenceID = null;
-$Id = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id'));
-if ($Id != null)
-    $MasterID = $Post->GetValueById($Id, 'MasterID');
 $row = $Post->FirstOrDefault($MasterID);
 switch ($Type)
 {
@@ -30,6 +27,8 @@ switch ($Type)
         $Body = $functionalitiesInstance->ifexistsidx($row,'Body');
         $CategoryID = $functionalitiesInstance->ifexistsidx($row,'CategoryID');
         $Id = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id'));
+        if ($Id != null)
+            $MasterID = $Post->GetValueById($Id, 'MasterID');
         break;
     case "COMT":
         $RefrenceID = $functionalitiesInstance->ifexistsidx($row,'RefrenceID');

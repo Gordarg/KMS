@@ -10,6 +10,23 @@ TODO: make functions static
 
 class functionalities
 {
+    function label($text)
+    {
+        if(!isset($_COOKIE["LANG"])) {
+            $_COOKIE["LANG"] = "fa-IR";
+        }
+        $LANG = $_COOKIE["LANG"];
+
+        /*
+
+        TODO: Translate from FA to $LANG
+        from variable dictionary.yaml
+        
+        */
+
+        return $text;
+    }
+
     function ifexists($varname)
     {
       return(isset($$varname)?$varname:null);

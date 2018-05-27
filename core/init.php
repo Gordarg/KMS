@@ -15,7 +15,7 @@ if (session_status() == PHP_SESSION_NONE)
 include_once 'database_conn.php';
 $db = new database_connection();
 $conn  = $db->open();
-include_once 'core/config.php';
+include_once 'variable/config.php';
 use core\config;
 $npath=(isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]" . config::Url_PATH;
 $path = $npath . "$_SERVER[REQUEST_URI]";
