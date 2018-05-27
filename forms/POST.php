@@ -9,22 +9,14 @@
 
 <label for="level"><?= $functionalitiesInstance->label("مرتبه"); ?></label>
 <select name="level">
-  <option <?= ($Level == "1") ? "selected" : ""  ?> value="1">سریع - بالا</option>
-  <option <?= ($Level == "2") ? "selected" : ""  ?> value="2">متوسط - مرکز</option>
-  <option <?= ($Level == "3") ? "selected" : ""  ?> value="3">کند - پایین</option>
+  <option <?= ($Level == "1") ? "selected" : ""  ?> value="1"><?= $functionalitiesInstance->label("سریع"); ?> - <?= $functionalitiesInstance->label("بالا"); ?></option>
+  <option <?= ($Level == "2") ? "selected" : ""  ?> value="2"><?= $functionalitiesInstance->label("متوسط"); ?> - <?= $functionalitiesInstance->label("مرکز"); ?></option>
+  <option <?= ($Level == "3") ? "selected" : ""  ?> value="3"><?= $functionalitiesInstance->label("کند"); ?> - <?= $functionalitiesInstance->label("پایین"); ?></option>
 </select>
 
-<label for="categoryid">انتخاب دسته بندی</label>
-<input type="text" value="<?= $CategoryID ?>" name="categoryid" list="categories" />
-<datalist id="categories" name="categoryid">
-<?php
-foreach ($Category->ToList(0, 48, "Name", "DESC", "") as $category_row)
-    echo '  <option value="' . $category_row['Id'] . '"' . (($category_row['Id'] == $CategoryID)?(" selected") : ("")) . '>' . $category_row['Name'] . '</option>';
-?>
-</datalist>
-<label for="body">متن</label>
+<label for="body"><?= $functionalitiesInstance->label("متن"); ?></label>
 <textarea name="body"><?= $Body  ?></textarea>
-<label for="body">پرونده</label>
+<label for="body"><?= $functionalitiesInstance->label("پرونده"); ?></label>
 <input type="file" name="content" id="file" />
 <?php
 /*

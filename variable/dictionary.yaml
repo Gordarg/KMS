@@ -10,6 +10,13 @@
 ارسال
 کلمه‌ی کلیدی
 عنوان
+سریع
+بالا
+متوسط
+مرکز
+کند
+پایین
+متن
+پرونده
 
-
-# <?= $functionalitiesInstance->label("همراهان ما"); ?>
+# <?= $functionalitiesInstance->label("پرونده"); ?>
