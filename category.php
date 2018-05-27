@@ -31,7 +31,7 @@ if (isset($_POST['save']) || isset($_POST['del']))
 	else if (isset($_POST['del'])) 
 		$category->Delete(mysqli_real_escape_string($conn, $Id));
 }
-include ('core/public-header.php');
+include ('master/public-header.php');
 ?>
 
 <form method="post" action="category.php" >
@@ -69,4 +69,4 @@ include ('core/public-header.php');
 	<?php } ?>
 </table>
 <form>
-<?php include ('core/public-footer.php');?>
+<?php include ('master/public-footer.php');?>

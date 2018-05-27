@@ -1,5 +1,5 @@
 <?php
-include ('core/public-header.php');
+include ('master/public-header.php');
 require_once 'semi-orm/Posts.php';
 use orm\Posts;
 $rows=[];
@@ -24,5 +24,5 @@ foreach ($rows as $row) {
         break;
 }
 
-include ('core/public-footer.php');
+include ('master/public-footer.php');
 ?>

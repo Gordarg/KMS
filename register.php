@@ -1,5 +1,5 @@
 <?php
-include_once ('core/public-header.php');
+include_once ('master/public-header.php');
 require_once $parent . '/semi-orm/Users.php';
 use orm\Users;
 if(isset($_POST["btn"]))
@@ -32,4 +32,4 @@ if(isset($_POST["btn"]))
 </div>
 </form>
 
-<?php include_once ('core/public-footer.php'); ?> 
+<?php include_once ('master/public-footer.php'); ?> 

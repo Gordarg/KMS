@@ -4,12 +4,12 @@ include ('core/auth.php');
 require_once 'core/functionalities.php';
 use core\functionalities;
 include ('forms/submit.php');
-include ('core/public-header.php');
+include ('master/public-header.php');
 ?>
 <!--
     User Profile
     Category Management
 -->
 <?php
-include ('core/public-footer.php');
+include ('master/public-footer.php');
 ?>

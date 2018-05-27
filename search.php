@@ -1,5 +1,5 @@
 <?php
-include ('core/public-header.php');
+include ('master/public-header.php');
 require_once 'core/functionalities.php';
 use core\functionalities;
 require_once 'semi-orm/Posts.php';
@@ -42,5 +42,5 @@ if ($Q != null)
 </div>
 
 <?php
-include ('core/public-footer.php');
+include ('master/public-footer.php');
 ?>

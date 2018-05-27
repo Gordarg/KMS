@@ -12,7 +12,7 @@ if ($row == [])
 {
     exit(header("HTTP/1.0 404 Not Found"));
 }
-include ('core/public-header.php');
+include ('master/public-header.php');
 echo '<article class="w3-full">';
 echo '<img src="download.php?id=' . $Id . '" alt="' . $row["Title"] . '" style="width:100%">';
 include ('helper/post_edit.php');
@@ -36,5 +36,5 @@ foreach ($rows as $row) {
     $_GET["type"] = 'COMT';
     include ('views/render.php');
 }
-include ('core/public-footer.php');
+include ('master/public-footer.php');
 ?>

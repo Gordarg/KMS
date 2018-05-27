@@ -1,5 +1,5 @@
 <?php
-include_once ('core/public-header.php');
+include_once ('master/public-header.php');
 
 if (isset($_POST['send']))
 {
@@ -31,5 +31,5 @@ mail($to, $subject, $message, $headers);
   </form>
 </div>
 <?php
-include_once ('core/public-footer.php');
+include_once ('master/public-footer.php');
 ?>

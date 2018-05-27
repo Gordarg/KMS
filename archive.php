@@ -4,7 +4,7 @@ use core\functionalities;
 $functionalitiesInstance = new functionalities();
 require_once 'semi-orm/Posts.php';
 use orm\Posts;
-include('core/public-header.php');
+include('master/public-header.php');
 $CategoryID = $functionalitiesInstance->ifexistsidx($_GET,'CategoryID');
 $rows = (new Posts($conn))->ToList(0, 48, "Submit", "DESC", ((isset($CategoryID)? ("WHERE `CategoryID` = " . $CategoryID) : '' )));
 ?>
@@ -34,5 +34,5 @@ $rows = (new Posts($conn))->ToList(0, 48, "Submit", "DESC", ((isset($CategoryID)
 </table>
 </body>
 <?php
-include ('core/public-footer.php');
+include ('master/public-footer.php');
 ?>

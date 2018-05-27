@@ -3,7 +3,7 @@ include_once ('core/init.php');
 include ('core/auth.php');
 require_once 'core/functionalities.php';
 use core\functionalities;
-include ('core/public-header.php');
+include ('master/public-header.php');
 
 $Id = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id'));
 if ($Id != null)
@@ -31,5 +31,5 @@ $row = $Post->FirstOrDefault($MasterID);
 <?php
 include ('helper/user_role.php');
 include ('helper/user_active.php');
-include ('core/public-footer.php');
+include ('master/public-footer.php');
 ?>
