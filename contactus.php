@@ -15,7 +15,7 @@ mail($to, $subject, $message, $headers);
 ?>
 
 <div class="container">
-  <form action="/action_page.php">
+  <form action="contactus.php">
     <label for="fname">نام</label>
     <input type="text" id="fname" name="firstname" placeholder="نام..">
     <label for="lname">نام خانوادگی</label>

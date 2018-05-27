@@ -1,5 +1,5 @@
 <?php
-require_once 'config.php';
+require_once 'variable/config.php';
 use core\config;
 
 class database_connection

@@ -1,20 +1,16 @@
 <?php
-include_once 'core/config.php';
+include_once 'variable/config.php';
 use core\config;
 require_once 'semi-orm/Posts.php';
 use orm\Posts;
 ?>
 <footer class="w3-row-padding w3-padding-32">
 	<div class="w3-third">
-		<h3>همراهان ما</h3>
+		<h3><?= $functionalitiesInstance->label("همراهان ما"); ?></h3>
 		<p><?php echo config::SPONSOR ?></p>
-		<p>
-			برگرفته از سامانه ی مدیریت محتوی <a href="http://gordarg.com"
-				target="_blank">گُرد</a>
-		</p>
 	</div>
 	<div class="w3-third">
-		<h3>یادداشت ها</h3>
+		<h3><?= $functionalitiesInstance->label("یادداشت ها"); ?></h3>
 		<ul class="w3-ul w3-hoverable">
         <?php
         $rows = (new Posts($conn))->ToList(0, 2, "Submit", "DESC", "WHERE Level = 3");
@@ -30,9 +26,9 @@ use orm\Posts;
       </ul>
 	</div>
 	<div class="w3-third w3-serif">
-		<h3>واژگان کلیدی</h3>
+		<h3><?= $functionalitiesInstance->label("واژگان کلیدی"); ?></h3>
 		<p>
-          <?php
+        <?php
         $keywords = //file_get_contents('./keywords.txt', FILE_USE_INCLUDE_PATH);
         config::META_KEYWORDS;
         $keywords_arr = explode(',', $keywords);

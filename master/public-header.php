@@ -1,15 +1,19 @@
-<?php 
-include_once 'core/config.php';
+
+<?php
+include_once 'variable/config.php';
 use core\config;
 include ('core/init.php');
+require_once 'core/functionalities.php';
+use core\functionalities;
+$functionalitiesInstance = new functionalities();
 require_once 'semi-orm/Categories.php';
 use orm\Categories;
 ?>
+
 <!DOCTYPE html>
 
 <!--
 	GORDCMS by
-	Gordarg
 	
                                                                           `:+shdmNMMMNmdyo/.        
                                                                        .:/o+/:.`    .-+smMMMNy/     
@@ -41,7 +45,6 @@ use orm\Categories;
      `-+shmMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNdy+-`                                                     
             .:/osyhdmNNMMMMMMMNNmdhys+/-`                                                           
 -->
-
 <html>
 <head>
 <title><?php echo config::TITLE ?></title>
@@ -71,10 +74,11 @@ for ($i= $c + 1 ; $i < count($items); $i++ )
 		class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-right"
 		style="display: none; z-index: 2; width: 40%; min-width: 300px"
 		id="mySidebar">
-		<a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button">☰</a> <a href="./" onclick="w3_close()" class="w3-bar-item w3-button">خانه</a>
-		<a href="search.php" onclick="w3_close()" class="w3-bar-item w3-button">جستوجو</a>
-		<a href="register.php" onclick="w3_close()" class="w3-bar-item w3-button">ثبت نام</a>
-		<a href="contactus.php" onclick="w3_close()" class="w3-bar-item w3-button">تماس باما</a>
+		<a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button">☰</a> <a href="./" onclick="w3_close()" class="w3-bar-item w3-button"><?= $functionalitiesInstance->label("خانه"); ?></a>
+		<a href="archive.php" onclick="w3_close()" class="w3-bar-item w3-button"><?= $functionalitiesInstance->label("آرشیو"); ?></a>
+		<a href="search.php" onclick="w3_close()" class="w3-bar-item w3-button"><?= $functionalitiesInstance->label("جستجو"); ?></a>
+		<a href="register.php" onclick="w3_close()" class="w3-bar-item w3-button"><?= $functionalitiesInstance->label("ثبت نام"); ?></a>
+		<a href="contactus.php" onclick="w3_close()" class="w3-bar-item w3-button"><?= $functionalitiesInstance->label("تماس با ما"); ?></a>
 		<?php include ('helper/menu.php'); ?>
 		<hr />
 		<?php
@@ -90,26 +94,9 @@ for ($i= $c + 1 ; $i < count($items); $i++ )
 		<div class="w3-white w3-xlarge"
 			style="max-width: 1200px; margin: auto">
 			<div class="w3-button w3-padding-16 w3-right" onclick="w3_open()">☰</div>
-			<div class="w3-center w3-padding-16"><?php echo config::NAME ?></div>
+			<div class="w3-center w3-padding-16"><?= config::NAME ?></div>
 		</div>
 	</header>
 
 	<div class="w3-main w3-content w3-padding"
 		style="max-width: 1200px; margin-top: 100px">
-		<div class="w3-container w3-padding-32 w3-center">
-			<img class="w3-left w3-padding-small rexa-social"
-				title="به صفحه ی ما در فیسبوک بپیوندید" alt="facebook"
-				src="icons/facebook.svg" /> <img
-				class="w3-left w3-padding-small rexa-social"
-				title="ما را به حلقه های خود در گوگل پلاس اضافه کنید"
-				alt="google plus" src="icons/google.svg" /> <img
-				class="w3-left w3-padding-small rexa-social"
-				title="تماشاچی کانال ما در یوتوب باشید" alt="youtube"
-				src="icons/youtube.svg" /> <img
-				class="w3-left w3-padding-small rexa-social"
-				title="اینستاگرام ما را دنبال کنید" alt="instagram"
-				src="icons/instagram.svg" /> <a href="archive.php"> <img
-				class="w3-left w3-padding-small rexa-social"
-				title="ارشیو ما را دنبال کنید" alt="archive"
-				src="icons/library.png" /></a>
-		</div>
