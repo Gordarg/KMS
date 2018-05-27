@@ -11,29 +11,25 @@
     $_SESSION['PHP_AUTH_PW'] = $_POST['pass'];
     exit(header("Location: admin.php?type=POST"));
    }
-   include_once ('core/public-header.php');   
+   include_once ('master/public-header.php');   
    ?>
 
-<div id="id01" class="modal">
 
-  <form class="modal-content animate" action="login.php" method="post">
-    <div class="imgcontainer">
-      <img src="Gordarg.png" alt="Gordarg logo" class="avatar">
+
+<form action="login.php" method="post" class="modal-content" >
+<div class="container">
+    <img src="cms.svg" alt="logo" class="avatar">
+
+    <label for="uname"><b>نام کاربری</b></label>
+    <input type="text" placeholder="نام کاربری را وارد نمایید" name="user" required>
+
+    <label for="pass"><b>کلمه‌ی عبور</b></label>
+    <input type="password" placeholder="کلمه‌ی عبور را وارد نمایید" name="pass" required>
+
+    <button type="submit" name="login" >ورود</button>
+    <a href="index.php">انصراف</a>
     </div>
-
-    <div class="container">
-      <label for="uname"><b>نام کاربری</b></label>
-      <input type="text" placeholder="نام کاربری را وارد نمایید" name="user" required>
-
-      <label for="pass"><b>کلمه‌ی عبور</b></label>
-      <input type="password" placeholder="کلمه‌ی عبور را وارد نمایید" name="pass" required>
-
-      <button type="submit" name="login" >ورود</button>
-    </div>
-    </div>
-
-
-  </form>
 </div>
+</form>
 
- <?php include_once ('core/public-footer.php'); ?> 
+ <?php include_once ('master/public-footer.php'); ?> 
