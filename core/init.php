@@ -9,7 +9,7 @@ Maintenance release number (bugfixes only)
 If used at all: build number (or source control revision number)
 */
 date_default_timezone_set('Asia/Tehran');
-$datetime = date('Y-m-d h:i', time());
+$datetime = date('Y-m-d h:i:s.u', time());
 if (session_status() == PHP_SESSION_NONE) 
     session_start();
 include_once 'database_conn.php';
