@@ -10,7 +10,6 @@ mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff ));
 
 $Title = '';
 $Index = '0';
-$CategoryID = null;
 $Submit = $datetime; // Comes from Init.php
 $UserID = $UserId; // Comes from Auth.php
 $Level = 1;
@@ -28,7 +27,6 @@ switch ($Type)
         $Title = $functionalitiesInstance->ifexistsidx($row,'Title');
         $Level = $functionalitiesInstance->ifexistsidx($row,'Level');
         $Body = $functionalitiesInstance->ifexistsidx($row,'Body');
-        $CategoryID = $functionalitiesInstance->ifexistsidx($row,'CategoryID');
         break;
     case "COMT":
         $RefrenceID = $functionalitiesInstance->ifexistsidx($row,'RefrenceID');

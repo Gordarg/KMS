@@ -8,7 +8,6 @@ include ('master/public-header.php');
 ?>
 <!--
     User Profile
-    Category Management
     Choose Language
 -->
 <?php

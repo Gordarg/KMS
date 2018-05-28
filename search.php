@@ -18,7 +18,6 @@ if ($Q != null)
     $a="SELECT * FROM `post_details`
     WHERE
     `Title` LIKE '%".$Q."%'
-    OR `CategoryName` LIKE '%".$Q."%'
     OR `Username` LIKE '%".$Q."%'
     OR `Body` LIKE '%".$Q."%'
     ORDER BY `Submit`

@@ -6,8 +6,6 @@ include ('core/init.php');
 require_once 'core/functionalities.php';
 use core\functionalities;
 $functionalitiesInstance = new functionalities();
-require_once 'semi-orm/Categories.php';
-use orm\Categories;
 ?>
 
 <!DOCTYPE html>
@@ -75,19 +73,10 @@ for ($i= $c + 1 ; $i < count($items); $i++ )
 		style="display: none; z-index: 2; width: 40%; min-width: 300px"
 		id="mySidebar">
 		<a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button">☰</a> <a href="./" onclick="w3_close()" class="w3-bar-item w3-button"><?= $functionalitiesInstance->label("خانه"); ?></a>
-		<a href="archive.php" onclick="w3_close()" class="w3-bar-item w3-button"><?= $functionalitiesInstance->label("آرشیو"); ?></a>
 		<a href="search.php" onclick="w3_close()" class="w3-bar-item w3-button"><?= $functionalitiesInstance->label("جستجو"); ?></a>
 		<a href="register.php" onclick="w3_close()" class="w3-bar-item w3-button"><?= $functionalitiesInstance->label("ثبت نام"); ?></a>
 		<a href="contactus.php" onclick="w3_close()" class="w3-bar-item w3-button"><?= $functionalitiesInstance->label("تماس با ما"); ?></a>
 		<?php include ('helper/menu.php'); ?>
-		<hr />
-		<?php
-		foreach (
-			(new Categories($conn))
-			->ToList(-1, -1, "Name", "DESC", "")
-			as $category_row)
-			echo '<a rel="nofollow" href="archive.php?CategoryID=' . $category_row["Id"] . '" onclick="w3_close()" class="w3-bar-item w3-button">' . $category_row["Name"] . '</a>';
-        ?>
 	</nav>
 
 	<header class="w3-top" role="banner">

@@ -1,7 +1,7 @@
 81- circles
 82- multilanguage
 83- File Manager in DB (Type: FILE)
-86- REMOVE CATEGORIES (HANDLE CATEGORIES USING KEYWORDS)
+86- HANDLE CATEGORIES USING KEYWORDS
 
 6- draft
 11- offline backup
@@ -43,7 +43,6 @@
 64- No Select *
 65- <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
 66- Combine Scripts->JS, Styles->CSS
-67- SubCategories and category management
 69- Field for AttachementDeleted, If AttachementDeleted then LoadNothing else LoadLastestAttachement.
 74- Allow plugins
 

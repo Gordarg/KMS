@@ -21,7 +21,6 @@ echo '<article class="w3-full">';
 echo '<img src="download.php?id=' . $Id . '" alt="' . $row["Title"] . '" style="width:100%">';
 include ('helper/post_edit.php');
 echo '<h1 class="large">' . $row['Title'] . '</h1>';
-echo '<a href="archive.php?CategoryID=' . $row['CategoryID'] . '" class="medium">' . $row['CategoryName'] . '</a>';
 echo '<p>' . $row['Body']  . '</p>';
 echo '</article>';
 $rows=[];
