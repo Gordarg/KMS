@@ -72,13 +72,13 @@ for ($i= $c + 1 ; $i < count($items); $i++ )
 		<a href="search.php" onclick="w3_close()" class="w3-bar-item w3-button"><?= $functionalitiesInstance->label("جستجو"); ?></a>
 		<a href="register.php" onclick="w3_close()" class="w3-bar-item w3-button"><?= $functionalitiesInstance->label("ثبت نام"); ?></a>
 		<a href="contactus.php" onclick="w3_close()" class="w3-bar-item w3-button"><?= $functionalitiesInstance->label("تماس با ما"); ?></a>
-		<?php include ('helper/menu.php'); ?>
+    <?php include ('helper/menu.php'); ?>
 	</nav>
-  <?php include ('helper/toolbar.php'); ?>
-
+  
 	<header role="banner">
-			<div class="sidebar-open" onclick="w3_open()">☰</div>
-			<?= config::NAME ?>
+    <div class="sidebar-open" onclick="w3_open()">☰</div>
+    <?= config::NAME ?>
+    <?php include ('helper/toolbar.php'); ?>
 	</header>
 
 <div class="container">

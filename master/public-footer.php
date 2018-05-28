@@ -6,13 +6,13 @@ use orm\Posts;
 ?>
 </div>
 <footer>
-	<div class="w3-third">
+	<div>
 		<h3><?= $functionalitiesInstance->label("همراهان ما"); ?></h3>
 		<p><?php echo config::SPONSOR ?></p>
 	</div>
-	<div class="w3-third">
+	<div>
 		<h3><?= $functionalitiesInstance->label("یادداشت ها"); ?></h3>
-		<ul class="w3-ul w3-hoverable">
+		<ul>
         <?php
         $rows = (new Posts($conn))->ToList(0, 2, "Submit", "DESC", "WHERE Level = 3");
         foreach ($rows as $row) {
@@ -26,7 +26,7 @@ use orm\Posts;
         ?>
       </ul>
 	</div>
-	<div class="w3-third w3-serif">
+	<div>
 		<h3><?= $functionalitiesInstance->label("واژگان کلیدی"); ?></h3>
 		<p>
         <?php
@@ -34,7 +34,7 @@ use orm\Posts;
         config::META_KEYWORDS;
         $keywords_arr = explode(',', $keywords);
         foreach ($keywords_arr as $keywordsArr) {
-            echo '<a rel="search" class="w3-tag w3-dark-grey w3-small w3-margin-bottom" href="search.php?Q=' . $keywordsArr . '"> ' . $keywordsArr . ' </a>' . ' ';
+            echo '<a rel="search" href="search.php?Q=' . $keywordsArr . '"> ' . $keywordsArr . ' </a>' . ' ';
         }
         ?>
      </p>
