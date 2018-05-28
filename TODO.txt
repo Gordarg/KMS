@@ -1,6 +1,6 @@
 81- circles
 82- multilanguage
-83- File Manager
+83- File Manager in DB (Type: FILE)
 86- REMOVE CATEGORIES (HANDLE CATEGORIES USING KEYWORDS)
 
 6- draft

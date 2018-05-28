@@ -35,6 +35,13 @@ class Posts extends abstract_semi_orm
         $row = mysqli_fetch_array($result);
         return $row[$Name];
     }
+    function GetIdByMasterId($MasterId)
+    {
+        $query = "select `ID` from post_details where `MasterID`='" . $MasterId . "';";
+        $result = mysqli_query($this->conn, $query);
+        $row = mysqli_fetch_array($result);
+        return $row["ID"];
+    }
     function Insert($Values)
 	{
      	$query  = "INSERT INTO `posts` (";
@@ -67,7 +74,7 @@ class Posts extends abstract_semi_orm
 		mysqli_query($this->conn, $query);
     }
     function Delete($Id){
-        $this->Update($_POST['id'], [
+        $this->Update($this->GetIdByMasterId($_POST['masterid']), [
             ["Deleted", "1"],
         ]);
     }
