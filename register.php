@@ -13,7 +13,6 @@ if(isset($_POST["btn"]))
 }
 ?>
 <form action="register.php" method="post" class="modal-content" >
-<div class="container">
     <h1 style="text-align:center"><?= $functionalitiesInstance->label("ثبت نام"); ?></h1>
 
     <label for="username"><?= $functionalitiesInstance->label("نام کاربری"); ?></label>
@@ -25,8 +24,6 @@ if(isset($_POST["btn"]))
     <div class="clearfix">
     <button type="submit" class="signupbtn" name="btn" ><?= $functionalitiesInstance->label("ثبت نام"); ?></button>
     <a href="index.php"><?= $functionalitiesInstance->label("انصراف"); ?></a>
-    
-</div>
 </form>
 
 <?php include_once ('master/public-footer.php'); ?> 

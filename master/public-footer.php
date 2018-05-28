@@ -4,7 +4,8 @@ use core\config;
 require_once 'semi-orm/Posts.php';
 use orm\Posts;
 ?>
-<footer class="w3-row-padding w3-padding-32">
+</div>
+<footer>
 	<div class="w3-third">
 		<h3><?= $functionalitiesInstance->label("همراهان ما"); ?></h3>
 		<p><?php echo config::SPONSOR ?></p>
