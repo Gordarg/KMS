@@ -10,7 +10,7 @@ switch ($_GET["level"])
         break;
     case "1":
         echo '<article>';
-        echo '<img src="download.php?id=' . $row['MasterID'] . '" alt="' . $row["Title"] . '" style="width:100%">';
+        echo '<img src="download.php?id=' . $row['MasterID'] . '" alt="' . $row["Title"] . '" >';
         echo '<h3><a href="view.php?id=' . $row['MasterID'] . '">' . $row['Title'] . '</h3></a>';
         echo '<p>' . $functionalitiesInstance->makeAbstract($row['Body'], 480)  . '</p>';
         echo '</article>';

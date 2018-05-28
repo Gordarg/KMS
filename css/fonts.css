@@ -24,9 +24,14 @@ table a, button, input, textarea, select {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#fefefe',GradientType=0 ); /* IE6-9 */
 }
 input, textarea, select, button{
-        display:block;
+    display:block;
     margin-top:.5em;
     margin-bottom:.5em;
+}
+input[type=submit]
+{
+    margin: .1em;
+    display: inline-block;
 }
 
 table a :hover, table a:focus, table a:active,

@@ -17,10 +17,10 @@ if ($row == [])
         Use render.php
 */
 include ('master/public-header.php');
-echo '<article class="w3-full">';
-echo '<img src="download.php?id=' . $Id . '" alt="' . $row["Title"] . '" style="width:100%">';
+echo '<article>';
+echo '<img src="download.php?id=' . $Id . '" alt="' . $row["Title"] . '">';
+echo '<h1>' . $row['Title'] . '</h1>';
 include ('helper/post_edit.php');
-echo '<h1 class="large">' . $row['Title'] . '</h1>';
 echo '<p>' . $row['Body']  . '</p>';
 echo '</article>';
 $rows=[];

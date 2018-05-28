@@ -1,3 +1,19 @@
 .container{
-
+    flex-flow: row;
+}
+.container  article {
+    flex: 1 20em;
+    height: 40em;
+    margin: 1em;
+    padding: 1em;
+    border: .1em #ffdc1d solid;
+    text-align: center;
+}
+.container article h3, .container article p {
+    text-align: right;
+    display: block;
+}
+.container article img {
+    max-width: 100%;
+    max-height: 20em;
 }

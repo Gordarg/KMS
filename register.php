@@ -12,17 +12,16 @@ if(isset($_POST["btn"]))
     ]);
 }
 ?>
-<form action="register.php" method="post" class="modal-content" >
-    <h1 style="text-align:center"><?= $functionalitiesInstance->label("ثبت نام"); ?></h1>
+<form action="register.php" method="post" >
+    <h1><?= $functionalitiesInstance->label("ثبت نام"); ?></h1>
 
     <label for="username"><?= $functionalitiesInstance->label("نام کاربری"); ?></label>
     <input type="text" name="username" required>
     
     <label for="password"><?= $functionalitiesInstance->label("کلمه‌ی عبور"); ?></label>
     <input type="password" name="password" required>
-
-    <div class="clearfix">
-    <button type="submit" class="signupbtn" name="btn" ><?= $functionalitiesInstance->label("ثبت نام"); ?></button>
+    
+    <button type="submit" name="btn" ><?= $functionalitiesInstance->label("ثبت نام"); ?></button>
     <a href="index.php"><?= $functionalitiesInstance->label("انصراف"); ?></a>
 </form>
 
