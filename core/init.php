@@ -1,6 +1,6 @@
 <?php
 /*
-Gordarg CMS Version 1.5.0.0
+Gordarg CMS Version 1.6.0.0
 
 NOTE: > git config core.fileMode false
 
