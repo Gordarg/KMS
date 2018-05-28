@@ -18,6 +18,7 @@
             ["Level", ($functionalitiesInstance->ifexistsidx($_POST, 'level') == NULL) ? "NULL" : "'" . mysqli_real_escape_string($conn, ($_POST['level'])) . "'"],
             ["Body", "'" . mysqli_real_escape_string($conn, $_POST['body']) . "'"],
             ["UserId", mysqli_real_escape_string($conn, $_POST['userid'])],
+            ["ContentDeleted", "0"],
             ["Status", "'" . mysqli_real_escape_string($conn, $_POST['status']) . "'"],
             ["RefrenceId", ($functionalitiesInstance->ifexistsidx($_POST, 'refrenceid') == NULL) ? "NULL" : "'" . mysqli_real_escape_string($conn, ($_POST['refrenceid'])) . "'"],
             ["Index", mysqli_real_escape_string($conn, (($functionalitiesInstance->ifexistsidx($_POST, 'index') == NULL) ? "NULL" : $_POST['index']))],
