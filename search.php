@@ -17,9 +17,12 @@ if ($Q != null)
 {
     $a="SELECT * FROM `post_details`
     WHERE
-    `Title` LIKE '%".$Q."%'
+    (`Title` LIKE '%".$Q."%'
     OR `Username` LIKE '%".$Q."%'
-    OR `Body` LIKE '%".$Q."%'
+    OR `Body` LIKE '%".$Q."%')
+    AND (`Type` = 'POST'
+    OR `Type` = 'COMT' 
+    )
     ORDER BY `Submit`
     Limit 10
     ;";
@@ -28,7 +31,19 @@ if ($Q != null)
         echo '<div class="results">';
         while($row = mysqli_fetch_array($b)){
             echo '<div class="result">';
-            echo"<p>" . $row['Body']. "</p>";
+            switch ($row['Type'])
+            {
+                case 'COMT':
+                    echo '<a href="view.php?id=' . $row['RefrenceID'] . '">' . $row['Body']. '</p>';
+                    break;
+                // TODO:
+                // case 'KWRD':
+                //     echo '<a href="view.php?id=' . $row['RefrenceID'] . '">' . $row['Title']. '</p>';
+                //     break;
+                case 'POST':
+                    echo"<p>" . $row['Body']. "</p>";
+                    break;
+            }
             echo "</div>";
         }
         echo"</div>";
