@@ -1,5 +1,5 @@
 .container{
-    flex-flow: row;
+    flex-direction: row;
 }
 .container  article {
     flex: 1 20em;

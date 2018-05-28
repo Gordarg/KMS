@@ -78,9 +78,8 @@ header{
 	flex-direction: column;
 	flex-wrap: wrap;
 	justify-content: flex-start;
-	/* align-items: stretch;
-    align-content: stretch; */
-    
+	align-items: stretch;
+    align-content: stretch;
 }
 footer{
     background-color: #655f61;
