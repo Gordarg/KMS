@@ -1,8 +1,11 @@
 <?php
 /*
-Gordarg CMS Version 1.0.0.0
+Gordarg CMS Version 1.5.0.0
+
+NOTE: > git config core.fileMode false
 
 TODO: Comments to update version please:
+
 Major release number
 Minor release number
 Maintenance release number (bugfixes only)
