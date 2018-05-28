@@ -6,4 +6,4 @@ $UserId = $auth->login();
 if ($UserId == null)
         return;
 ?>
-<a href="post.php?id=<?= $row['MasterID'] ?>">ویرایش</a>
+<a href="post.php?id=<?= $row['MasterID'] ?>"><?= $functionalitiesInstance->label("ویرایش"); ?></a>

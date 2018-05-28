@@ -18,7 +18,7 @@ if ($UserId == null)
 		else
 			for ($j= $c + 2; $j <= $i; $j++ )
 				echo '&view=' . (($items[$j] == "")?"index-php":$items[$j]);
-		echo '.css>ویرایش تم در لایه‌ی ' . $i . '</a>';
+		echo '.css>' . $functionalitiesInstance->label("ویرایش تم") . ' ' . $i . '</a>';
 		echo '
 	';
 	}

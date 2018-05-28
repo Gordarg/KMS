@@ -7,8 +7,8 @@ use orm\Posts;
 $Q = (new functionalities())->ifexistsidx($_GET,'Q');
 ?>
 <form class="example" method="GET" action="search.php">
-    <input type="text" name="Q" placeholder="عبارت را وارد نمائید" value="<?= $Q ?>" />
-    <input type="submit" value = "جستجو" />
+    <input type="text" name="Q" placeholder="<?= $functionalitiesInstance->label("عبارت را وارد نمائید"); ?>" value="<?= $Q ?>" />
+    <input type="submit" value = "<?= $functionalitiesInstance->label("جستجو"); ?>" />
 </form>
 <div class="line"></div>
 <div class="table">
@@ -35,7 +35,7 @@ if ($Q != null)
         echo"</div>";
     }
     else{
-        echo "نتیجه یافت نشد";
+        echo $functionalitiesInstance->label("نتیجه یافت نشد");
     }
 }
 ?>

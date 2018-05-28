@@ -16,18 +16,18 @@ mail($to, $subject, $message, $headers);
 
 <div class="container">
   <form action="contactus.php">
-    <label for="fname">نام</label>
-    <input type="text" id="fname" name="firstname" placeholder="نام..">
-    <label for="lname">نام خانوادگی</label>
-    <input type="text" id="lname" name="lastname" placeholder="نام خانوادگی..">
-    <label for="email">ایمیل</label>
-    <input type=" email" id="email" name="email" placeholder="ایمیل.">
-    <label for="subject">موضوع</label>
-    <input type=" subject" id="subject" name="subject" placeholder="موضوع...">
-    <label for="text">متن</label>
-    <textarea id="text" name="text" placeholder="متن را بنویسید.." style="height:200px"></textarea>
+    <label for="fname"><?= $functionalitiesInstance->label("نام"); ?></label>
+    <input type="text" id="fname" name="firstname" >
+    <label for="lname"><?= $functionalitiesInstance->label("نام خانوادگی"); ?></label>
+    <input type="text" id="lname" name="lastname">
+    <label for="email"><?= $functionalitiesInstance->label("ایمیل"); ?></label>
+    <input type="email" id="email" name="email">
+    <label for="subject"><?= $functionalitiesInstance->label("موضوع"); ?></label>
+    <input type=" subject" id="subject" name="subject">
+    <label for="text"><?= $functionalitiesInstance->label("متن"); ?></label>
+    <textarea id="text" name="text" ></textarea>
 
-    <input type="submit" value="ارسال">
+    <input type="submit" value="<?= $functionalitiesInstance->label("ارسال"); ?>">
   </form>
 </div>
 <?php

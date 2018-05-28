@@ -11,9 +11,9 @@ $rows = (new Posts($conn))->ToList(0, 48, "Submit", "DESC", ((isset($CategoryID)
 <table class="table table-bordered">
 	<thead>
 		<tr>
-			<td>عنوان</td>
-			<td>ضمیمه</td>
-			<td>متن</td>
+			<td><?= $functionalitiesInstance->label("عنوان"); ?></td>
+			<td><?= $functionalitiesInstance->label("ضمیمه"); ?></td>
+			<td><?= $functionalitiesInstance->label("متن"); ?></td>
 		</tr>
 	</thead>
 	<tbody>

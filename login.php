@@ -20,15 +20,14 @@
 <div class="container">
     <img src="cms.svg" alt="logo" class="avatar">
 
-    <label for="uname"><b>نام کاربری</b></label>
-    <input type="text" placeholder="نام کاربری را وارد نمایید" name="user" required>
+    <label for="uname"<?= $functionalitiesInstance->label("نام کاربری"); ?></label>
+    <input type="text" name="user" required>
 
-    <label for="pass"><b>کلمه‌ی عبور</b></label>
+    <label for="pass"><?= $functionalitiesInstance->label("کلمه‌ی عبور"); ?></label>
     <input type="password" placeholder="کلمه‌ی عبور را وارد نمایید" name="pass" required>
 
-    <button type="submit" name="login" >ورود</button>
-    <a href="index.php">انصراف</a>
-    </div>
+    <button type="submit" name="login" ><?= $functionalitiesInstance->label("ورود"); ?></button>
+    <a href="index.php"><?= $functionalitiesInstance->label("انصراف"); ?></a>
 </div>
 </form>
 
