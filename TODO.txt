@@ -16,7 +16,7 @@
 21- SEO: rel=”canonical”
 22- SEO: Microdata
 23- SEO: Content type : https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Content_categories
-25- Versioning for Content
+25- Versioning for Content !IMPORTANT
 26- Application Version
 27- Accounting
 28- Content compression

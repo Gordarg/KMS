@@ -1,5 +1,7 @@
 <?php
-include_once ('master/public-header.php');
+require_once 'core/init.php';
+require_once 'core/functionalities.php';
+require_once $parent . '/semi-orm/Users.php';
 require_once $parent . '/semi-orm/Users.php';
 use orm\Users;
 if(isset($_POST["btn"]))
@@ -10,7 +12,9 @@ if(isset($_POST["btn"]))
         ["Username", "'" . mysqli_real_escape_string($conn, $_POST['username']) . "'"],
         ["Password", "'" . mysqli_real_escape_string($conn, $_POST['password']) . "'"],
     ]);
+    header("Location: " . $npath . '/login.php');
 }
+include_once ('master/public-header.php');
 ?>
 <form action="register.php" method="post" >
     <h1><?= $functionalitiesInstance->label("ثبت نام"); ?></h1>

@@ -16,7 +16,7 @@ include_once ('master/public-header.php');
 <form action="login.php" method="post">
     <img src="cms.svg" alt="logo" class="avatar">
 
-    <label for="uname"<?= $functionalitiesInstance->label("نام کاربری"); ?></label>
+    <label for="user"><?= $functionalitiesInstance->label("نام کاربری"); ?></label>
     <input type="text" name="user" required>
 
     <label for="pass"><?= $functionalitiesInstance->label("کلمه‌ی عبور"); ?></label>

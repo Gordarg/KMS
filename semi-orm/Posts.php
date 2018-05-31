@@ -26,6 +26,17 @@ class Posts extends abstract_semi_orm
             while(($row = mysqli_fetch_array($result))) {
                 $rows[] = $row;
             }
+        return $rows;
+    }
+    function GetContributers($Clause)
+    {
+        $query = "SELECT `ID`, `MasterID`, `UserID`, `Username`, `Submit` FROM `post_contributers` " . $Clause;
+        $result = mysqli_query($this->conn, $query);
+        $rows = array();
+        if ($result)
+            while(($row = mysqli_fetch_array($result))) {
+                $rows[] = $row;
+            }
         return $rows;       
     }
     function GetValueById($Id, $Name)

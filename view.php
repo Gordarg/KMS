@@ -23,6 +23,17 @@ echo '<h1>' . $row['Title'] . '</h1>';
 include ('helper/post_edit.php');
 echo '<p>' . $row['Body']  . '</p>';
 echo '</article>';
+
+$rows=[];
+$rows = $post->GetContributers("WHERE `MasterID`='" . mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id')) . "'");
+foreach ($rows as $row) {
+    /*
+    TODO:
+    Use profile pic.
+    */
+    echo '<a href="version.php?MasterID=' . $row['MasterID'] . '&Submit=' . $row['Submit'] . '"><em>' . $row['Username'] . ':<ins>' . $row['Submit'] . '</ins></em></a>&nbsp&nbsp&nbsp&nbsp';
+}
+
 $rows=[];
 $rows = $post->ToList(-1, -1, "Submit", "DESC", "WHERE `Type` = 'KWRD' AND `RefrenceId`='" . mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id')) . "'");
 foreach ($rows as $row) {

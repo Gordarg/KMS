@@ -17,6 +17,14 @@ Enable short tags on server
 4. Burned ( SOOOOO SAD :\ )
 5. Publish (Shhh! World is watching)
 
+##User types
+- A user can be **VSTOR**. It means, he/she can just visit, comment and rate.
+- A user can be **EDTOR**; So, then he/she can send posts and edit them.
+- **ADMIN** is the administrator! He/She can upgrade other users to **EDTOR**.
+
+##Circles
+Posts will be shared between **PUBLIC** (*VSTOR*, *EDTOR*, *ADMIN* , or guest users), **AUTHD** users (*EDTOR*, and *ADMIN*) or a **CIRCLE**. A **CIRCLE** can contain people chosen by the user; They can edit posts if they are **EDTOR**s or **ADMIN**s.
+
 ##Post level
 Where should it be placed? that's what matters.
 
@@ -32,3 +40,4 @@ Where should it be placed? that's what matters.
 - **ANSR**. An answer. Users can answer the questions.
 - **CHAT**. Chat will allow users to send short messages to each other. maybe for to check-out something or notice that to each other. They can use it for a healthy break, share ideas faster to have a better performance.
 - If there is another language avaiable, **TRNL** will make translation available!
+- Use this type of file content to upload user **PROF** (profile) pic.
