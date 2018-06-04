@@ -5,7 +5,7 @@ $auth = new auth();
 $UserId = $auth->login();
 if ($UserId == null)
 {
-    echo '<a href="login.php" onclick="w3_close()">ورود</a>';
+    echo '<a href="login.php" onclick="w3_close()">' . $functionalitiesInstance->label("ورود") . '</a>';
     return;
 }
 ?>

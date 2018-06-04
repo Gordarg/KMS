@@ -1,46 +1,129 @@
-خانه
-آرشیو
-جستجو
-ثبت نام
-تماس با ما
-همراهان ما
-یادداشت ها
-واژگان کلیدی
-دیدگاه
-ارسال
-کلمه‌ی کلیدی
-عنوان
-سریع
-بالا
-متوسط
-مرکز
-کند
-پایین
-متن
-پرونده
-به‌روز رسانی
-حذف
-حذف پیوست
-انصراف
-حساب کاربری
-خروج
-پست
-پرونده‌ها
-ویرایش
-ویرایش تم
-ضمیمه
-نام
-نام خانوادگی
-موضوع
-نام کاربری
-کلمه‌ی عبور
-ورود
-تکرار
-گذرواژه‌ی جدید
-گذرواژه‌ی قبلی
-تصویر
-ثبت نام
-عبارت را وارد نمائید
-نتیجه یافت نشد
-
-# <?= $functionalitiesInstance->label("پرونده"); ?>
+-خانه
+en-US:Home
+ru-RU:домашняя страница
+-آرشیو
+en-US:Archive
+ru-RU:
+-جستجو
+en-US:Search
+ru-RU:
+-تماس با ما
+en-US:Contact-Us
+ru-RU:
+-همراهان ما
+en-US:Our Partners
+ru-RU:
+-یادداشت ها
+en-US:Notes
+ru-RU:
+-واژگان کلیدی
+en-US:Keywords
+ru-RU:
+-کلمه‌ی کلیدی
+en-US:Keyword
+ru-RU:
+-دیدگاه
+en-US:Comment
+ru-RU:
+-ارسال
+en-US:Send
+ru-RU:
+-عنوان
+en-US:Title
+ru-RU:
+-سریع
+en-US:Fast
+ru-RU:
+-بالا
+en-US:Top
+ru-RU:
+-متوسط
+en-US:Medium
+ru-RU:
+-مرکز
+en-US:Center
+ru-RU:
+-کند
+en-US:Slow
+ru-RU:
+-پایین
+en-US:Bottom
+ru-RU:
+-متن
+en-US:Body
+ru-RU:
+-پرونده
+en-US:File
+ru-RU:
+-به‌روز رسانی
+en-US:Update
+ru-RU:
+-حذف
+en-US:Delete
+ru-RU:
+-حذف پیوست
+en-US:Delete Attachement
+ru-RU:
+-انصراف
+en-US:Cancel
+ru-RU:
+-حساب کاربری
+en-US:Account
+ru-RU:
+-خروج
+en-US:Exit
+ru-RU:
+-پست
+en-US:Post
+ru-RU:
+-پرونده‌ها
+en-US:Files
+ru-RU:
+-ویرایش
+en-US:Edit
+ru-RU:
+-ویرایش تم
+en-US:Edit theme
+ru-RU:
+-ضمیمه
+en-US:Attachement
+ru-RU:
+-نام
+en-US:Firstname
+ru-RU:
+-نام خانوادگی
+en-US:Lastname
+ru-RU:
+-موضوع
+en-US:Subject
+ru-RU:
+-نام کاربری
+en-US:Username
+ru-RU:
+-کلمه‌ی عبور
+en-US:Password
+ru-RU:
+-ورود
+en-US:Enter
+ru-RU:
+-تکرار
+en-US:Confirm
+ru-RU:
+-گذرواژه‌ی جدید
+en-US:New password
+ru-RU:
+-گذرواژه‌ی قبلی
+en-US:Previous password
+ru-RU:
+-تصویر
+en-US:Image
+ru-RU:
+-ثبت نام
+en-US:Regsiter
+ru-RU:
+-عبارت را وارد نمائید
+en-US:en-USter the phrase
+ru-RU:
+-نتیجه یافت نشد
+en-US:No result found
+ru-RU:

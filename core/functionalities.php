@@ -10,21 +10,42 @@ TODO: make functions static
 
 class functionalities
 {
-    function label($text)
+    function label($key)
     {
         if(!isset($_COOKIE["LANG"])) {
-            $_COOKIE["LANG"] = "fa-IR";
+            setcookie("LANG", "fa-IR", time() + (86400 * 30), "/");
         }
         $LANG = $_COOKIE["LANG"];
-
-        /*
-
-        TODO: Translate from FA to $LANG
-        from variable dictionary.yaml
-        
-        */
-
-        return $text;
+        if ($LANG == "fa-IR")
+            return $key;
+        $dictionary = explode("\n", file_get_contents('variable/dictionary.yaml'));
+        $keys = [];
+        for( $i= 0 ; $i <= sizeof($dictionary) ; $i++ )
+        {  
+            if (substr($dictionary[$i], 0, 1) == "-")
+            {
+                if ($key == substr($dictionary[$i], 1, strlen($dictionary[$i]) - 1))
+                {
+                    $k = $i;
+                    for ($j = $i + 1; $j <= sizeof($dictionary) ; $j++  )
+                    {
+                        if (substr($dictionary[$j], 0, 1) == "-")
+                        {
+                            $k = $j;
+                            break;
+                        }
+                    }
+                    if ($k > $i + 1)
+                    for ($j = $i + 1; $j <= $k ; $j++  )
+                    {
+                        if (substr($dictionary[$j], 0, strlen($LANG)) == $LANG)
+                            return substr($dictionary[$j], strlen($LANG) + 1, strlen($dictionary[$j]) - 1 - strlen($LANG));
+                    }
+                    else
+                        return $key;     
+                }
+            }
+        }
     }
 
     function ifexists($varname)
