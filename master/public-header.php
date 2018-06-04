@@ -78,7 +78,10 @@ for ($i= $c + 1 ; $i < count($items); $i++ )
 	<header role="banner">
     <div class="sidebar-open" onclick="w3_open()">☰</div>
     <?= config::NAME ?>
-    <?php include ('helper/toolbar.php'); ?>
+    <?php
+    include ('helper/toolbar.php');
+    include ('helper/choose_language.php');
+    ?>
 	</header>
 
 <div class="container">

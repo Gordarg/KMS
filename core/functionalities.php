@@ -14,10 +14,14 @@ class functionalities
     {
         if(!isset($_COOKIE["LANG"])) {
             setcookie("LANG", "fa-IR", time() + (86400 * 30), "/");
+            $LANG = "fa-IR";
         }
-        $LANG = $_COOKIE["LANG"];
+            else $LANG = $_COOKIE["LANG"];
         if ($LANG == "fa-IR")
+        {
             return $key;
+            exit;
+        }
         $dictionary = explode("\n", file_get_contents('variable/dictionary.yaml'));
         $keys = [];
         for( $i= 0 ; $i <= sizeof($dictionary) ; $i++ )
@@ -36,13 +40,10 @@ class functionalities
                         }
                     }
                     if ($k > $i + 1)
-                    for ($j = $i + 1; $j <= $k ; $j++  )
-                    {
-                        if (substr($dictionary[$j], 0, strlen($LANG)) == $LANG)
-                            return substr($dictionary[$j], strlen($LANG) + 1, strlen($dictionary[$j]) - 1 - strlen($LANG));
-                    }
-                    else
-                        return $key;     
+                        for ($j = $i + 1; $j <= $k ; $j++  )
+                            if (substr($dictionary[$j], 0, strlen($LANG)) == $LANG)
+                                return substr($dictionary[$j], strlen($LANG) + 1, strlen($dictionary[$j]) - 1 - strlen($LANG));
+                        return $key;
                 }
             }
         }
