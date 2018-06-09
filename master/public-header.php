@@ -12,35 +12,77 @@ $functionalitiesInstance = new functionalities();
 
 <!--
 CMS by
-                                                                          `:+shdmNMMMNmdyo/.        
-                                                                       .:/o+/:.`    .-+smMMMNy/     
-                                                                    -+sdmMMMMMMMNds/`    .oNMMMNo`  
-                                                                .+hNMMMMMMMMMMMMMMMMNs`    `hMMMMN: 
-                                                             .omMMMMMMMNho/-.```.:+yNMN.    `mMMMMM:
-                                                           -yMMMMMMMms-              :dm     yMMMMMd
-                                                         -hMMMMMMMy:                 -./.   `NMMMMMM
-                                                       .hMMMMMMNs.             -oh-  oNo.`-+NMMMMMMm
-                                                     `oMMMMMMMs`            .sNMMMN- +MMMMMMMMMMMMM/
-                                                    :mMMMMMMy.             sMMMMMMMm``dMMMMMMMMMMM+ 
-                                                  `yMMMMMMm:              sMMMMMMMMMy  /hMMMMMMmo.  
-           .o:                                   /NMMMMMMo                NMMMMMMMMMM-    -::-`     
-          oMMMNs.                              `yMMMMMMm-                 dMMMMMMMMMMy              
-        .dMMMMMMMs                            :mMMMMMMs                   -MMMMMMMMMMN              
-       .NMMMMMMMMMh                          sMMMMMMN:                     /MMMMMMMMMM`             
-       yMMMMMMMMMMMo                       .mMMMMMMh`                       /MMMMMMMMM              
-       sMMMMMMMMMMMd                      +MMMMMMN/                   :odM.  /MMMMMMMh              
-       `dMMMMMMMMMMd                    -dMMMMMMy`                 :yNMMMM.   hMMMMMM-              
-         oMMMMMMMMM+                  .yMMMMMMd-                -sNMMMMMMM:  .mMMMMM+               
-          .dMMMMMMh                 -hMMMMMMm/               .omMMMh+-yMMMMmmMMMMMN/                
-            mMMMMh`              `+dMMMMMMd:              `/hMMMm+`   +MMMMMMMMMNs`                 
-           `NMMN/             .+hMMMMMMNs.             `/hMMMMy-       +hmMMNmy/`                   
-          :mMd+          `-+ymMMMMMMdo-             .+hMMMMNo`                                      
-       -omdo. .::::/+oyhmMMMMMNdy+-`            `:smMMMMMd/                                         
-   -oyyo:-:ohho+/:/+oooo++/:.`             `-+ymMMMMMMmo.                                           
- /soooydNMMMMMMMMMmdyo+/:-.``    ``.-:/oyhmMMMMMMMMdo-                                              
- `/ymMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMds/`                                                 
-     `-+shmMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNdy+-`                                                     
-            .:/osyhdmNNMMMMMMMNNmdhys+/-`                                                           
+                                                `..`                                                
+                                              `.    .`                                              
+                                            `.        .`                                            
+                                          `.            .`                                          
+                                        `.                .`         `                              
+                                      `.                    .`       ..`                            
+                                    `.                        .`     .  .`                          
+                                  `.                            .`  ``   ``                         
+                                `.                                .`.     `.                        
+                              `.                                   .`      `.                       
+                            `.                                    ``        `.                      
+                          `.                                     ``          ``                     
+                        `.`                                     .`            .                     
+                      `.`                                     ``              `.                    
+                    ```    ``````````                       ```                .                    
+                  ```  `````         `````               ````                  .``                  
+                ``` ````                ``````````````````                     . ```                
+              ``` ```                        ````````                          .   ```              
+            ```  ``                                                            .     ```            
+          ```   .`                                                             :       ```          
+        ```    .`                                                              /         ```        
+      ```     `.                                                              `:           ```      
+    ```       .                                                               -.             ```    
+  ```         .                                                              .-`               ```  
+```           .                                                             `..                  ```
+:`            :`                                                           `..                    `:
+.```          .-                                                          ...`                  ```.
+.  `.`        `-.                                                        ...`                 ```  .
+.    `.`       .`.                                                     `.`.`                ```    .
+.      `.`      .`.`                                                 `.``.                ```      .
+.        `.`     .``..                                             `.. .`               ```        .
+.          `.`    `. `..`                                        ..` `.               ```          .
+.            `.`    ``` `..`                                  ...  ``               ```            .
+.              `.`    ```  `...`                          ....  ```               `.`              .
+.`               `.`     ````  `......`           `......`   ```                `.`               `.
+` .`               `.`      `````      `..........`     `````                 `.`               `. `
+-.` .`               `.`         ```````````````````````                    `.`               `.  `-
+. `.` .`               `.`                                                ```               `.  `` .
+.   `.` .`               `.`                                            ```               `.  ``   .
+.     `.` .`               `.`                                        ```               `. ```     .
+.       ``` .`               `.`                                    ```               `.  ``       .
+.         ``` ``               `.`                                ```               `.  ``         .
+.           ``` .`               `.`                            ```               `` ```           .
+.             ``` .`               ```                        ```               `.  ``             .
+.               ``` .`               ```                    ```               ``  ``               .
+```               ``` .`               ```                ```               ``  ``               ```
+  ```               ``` .`               ```            ```               `.` ``               ```  
+    ```               `` `.`               ```        ```               `.` ``               ```    
+      ```               `` `.`               ```    ```               `.` ``               ```      
+        ```               `` `.`               ``````               `.` ``               ```        
+          ```               `` `.`               ..               `.` ``               ```          
+            ```               `` `.`             ``             `.` ``               ```            
+              ```               `` ```           ``           `.` ``               ```              
+                ```               `` ```         ``         ``` ``               ```                
+                  ```               `` ```       ``       ``` ``               ```                  
+                    ```               `` ```     ``     `.` ``               ```                    
+                      ```               `` ```   ``   ``` ``               ```                      
+                        ``                `` ``` `` ``` ``                ``                        
+                          ``                `` ``..`` ``                ``                          
+                            ``                `` `` ``                ``                            
+                              `.                ````                ``                              
+                                ``               `.               .`                                
+                                  ``             ``             ``                                  
+                                    `.           ``           ``                                    
+                                      `.         ``         ``                                      
+                                        `.       ``       .`                                        
+                                          `.     ``     .`                                          
+                                            `.   ``   .`                                            
+                                              `. `` .`                                              
+                                                `.-`                                                
+
 -->
 <html>
 <head>
