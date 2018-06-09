@@ -1,6 +1,14 @@
 <?php
 switch ($_GET["level"])
 {
+    case "view":
+        echo '<article>';
+        echo '<img src="download.php?id=' . $Id . '" alt="' . $row["Title"] . '">';
+        echo '<h1>' . $row['Title'] . '</h1>';
+        include ('helper/post_edit.php');
+        echo '<p>' . $row['Body']  . '</p>';
+        echo '</article>';
+        break;
     case "3":
         echo '<li><a href="view.php?lang="' . $row['Language'] . '"&id=' . $row['MasterID'] . '">';
         echo '  <img src="download.php?id=' . $row['MasterID'] . '">';

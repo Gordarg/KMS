@@ -13,17 +13,12 @@ if ($row == [])
 {
     exit(header("HTTP/1.0 404 Not Found"));
 }
-/*
-    TODO:
-        Use render.php
-*/
+
 include ('master/public-header.php');
-echo '<article>';
-echo '<img src="download.php?id=' . $Id . '" alt="' . $row["Title"] . '">';
-echo '<h1>' . $row['Title'] . '</h1>';
-include ('helper/post_edit.php');
-echo '<p>' . $row['Body']  . '</p>';
-echo '</article>';
+$_GET['masterid'] = $row['MasterID'];
+$_GET["level"] = 'view';
+$_GET["type"] = 'POST';
+include ('views/render.php');
 
 $rows=[];
 $rows = $post->GetContributers("WHERE `Language`='" . $row['Language'] . "' AND `MasterID`='" . mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id')) . "'");
@@ -31,8 +26,9 @@ foreach ($rows as $row) {
     /*
     TODO:
     Use profile pic.
-    */
+    
     echo '<a href="version.php?MasterID=' . $row['MasterID'] . '&Submit=' . $row['Submit'] . '"><em>' . $row['Username'] . ':<ins>' . $row['Submit'] . '</ins></em></a>&nbsp&nbsp&nbsp&nbsp';
+    */
 }
 
 $rows=[];
