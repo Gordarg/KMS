@@ -7,8 +7,7 @@ if ($UserId == null)
     return;
 ?>
 <div class="toolbar">
-	<img src="cms.svg" alt="logo">
-    <!-- TODO: Admin panel here -->
+	<img src="variable/logo.svg" alt="logo">
 	<?php
 	$items =  explode('/',preg_replace("/[^a-zA-Z0-9_\-\/اآبپتثجچحخدذرزسشصضطظعغفقکگلمنوهی]/","-",str_replace("://", "/", str_replace("?", "/", $path))));
 	for ($i= $c + 1 ; $i < count($items); $i++ )

@@ -14,7 +14,7 @@ if (isset($_POST['login']))
 include_once ('master/public-header.php');   
 ?>
 <form action="login.php" method="post">
-    <img src="cms.svg" alt="logo" class="avatar">
+    <img src="variable/logo.svg" alt="logo" class="avatar">
 
     <label for="user"><?= $functionalitiesInstance->label("نام کاربری"); ?></label>
     <input type="text" name="user" required>

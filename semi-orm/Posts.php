@@ -5,9 +5,9 @@ include_once ('abstract_semi_orm.php');
 class Posts extends abstract_semi_orm
 {    
 
-    function FirstOrDefault($Id)
+    function FirstOrDefault($Id, $Language = 'fa-IR')
     {
-        $query = "SELECT * FROM post_details WHERE MasterID='" . $Id . "';";
+        $query = "SELECT * FROM post_details WHERE MasterID='" . $Id . "' AND Language='" . $Language . "';";
         $result = mysqli_query($this->conn, $query);
         if ($result)
             return $row = mysqli_fetch_array($result);
@@ -46,9 +46,9 @@ class Posts extends abstract_semi_orm
         $row = mysqli_fetch_array($result);
         return $row[$Name];
     }
-    function GetIdByMasterId($MasterId)
+    function GetIdByMasterId($MasterId, $Language = 'fa-IR')
     {
-        $query = "select `ID` from post_details where `MasterID`='" . $MasterId . "';";
+        $query = "select `ID` from post_details where `MasterID`='" . $MasterId . "' AND `Language`='" . $Language . "';";
         $result = mysqli_query($this->conn, $query);
         $row = mysqli_fetch_array($result);
         return $row["ID"];
@@ -84,8 +84,9 @@ class Posts extends abstract_semi_orm
         $query = $query . " WHERE `Id` = " . $Id . ";";
 		mysqli_query($this->conn, $query);
     }
-    function Delete($Id){
-        $this->Update($this->GetIdByMasterId($_POST['masterid']), [
+    function Delete($Id, $Language = 'fa-IR'){
+        /* TODO: Attention */
+        $this->Update($Id, [
             ["Deleted", "1"],
         ]);
     }

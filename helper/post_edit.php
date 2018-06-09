@@ -6,4 +6,7 @@ $UserId = $auth->login();
 if ($UserId == null)
         return;
 ?>
-<a href="post.php?id=<?= $row['MasterID'] ?>"><?= $functionalitiesInstance->label("ویرایش"); ?></a>
+<a href="post.php?lang=<?= $row['Language'] ?>&id=<?= $row['MasterID'] ?>"><?= $functionalitiesInstance->label("ویرایش"); ?></a>
+<!--
+TODO: Add Language Button
+-->

@@ -9,6 +9,7 @@ mt_rand( 0, 0x3fff ) | 0x8000,
 mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff ));
 
 $Title = '';
+$Language = 'fa-IR';
 $Index = '0';
 $Submit = $datetime; // Comes from Init.php
 $UserID = $UserId; // Comes from Auth.php
@@ -21,9 +22,12 @@ switch ($Type)
 {
     case "POST":
         $Id = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id'));
+        $Language = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'lang'));
         if ($Id != null)
             $MasterID = $Id;
-        $row = $Post->FirstOrDefault($Id);
+        
+        $row = $Post->FirstOrDefault($Id, $Language);
+        $Id = $Post->GetIdByMasterId($MasterID, $Language);
         $Title = $functionalitiesInstance->ifexistsidx($row,'Title');
         $Level = $functionalitiesInstance->ifexistsidx($row,'Level');
         $Body = $functionalitiesInstance->ifexistsidx($row,'Body');

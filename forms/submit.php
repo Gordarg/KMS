@@ -15,6 +15,7 @@
             ["Title", ($functionalitiesInstance->ifexistsidx($_POST, 'title') == NULL) ? "NULL" : "'" . mysqli_real_escape_string($conn, ($_POST['title'])) . "'"],
             ["Submit", "'" . mysqli_real_escape_string($conn, $_POST['submit']) . "'"],
             ["Type", "'" . mysqli_real_escape_string($conn, $_POST['type']) . "'"],
+            ["Language", "'" . mysqli_real_escape_string($conn, $_POST['language']) . "'"],
             ["Level", ($functionalitiesInstance->ifexistsidx($_POST, 'level') == NULL) ? "NULL" : "'" . mysqli_real_escape_string($conn, ($_POST['level'])) . "'"],
             ["Body", "'" . mysqli_real_escape_string($conn, $_POST['body']) . "'"],
             ["UserId", mysqli_real_escape_string($conn, $_POST['userid'])],
@@ -26,7 +27,8 @@
         ]);
     }
     else if (isset($_POST["delete"])) {
-        $Post->Delete($_POST['id']);
+        $Post->Delete($_POST['id'], 
+            $_POST['language']);
         exit(header("Location: " . $npath ));
     }
     if (isset($_POST["clear"]))
