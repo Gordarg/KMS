@@ -30,7 +30,7 @@ class Posts extends abstract_semi_orm
     }
     function GetContributers($Clause)
     {
-        $query = "SELECT `ID`, `MasterID`, `UserID`, `Username`, `Submit` FROM `post_contributers` " . $Clause;
+        $query = "SELECT * FROM `post_contributers` " . $Clause;
         $result = mysqli_query($this->conn, $query);
         $rows = array();
         if ($result)
@@ -85,7 +85,6 @@ class Posts extends abstract_semi_orm
 		mysqli_query($this->conn, $query);
     }
     function Delete($Id, $Language = 'fa-IR'){
-        /* TODO: Attention */
         $this->Update($Id, [
             ["Deleted", "1"],
         ]);

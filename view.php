@@ -26,7 +26,7 @@ echo '<p>' . $row['Body']  . '</p>';
 echo '</article>';
 
 $rows=[];
-$rows = $post->GetContributers("WHERE `MasterID`='" . mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id')) . "'");
+$rows = $post->GetContributers("WHERE `Language`='" . $row['Language'] . "' AND `MasterID`='" . mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id')) . "'");
 foreach ($rows as $row) {
     /*
     TODO:

@@ -48,10 +48,10 @@
     if (!empty($_POST))
     {
         if ($_POST['type'] == "COMT")
-            exit(header("Location: " . $npath . '/view.php?id=' . $_POST['refrenceid']));
+            exit(header("Location: " . $npath . '/view.php?lang=' . $_POST['language'] . '&id=' . $_POST['refrenceid']));
         else if ($_POST['type'] == "KWRD")
-            exit(header("Location: " . $npath . '/post.php?id=' . $_POST['refrenceid']));
+            exit(header("Location: " . $npath . '/post.php?lang=' . $_POST['language'] . '&id=' . $_POST['refrenceid']));
         else
-            exit(header("Location: " . $npath . '/view.php?id=' . $_POST['masterid']));
+            exit(header("Location: " . $npath . '/view.php?lang=' . $_POST['language'] . '&id=' . $_POST['masterid']));
     }
 ?>

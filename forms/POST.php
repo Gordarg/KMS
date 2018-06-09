@@ -4,13 +4,7 @@
 <input type="hidden" name="index" value="<?= $Index ?>" />
 <input type="hidden" name="refrenceid" value="<?= $RefrenceID ?>" />
 <input type="hidden" name="status" value="<?= $Status ?>" />
-
-
-<select name="language">
-  <option <?= ($Language == "fa-IR") ? "selected" : ""  ?> value="1">🇮🇷</option>
-  <option <?= ($Language == "en-US") ? "selected" : ""  ?> value="2">🇺🇸</option>
-  <option <?= ($Language == "ru-RU") ? "selected" : ""  ?> value="3">🇷🇺</option>
-</select>
+<input type="hidden" name="language" value="<?= $_COOKIE["LANG"] ?>" />
 
 <label for="title"><?= $functionalitiesInstance->label("عنوان"); ?></label>
 <input name="title" placeholder="<?= $functionalitiesInstance->label("عنوان"); ?>" type="text" value="<?= $Title ?>" />

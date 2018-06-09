@@ -5,8 +5,10 @@ $auth = new auth();
 $UserId = $auth->login();
 if ($UserId == null)
         return;
-?>
-<a href="post.php?lang=<?= $row['Language'] ?>&id=<?= $row['MasterID'] ?>"><?= $functionalitiesInstance->label("ویرایش"); ?></a>
-<!--
-TODO: Add Language Button
--->
+if ($row['Language'] == $_COOKIE['LANG'])
+{
+        echo '<a href="post.php?lang=' . $row['Language'] . '&id=' . $row['MasterID'] . '">' . $functionalitiesInstance->label("ویرایش"); '</a>';
+}
+else{
+        echo '<a href="post.php?lang=' . $_COOKIE['LANG'] . '&id=' . $row['MasterID'] . '">' . $functionalitiesInstance->label("ویرایش زبان فارسی") . '</a>';
+}

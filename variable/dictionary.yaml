@@ -122,8 +122,13 @@ ru-RU:
 en-US:Regsiter
 ru-RU:
 -عبارت را وارد نمائید
-en-US:en-USter the phrase
+en-US:Enter the phrase
 ru-RU:
 -نتیجه یافت نشد
 en-US:No result found
 ru-RU:
+-ویرایش زبان فارسی
+en-US:Edit English
+ru-RU:
+
+<?= $functionalitiesInstance->label("عبارت"); ?>
