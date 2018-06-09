@@ -1,4 +1,3 @@
-
 <?php
 include_once 'variable/config.php';
 use core\config;
@@ -7,9 +6,7 @@ require_once 'core/functionalities.php';
 use core\functionalities;
 $functionalitiesInstance = new functionalities();
 ?>
-
 <!DOCTYPE html>
-
 <!--
 CMS by
                                                 `..`                                                
@@ -82,13 +79,13 @@ CMS by
                                             `.   ``   .`                                            
                                               `. `` .`                                              
                                                 `.-`                                                
-
 -->
 <html>
 <head>
 <title><?php echo config::TITLE ?></title>
+<link rel="icon" href="favicon.png" type="image/png" sizes="96x96">
 <?php
-$_GET['yeild'] =  basename($_SERVER["SCRIPT_FILENAME"], ".php");
+$_GET['yeild'] = basename($_SERVER["SCRIPT_FILENAME"], ".php");
 include_once $parent . '/meta/render.php';
 $c = 1 + count(explode('/', config::Url_PATH));
 $c -= count(explode('.', config::Url_SUBDOMAIN)); // TODO: BUG: dots in address has some problems; eg -> www. | .com
