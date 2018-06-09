@@ -16,7 +16,7 @@
 21- SEO: rel=”canonical”
 22- SEO: Microdata
 23- SEO: Content type : https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Content_categories
-25- Versioning for Content !IMPORTANT
+25- Versioning for Content
 26- Application Version
 27- Accounting
 28- Content compression
@@ -29,29 +29,18 @@
 41- SEO: meta-number for page clicks
 42- SEO: Cloaking for Bing and Google
 43- SEO: Error 301
-45- Backend set page properties
-46- Refresh bug after update
 50- Static pages
 52- Compress images and then convert them to "Data URI's"
-55- Registration and Edit Profile (Admin can view other users, visitor can only comment and normal users can send posts)
-56- View posts by users and a description of user
-57- Keywords: A- Mined Overal Keyword (Home page : Create unfollow links from tags to search page) . B- for each post (Keywords must link internal posts)
+56- User profile and activity; profile.php
+57- Mined Overal Keyword (Home page : Create unfollow links from tags to search page)
 58- Post offers
 60- Use markdown editor and renderer
 62- Validate anti forgery tokens and create unique forms with isssetPost['UNIQUE VAL']
-63- Cirlces -> Add users to groups and assign posts with those groups (circles) or individual people.
-64- No Select *
-65- <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-66- Combine Scripts->JS, Styles->CSS
-69- Field for AttachementDeleted, If AttachementDeleted then LoadNothing else LoadLastestAttachement.
+71- SEO: ui li; Based on Keywords
 74- Allow plugins
-
 77- search
-71- ul li SEO IMPORTANT!!!!!
 59- Comment (Must use <article>) and Like
 78- Archive
 79- Auto update script to download and unzip last release form Github.com
 80- Auto install database on first run
-
-84- Manage themes
-85- Route
+81- Automatic configuration; settings.php

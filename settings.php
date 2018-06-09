@@ -7,8 +7,9 @@ include ('forms/submit.php');
 include ('master/public-header.php');
 ?>
 <!--
-    User Profile
-    Choose Language
+    TODO:
+        Variables
+        Db
 -->
 <?php
 include ('master/public-footer.php');

@@ -24,6 +24,7 @@ Enable short tags on server
 
 ##Circles
 Posts will be shared between **PUBLIC** (*VSTOR*, *EDTOR*, *ADMIN* , or guest users), **AUTHD** users (*EDTOR*, and *ADMIN*) or a **CIRCLE**. A **CIRCLE** can contain people chosen by the user; They can edit posts if they are **EDTOR**s or **ADMIN**s.
+Or non-social network **PRIVATE**! (Don't share it if not needed)
 
 ##Post level
 Where should it be placed? that's what matters.
@@ -41,3 +42,4 @@ Where should it be placed? that's what matters.
 - **CHAT**. Chat will allow users to send short messages to each other. maybe for to check-out something or notice that to each other. They can use it for a healthy break, share ideas faster to have a better performance.
 - If there is another language avaiable, **TRNL** will make translation available!
 - Use this type of file content to upload user **PROF** (profile) pic.
+- If user wanna connect other profiles from other content providers or social networks, **SOCL** to go.

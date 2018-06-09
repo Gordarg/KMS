@@ -6,7 +6,13 @@ use core\functionalities;
 include ('master/public-header.php');
 
 /*
-TODO: HERE ATTENTION
+
+
+TODO:
+
+Update password,
+User profile image
+social networks
 
 */
 ?>
