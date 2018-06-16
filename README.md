@@ -43,3 +43,4 @@ Where should it be placed? that's what matters.
 - If there is another language avaiable, **TRNL** will make translation available!
 - Use this type of file content to upload user **PROF** (profile) pic.
 - If user wanna connect other profiles from other content providers or social networks, **SOCL** to go.
+- You can use **LINK**, it's your passport to the outside world!

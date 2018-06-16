@@ -1,8 +1,10 @@
 <?php
 $parent = realpath(dirname(__FILE__) . '/..');
 require_once  $parent . '/core/functionalities.php';
+require_once  $parent . '/plug-in/Parsedown.php';
 use core\functionalities;
 $functionalitiesInstance = new functionalities();
+$Parsedown = new Parsedown();
 switch ($_GET['type'])
 {
     case "POST":
