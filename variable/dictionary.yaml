@@ -127,8 +127,8 @@ ru-RU:
 -نتیجه یافت نشد
 en-US:No result found
 ru-RU:
--ویرایش زبان فارسی
+-ویرایش فارسی
 en-US:Edit English
 ru-RU:
 
-<?= $functionalitiesInstance->label("عبارت"); ?>
+-<?= $functionalitiesInstance->label("عبارت"); ?>

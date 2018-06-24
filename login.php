@@ -20,7 +20,7 @@ include_once ('master/public-header.php');
     <input type="text" name="user" required>
 
     <label for="pass"><?= $functionalitiesInstance->label("کلمه‌ی عبور"); ?></label>
-    <input type="password" placeholder="کلمه‌ی عبور را وارد نمایید" name="pass" required>
+    <input type="password" name="pass" required>
 
     <button type="submit" name="login" ><?= $functionalitiesInstance->label("ورود"); ?></button>
     <a href="index.php"><?= $functionalitiesInstance->label("انصراف"); ?></a>

@@ -1,7 +1,10 @@
 81- circles
 82- multilanguage
-83- File Manager in DB (Type: FILE)
+83- Drive: File Manager in DB (Type: FILE)
 86- HANDLE CATEGORIES USING KEYWORDS
+87- Content must be seperate for each language
+88- API
+89- Share on someone's timeline 
 
 6- draft
 11- offline backup
@@ -16,9 +19,7 @@
 21- SEO: rel=”canonical”
 22- SEO: Microdata
 23- SEO: Content type : https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Content_categories
-25- Versioning for Content
 26- Application Version
-27- Accounting
 28- Content compression
 29- SEO: Twitter card
 34- Generate dynamic keywords
@@ -38,9 +39,11 @@
 62- Validate anti forgery tokens and create unique forms with isssetPost['UNIQUE VAL']
 71- SEO: ui li; Based on Keywords
 74- Allow plugins
-77- search
-59- Comment (Must use <article>) and Like
-78- Archive
+78- Archive in profile
 79- Auto update script to download and unzip last release form Github.com
 80- Auto install database on first run
 81- Automatic configuration; settings.php
+90- Change text direction based on language in <body style="direction">
+91- Button to decrase database size (remove previous versions)
+92- Print option for books
+93- Datawarehouse for enterprise usage

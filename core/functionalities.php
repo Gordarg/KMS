@@ -12,6 +12,9 @@ class functionalities
 {
     function label($key)
     {
+        /*
+        TODO: What if it was a sentece in last record of dictionary? -It has bug ;)
+        */
         if(!isset($_COOKIE["LANG"])) {
             setcookie("LANG", "fa-IR", time() + (86400 * 30), "/");
             $LANG = "fa-IR";

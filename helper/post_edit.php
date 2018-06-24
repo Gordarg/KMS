@@ -10,5 +10,5 @@ if ($row['Language'] == $_COOKIE['LANG'])
         echo '<a href="post.php?lang=' . $row['Language'] . '&id=' . $row['MasterID'] . '">' . $functionalitiesInstance->label("ویرایش") . '</a>';
 }
 else{
-        echo '<a href="post.php?lang=' . $_COOKIE['LANG'] . '&id=' . $row['MasterID'] . '">' . $functionalitiesInstance->label("ویرایش زبان فارسی") . '</a>';
+        echo '<a href="post.php?lang=' . $_COOKIE['LANG'] . '&id=' . $row['MasterID'] . '">' . $functionalitiesInstance->label("ویرایش فارسی") . '</a>';
 }
