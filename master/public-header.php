@@ -92,16 +92,16 @@ $c -= count(explode('.', config::Url_SUBDOMAIN)); // TODO: BUG: dots in address 
 $items =  explode('/',preg_replace("/[^a-zA-Z0-9_\-\/اآبپتثجچحخدذرزسشصضطظعغفقکگلمنوهی]/","-",str_replace("://", "/", str_replace("?", "/", $path))));
 for ($i= $c + 1 ; $i < count($items); $i++ )
 {
-	echo '<link href="' . $npath . '/css';
+  echo '
+<link href="' . $npath . '/css';
 	if ($i == $c + 1)
 	    echo '/master';
     else
     	for ($j= $c + 2; $j <= $i; $j++ )
     		echo '/' . (($items[$j] == "")?"index-php":$items[$j]);
 	echo '.css" rel="stylesheet" />';
-	echo '
-';
 }
+echo '<link href="' . $npath . '/css/' . $_COOKIE["LANG"] . '.css" rel="stylesheet" />'
 ?>
 </head>
 <body>

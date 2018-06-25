@@ -20,6 +20,7 @@ $db = new database_connection();
 $conn  = $db->open();
 include_once 'variable/config.php';
 use core\config;
+$config = new config;
 $npath=(isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]" . config::Url_PATH;
 $path = $npath . "$_SERVER[REQUEST_URI]";
 $parent = realpath(dirname(__FILE__) . '/..');

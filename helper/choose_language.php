@@ -1,6 +1,6 @@
 <?php
-// TODO: Store languages and related details to config class
+foreach ($config->languages as $lang)
+{
+    echo '<a href="language.php?L=' . $lang->code . '-' . $lang->region . '"> &nbsp;' . $lang . ' &nbsp; </a>';
+}
 ?>
-<a href="language.php?L=fa-IR">🇮🇷</a>
-<a href="language.php?L=en-US">🇺🇸</a>
-<a href="language.php?L=ru-RU">🇷🇺</a>

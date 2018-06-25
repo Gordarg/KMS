@@ -19,7 +19,7 @@ class functionalities
             setcookie("LANG", "fa-IR", time() + (86400 * 30), "/");
             $LANG = "fa-IR";
         }
-            else $LANG = $_COOKIE["LANG"];
+        else $LANG = $_COOKIE["LANG"];
         if ($LANG == "fa-IR")
         {
             return $key;
