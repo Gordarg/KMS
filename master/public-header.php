@@ -116,7 +116,7 @@ echo '<link href="' . $npath . '/css/' . $_COOKIE["LANG"] . '.css" rel="styleshe
   
 	<header role="banner">
     <div class="sidebar-open" onclick="w3_open()">☰</div>
-    <?= config::NAME ?>
+    <?= $functionalitiesInstance->label(config::NAME) ?>
     <?php
     include ('helper/toolbar.php');
     include ('helper/choose_language.php');

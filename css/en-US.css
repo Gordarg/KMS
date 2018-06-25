@@ -1,0 +1,12 @@
+* {
+    direction: ltr;
+}
+#sidebar{
+    text-align: left;
+}
+.container article h3, .container article p {
+    text-align: left;
+}
+table a, button, input, textarea, select {
+    direction: ltr;
+}
