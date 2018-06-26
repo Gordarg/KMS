@@ -82,7 +82,7 @@ CMS by
 -->
 <html>
 <head>
-<title><?php echo config::TITLE ?></title>
+<title><?php echo $functionalitiesInstance->label(config::TITLE) ?></title>
 <link rel="icon" href="favicon.png" type="image/png" sizes="96x96">
 <?php
 $_GET['yeild'] = basename($_SERVER["SCRIPT_FILENAME"], ".php");

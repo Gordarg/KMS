@@ -1,6 +1,9 @@
 * {
     direction: ltr;
 }
+body{
+    direction: ltr;
+}
 #sidebar{
     text-align: left;
 }
