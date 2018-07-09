@@ -5,20 +5,16 @@ require_once 'core/functionalities.php';
 use core\functionalities;
 include ('master/public-header.php');
 
-/*
+// TODO: username and password edit must be done
+// image is a post
+// There are `groups` that can contain `cv items`
 
+$Username = $_SESSION['PHP_AUTH_USER'];
 
-TODO:
-
-Update password,
-User profile image
-social networks
-
-*/
 ?>
-
+<form>
 <label for="title"><?= $functionalitiesInstance->label("نام کاربری"); ?></label>
-<input name="username" type="text" value="" />
+<input name="username" type="text" value="<?= $Username ?>" />
 
 <div class="pass">
     <label for="prev"><?= $functionalitiesInstance->label("گذرواژه‌ی قبلی"); ?></label>
@@ -30,10 +26,7 @@ social networks
     <label for="confirm"><?= $functionalitiesInstance->label("گذرواژه‌ی تکرار"); ?></label>
     <input name="confirm" type="password" />
 </div>
-
-<label for="content"><?= $functionalitiesInstance->label("تصویر"); ?></label>
-<input type="file" name="content" id="file" />
-
+</form>
 <?php
 include ('helper/user_role.php');
 include ('helper/user_active.php');

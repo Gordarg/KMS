@@ -1,7 +1,9 @@
 <?php
+require_once ('authorization.php');
+use core\authorization;
 
 class auth{
-    function login(){
+    function login($path  = null){
         if (! isset($_SESSION['PHP_AUTH_USER']))
             return null;
         
@@ -15,15 +17,24 @@ class auth{
         $password_safe = mysqli_real_escape_string($conn, $password);
 
         // Login
-        $login_query = "select Id from users where Username='" . $username_safe . "' AND Password='" . $password_safe . "';";
+        $login_query = "SELECT `Id`, `Role` FROM `users` WHERE `Username`='" . $username_safe . "' AND `Password`='" . $password_safe . "';";
         $login_result = mysqli_query($conn, $login_query);
         $login_num = mysqli_num_rows($login_result);
 
-        if ($login_num == 1) 
-            return mysqli_fetch_array($login_result)['Id'];
+        if ($login_num == 1)
+        {
+            $login = mysqli_fetch_array($login_result);
+            if ($path != null)
+            {
+                $authorization = new authorization();
+                if ($authorization->validate($path, $login["Role"]))
+                    return $login;
+            }
+            else
+                return $login;
+        }
         return null;
     }
-
 }
 
 ?>
