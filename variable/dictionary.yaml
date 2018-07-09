@@ -4,135 +4,135 @@ en-US:Gord
 en-US:Gord CMS
 -خانه
 en-US:Home
-ru-RU:домашняя страница
+ku-IQ:
 -جستجو
 en-US:Search
-ru-RU:
+ku-IQ:
 -تماس با ما
 en-US:Contact-Us
-ru-RU:
+ku-IQ:
 -همراهان ما
 en-US:Our Partners
-ru-RU:
+ku-IQ:
 -یادداشت ها
 en-US:Notes
-ru-RU:
+ku-IQ:
 -واژگان کلیدی
 en-US:Keywords
-ru-RU:
+ku-IQ:
 -کلمه‌ی کلیدی
 en-US:Keyword
-ru-RU:
+ku-IQ:
 -دیدگاه
 en-US:Comment
-ru-RU:
+ku-IQ:
 -ارسال
 en-US:Send
-ru-RU:
+ku-IQ:
 -عنوان
 en-US:Title
-ru-RU:
+ku-IQ:
 -سریع
 en-US:Fast
-ru-RU:
+ku-IQ:
 -بالا
 en-US:Top
-ru-RU:
+ku-IQ:
 -متوسط
 en-US:Medium
-ru-RU:
+ku-IQ:
 -مرکز
 en-US:Center
-ru-RU:
+ku-IQ:
 -کند
 en-US:Slow
-ru-RU:
+ku-IQ:
 -پایین
 en-US:Bottom
-ru-RU:
+ku-IQ:
 -متن
 en-US:Body
-ru-RU:
+ku-IQ:
 -پرونده
 en-US:File
-ru-RU:
+ku-IQ:
 -به‌روز رسانی
 en-US:Update
-ru-RU:
+ku-IQ:
 -حذف
 en-US:Delete
-ru-RU:
+ku-IQ:
 -حذف پیوست
 en-US:Delete Attachement
-ru-RU:
+ku-IQ:
 -انصراف
 en-US:Cancel
-ru-RU:
+ku-IQ:
 -حساب کاربری
 en-US:Account
-ru-RU:
+ku-IQ:
 -خروج
 en-US:Exit
-ru-RU:
+ku-IQ:
 -پست
 en-US:Post
-ru-RU:
+ku-IQ:
 -پرونده‌ها
 en-US:Files
-ru-RU:
+ku-IQ:
 -ویرایش
 en-US:Edit
-ru-RU:
+ku-IQ:
 -ویرایش تم
 en-US:Edit theme
-ru-RU:
+ku-IQ:
 -ضمیمه
 en-US:Attachement
-ru-RU:
+ku-IQ:
 -نام
 en-US:Firstname
-ru-RU:
+ku-IQ:
 -نام خانوادگی
 en-US:Lastname
-ru-RU:
+ku-IQ:
 -موضوع
 en-US:Subject
-ru-RU:
+ku-IQ:
 -نام کاربری
 en-US:Username
-ru-RU:
+ku-IQ:
 -کلمه‌ی عبور
 en-US:Password
-ru-RU:
+ku-IQ:
 -ورود
 en-US:Enter
-ru-RU:
+ku-IQ:
 -تکرار
 en-US:Confirm
-ru-RU:
+ku-IQ:
 -گذرواژه‌ی جدید
 en-US:New password
-ru-RU:
+ku-IQ:
 -گذرواژه‌ی قبلی
 en-US:Previous password
-ru-RU:
+ku-IQ:
 -تصویر
 en-US:Image
-ru-RU:
+ku-IQ:
 -ثبت نام
 en-US:Regsiter
-ru-RU:
+ku-IQ:
 -عبارت را وارد نمائید
 en-US:Enter the phrase
-ru-RU:
+ku-IQ:
 -نتیجه یافت نشد
 en-US:No result found
-ru-RU:
+ku-IQ:
 -ویرایش نسخه‌ی اصلی
 en-US:Edit original
-ru-RU:
+ku-IQ:
 -ویرایش فارسی
 en-US:Edit English
-ru-RU:
+ku-IQ:
 
 -<?= $functionalitiesInstance->label("عبارت"); ?>
