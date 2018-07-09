@@ -2,6 +2,10 @@
 
 require_once ('authorization.php');
 use core\authorization;
+
+require_once 'functionalities.php';
+use core\functionalities;
+
 class authentication{
     function login($path  = null){
         if (! isset($_SESSION['PHP_AUTH_USER']))
@@ -29,6 +33,10 @@ class authentication{
                 $authorization = new authorization();
                 if ($authorization->validate($path, $login["Role"]))
                     return $login;
+                else
+                {
+                    (new functionalities())->error("401");
+                }
             }
             else
                 return $login;

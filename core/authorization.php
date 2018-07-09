@@ -52,9 +52,7 @@ class authorization
             if (((string)$acccesslevel) == $role)
                 if ($acccesslevel->path == $path)
                     return true;
-        } 
-        echo $path;
-        exit;
+        }
         return false;
     }
 }
