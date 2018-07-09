@@ -1,6 +1,6 @@
 
 <?php
-include ('core/auth.php');
+include ('core/secure.php');
 
 /**
  * H3K | Tiny File Manager

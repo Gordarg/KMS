@@ -1,8 +1,8 @@
 <?php
+
 require_once ('authorization.php');
 use core\authorization;
-
-class auth{
+class authentication{
     function login($path  = null){
         if (! isset($_SESSION['PHP_AUTH_USER']))
             return null;

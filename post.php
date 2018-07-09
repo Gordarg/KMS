@@ -1,6 +1,6 @@
 <?php
 include_once ('core/init.php');
-include ('core/auth.php');
+include ('core/secure.php');
 include ('forms/submit.php');
 include ('master/public-header.php');
 $_GET['type'] = "POST";
