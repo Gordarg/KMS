@@ -4,7 +4,9 @@ require_once 'semi-orm/Posts.php';
 use orm\Posts;
 use core\functionalities;
 $rows=[];
-$rows = (new Posts($conn))->ToList(0, 48, "Submit", "DESC", "WHERE `Level` = 1 OR `Level` = 2");
+$rows = (new Posts($conn))->
+    ToList(0, 48, "Submit", "DESC",
+    "WHERE (`Level` = 1 OR `Level` = 2) AND `LANGUAGE`='" . $_COOKIE['LANG'] . "'");
 
 foreach ($rows as $row) {
     if ($row['Level'] != '1')
