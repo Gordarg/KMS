@@ -38,10 +38,12 @@ class authorization
 
     public function __construct ()
     {
+        // TODO: to read from file
         array_push($this->accesslevels, new accesslevel("tinyfilemanager.php", "ADMIN"));
         array_push($this->accesslevels, new accesslevel("profile.php", "VSTOR"));
         array_push($this->accesslevels, new accesslevel("profile.php", "ADMIN"));
         array_push($this->accesslevels, new accesslevel("post.php", "ADMIN"));
+        array_push($this->accesslevels, new accesslevel("settings.php", "ADMIN"));
     }
     public function validate($path, $role)
     {
