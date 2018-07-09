@@ -11,8 +11,9 @@ mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff ));
 $Title = '';
 $Language = 'fa-IR';
 $Index = '0';
-$Submit = $datetime; // Comes from Init.php
-$UserID = $UserId; // Comes from secure.php
+$Submit = $datetime;        // Comes from Init.php
+$UserID = $UserId[0];       // Comes from secure.php
+                            // TODO: WHY the function recived array? [0]
 $Level = 1;
 $Body = '';
 $Status = 'Publish';
@@ -25,7 +26,6 @@ switch ($Type)
         $Language = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'lang'));
         if ($Id != null)
             $MasterID = $Id;
-        
         $row = $Post->FirstOrDefault($Id, $Language);
         $Id = $Post->GetIdByMasterId($MasterID, $Language);
         $Title = $functionalitiesInstance->ifexistsidx($row,'Title');
@@ -33,6 +33,7 @@ switch ($Type)
         $Body = $functionalitiesInstance->ifexistsidx($row,'Body');
         break;
     case "COMT":
+        $Language = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'lang'));
         $RefrenceID = $functionalitiesInstance->ifexistsidx($row,'RefrenceID');
         if ($RefrenceID == "")
             $RefrenceID = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id'));

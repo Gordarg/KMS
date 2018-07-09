@@ -8,6 +8,7 @@ require_once ('forms/render.php');
 require_once 'semi-orm/Posts.php';
 use orm\Posts;
 $post = new Posts($conn);
+// TODO: keywords just visible on edit
 include ('helper/post_keywords.php');
 $rows=[];
 $rows = $post->ToList(-1, -1, "Submit", "DESC", "WHERE `Type` = 'KWRD' AND `RefrenceId`='" . $RefrenceID . "'");
