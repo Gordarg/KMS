@@ -10,6 +10,7 @@ class config
         array_push($this->languages, new language("fa", "فارسی", "IR", "r", "🇮🇷"));
         array_push($this->languages, new language("en", "English", "US", "l", "🇺🇸"));
         array_push($this->languages, new language("ru", "русский", "RU", "l", "🇷🇺"));
+        array_push($this->languages, new language("ku", "کوردی", "IQ", "r", "🇮🇶"));
     }
 
     const Url_PATH = "/CMS"; //       /Anything
