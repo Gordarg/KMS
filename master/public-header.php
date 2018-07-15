@@ -85,6 +85,7 @@ CMS by
 <title><?php echo $functionalitiesInstance->label(config::TITLE) ?></title>
 <link rel="icon" href="favicon.png" type="image/png" sizes="96x96">
 <?php
+
 $_GET['yeild'] = basename($_SERVER["SCRIPT_FILENAME"], ".php");
 include_once $parent . '/meta/render.php';
 $c = 1 + count(explode('/', config::Url_PATH));
@@ -93,15 +94,15 @@ $items =  explode('/',preg_replace("/[^a-zA-Z0-9_\-\/اآبپتثجچحخدذر�
 for ($i= $c + 1 ; $i < count($items); $i++ )
 {
   echo '
-<link href="' . $npath . '/css';
+  <link href="' . $npath . '/css';
 	if ($i == $c + 1)
-	    echo '/master';
-    else
-    	for ($j= $c + 2; $j <= $i; $j++ )
-    		echo '/' . (($items[$j] == "")?"index-php":$items[$j]);
+  echo '/master';
+  else
+  for ($j= $c + 2; $j <= $i; $j++ )
+  echo '/' . (($items[$j] == "")?"index-php":$items[$j]);
 	echo '.css" rel="stylesheet" />';
 }
-echo '<link href="' . $npath . '/css/' . $_COOKIE["LANG"] . '.css" rel="stylesheet" />'
+echo '<link href="' . $npath . '/css/' . $_COOKIE["LANG"] . '.css" rel="stylesheet" />';
 ?>
 </head>
 <body>

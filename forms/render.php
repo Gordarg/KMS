@@ -5,6 +5,8 @@ use core\functionalities;
 require_once $parent . '/semi-orm/Posts.php';
 use orm\Posts;
 $functionalitiesInstance = new functionalities();
+require_once $parent . '/core/database_conn.php';
+use core\database_connection;
 $db = new database_connection();
 $conn  = $db->open();
 $Post = new Posts($conn);

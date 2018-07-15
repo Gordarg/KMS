@@ -1,7 +1,8 @@
 <?php
 namespace orm;
-include_once ('abstract_semi_orm.php');
-include_once ($parent . '/core/authentication.php');
+require_once 'abstract_semi_orm.php';
+require_once $parent . '/core/authentication.php';
+use core\authentication;
 
 class Users extends abstract_semi_orm
 {
@@ -9,14 +10,9 @@ class Users extends abstract_semi_orm
         parent::__construct($database_connection, $table, $pk);
     }
     function ChangePassword($username, $previous_password, $new_password, $confirm_password){
-        echo "ChangePassword";
-        authentication.test();
-        // $authentication = new authentication('a', '');
-        echo "Done";
+        $authentication = new authentication($username, $previous_password);
         $Login = $authentication->login();
         $UserId = $Login["Id"];
-        echo $UserId;
-        exit;
         $this->Update(
             $UserId
             ,[

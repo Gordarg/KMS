@@ -1,10 +1,11 @@
 <?php
-
-require_once ('authorization.php');
+namespace core;
+require_once 'core/authorization.php';
 use core\authorization;
-
-require_once 'functionalities.php';
+require_once 'core/functionalities.php';
 use core\functionalities;
+require_once 'core/database_conn.php';
+use core\database_connection;
 
 class authentication{
 
@@ -34,7 +35,7 @@ class authentication{
 
         $db = new database_connection();
         $conn  = $db->open();
-
+        
         $username_safe = mysqli_real_escape_string($conn, $this->authUsername);
         $password_safe = mysqli_real_escape_string($conn, $this->authPassword);
 

@@ -15,7 +15,8 @@ date_default_timezone_set('Asia/Tehran');
 $datetime = date('Y-m-d h:i:s.u', time());
 if (session_status() == PHP_SESSION_NONE) 
     session_start();
-include_once 'database_conn.php';
+require_once 'database_conn.php';
+use core\database_connection;
 $db = new database_connection();
 $conn  = $db->open();
 include_once 'variable/config.php';
