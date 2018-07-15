@@ -7,18 +7,36 @@ require_once 'functionalities.php';
 use core\functionalities;
 
 class authentication{
+
+    private $authUsername = '';
+    private $authPassword = '';
+
+    static function test(){
+        echo "you reached the test func!";
+        exit;
+    }
+
+    function __construct($username = null, $password = null)
+    {
+        if ($username == null)
+        {
+            $this->authUsername = $_SESSION['PHP_AUTH_USER'];
+            $this->authPassword = $_SESSION['PHP_AUTH_PW'];
+        }
+        else
+        {
+            $this->authUsername = $username;
+            $this->authPassword = $password;
+        }
+    }
+
     function login($path  = null){
-        if (! isset($_SESSION['PHP_AUTH_USER']))
-            return null;
-        
-        $username = $_SESSION['PHP_AUTH_USER'];
-        $password = $_SESSION['PHP_AUTH_PW'];
 
         $db = new database_connection();
         $conn  = $db->open();
 
-        $username_safe = mysqli_real_escape_string($conn, $username);
-        $password_safe = mysqli_real_escape_string($conn, $password);
+        $username_safe = mysqli_real_escape_string($conn, $this->authUsername);
+        $password_safe = mysqli_real_escape_string($conn, $this->authPassword);
 
         // Login
         $login_query = "SELECT `Id`, `Role` FROM `users` WHERE `Username`='" . $username_safe . "' AND `Password`='" . $password_safe . "';";

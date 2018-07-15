@@ -34,7 +34,7 @@ if ($Q != null)
             switch ($row['Type'])
             {
                 case 'COMT':
-                    echo '<a href="view.php?id=' . $row['RefrenceID'] . '">' . $row['Body']. '</p>';
+                    echo '<a href="view.php?lang=' . $row['Language'] . '&id=' . $row['RefrenceID'] . '">' . $row['Body']. '</a>';
                     break;
                 // TODO:
                 // case 'KWRD':

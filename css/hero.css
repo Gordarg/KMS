@@ -29,20 +29,21 @@ a{
     position: fixed;
     overflow: auto;
     display:none;
+    flex-direction: row;
     text-align: right;
-    padding: 0;
     background-color: #0e8e97;
     color: white;
     animation: w3-spin 2s infinite linear;
 }
 #sidebar a{
     font-size: x-large;
-    display: block;
+    display: inline-block;
+    flex: 1;
+    width: 40%;
     padding: .5em;
+    padding-right: 1em;
 }
 #sidebar a:hover{
-    font-size: x-large;
-    display: block;
     color: #0e8e97;
     background-color: white;
 }
