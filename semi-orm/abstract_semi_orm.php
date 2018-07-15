@@ -72,8 +72,6 @@ class abstract_semi_orm implements semi_orm
             . ((++$i === count($Values)) ? "" : ", " );
         }
         $query = $query . " WHERE `" . $this->pk . "` = " . $Id . ";";
-        echo $query;
-        exit;
         mysqli_query($this->conn, $query);
     }
     function Delete($Id){
