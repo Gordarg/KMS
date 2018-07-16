@@ -1,4 +1,4 @@
--- WITH UPDATE 19
+-- WITH UPDATE 27
 
 -- MySQL Workbench Forward Engineering
 
@@ -7,16 +7,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 
+-- -----------------------------------------------------
+-- Table `users`
+-- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `users` (
   `Id` INT(11) NOT NULL AUTO_INCREMENT,
   `Username` VARCHAR(45) NULL DEFAULT NULL,
   `Password` TINYTEXT NULL DEFAULT NULL,
-  `Image` BLOB NULL DEFAULT NULL,
   `Active` BIT(1) NULL DEFAULT b'1',
   `Role` CHAR(5) NULL DEFAULT 'VSTOR',
-  PRIMARY KEY (`Id`))
+  PRIMARY KEY (`Id`),
+  UNIQUE INDEX `Username` (`Username` ASC))
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
+AUTO_INCREMENT = 17
 DEFAULT CHARACTER SET = latin1;
 
 
@@ -34,6 +37,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `Body` LONGTEXT NULL DEFAULT NULL,
   `UserId` INT(11) NULL DEFAULT NULL,
   `Status` CHAR(7) NULL DEFAULT 'DRAFT' COMMENT 'Post lifecycle',
+  `Language` VARCHAR(5) NULL DEFAULT 'fa-IR',
   `RefrenceId` CHAR(36) NULL DEFAULT NULL,
   `Index` SMALLINT(6) NULL DEFAULT NULL,
   `Deleted` BIT(1) NOT NULL DEFAULT b'0',
@@ -46,32 +50,32 @@ CREATE TABLE IF NOT EXISTS `posts` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-AUTO_INCREMENT = 101
+AUTO_INCREMENT = 40
 DEFAULT CHARACTER SET = latin1;
 
 -- -----------------------------------------------------
--- Placeholder table for view `post_contents`
+-- Placeholder table for view `post_contributers`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `post_contents` (`MasterId` INT, `Id` INT, `Title` INT, `Submit` INT, `Type` INT, `Level` INT, `Body` INT, `UserId` INT, `Status` INT, `RefrenceId` INT, `Index` INT, `Deleted` INT, `ContentDeleted` INT, `Username` INT, `Content` INT, `D1` INT, `D2` INT);
+CREATE TABLE IF NOT EXISTS `post_contributers` (`MasterID` INT, `ID` INT, `UserID` INT, `Username` INT, `Submit` INT, `Language` INT);
 
 -- -----------------------------------------------------
 -- Placeholder table for view `post_details`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `post_details` (`MasterID` INT, `Title` INT, `ID` INT, `Submit` INT, `UserID` INT, `Username` INT, `Body` INT, `Type` INT, `Level` INT, `RefrenceID` INT, `Index` INT, `Status` INT, `Content` INT);
+CREATE TABLE IF NOT EXISTS `post_details` (`MasterID` INT, `Title` INT, `ID` INT, `Submit` INT, `UserID` INT, `Username` INT, `Body` INT, `Type` INT, `Level` INT, `RefrenceID` INT, `Index` INT, `Status` INT, `Language` INT, `Content` INT);
 
 -- -----------------------------------------------------
--- View `post_contents`
+-- View `post_contributers`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `post_contents`;
+DROP TABLE IF EXISTS `post_contributers`;
 
-CREATE  VIEW `post_contents` AS select `P`.`MasterId` AS `MasterId`,`P`.`Id` AS `Id`,`P`.`Title` AS `Title`,`P`.`Submit` AS `Submit`,`P`.`Type` AS `Type`,`P`.`Level` AS `Level`,`P`.`Body` AS `Body`,`P`.`UserId` AS `UserId`,`P`.`Status` AS `Status`,`P`.`RefrenceId` AS `RefrenceId`,`P`.`Index` AS `Index`,`P`.`Deleted` AS `Deleted`,`P`.`ContentDeleted` AS `ContentDeleted`,`users`.`Username` AS `Username`,(select `P0`.`Content` AS `Content` from `posts` `P0` where ((`P0`.`Content` is not null) and (`P`.`MasterId` = `P0`.`MasterId`)) order by `P0`.`Submit` desc limit 1) AS `Content`,(select `P1`.`Submit` AS `D1` from `posts` `P1` where ((`P1`.`Content` is not null) and (`P`.`MasterId` = `P1`.`MasterId`)) order by `P1`.`Submit` desc limit 1) AS `D1`,(select `P2`.`Submit` AS `D2` from `posts` `P2` where ((`P2`.`ContentDeleted` = 1) and (`P`.`MasterId` = `P2`.`MasterId`)) order by `P2`.`Submit` desc limit 1) AS `D2` from (`posts` `P` join `users` on((`P`.`UserId` = `users`.`Id`))) where (`P`.`Id` in (select max(`posts`.`Id`) from `posts` group by `posts`.`MasterId`) and (`P`.`Deleted` = 0));
+CREATE  OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `post_contributers` AS select `P`.`MasterId` AS `MasterID`,`P`.`Id` AS `ID`,`P`.`UserId` AS `UserID`,`U`.`Username` AS `Username`,`P`.`Submit` AS `Submit`,`P`.`Language` AS `Language` from (`posts` `P` join `users` `U` on((`P`.`UserId` = `U`.`Id`)));
 
 -- -----------------------------------------------------
 -- View `post_details`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `post_details`;
 
-CREATE  VIEW `post_details` AS select `T`.`MasterId` AS `MasterID`,`T`.`Title` AS `Title`,`T`.`Id` AS `ID`,`T`.`Submit` AS `Submit`,`T`.`UserId` AS `UserID`,`T`.`Username` AS `Username`,`T`.`Body` AS `Body`,`T`.`Type` AS `Type`,`T`.`Level` AS `Level`,`T`.`RefrenceId` AS `RefrenceID`,`T`.`Index` AS `Index`,`T`.`Status` AS `Status`,(case when (`T`.`D2` >= `T`.`D1`) then NULL else `T`.`Content` end) AS `Content` from `post_contents` `T`;
+CREATE  OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `post_details` AS select `P`.`MasterId` AS `MasterID`,`P`.`Title` AS `Title`,`P`.`Id` AS `ID`,`P`.`Submit` AS `Submit`,`P`.`UserId` AS `UserID`,`U`.`Username` AS `Username`,`P`.`Body` AS `Body`,`P`.`Type` AS `Type`,`P`.`Level` AS `Level`,`P`.`RefrenceId` AS `RefrenceID`,`P`.`Index` AS `Index`,`P`.`Status` AS `Status`,`P`.`Language` AS `Language`,(case when ((select `P2`.`Submit` from `posts` `P2` where ((`P2`.`ContentDeleted` = 1) and (`P`.`MasterId` = `P2`.`MasterId`)) order by `P2`.`Submit` desc limit 1) > (select `P1`.`Submit` from `posts` `P1` where ((`P1`.`Content` is not null) and (`P`.`MasterId` = `P1`.`MasterId`)) order by `P1`.`Submit` desc limit 1)) then NULL else (select `P3`.`Content` from `posts` `P3` where ((`P3`.`Content` is not null) and (`P`.`MasterId` = `P3`.`MasterId`)) order by `P3`.`Submit` desc limit 1) end) AS `Content` from (`posts` `P` join `users` `U` on((`P`.`UserId` = `U`.`Id`))) where `P`.`Id` in (select max(`posts`.`Id`) from `posts` where (`posts`.`Deleted` = 0) group by `posts`.`Language`,`posts`.`MasterId`);
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
