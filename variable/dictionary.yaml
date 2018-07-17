@@ -14,6 +14,10 @@ ku-IQ:
 -همراهان ما
 en-US:Our Partners
 ku-IQ:
+-دانلود
+en-US:Download
+-توضیح
+en-US:Description
 -یادداشت ها
 en-US:Notes
 ku-IQ:
@@ -89,6 +93,8 @@ ku-IQ:
 -ضمیمه
 en-US:Attachement
 ku-IQ:
+-اسم
+en-US:name
 -نام
 en-US:Firstname
 ku-IQ:
@@ -133,6 +139,8 @@ en-US:Edit original
 ku-IQ:
 -به روز رسانی
 en-US:Update
+-جعبه
+en-US:box
 -ویرایش فارسی
 en-US:Edit English
 ku-IQ:

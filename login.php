@@ -9,7 +9,7 @@ if (isset($_POST['login']))
 {
     $_SESSION['PHP_AUTH_USER'] = $_POST['user'];
     $_SESSION['PHP_AUTH_PW'] = $_POST['pass'];
-    exit(header("Location: post.php"));
+    exit(header("Location: index.php"));
 }
 include_once ('master/public-header.php');   
 ?>

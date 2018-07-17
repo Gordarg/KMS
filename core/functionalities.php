@@ -14,11 +14,9 @@ class functionalities
         /*
         TODO: What if it was a sentece in last record of dictionary? -It has bug ;)
         */
-        if(!isset($_COOKIE["LANG"])) {
-            setcookie("LANG", "fa-IR", time() + (86400 * 30), "/");
-            $LANG = "fa-IR";
+        if(isset($_COOKIE["LANG"])) {
+            $LANG = $_COOKIE["LANG"];
         }
-        else $LANG = $_COOKIE["LANG"];
         if ($LANG == "fa-IR")
         {
             return $key;

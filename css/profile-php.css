@@ -1,0 +1,15 @@
+.pass{
+    display: block;
+    width: auto;
+    margin:0 auto 0 auto;
+    padding: 3em;
+    width: 20em;
+    text-align: center;
+    border: .05em solid #0f0f0f0f;
+    background-color: #0f0f0f0f;
+    border-radius: 1em;
+}
+.pass input[type="password"]{
+    margin: 0 auto 0 auto;
+    display: block;
+}

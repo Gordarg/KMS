@@ -16,5 +16,8 @@ switch ($_GET['type'])
     case "KWRD":
         include('KWRD.php');
         break;
+    case "FILE":
+        include('FILE.php');
+        break;
 }
 ?>

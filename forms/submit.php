@@ -52,6 +52,8 @@
             exit(header("Location: " . $npath . '/view.php?lang=' . $_POST['language'] . '&id=' . $_POST['refrenceid']));
         else if ($_POST['type'] == "KWRD")
             exit(header("Location: " . $npath . '/post.php?lang=' . $_POST['language'] . '&id=' . $_POST['refrenceid']));
+        else if ($_POST['type'] == "FILE")
+            exit(header("Location: " . $npath . '/box.php'));
         else
             exit(header("Location: " . $npath . '/view.php?lang=' . $_POST['language'] . '&id=' . $_POST['masterid']));
     }

@@ -18,7 +18,7 @@
 
 <label for="body"><?= $functionalitiesInstance->label("متن"); ?></label>
 <textarea name="body"><?= $Body  ?></textarea>
-<label for="body"><?= $functionalitiesInstance->label("پرونده"); ?></label>
+<label for="content"><?= $functionalitiesInstance->label("پرونده"); ?></label>
 <input type="file" name="content" id="file" />
 <?php
 /*

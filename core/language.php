@@ -10,6 +10,10 @@ class language {
     private $flag;
 
     public function __construct ($code, $language, $region, $direction, $flag) {
+        if (!isset($_COOKIE["LANG"]))
+        {
+            setcookie('LANG', 'fa-IR', time() + (86400 * 30), '/');
+        }
         $this->code = $code;
         $this->language = $language;
         $this->region = $region;

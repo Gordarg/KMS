@@ -24,8 +24,11 @@ switch ($Type)
     case "COMT":
         include('COMT.php');
         break;
-    case "KWRD":
+        case "KWRD":
         include('KWRD.php');
+        break;
+    case "FILE":
+        include('FILE.php');
         break;
 }
 ?>
