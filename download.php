@@ -8,20 +8,19 @@ $Id = mysqli_real_escape_string($conn, $_GET["id"]);
 $query = "SELECT `Content` FROM `post_details` where MasterID='" . $Id . "';";
 
 $result = mysqli_query($conn, $query);
-$content = mysqli_fetch_array($result)["Content"];
+$item = mysqli_fetch_array($result);
+$content = $item["Content"];
 
-// $finfo = new finfo(FILEINFO_MIME);
-// $type = $finfo->buffer($content);
-
-
-// $type = $functionalitiesInstance->getMime($name);
-
-
-$name = "Gord-" . $Id;
+$finfo = new finfo(FILEINFO_MIME);
+$type = $finfo->buffer($content);
 $size = strlen($content);
 
-// TODO:
-// header("Content-type: " . $type);
+$delimiters = array("/",";"," ","=");
+$ready = str_replace($delimiters, $delimiters[0], $type);
+$launch = explode($delimiters[0], $ready);
+$name = "Gord-" . $Id . '.' . $launch[1];
+
+header("Content-type: " . $type);
 header('Content-Disposition: attachment; filename="' . $name . '"');
 header("Content-Transfer-Encoding: binary");
 // header('Expires: 0');
@@ -29,8 +28,7 @@ header("Content-Transfer-Encoding: binary");
 header("Expires: ".gmdate("D, d M Y H:i:s", time()+1800)." GMT");
 header("Cache-Control: max-age=1800");
 header("Content-Length: " . $size);
-
 echo $content;
-exit();
-include ('core/database_close.php');
+exit;
+// TODO: include ('core/database_close.php');
 ?>

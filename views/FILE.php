@@ -1,10 +1,18 @@
 <?php
 echo '<div>';
+/*
+
+TODO:
+UPDATE AND DELETE
+
+*/
+echo '<a href="#">' . $functionalitiesInstance->label("حذف") . '</a>';
+echo '<a href="#">' . $functionalitiesInstance->label("ویرایش") . '</a>';
+echo '<a href="download.php?id=' . $row['MasterID'] . '" title="' . $functionalitiesInstance->label("دانلود") . '">';
 echo '<h5>' . $row['Submit'] . '</h5>';
 echo '<h4>' . $row['Title'] . '</h4>';
 echo '<h4><b>' . $row['Username'] . '</b></h4>';
-echo '<a href="download.php?id=' . $row['MasterID'] . '" alt="' . $row["Title"] . '">' . $functionalitiesInstance->label("دانلود") . '</a>';
-echo '<h2><a href="view.php?lang=' . $row['Language'] . '&id=' . $row['MasterID'] . '">' . $row['Title'] . '</a></h2>';
-echo $functionalitiesInstance->makeAbstract($Parsedown->text($row['Body']), 960, "<img>");
+// echo getImgType('download.php?id=' . $row['MasterID']);
+echo '</a>';
 echo '</div>';
 ?>
