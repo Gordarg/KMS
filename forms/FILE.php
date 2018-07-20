@@ -8,7 +8,6 @@
 
 <label for="title"><?= $functionalitiesInstance->label("اسم"); ?></label>
 <input name="title" placeholder="<?= $functionalitiesInstance->label("اسم"); ?>" type="text" value="<?= $Title ?>" />
-
 <input type="file" name="content" id="file" />
 <?php
 if ($Id == null ) {
@@ -16,6 +15,6 @@ if ($Id == null ) {
 } else {
     echo '<input type="submit" name="update" value="' . $functionalitiesInstance->label("به‌روز رسانی") . '" />';
     echo '<input type="submit" name="delete" value="' . $functionalitiesInstance->label("حذف") . '" />';
+    echo '<a href="box.php">' . $functionalitiesInstance->label("انصراف") . '</a>';
 }
-    echo '<a href="index.php">' . $functionalitiesInstance->label("انصراف") . '</a>';
 ?>

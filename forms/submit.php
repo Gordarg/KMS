@@ -30,7 +30,6 @@
     else if (isset($_POST["delete"])) {
         $Post->Delete($_POST['id'], 
             $_POST['language']);
-        exit(header("Location: " . $npath ));
     }
     if (isset($_POST["clear"]))
     {
@@ -48,13 +47,15 @@
     }
     if (!empty($_POST))
     {
+        if ($_POST['type'] == "FILE")
+            exit(header("Location: " . $npath . '/box.php'));
+        
+        if (isset($_POST["delete"]))
+            exit(header("Location: " . $npath ));
+        
         if ($_POST['type'] == "COMT")
             exit(header("Location: " . $npath . '/view.php?lang=' . $_POST['language'] . '&id=' . $_POST['refrenceid']));
-        else if ($_POST['type'] == "KWRD")
-            exit(header("Location: " . $npath . '/post.php?lang=' . $_POST['language'] . '&id=' . $_POST['refrenceid']));
-        else if ($_POST['type'] == "FILE")
-            exit(header("Location: " . $npath . '/box.php'));
-        else
-            exit(header("Location: " . $npath . '/view.php?lang=' . $_POST['language'] . '&id=' . $_POST['masterid']));
+        if ($_POST['type'] == "POST")
+            exit(header("Location: " . $npath . '/post.php?lang=' . $_POST['language'] . '&id=' . $_POST['masterid']));
     }
 ?>

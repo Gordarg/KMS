@@ -6,8 +6,7 @@ TODO:
 UPDATE AND DELETE
 
 */
-echo '<a href="#">' . $functionalitiesInstance->label("حذف") . '</a>';
-echo '<a href="#">' . $functionalitiesInstance->label("ویرایش") . '</a>';
+echo '<a href="box.php?lang=' . $row["Language"] . '&id=' . $row['MasterID'] . '">' . $functionalitiesInstance->label("ویرایش") . '</a>';
 echo '<a href="download.php?id=' . $row['MasterID'] . '" title="' . $functionalitiesInstance->label("دانلود") . '">';
 echo '<h5>' . $row['Submit'] . '</h5>';
 echo '<h4>' . $row['Title'] . '</h4>';

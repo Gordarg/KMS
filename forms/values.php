@@ -43,5 +43,14 @@ switch ($Type)
         if ($RefrenceID == "")
             $RefrenceID = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id'));
         break;
+    case "FILE":
+        $Id = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id'));
+        $Language = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'lang'));
+        if ($Id != null)
+            $MasterID = $Id;
+        $row = $Post->FirstOrDefault($Id, $Language);
+        $Id = $Post->GetIdByMasterId($MasterID, $Language);
+        $Title = $functionalitiesInstance->ifexistsidx($row,'Title');
+        break;
 }
 ?>
