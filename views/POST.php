@@ -6,7 +6,7 @@ switch ($_GET["level"])
         echo '<img src="download.php?id=' . $Id . '" alt="' . $row["Title"] . '" />';
         echo '<h1>' . $row['Title'] . '</h1>';
         include ('helper/post_edit.php');
-        echo '<p>' . $Parsedown->text($row['Body'])  . '</p>';
+        echo $Parsedown->text($row['Body']);
         echo '</article>';
         break;
     case "3":

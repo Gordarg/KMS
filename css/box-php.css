@@ -1,0 +1,13 @@
+.container{
+    flex-direction: row;
+}
+.container > div{
+    display: inline-flex;
+    flex: 1 15em;
+    border: .05em none solid;
+    margin: 1em;
+    padding: 1em;
+    border-radius: 1em;
+    box-shadow: 0 0.3em .7em gray;
+    
+}
