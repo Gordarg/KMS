@@ -1,5 +1,7 @@
 <?php
 include ('core/init.php');
+require_once ('core/authentication.php');
+use core\authentication;
 if (isset($_GET['way']) && ($_GET['way'] == 'bye'))
 {
     session_destroy();
@@ -9,9 +11,14 @@ if (isset($_POST['login']))
 {
     $_SESSION['PHP_AUTH_USER'] = $_POST['user'];
     $_SESSION['PHP_AUTH_PW'] = $_POST['pass'];
-    exit(header("Location: index.php"));
+    $authentication = new authentication();
+    $UserId = $authentication->login();
+    if ($UserId != null)
+        exit(header("Location: index.php"));
 }
 include_once ('master/public-header.php');   
+if (isset($_POST['login']))
+    echo '<div class="message">' . $functionalitiesInstance->label("احراز هویت ناموفق") . '</div>';
 ?>
 <form action="login.php" method="post">
     <img src="variable/logo.svg" alt="logo" class="avatar">
