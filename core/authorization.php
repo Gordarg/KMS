@@ -46,6 +46,7 @@ class authorization
         array_push($this->accesslevels, new accesslevel("settings.php", "ADMIN"));
         array_push($this->accesslevels, new accesslevel("box.php", "ADMIN"));
         array_push($this->accesslevels, new accesslevel("box.php", "VSTOR"));
+        array_push($this->accesslevels, new accesslevel("question.php", "ADMIN"));
     }
     public function validate($path, $role) // TODO: Not only path, but also paramters
                                            // Like post types (comment or post)

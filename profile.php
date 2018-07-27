@@ -22,6 +22,7 @@ $Post = new Posts($conn);
 // TODO: username and password edit must be done
 // image is a post
 // There are `groups` that can contain `cv items`
+// TODO: Alert if login failed
 ?>
 <form action="profile.php" method="post">
     <label for="title"><?= $functionalitiesInstance->label("نام کاربری"); ?></label>
