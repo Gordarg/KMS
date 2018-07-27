@@ -4,11 +4,8 @@ include ('core/secure.php');
 include ('forms/submit.php');
 include ('master/public-header.php');
 ?>
-
-<div id="sjfb-body">
 <div id="sjfb-wrap">
 <h1><?= $functionalitiesInstance->label('فرم‌ساز') ?></h1>
-<p>The form builder below was loaded in from a json string.<br>
 <a href="form.html">View form (rendered from the demo json string) here</a>.
 </p>
 <div class="add-wrap">
@@ -25,12 +22,9 @@ include ('master/public-header.php');
 <form id="sjfb" novalidate>
     <div id="form-fields">
     </div>
-    <button type="submit" class="submit">Save Form</button>
+    <button type="submit" class="submit"><?= $functionalitiesInstance->label('ذخیره') ?></button>
 </form>
 </div>
-</div>
-
-
 <?php
 $_GET['type'] = "QUST";
 require_once ('forms/render.php');

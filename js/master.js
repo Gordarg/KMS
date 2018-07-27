@@ -23,6 +23,12 @@ $.when(
 });
 
 
+Hi = {
+  label: function(name){
+    return name;
+  }
+}
+
 function w3_open() {
   document.getElementById("sidebar").style.display = "block";
 }

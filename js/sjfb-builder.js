@@ -19,7 +19,7 @@ $(function(){
 
     //Removes fields and choices with animation
     $("#sjfb").on("click", ".delete", function() {
-        if (confirm('Are you sure?')) {
+        if (confirm(Hi.label('آیا اطمینان دارید؟'))) {
             var $this = $(this);
             $this.parent().slideUp( "slow", function() {
                 $this.parent().remove()
@@ -158,7 +158,7 @@ function addField(fieldType) {
 
     if (hasRequired) {
         includeRequiredHTML = '' +
-            '<label>Required? ' +
+            '<label>' + Hi.label('اجباری؟') + '' +
             '<input class="toggle-required" type="checkbox">' +
             '</label>'
     }
@@ -167,13 +167,13 @@ function addField(fieldType) {
         includeChoicesHTML = '' +
             '<div class="choices">' +
             '<ul></ul>' +
-            '<button type="button" class="add-choice">Add Choice</button>' +
+            '<button type="button" class="add-choice">' + Hi.label('افزودن انتخاب') + '</button>' +
             '</div>'
     }
 
     return '' +
         '<div class="field" data-type="' + fieldType + '">' +
-        '<button type="button"  class="delete">Delete Field</button>' +
+        '<button type="button"  class="delete">' + Hi.label('حذف فیلد') + '</button>' +
         '<h3>' + fieldType + '</h3>' +
         '<label>Label:' +
         '<input type="text" class="field-label">' +
@@ -223,13 +223,13 @@ function selectedChoice($this) {
 function addChoice() {
     return '' +
         '<li>' +
-        '<label>Choice: ' +
+        '<label>' + Hi.label('انتخاب') + ': ' +
         '<input type="text" class="choice-label">' +
         '</label>' +
-        '<label>Selected? ' +
+        '<label>' + Hi.label('انتخاب شده باشد؟') +
         '<input class="toggle-selected" type="checkbox">' +
         '</label>' +
-        '<button type="button" class="delete">Delete Choice</button>' +
+        '<button type="button" class="delete">' + Hi.label('حذف انتخاب') + '</button>' +
         '</li>'
 }
 

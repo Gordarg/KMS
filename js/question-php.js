@@ -6,5 +6,4 @@ $.when(
         $( deferred.resolve );
     })
 ).done(function(){
-
 });
