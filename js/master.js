@@ -25,6 +25,9 @@ $.when(
 
 Hi = {
   label: function(name){
+    /*
+    TODO: Translate algorithm
+    */
     return name;
   }
 }
