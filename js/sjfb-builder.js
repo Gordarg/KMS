@@ -175,7 +175,7 @@ function addField(fieldType) {
         '<div class="field" data-type="' + fieldType + '">' +
         '<button type="button"  class="delete">' + Hi.label('حذف فیلد') + '</button>' +
         '<h3>' + fieldType + '</h3>' +
-        '<label>Label:' +
+        '<label>' + Hi.label('برچسب') + ':' +
         '<input type="text" class="field-label">' +
         '</label>' +
         includeRequiredHTML +
