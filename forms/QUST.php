@@ -6,7 +6,8 @@
 <input type="hidden" name="status" value="<?= $Status ?>" />
 <input type="hidden" name="title" value="<?= $Title ?>" />
 <input type="hidden" name="level" value="<?= $Level ?>" />
-<input type="hidden" id="output" name="body" value="<?= $Body ?>" />
+<?php /* $Body = '[{"type":"textarea","label":"Describe yourself in 3rd person","req":0}]' */ ?>
+<input type="hidden" id="output" name="body" value="<?php echo htmlentities($Body) ?>" />
 <input type="hidden" name="language" value="<?= $_COOKIE["LANG"] ?>" />
 <?php
 if ($Id == null ) {

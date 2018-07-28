@@ -94,14 +94,14 @@ $(function(){
             });
 
         });
-
+        
         var frontEndFormHTML = '';
-        var data = JSON.stringify([{"name":"formID","value":formID},{"name":"formFields","value":fields}]);
+        var data = JSON.stringify([{"name":"formID","value":document.getElementsByName("masterid")[0].value},{"name":"formFields","value":fields}]);
         $('#output').val(JSON.stringify(fields));
     });
 
     //load saved form
-    loadForm(formID);
+    loadForm();
 
 });
 
@@ -217,44 +217,27 @@ function addChoice() {
         '</li>'
 }
 
-//Loads a saved form from your database into the builder
-function loadForm(formID) {
-    $.getJSON('sjfb-load.php?form_id=' + formID, function(data) {
-        if (data) {
-            //go through each saved field object and render the builder
-            $.each( data, function( k, v ) {
-                //Add the field
-                $(addField(v['type'])).appendTo('#form-fields').hide().slideDown('fast');
-                var $currentField = $('#form-fields .field').last();
-
-                //Add the label
-                $currentField.find('.field-label').val(v['label']);
-
-                //Is it required?
-                if (v['req']) {
-                    requiredField($currentField.find('.toggle-required'));
-                }
-
-                //Any choices?
-                if (v['choices']) {
-                    $.each( v['choices'], function( k, v ) {
-                        //add the choices
-                        $currentField.find('.choices ul').append(addChoice());
-
-                        //Add the label
-                        $currentField.find('.choice-label').last().val(v['label']);
-
-                        //Is it selected?
-                        if (v['sel']) {
-                            selectedChoice($currentField.find('.toggle-selected').last());
-                        }
-                    });
-                }
-
-            });
-
-            $('#form-fields').sortable();
-            $('.choices ul').sortable();
-        }
-    });
+function loadForm() {
+    var data = JSON.parse($('#output').val());
+    if (data) {
+        $.each( data, function( k, v ) {
+            $(addField(v['type'])).appendTo('#form-fields').hide().slideDown('fast');
+            var $currentField = $('#form-fields .field').last();
+            $currentField.find('.field-label').val(v['label']);
+            if (v['req']) {
+                requiredField($currentField.find('.toggle-required'));
+            }
+            if (v['choices']) {
+                $.each( v['choices'], function( k, v ) {
+                    $currentField.find('.choices ul').append(addChoice());
+                    $currentField.find('.choice-label').last().val(v['label']);
+                    if (v['sel']) {
+                        selectedChoice($currentField.find('.toggle-selected').last());
+                    }
+                });
+            }
+        });
+        $('#form-fields').sortable();
+        $('.choices ul').sortable();
+    }
 }
