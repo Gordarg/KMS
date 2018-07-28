@@ -4,11 +4,14 @@
 <input type="hidden" name="index" value="<?= $Index ?>" />
 <input type="hidden" name="refrenceid" value="<?= $RefrenceID ?>" />
 <input type="hidden" name="status" value="<?= $Status ?>" />
-<input type="hidden" name="title" value="<?= $Title ?>" />
 <input type="hidden" name="level" value="<?= $Level ?>" />
 <?php /* $Body = '[{"type":"textarea","label":"Describe yourself in 3rd person","req":0}]' */ ?>
 <input type="hidden" id="output" name="body" value="<?php echo htmlentities($Body) ?>" />
 <input type="hidden" name="language" value="<?= $_COOKIE["LANG"] ?>" />
+
+<label for="title"><?= $functionalitiesInstance->label("عنوان"); ?></label>
+<input name="title" placeholder="<?= $functionalitiesInstance->label("عنوان"); ?>" type="text" value="<?= $Title ?>" />
+
 <?php
 if ($Id == null ) {
     echo '<input type="submit" name="insert" value="' . $functionalitiesInstance->label("ارسال") . '" />';

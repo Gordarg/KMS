@@ -12,7 +12,7 @@ $conn  = $db->open();
 $Post = new Posts($conn);
 include ('values.php');
 ?>
-<form  method="post" action="<?= /*TODO*/ 'post.php?type=' . $Type ?>" enctype="multipart/form-data">
+<form id="gordform" method="post" action="<?= /*TODO*/ 'post.php?type=' . $Type ?>" enctype="multipart/form-data">
 <input type="hidden" name="masterid" value="<?= $MasterID ?>" />
 <input type="hidden" name="type" value="<?= $Type ?>" />
 <?php

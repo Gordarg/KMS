@@ -20,7 +20,17 @@ $Status = 'Publish';
 $Content = null;
 $RefrenceID = null;
 switch ($Type)
-{
+{   
+    case "QUST":
+        $Id = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id'));
+        $Language = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'lang'));
+        if ($Id != null)
+            $MasterID = $Id;
+        $row = $Post->FirstOrDefault($Id, $Language);
+        $Id = $Post->GetIdByMasterId($MasterID, $Language);
+        $Title = $functionalitiesInstance->ifexistsidx($row,'Title');
+        $Body = $functionalitiesInstance->ifexistsidx($row,'Body');
+        break;
     case "POST":
         $Id = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id'));
         $Language = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'lang'));

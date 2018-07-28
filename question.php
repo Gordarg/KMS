@@ -8,6 +8,10 @@ include ('master/public-header.php');
 <h1><?= $functionalitiesInstance->label('فرم‌ساز') ?></h1>
 <a href="form.html">View form (rendered from the demo json string) here</a>.
 </p>
+<div id="sjfb" novalidate>
+    <div id="form-fields">
+    </div>
+</div>
 <div class="add-wrap">
     <h3><?= $functionalitiesInstance->label('افزودن فیلد') ?></h3>
     <ul id="add-field">
@@ -19,11 +23,6 @@ include ('master/public-header.php');
         <li><a id="add-agree" data-type="agree" href="#"><?= $functionalitiesInstance->label('باکس تائید') ?></a></li>
     </ul>
 </div>
-<form id="sjfb" novalidate>
-    <div id="form-fields">
-    </div>
-    <button type="submit" class="submit"><?= $functionalitiesInstance->label('تائید') ?></button>
-</form>
 </div>
 <?php
 $_GET['type'] = "QUST";

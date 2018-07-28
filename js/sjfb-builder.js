@@ -44,8 +44,8 @@ $(function(){
     });
 
     //Saving form
-    $("#sjfb").submit(function(event) {
-        event.preventDefault();
+    $("#gordform").submit(function(event) {
+        // event.preventDefault();
 
         //Loop through fields and save field data to array
         var fields = [];
@@ -98,6 +98,7 @@ $(function(){
         var frontEndFormHTML = '';
         var data = JSON.stringify([{"name":"formID","value":document.getElementsByName("masterid")[0].value},{"name":"formFields","value":fields}]);
         $('#output').val(JSON.stringify(fields));
+        alert($('#output').val());
     });
 
     //load saved form
