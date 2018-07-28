@@ -96,24 +96,8 @@ $(function(){
         });
 
         var frontEndFormHTML = '';
-
-        //Save form to database
-        //Demo doesn't actually save. Download project files for save
         var data = JSON.stringify([{"name":"formID","value":formID},{"name":"formFields","value":fields}]);
-        $.ajax({
-            method: "POST",
-            url: "sjfb-save.php",
-            data: data,
-            dataType: 'json',
-            success: function (msg) {
-                console.log(msg);
-                $('.alert').removeClass('hide');
-                $("html, body").animate({ scrollTop: 0 }, "fast");
-
-                //Demo only
-                $('.alert textarea').val(JSON.stringify(fields));
-            }
-        });
+        $('#output').val(JSON.stringify(fields));
     });
 
     //load saved form

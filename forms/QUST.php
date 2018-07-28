@@ -6,10 +6,8 @@
 <input type="hidden" name="status" value="<?= $Status ?>" />
 <input type="hidden" name="title" value="<?= $Title ?>" />
 <input type="hidden" name="level" value="<?= $Level ?>" />
+<input type="hidden" id="output" name="body" value="<?= $Body ?>" />
 <input type="hidden" name="language" value="<?= $_COOKIE["LANG"] ?>" />
-<div class="alert hide">
-    <textarea name="body"><?= $Body ?></textarea>
-</div>
 <?php
 if ($Id == null ) {
     echo '<input type="submit" name="insert" value="' . $functionalitiesInstance->label("ارسال") . '" />';

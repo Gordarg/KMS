@@ -77,8 +77,24 @@ ku-IQ:
 -حساب کاربری
 en-US:Account
 ku-IQ:
+-افزودن فیلد
+en-US:Add Field
+-متن تک خط
+en-US:Single Line Text
+-متن چند خط
+en-US:Multiline Text
+-لیست آبشاری
+en-US:Drop Down List
+-دکمه‌های رادیویی
+en-US:Radio buttons
+-چک باکس
+en-US:Check Box
+-باکس تائید
+en-US:Agree Box
 -خروج
 en-US:Exit
+-تائید
+en-US:Apply
 ku-IQ:
 -پست
 en-US:Post
