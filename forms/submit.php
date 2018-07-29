@@ -53,6 +53,8 @@
         if (isset($_POST["delete"]))
             exit(header("Location: " . $npath ));
         
+        if ($_POST['type'] == "QUST")
+            exit(header("Location: " . $npath . '/view.php?lang=' . $_POST['language'] . '&id=' . $_POST['masterid']));
         if ($_POST['type'] == "COMT")
             exit(header("Location: " . $npath . '/view.php?lang=' . $_POST['language'] . '&id=' . $_POST['refrenceid']));
         if ($_POST['type'] == "POST")

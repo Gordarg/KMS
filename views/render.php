@@ -7,6 +7,9 @@ $functionalitiesInstance = new functionalities();
 $Parsedown = new Parsedown();
 switch ($_GET['type'])
 {
+    case "QUST":
+        include('QUST.php');
+        break;
     case "POST":
         include('POST.php');
         break;
