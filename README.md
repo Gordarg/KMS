@@ -1,5 +1,5 @@
 # **GORD*CMS***
-![](Gordarg.png)
+![](https://raw.githubusercontent.com/Gordarg/gordarg.github.io/master/brand/bin/Type.svg)
 > Open knowledge for everyone
 
 ------------

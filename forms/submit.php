@@ -18,9 +18,8 @@
             if (substr($key, 0, 5) === 'form_')
             $data[substr($key, 5)] = $value;
             else continue;
-            echo substr($key, 5) . ': ' . $value . '<br />';
         }
-        exit;
+        $_POST['body'] = json_encode($data, JSON_UNESCAPED_UNICODE);
     }
 
     if (isset($_POST["insert"]) || isset($_POST['update']) || isset($_POST['clear'])) {
