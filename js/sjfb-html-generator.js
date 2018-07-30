@@ -28,7 +28,7 @@ function generateForm() {
 
             //Add the label
             $currentField.find('label').text(v['label']);
-            $currentField.find('.sjfb-editor').attr('name', v['label']);
+            $currentField.find('.sjfb-editor').attr('name', 'form_' + v['label']);
 
             //Any choices?
             if (v['choices']) {
@@ -43,13 +43,13 @@ function generateForm() {
 
                     else if (fieldType == 'radio') {
                         var selected = v['sel'] ? ' checked' : '';
-                        var choiceHTML = '<label><input type="radio" name="' + v['label'] + '"' + selected + ' value="' + v['label'] + '">' + v['label'] + '</label>';
+                        var choiceHTML = '<label><input type="radio" name=form_"' + v['label'] + '"' + selected + ' value="' + v['label'] + '">' + v['label'] + '</label>';
                         $currentField.find(".choices").append(choiceHTML);
                     }
 
                     else if (fieldType == 'checkbox') {
                         var selected = v['sel'] ? ' checked' : '';
-                        var choiceHTML = '<label><input type="checkbox" name="' + v['label'] + '"' + selected + ' value="' + v['label'] + '">' + v['label'] + '</label>';
+                        var choiceHTML = '<label><input type="checkbox" name=form_"' + v['label'] + '"' + selected + ' value="' + v['label'] + '">' + v['label'] + '</label>';
                         $currentField.find(".choices").append(choiceHTML);
                     }
 

@@ -10,6 +10,19 @@
     $conn  = $db->open();
     $Post = new Posts($conn);
 
+    if ($_POST['type'] == "ANSR")
+    {
+        $data = array();
+        foreach($_POST as $key => $value)
+        {
+            if (substr($key, 0, 5) === 'form_')
+            $data[substr($key, 5)] = $value;
+            else continue;
+            echo substr($key, 5) . ': ' . $value . '<br />';
+        }
+        exit;
+    }
+
     if (isset($_POST["insert"]) || isset($_POST['update']) || isset($_POST['clear'])) {
         $Post->Insert([
             ["MasterId", "'" . mysqli_real_escape_string($conn, $_POST['masterid']) . "'"],

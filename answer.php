@@ -18,10 +18,7 @@ $_GET['masterid'] = $row['MasterID'];
 $_GET["type"] = 'ANSR';
 include ('views/render.php');
 include ('master/public-footer.php');
-
 /*
-
-TODO: List all other answers for admins and question owner
-
+TODO: Admin and ownder must be able to change the status for the answer to Blocked or Accepted
 */
 ?>
