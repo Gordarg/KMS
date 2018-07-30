@@ -1,13 +1,4 @@
-if (isset($_POST))
-{
-    // $form_data = json_decode(file_get_contents('php://input'));
-    echo json_encode($_POST);
-    exit;
-    foreach ($form_data as $key => $value) {
-        $field[$value->name] = $value->value;
-    }
-    echo $form_data;
-    $formID = $field['formID'];
-    $formFields = json_encode($field['formFields']);
-    echo $formFields;
-}
+<form form action="answer.php" method="post" enctype="multipart/form-data">
+    <div id="sjfb-fields"></div>
+    <input type="submit" value="<?= $functionalitiesInstance->label("ذخیره") ?>" />
+</form>

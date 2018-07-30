@@ -33,6 +33,9 @@ switch ($Type)
     case "QUST":
         include('QUST.php');
         break;
+    case "ANSR":
+        include('ANSR.php');
+        break;
 }
 ?>
 </form>
