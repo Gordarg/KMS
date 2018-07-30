@@ -4,4 +4,7 @@
     echo htmlentities($row['Body']);
     echo '" />';
 ?>
-<form id="sjfb-sample"><div id="sjfb-fields"></div><input type="submit" value="<?= $functionalitiesInstance->label("دخیره") ?>" /></form>
+<form form action="answer.php" method="post" enctype="multipart/form-data">
+    <div id="sjfb-fields"></div>
+    <input type="submit" value="<?= $functionalitiesInstance->label("ذخیره") ?>" />
+</form>

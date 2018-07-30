@@ -5,6 +5,14 @@
  * SJFB may be freely distributed under the included MIT license (license.txt).
  */
 
+/*
+
+
+TODO: This must be server side
+
+
+*/
+
 //generates the form HTML
 function generateForm() {
     var data = JSON.parse($('#output').val());
@@ -20,11 +28,10 @@ function generateForm() {
 
             //Add the label
             $currentField.find('label').text(v['label']);
+            $currentField.find('.sjfb-editor').attr('name', v['label']);
 
             //Any choices?
             if (v['choices']) {
-
-                var uniqueID = Math.floor(Math.random()*999999)+1;
 
                 $.each( v['choices'], function( k, v ) {
 
@@ -36,13 +43,13 @@ function generateForm() {
 
                     else if (fieldType == 'radio') {
                         var selected = v['sel'] ? ' checked' : '';
-                        var choiceHTML = '<label><input type="radio" name="radio-' + uniqueID + '"' + selected + ' value="' + v['label'] + '">' + v['label'] + '</label>';
+                        var choiceHTML = '<label><input type="radio" name="' + v['label'] + '"' + selected + ' value="' + v['label'] + '">' + v['label'] + '</label>';
                         $currentField.find(".choices").append(choiceHTML);
                     }
 
                     else if (fieldType == 'checkbox') {
                         var selected = v['sel'] ? ' checked' : '';
-                        var choiceHTML = '<label><input type="checkbox" name="checkbox-' + uniqueID + '[]"' + selected + ' value="' + v['label'] + '">' + v['label'] + '</label>';
+                        var choiceHTML = '<label><input type="checkbox" name="' + v['label'] + '"' + selected + ' value="' + v['label'] + '">' + v['label'] + '</label>';
                         $currentField.find(".choices").append(choiceHTML);
                     }
 
@@ -72,41 +79,41 @@ function generateForm() {
                 return '' +
                     '<div id="sjfb-' + uniqueID + '" class="sjfb-field sjfb-text">' +
                     '<label for="text-' + uniqueID + '"></label>' +
-                    '<input type="text" id="text-' + uniqueID + '">' +
+                    '<input type="text" class="sjfb-editor" id="text-' + uniqueID + '">' +
                     '</div>';
 
             case 'textarea':
                 return '' +
                     '<div id="sjfb-' + uniqueID + '" class="sjfb-field sjfb-textarea">' +
                     '<label for="textarea-' + uniqueID + '"></label>' +
-                    '<textarea id="textarea-' + uniqueID + '"></textarea>' +
+                    '<textarea class="sjfb-editor" id="textarea-' + uniqueID + '"></textarea>' +
                     '</div>';
 
             case 'select':
                 return '' +
                     '<div id="sjfb-' + uniqueID + '" class="sjfb-field sjfb-select">' +
                     '<label for="select-' + uniqueID + '"></label>' +
-                    '<select id="select-' + uniqueID + '" class="choices choices-select"></select>' +
+                    '<select id="select-' + uniqueID + '" class="sjfb-editor choices choices-select"></select>' +
                     '</div>';
 
             case 'radio':
                 return '' +
                     '<div id="sjfb-' + uniqueID + '" class="sjfb-field sjfb-radio">' +
                     '<label></label>' +
-                    '<div class="choices choices-radio"></div>' +
+                    '<div class="sjfb-editor choices choices-radio"></div>' +
                     '</div>';
 
             case 'checkbox':
                 return '' +
                     '<div id="sjfb-checkbox-' + uniqueID + '" class="sjfb-field sjfb-checkbox">' +
                     '<label class="sjfb-label"></label>' +
-                    '<div class="choices choices-checkbox"></div>' +
+                    '<div class="sjfb-editor choices choices-checkbox"></div>' +
                     '</div>';
 
             case 'agree':
                 return '' +
                     '<div id="sjfb-agree-' + uniqueID + '" class="sjfb-field sjfb-agree required-field">' +
-                    '<input type="checkbox" required>' +
+                    '<input class="sjfb-editor" type="checkbox" required>' +
                     '<label></label>' +
                     '</div>'
         }

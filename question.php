@@ -6,8 +6,6 @@ include ('master/public-header.php');
 ?>
 <div id="sjfb-wrap">
 <h1><?= $functionalitiesInstance->label('فرم‌ساز') ?></h1>
-<a href="form.html">View form (rendered from the demo json string) here</a>.
-</p>
 <div id="sjfb" novalidate>
     <div id="form-fields">
     </div>

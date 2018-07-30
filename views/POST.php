@@ -2,7 +2,6 @@
 if ($row['Type'] == "QUST")
 {
     echo '<article>';
-    echo '<img src="download.php?id=' . $row['MasterID'] . '" alt="' . $row["Title"] . '" >';
     echo '<h3><a href="view.php?lang=' . $row['Language'] . '&id=' . $row['MasterID'] . '">' . $row['Title'] . '</h3></a>';
     echo '</article>';
 }
@@ -17,32 +16,32 @@ switch ($_GET["level"])
         echo $Parsedown->text($row['Body']);
         echo '</article>';
 
-$rows=[];
-$rows = $post->GetContributers("WHERE `Language`='" . $row['Language'] . "' AND `MasterID`='" . mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id')) . "'");
-foreach ($rows as $row) {
-    /*
-    TODO:
-    Use profile pic.
-    
-    echo '<a href="version.php?MasterID=' . $row['MasterID'] . '&Submit=' . $row['Submit'] . '"><em>' . $row['Username'] . ':<ins>' . $row['Submit'] . '</ins></em></a>&nbsp&nbsp&nbsp&nbsp';
-    */
-}
+        $rows=[];
+        $rows = $post->GetContributers("WHERE `Language`='" . $row['Language'] . "' AND `MasterID`='" . mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id')) . "'");
+        foreach ($rows as $row) {
+            /*
+            TODO:
+            Use profile pic.
+            
+            echo '<a href="version.php?MasterID=' . $row['MasterID'] . '&Submit=' . $row['Submit'] . '"><em>' . $row['Username'] . ':<ins>' . $row['Submit'] . '</ins></em></a>&nbsp&nbsp&nbsp&nbsp';
+            */
+        }
 
-$rows=[];
-$rows = $post->ToList(-1, -1, "Submit", "DESC", "WHERE `Type` = 'KWRD' AND `RefrenceId`='" . mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id')) . "'");
-foreach ($rows as $row) {
-    $_GET['masterid'] = $row['MasterID'];
-    $_GET["type"] = 'KWRD';
-    include ('views/render.php');
-}
-include ('helper/post_comment.php');
-$rows=[];
-$rows = $post->ToList(-1, -1, "Submit", "DESC", "WHERE `Type` = 'COMT' AND `RefrenceId`='" . mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id')) . "'");
-foreach ($rows as $row) {
-    $_GET['masterid'] = $row['MasterID'];
-    $_GET["type"] = 'COMT';
-    include ('views/render.php');
-}
+        $rows=[];
+        $rows = $post->ToList(-1, -1, "Submit", "DESC", "WHERE `Type` = 'KWRD' AND `RefrenceId`='" . mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id')) . "'");
+        foreach ($rows as $row) {
+            $_GET['masterid'] = $row['MasterID'];
+            $_GET["type"] = 'KWRD';
+            include ('views/render.php');
+        }
+        include ('helper/post_comment.php');
+        $rows=[];
+        $rows = $post->ToList(-1, -1, "Submit", "DESC", "WHERE `Type` = 'COMT' AND `RefrenceId`='" . mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id')) . "'");
+        foreach ($rows as $row) {
+            $_GET['masterid'] = $row['MasterID'];
+            $_GET["type"] = 'COMT';
+            include ('views/render.php');
+        }
         break;
     case "3":
         echo '<li><a href="view.php?lang="' . $row['Language'] . '"&id=' . $row['MasterID'] . '">';
