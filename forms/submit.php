@@ -49,7 +49,9 @@
     {
         if ($_POST['type'] == "FILE")
             exit(header("Location: " . $npath . '/box.php'));
-        
+        else if ($_POST['type'] == "ANSR")
+            exit(header("Location: " . $npath . '/answer.php?id=' . $_POST['masterid']));
+       
         if (isset($_POST["delete"]))
             exit(header("Location: " . $npath ));
         

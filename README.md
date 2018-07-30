@@ -11,9 +11,14 @@ Enable short tags on server
 ------------
 
 ## Post lifecycle
+### POST status
 1. Draft
 2. Publish
 3. Blocked
+### ANSR status
+1. Sent
+2. Blocked
+3. Accepted
 
 ## User types
 - A user can be **VSTOR**. It means, he/she can just see. Simply: Guest user!

@@ -1,4 +1,9 @@
-<form form action="answer.php" method="post" enctype="multipart/form-data">
-    <div id="sjfb-fields"></div>
-    <input type="submit" value="<?= $functionalitiesInstance->label("ذخیره") ?>" />
-</form>
+<input type="hidden" name="id" value="<?= $Id ?>" />
+<input type="hidden" name="submit" value="<?= $Submit ?>" />
+<input type="hidden" name="userid" value="<?= $UserID ?>" />
+<input type="hidden" name="index" value="<?= $Index ?>" />
+<input type="hidden" name="refrenceid" value="<?= $RefrenceID ?>" />
+<input type="hidden" name="status" value="<?= $Status ?>" />
+<input type="hidden" name="language" value="<?= $_COOKIE["LANG"] ?>" />
+<div id="sjfb-fields"></div>
+<input type="submit" name="insert" value="<?= $functionalitiesInstance->label("ارسال") ?>" />
