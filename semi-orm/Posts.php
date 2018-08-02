@@ -69,9 +69,7 @@ class Posts extends abstract_semi_orm
 			. ((++$i === count($Values)) ? "" : ", " );
 		}
         $query = $query . ");";
-        // echo $query;
         mysqli_query($this->conn, $query);
-        // exit;
 		return mysqli_insert_id($this->conn);
     }
     function Update($Id, $Values)

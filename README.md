@@ -22,10 +22,10 @@ Installation:
 ### POST status
 1. Draft
 2. Publish
-3. Blocked
+3. Block
 ### ANSR status
 1. Sent
-2. Blocked
+2. Block
 3. Approve
 
 ## User types

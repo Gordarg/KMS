@@ -11,10 +11,11 @@
     $Post = new Posts($conn);
 
     $type = mysqli_real_escape_string($conn, $_POST['type']);
+    $body = $_POST['body'];
     if ($type == 'ANSR_status')
     {
         // TODO: Check if needed:
-        $_POST['body'] = html_entity_decode($_POST['body']);
+        $body = html_entity_decode($body);
         $type = 'ANSR';
     }
     else if ($type  == "ANSR")
@@ -26,11 +27,17 @@
             $data[substr($key, 5)] = $value;
             else continue;
         }
-        $_POST['body'] = json_encode($data, JSON_UNESCAPED_UNICODE);
+        $body = json_encode($data, JSON_UNESCAPED_UNICODE);
+        $body = mysqli_real_escape_string($conn, $body);
     }
-    $status = mysqli_real_escape_string($conn, $_POST['status']);
-    if (isset($_POST["blocked"]))
-        $status = 'Blocked';
+    else
+    {
+        $status = mysqli_real_escape_string($conn, $_POST['status']);
+        $body = mysqli_real_escape_string($conn, $body);
+    }
+
+    if (isset($_POST["Block"]))
+        $status = 'Block';
     else if (isset($_POST["approve"]))
         $status = 'Approve';
     else if (isset($_POST["pubilsh"]))
@@ -43,7 +50,7 @@
         isset($_POST["insert"]) ||
         isset($_POST['update']) ||
         isset($_POST['clear']) ||
-        isset($_POST['blocked']) ||
+        isset($_POST['Block']) ||
         isset($_POST['approve']) ||
         isset($_POST['pubilsh']) ||
         isset($_POST['draft']) ||
@@ -57,7 +64,7 @@
                 ["Type", "'" . $type . "'"],
                 ["Language", "'" . mysqli_real_escape_string($conn, $_POST['language']) . "'"],
                 ["Level", ($functionalitiesInstance->ifexistsidx($_POST, 'level') == NULL) ? "NULL" : "'" . mysqli_real_escape_string($conn, ($_POST['level'])) . "'"],
-                ["Body", "'" . mysqli_real_escape_string($conn, $_POST['body']) . "'"],
+                ["Body", "'" . $body . "'"],
                 ["UserId", mysqli_real_escape_string($conn, $_POST['userid'])],
                 ["ContentDeleted", "0"],
                 ["Status", "'" . $status . "'"],
