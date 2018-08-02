@@ -26,7 +26,7 @@ Installation:
 ### ANSR status
 1. Sent
 2. Blocked
-3. Accepted
+3. Approve
 
 ## User types
 - A user can be **VSTOR**. It means, he/she can just see. Simply: Guest user!

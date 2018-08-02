@@ -10,7 +10,14 @@
     $conn  = $db->open();
     $Post = new Posts($conn);
 
-    if ($_POST['type'] == "ANSR" ||$_POST['type'] == "ANSR_status")
+    $type = mysqli_real_escape_string($conn, $_POST['type']);
+    if ($type == 'ANSR_status')
+    {
+        // TODO: Check if needed:
+        $_POST['body'] = html_entity_decode($_POST['body']);
+        $type = 'ANSR';
+    }
+    else if ($type  == "ANSR")
     {
         $data = array();
         foreach($_POST as $key => $value)
@@ -21,30 +28,43 @@
         }
         $_POST['body'] = json_encode($data, JSON_UNESCAPED_UNICODE);
     }
-    
+    $status = mysqli_real_escape_string($conn, $_POST['status']);
     if (isset($_POST["blocked"]))
         $status = 'Blocked';
-    if (isset($_POST["accepted"]))
-        $status = 'Accepted';
-    else
-        $status = mysqli_real_escape_string($conn, $_POST['status']);
-    
-    if (isset($_POST["insert"]) || isset($_POST['update']) || isset($_POST['clear'])) {
-        $Post->Insert([
-            ["MasterId", "'" . mysqli_real_escape_string($conn, $_POST['masterid']) . "'"],
-            ["Title", ($functionalitiesInstance->ifexistsidx($_POST, 'title') == NULL) ? "NULL" : "'" . mysqli_real_escape_string($conn, ($_POST['title'])) . "'"],
-            ["Submit", "'" . mysqli_real_escape_string($conn, $_POST['submit']) . "'"],
-            ["Type", "'" . mysqli_real_escape_string($conn, $_POST['type']) . "'"],
-            ["Language", "'" . mysqli_real_escape_string($conn, $_POST['language']) . "'"],
-            ["Level", ($functionalitiesInstance->ifexistsidx($_POST, 'level') == NULL) ? "NULL" : "'" . mysqli_real_escape_string($conn, ($_POST['level'])) . "'"],
-            ["Body", "'" . mysqli_real_escape_string($conn, $_POST['body']) . "'"],
-            ["UserId", mysqli_real_escape_string($conn, $_POST['userid'])],
-            ["ContentDeleted", "0"],
-            ["Status", "'" . $status . "'"],
-            ["RefrenceId", ($functionalitiesInstance->ifexistsidx($_POST, 'refrenceid') == NULL) ? "NULL" : "'" . mysqli_real_escape_string($conn, ($_POST['refrenceid'])) . "'"],
-            ["Index", mysqli_real_escape_string($conn, (($functionalitiesInstance->ifexistsidx($_POST, 'index') == NULL) ? "NULL" : $_POST['index']))],
-            ["Deleted", "0"],
-        ]);
+    else if (isset($_POST["approve"]))
+        $status = 'Approve';
+    else if (isset($_POST["pubilsh"]))
+        $status = 'Publish';
+    else if (isset($_POST["draft"]))
+        $status = 'Draft';  
+    else if (isset($_POST["sent"]))
+        $status = 'Sent';
+    if (
+        isset($_POST["insert"]) ||
+        isset($_POST['update']) ||
+        isset($_POST['clear']) ||
+        isset($_POST['blocked']) ||
+        isset($_POST['approve']) ||
+        isset($_POST['pubilsh']) ||
+        isset($_POST['draft']) ||
+        isset($_POST['sent'])
+        )
+        {
+            $Post->Insert([
+                ["MasterId", "'" . mysqli_real_escape_string($conn, $_POST['masterid']) . "'"],
+                ["Title", ($functionalitiesInstance->ifexistsidx($_POST, 'title') == NULL) ? "NULL" : "'" . mysqli_real_escape_string($conn, ($_POST['title'])) . "'"],
+                ["Submit", "'" . mysqli_real_escape_string($conn, $_POST['submit']) . "'"],
+                ["Type", "'" . $type . "'"],
+                ["Language", "'" . mysqli_real_escape_string($conn, $_POST['language']) . "'"],
+                ["Level", ($functionalitiesInstance->ifexistsidx($_POST, 'level') == NULL) ? "NULL" : "'" . mysqli_real_escape_string($conn, ($_POST['level'])) . "'"],
+                ["Body", "'" . mysqli_real_escape_string($conn, $_POST['body']) . "'"],
+                ["UserId", mysqli_real_escape_string($conn, $_POST['userid'])],
+                ["ContentDeleted", "0"],
+                ["Status", "'" . $status . "'"],
+                ["RefrenceId", ($functionalitiesInstance->ifexistsidx($_POST, 'refrenceid') == NULL) ? "NULL" : "'" . mysqli_real_escape_string($conn, ($_POST['refrenceid'])) . "'"],
+                ["Index", mysqli_real_escape_string($conn, (($functionalitiesInstance->ifexistsidx($_POST, 'index') == NULL) ? "NULL" : $_POST['index']))],
+                ["Deleted", "0"],
+            ]);
     }
     else if (isset($_POST["delete"])) {
         $Post->Delete($_POST['id'], 
@@ -66,19 +86,19 @@
     }
     if (!empty($_POST))
     {
-        if ($_POST['type'] == "FILE")
+        if ($type == "FILE")
             exit(header("Location: " . $npath . '/box.php'));
-        else if ($_POST['type'] == "ANSR" || $_POST['type'] == "ANSR_status")
+        else if ($type == "ANSR")
             exit(header("Location: " . $npath . '/answer.php?lang=' . $_POST['language'] . '&id=' . $_POST['masterid']));
        
         if (isset($_POST["delete"]))
             exit(header("Location: " . $npath ));
         
-        if ($_POST['type'] == "QUST")
+        if ($type == "QUST")
             exit(header("Location: " . $npath . '/view.php?lang=' . $_POST['language'] . '&id=' . $_POST['masterid']));
-        if ($_POST['type'] == "COMT")
+        if ($type == "COMT")
             exit(header("Location: " . $npath . '/view.php?lang=' . $_POST['language'] . '&id=' . $_POST['refrenceid']));
-        if ($_POST['type'] == "POST")
+        if ($type == "POST")
             exit(header("Location: " . $npath . '/post.php?lang=' . $_POST['language'] . '&id=' . $_POST['masterid']));
     }
 ?>

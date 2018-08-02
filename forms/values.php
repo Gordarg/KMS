@@ -67,12 +67,13 @@ switch ($Type)
         $Status = 'Sent';
         break;
     case "ANSR_status":
-        /*
-
-        TODO: Send Values
-
-        */
-
+        $Language = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'lang'));
+        $MasterID = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'masterid'));
+        $Id = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id'));
+        $RefrenceID = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'refrenceid'));
+        $UserID = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'userid'));
+        $Submit = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'submit'));
+        $Body = htmlentities(mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'body')));
         break;
 }
 ?>
