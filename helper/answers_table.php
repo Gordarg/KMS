@@ -17,7 +17,11 @@ $functionalitiesInstance->label("وضعیت") .
 '</th></tr>';
 foreach ($rows as $row) {
         echo '<tr>';
-        echo '<td><a href="answer.php?lang=' .$row['Language'] . '&id=' . $row['MasterID'] . '">' . $functionalitiesInstance->label("مشاهده") . '</a></td>';
+        echo '<td>';
+        $_GET['type'] = "ANSR_status";
+        $_GET['masterid'] = $row['MasterID'];
+        include ('forms/render.php');
+        echo '</td>';
         echo '<td>' . $row['Submit'] . '</td>';
         echo '<td>' . $row['Username'] . '</td>';
         echo '<td>' . $row['Status'] . '</td>';

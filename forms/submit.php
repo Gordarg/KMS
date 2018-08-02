@@ -10,7 +10,7 @@
     $conn  = $db->open();
     $Post = new Posts($conn);
 
-    if ($_POST['type'] == "ANSR")
+    if ($_POST['type'] == "ANSR" ||$_POST['type'] == "ANSR_status")
     {
         $data = array();
         foreach($_POST as $key => $value)
@@ -21,7 +21,14 @@
         }
         $_POST['body'] = json_encode($data, JSON_UNESCAPED_UNICODE);
     }
-
+    
+    if (isset($_POST["blocked"]))
+        $status = 'Blocked';
+    if (isset($_POST["accepted"]))
+        $status = 'Accepted';
+    else
+        $status = mysqli_real_escape_string($conn, $_POST['status']);
+    
     if (isset($_POST["insert"]) || isset($_POST['update']) || isset($_POST['clear'])) {
         $Post->Insert([
             ["MasterId", "'" . mysqli_real_escape_string($conn, $_POST['masterid']) . "'"],
@@ -33,7 +40,7 @@
             ["Body", "'" . mysqli_real_escape_string($conn, $_POST['body']) . "'"],
             ["UserId", mysqli_real_escape_string($conn, $_POST['userid'])],
             ["ContentDeleted", "0"],
-            ["Status", "'" . mysqli_real_escape_string($conn, $_POST['status']) . "'"],
+            ["Status", "'" . $status . "'"],
             ["RefrenceId", ($functionalitiesInstance->ifexistsidx($_POST, 'refrenceid') == NULL) ? "NULL" : "'" . mysqli_real_escape_string($conn, ($_POST['refrenceid'])) . "'"],
             ["Index", mysqli_real_escape_string($conn, (($functionalitiesInstance->ifexistsidx($_POST, 'index') == NULL) ? "NULL" : $_POST['index']))],
             ["Deleted", "0"],
@@ -61,7 +68,7 @@
     {
         if ($_POST['type'] == "FILE")
             exit(header("Location: " . $npath . '/box.php'));
-        else if ($_POST['type'] == "ANSR")
+        else if ($_POST['type'] == "ANSR" || $_POST['type'] == "ANSR_status")
             exit(header("Location: " . $npath . '/answer.php?lang=' . $_POST['language'] . '&id=' . $_POST['masterid']));
        
         if (isset($_POST["delete"]))

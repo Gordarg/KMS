@@ -66,5 +66,13 @@ switch ($Type)
         $RefrenceID = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id'));
         $Status = 'Sent';
         break;
+    case "ANSR_status":
+        /*
+
+        TODO: Send Values
+
+        */
+
+        break;
 }
 ?>

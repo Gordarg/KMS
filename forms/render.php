@@ -14,7 +14,6 @@ include ('values.php');
 ?>
 <form id="gordform" method="post" action="<?= /*TODO*/ 'post.php?type=' . $Type ?>" enctype="multipart/form-data">
 <input type="hidden" name="masterid" value="<?= $MasterID ?>" />
-<input type="hidden" name="type" value="<?= $Type ?>" />
 <?php
 switch ($Type)
 {
@@ -36,6 +35,10 @@ switch ($Type)
     case "ANSR":
         include('ANSR.php');
         break;
+    case "ANSR_status":
+        include('ANSR_status.php');
+        break;
 }
 ?>
+<input type="hidden" name="type" value="<?= $Type ?>" />
 </form>

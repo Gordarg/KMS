@@ -8,6 +8,14 @@ Notes:
 
 Enable short tags on server
 
+Installation:
+
+1. Run Database Script
+
+2. Copy Files to WWW Root
+
+3. Edit Variables/ Files
+
 ------------
 
 ## Post lifecycle
