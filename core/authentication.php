@@ -12,11 +12,6 @@ class authentication{
     private $authUsername = '';
     private $authPassword = '';
 
-    static function test(){
-        echo "you reached the test func!";
-        exit;
-    }
-
     function __construct($username = null, $password = null)
     {
         if ($username == null)
@@ -52,10 +47,7 @@ class authentication{
                 $authorization = new authorization();
                 if ($authorization->validate($path, $login["Role"]))
                     return $login;
-                else
-                {
-                    (new functionalities())->error("401");
-                }
+                return null;
             }
             else
                 return $login;

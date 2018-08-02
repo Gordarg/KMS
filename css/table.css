@@ -1,0 +1,47 @@
+table {
+    background-color: #D9D9DB;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  table td, table th {
+    padding: 3px 3px;
+  }
+  table tbody td {
+    font-size: 13px;
+    color: #645049;
+  }
+  table tr:nth-child(even) {
+    background: #FFDC1D;
+  }
+  table thead {
+    background: #EDA629;
+  }
+  table thead th {
+    font-size: 15px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+  }
+  table tfoot {
+    font-size: 14px;
+    font-weight: bold;
+    color: #FFFFFF;
+    background: #D9D9DB;
+    background: -moz-linear-gradient(top, #e2e2e4 0%, #dcdcde 66%, #D9D9DB 100%);
+    background: -webkit-linear-gradient(top, #e2e2e4 0%, #dcdcde 66%, #D9D9DB 100%);
+    background: linear-gradient(to bottom, #e2e2e4 0%, #dcdcde 66%, #D9D9DB 100%);
+    border-top: 2px solid #444444;
+  }
+  table tfoot td {
+    font-size: 14px;
+  }
+  table tfoot {
+    text-align: right;
+  }
+  table tfoot a{
+    display: inline-block;
+    background: #645049;
+    color: #FFFFFF;
+    padding: 2px 8px;
+    border-radius: 5px;
+  }

@@ -63,6 +63,7 @@ switch ($Type)
         $Body = $functionalitiesInstance->ifexistsidx($row,'Body');
         break;
     case "ANSR":
+        $RefrenceID = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id'));
         $Status = 'Sent';
         break;
 }

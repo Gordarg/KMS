@@ -9,8 +9,11 @@ class accesslevel {
     private $path;
     private $role;
 
-    public function __construct ($path, $role) {
-        $this->path = config::Url_PATH . "/" . $path;
+    public function __construct ($path, $role, $helper = false) {
+        if (!$helper)
+            $this->path = config::Url_PATH . "/" . $path;
+        else
+            $this->path = $path;
         $this->role = $role;
     }
 
@@ -47,6 +50,7 @@ class authorization
         array_push($this->accesslevels, new accesslevel("box.php", "ADMIN"));
         array_push($this->accesslevels, new accesslevel("box.php", "VSTOR"));
         array_push($this->accesslevels, new accesslevel("question.php", "ADMIN"));
+        array_push($this->accesslevels, new accesslevel("answers_table.php", "ADMIN", true));
     }
     public function validate($path, $role) // TODO: Not only path, but also paramters
                                            // Like post types (comment or post)

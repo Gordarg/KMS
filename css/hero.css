@@ -91,7 +91,9 @@ footer{
 	flex-wrap: wrap;
 	justify-content: flex-start;
 	align-items: stretch;
-	align-content: stretch;
+    align-content: stretch;
+    min-height: 15em;
+    margin-top:2em;
 }
 footer > div {
     flex: 1 25em;
