@@ -1,5 +1,5 @@
 # **GORD*CMS***
-![](https://raw.githubusercontent.com/Gordarg/gordarg.github.io/master/brand/bin/Type.svg)
+![](variable/logo.svg)
 > Open knowledge for everyone
 
 ------------
@@ -14,7 +14,7 @@ Installation:
 
 2. Copy Files to WWW Root
 
-3. Edit Variables/ Files
+3. Edit Variable/ Files
 
 ------------
 
