@@ -13,6 +13,8 @@ if ($UserId == null)
 	$items =  explode('/',preg_replace("/[^a-zA-Z0-9_\-\/اآبپتثجچحخدذرزسشصضطظعغفقکگلمنوهی]/","-",str_replace("://", "/", str_replace("?", "/", $path))));
 	for ($i= $c + 1 ; $i < count($items); $i++ )
 	{
+		// TODO: Bug with edit theme
+
 		echo '<a href=tinyfilemanager.php?p=' . core\config::Url_PATH . '/css';
 		if ($i == $c + 1)
 			echo '/master';

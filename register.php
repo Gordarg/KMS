@@ -17,7 +17,7 @@ if(isset($_POST["btn"]))
 include_once ('master/public-header.php');
 ?>
 <form action="register.php" method="post" >
-    <h1><?= $functionalitiesInstance->label("ثبت نام"); ?></h1>
+    <h1><?= $functionalitiesInstance->label("عضویت"); ?></h1>
 
     <label for="username"><?= $functionalitiesInstance->label("نام کاربری"); ?></label>
     <input type="text" name="username" required>
@@ -25,7 +25,7 @@ include_once ('master/public-header.php');
     <label for="password"><?= $functionalitiesInstance->label("کلمه‌ی عبور"); ?></label>
     <input type="password" name="password" required>
     
-    <button type="submit" name="btn" ><?= $functionalitiesInstance->label("ثبت نام"); ?></button>
+    <button type="submit" name="btn" ><?= $functionalitiesInstance->label("عضویت"); ?></button>
     <a href="index.php"><?= $functionalitiesInstance->label("انصراف"); ?></a>
 </form>
 

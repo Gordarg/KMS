@@ -110,7 +110,7 @@ echo '<link href="' . $npath . '/css/' . $_COOKIE["LANG"] . '.css" rel="styleshe
     <div onclick="w3_close()" class="sidebar-close">☰</div>
     <a href="./" onclick="w3_close()" class="w3-bar-item w3-button"><?= $functionalitiesInstance->label("خانه"); ?></a>
 		<a href="search.php" onclick="w3_close()" class="w3-bar-item w3-button"><?= $functionalitiesInstance->label("جستجو"); ?></a>
-		<a href="register.php" onclick="w3_close()" class="w3-bar-item w3-button"><?= $functionalitiesInstance->label("ثبت نام"); ?></a>
+		<a href="register.php" onclick="w3_close()" class="w3-bar-item w3-button"><?= $functionalitiesInstance->label("عضویت"); ?></a>
 		<a href="contactus.php" onclick="w3_close()" class="w3-bar-item w3-button"><?= $functionalitiesInstance->label("تماس با ما"); ?></a>
     <?php include ('helper/menu.php'); ?>
 	</nav>
