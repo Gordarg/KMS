@@ -1,5 +1,6 @@
 <?php
 /* TODO: Remove me */ $parent = realpath(dirname(__FILE__) . '/..');
+require_once  $parent . '/core/secure.php';
 require_once  $parent . '/core/functionalities.php';
 use core\functionalities;
 require_once $parent . '/semi-orm/Posts.php';
@@ -18,25 +19,25 @@ include ('values.php');
 switch ($Type)
 {
     case "POST":
-        include('POST.php');
+        include($parent . '/forms/POST.php');
         break;
     case "COMT":
-        include('COMT.php');
+        include($parent . '/forms/COMT.php');
         break;
-        case "KWRD":
-        include('KWRD.php');
+    case "KWRD":
+        include($parent . '/forms/KWRD.php');
         break;
     case "FILE":
-        include('FILE.php');
+        include($parent . '/forms/FILE.php');
         break;
     case "QUST":
-        include('QUST.php');
+        include($parent . '/forms/QUST.php');
         break;
     case "ANSR":
-        include('ANSR.php');
+        include($parent . '/forms/ANSR.php');
         break;
     case "ANSR_status":
-        include('ANSR_status.php');
+        include($parent . '/forms/ANSR_status.php');
         break;
 }
 ?>

@@ -2,9 +2,6 @@
 include_once 'variable/config.php';
 use core\config;
 include ('core/init.php');
-require_once 'core/functionalities.php';
-use core\functionalities;
-$functionalitiesInstance = new functionalities();
 ?>
 <!DOCTYPE html>
 <!--

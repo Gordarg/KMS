@@ -1,4 +1,5 @@
 <?php
+include ('core/init.php');
 include_once ('master/public-header.php');
 
 if (isset($_POST['send']))

@@ -1,4 +1,5 @@
 <?php
+include ('core/init.php');
 include ('master/public-header.php');
 // TODO: Show errors description
 ?>

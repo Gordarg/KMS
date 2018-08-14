@@ -1,7 +1,9 @@
 <?php
+include ('core/init.php');
 include ('master/public-header.php');
 require_once 'semi-orm/Posts.php';
 use orm\Posts;
+require_once 'core/functionalities.php';
 use core\functionalities;
 $rows=[];
 $rows = (new Posts($conn))->

@@ -1,4 +1,5 @@
 <?php
+include ('core/init.php');
 include ('master/public-header.php');
 require_once 'core/functionalities.php';
 use core\functionalities;
