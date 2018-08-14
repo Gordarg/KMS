@@ -17,7 +17,7 @@ if (isset($_POST["updatepass"])) {
     );
 }
 include ('master/public-header.php');
-$Username = $_SESSION['PHP_AUTH_USER'];
+$Username = $functionalitiesInstance->ifexistsidx($_SESSION, 'PHP_AUTH_USER');
 $Post = new Posts($conn);
 // TODO: username and password edit must be done
 // image is a post

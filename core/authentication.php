@@ -16,8 +16,9 @@ class authentication{
     {
         if ($username == null)
         {
-            $this->authUsername = $_SESSION['PHP_AUTH_USER'];
-            $this->authPassword = $_SESSION['PHP_AUTH_PW'];
+            $functionalitiesInstance = new functionalities();
+            $this->authUsername = $functionalitiesInstance->ifexistsidx($_SESSION, 'PHP_AUTH_USER');
+            $this->authPassword = $functionalitiesInstance->ifexistsidx($_SESSION, 'PHP_AUTH_PW');
         }
         else
         {
