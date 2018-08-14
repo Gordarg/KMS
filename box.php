@@ -11,7 +11,7 @@ $post = new Posts($conn);
 $rows=[];
 $rows = $post->
     ToList(0, 48, "Submit", "DESC",
-    "WHERE `UserID` = '" . $_SESSION['PHP_AUTH_ID'] . "' AND `Type`='FILE'");
+    "WHERE `UserID` = '" . $functionalitiesInstance->ifexistsidx($_SESSION, 'PHP_AUTH_ID') . "' AND `Type`='FILE'");
 
 /*
 

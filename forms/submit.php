@@ -10,32 +10,34 @@
     $conn  = $db->open();
     $Post = new Posts($conn);
 
-    $type = mysqli_real_escape_string($conn, $_POST['type']);
-    $body = $_POST['body'];
-    if ($type == 'ANSR_status')
+    if (isset($_POST["type"]))
     {
-        // TODO: Check if needed:
-        $body = html_entity_decode($body);
-        $type = 'ANSR';
-    }
-    else if ($type  == "ANSR")
-    {
-        $data = array();
-        foreach($_POST as $key => $value)
+        $type = mysqli_real_escape_string($conn, $_POST['type']);
+        $body = $_POST['body'];
+        if ($type == 'ANSR_status')
         {
-            if (substr($key, 0, 5) === 'form_')
-            $data[substr($key, 5)] = $value;
-            else continue;
+            // TODO: Check if needed:
+            $body = html_entity_decode($body);
+            $type = 'ANSR';
         }
-        $body = json_encode($data, JSON_UNESCAPED_UNICODE);
-        $body = mysqli_real_escape_string($conn, $body);
+        else if ($type  == "ANSR")
+        {
+            $data = array();
+            foreach($_POST as $key => $value)
+            {
+                if (substr($key, 0, 5) === 'form_')
+                $data[substr($key, 5)] = $value;
+                else continue;
+            }
+            $body = json_encode($data, JSON_UNESCAPED_UNICODE);
+            $body = mysqli_real_escape_string($conn, $body);
+        }
+        else
+        {
+            $status = mysqli_real_escape_string($conn, $_POST['status']);
+            $body = mysqli_real_escape_string($conn, $body);
+        }
     }
-    else
-    {
-        $status = mysqli_real_escape_string($conn, $_POST['status']);
-        $body = mysqli_real_escape_string($conn, $body);
-    }
-
     if (isset($_POST["Block"]))
         $status = 'Block';
     else if (isset($_POST["approve"]))
