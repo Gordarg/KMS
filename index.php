@@ -6,7 +6,7 @@ use core\functionalities;
 $rows=[];
 $rows = (new Posts($conn))->
     ToList(0, 48, "Submit", "DESC",
-    "WHERE (`Level` = 1 OR `Level` = 2) AND `LANGUAGE`='" . $_COOKIE['LANG'] . "'");
+    "WHERE (`Level` = 1 OR `Level` = 2) AND `LANGUAGE`='" . $functionalitiesInstance->ifexistsidx($_COOKIE, 'LANG')  . "'");
 
 foreach ($rows as $row) {
     if ($row['Level'] != '1')

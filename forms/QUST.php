@@ -7,7 +7,7 @@
 <input type="hidden" name="level" value="<?= $Level ?>" />
 <?php /* $Body = '[{"type":"textarea","label":"Describe yourself in 3rd person","req":0}]' */ ?>
 <input type="hidden" id="output" name="body" value="<?php echo htmlentities($Body) ?>" />
-<input type="hidden" name="language" value="<?= $_COOKIE["LANG"] ?>" />
+<input type="hidden" name="language" value="<?= $functionalitiesInstance->ifexistsidx($_COOKIE, 'LANG') ?>" />
 
 <label for="title"><?= $functionalitiesInstance->label("عنوان"); ?></label>
 <input name="title" placeholder="<?= $functionalitiesInstance->label("عنوان"); ?>" type="text" value="<?= $Title ?>" />

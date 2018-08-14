@@ -4,7 +4,7 @@
 <input type="hidden" name="index" value="<?= $Index ?>" />
 <input type="hidden" name="refrenceid" value="<?= $RefrenceID ?>" />
 <input type="hidden" name="status" value="<?= $Status ?>" />
-<input type="hidden" name="language" value="<?= $_COOKIE["LANG"] ?>" />
+<input type="hidden" name="language" value="<?= $functionalitiesInstance->ifexistsidx($_COOKIE, 'LANG') ?>" />
 
 <label for="title"><?= $functionalitiesInstance->label("عنوان"); ?></label>
 <input name="title" placeholder="<?= $functionalitiesInstance->label("عنوان"); ?>" type="text" value="<?= $Title ?>" />

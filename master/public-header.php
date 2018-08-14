@@ -102,7 +102,7 @@ for ($i= $c + 1 ; $i < count($items); $i++ )
   echo '/' . (($items[$j] == "")?"index-php":$items[$j]);
 	echo '.css" rel="stylesheet" />';
 }
-echo '<link href="' . $npath . '/css/' . $_COOKIE["LANG"] . '.css" rel="stylesheet" />';
+echo '<link href="' . $npath . '/css/' . $functionalitiesInstance->ifexistsidx($_COOKIE, 'LANG') . '.css" rel="stylesheet" />';
 ?>
 </head>
 <body>
