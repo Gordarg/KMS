@@ -7,7 +7,7 @@
 <input type="hidden" name="language" value="<?= $functionalitiesInstance->ifexistsidx($_COOKIE, 'LANG') ?>" />
 
 <label for="title"><?= $functionalitiesInstance->label("اسم"); ?></label>
-<input name="title" placeholder="<?= $functionalitiesInstance->label("اسم"); ?>" type="text" value="<?= $Title ?>" />
+<input name="title" required placeholder="<?= $functionalitiesInstance->label("اسم"); ?>" type="text" value="<?= $Title ?>" />
 <input type="file" name="content" id="file" />
 <?php
 if ($Id == null ) {

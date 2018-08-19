@@ -4,6 +4,7 @@
 87- Content must be seperate for each language
 88- API
 89- Share on someone's timeline 
+90- Move config from header to init
 
 6- draft
 11- offline backup

@@ -46,6 +46,7 @@ class authorization
         array_push($this->accesslevels, new accesslevel("profile.php", "VSTOR"));
         array_push($this->accesslevels, new accesslevel("profile.php", "ADMIN"));
         array_push($this->accesslevels, new accesslevel("post.php", "ADMIN"));
+        array_push($this->accesslevels, new accesslevel("post.php|ANSR", "VSTOR"));
         array_push($this->accesslevels, new accesslevel("settings.php", "ADMIN"));
         array_push($this->accesslevels, new accesslevel("users.php", "ADMIN"));
         array_push($this->accesslevels, new accesslevel("box.php", "ADMIN"));

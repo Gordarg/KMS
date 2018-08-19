@@ -16,33 +16,65 @@ $Q = (new functionalities())->ifexistsidx($_GET,'Q');
 <?php
 if ($Q != null)
 {
-    $a="SELECT * FROM `post_details`
+    $a="SELECT DISTINCT
+    `A`.* FROM `post_details` `A`
+
+    LEFT OUTER JOIN `post_details` as pd2
+    ON A.MasterID = pd2.RefrenceID
+
     WHERE
-    (`Title` LIKE '%".$Q."%'
-    OR `Username` LIKE '%".$Q."%'
-    OR `Body` LIKE '%".$Q."%')
-    AND (`Type` = 'POST'
-    OR `Type` = 'COMT' 
+    (
+        `A`.`Title` LIKE '%". $Q ."%'
+    OR `pd2`.`Title` LIKE '%". $Q ."%'
+    OR CONCAT ('@', `A`.`Username`) LIKE '". $Q ."'
+    OR `A`.`Body` LIKE '%". $Q ."%'
     )
-    ORDER BY `Submit`
+    AND
+    (
+        `A`.`Type` = 'POST'
+    OR  `A`.`Type` = 'COMT' 
+    OR  `A`.`Type` = 'FILE' 
+    OR  `A`.`Type` = 'KWRD' 
+    OR  `A`.`Type` = 'QUST'
+    )
+    AND
+    (
+        (
+            `pd2`.`Type` = 'POST'
+            AND
+            `A`.RefrenceID IS NOT NULL
+        )
+        OR
+        (
+            `A`.RefrenceID IS NULL
+        )
+    )
+
+    ORDER BY `A`.`Submit`
     Limit 10
     ;";
     $b=mysqli_query($conn,$a);
+    // echo $a;
     if ($b->num_rows > 0) {
         echo '<div class="results">';
         while($row = mysqli_fetch_array($b)){
-            echo '<div class="result">';
+            echo '<div class="' . $row['Type'] . '">';
             switch ($row['Type'])
             {
                 case 'COMT':
                     echo '<a href="view.php?lang=' . $row['Language'] . '&id=' . $row['RefrenceID'] . '">' . $row['Body']. '</a>';
                     break;
-                // TODO:
-                // case 'KWRD':
-                //     echo '<a href="view.php?id=' . $row['RefrenceID'] . '">' . $row['Title']. '</p>';
-                //     break;
+                case 'FILE':
+                    echo '<a href="download.php?id=' . $row['MasterID'] . '">' . $row['Title']. '</a>';
+                    break;
                 case 'POST':
-                    echo"<p>" . $row['Body']. "</p>";
+                    echo '<a href="view.php?lang=' . $row['Language'] . '&id=' . $row['MasterID'] . '">' . $row['Title']. '</a>';
+                    break;
+                case 'QUST':
+                    echo '<a href="view.php?lang=' . $_COOKIE['LANG'] . '&id=' . $row['MasterID'] . '">' . $row['Title']. '</a>';
+                    break;
+                case 'KWRD':
+                    echo '<a href="view.php?id=' . $row['RefrenceID'] . '">' . $row['Title']. '</p>';
                     break;
             }
             echo "</div>";

@@ -7,7 +7,7 @@
 <input type="hidden" name="language" value="<?= $functionalitiesInstance->ifexistsidx($_COOKIE, 'LANG') ?>" />
 
 <label for="title"><?= $functionalitiesInstance->label("عنوان"); ?></label>
-<input name="title" placeholder="<?= $functionalitiesInstance->label("عنوان"); ?>" type="text" value="<?= $Title ?>" />
+<input name="title" required placeholder="<?= $functionalitiesInstance->label("عنوان"); ?>" type="text" value="<?= $Title ?>" />
 
 <label for="level"><?= $functionalitiesInstance->label("مرتبه"); ?></label>
 <select name="level">

@@ -6,6 +6,8 @@ require_once 'core/functionalities.php';
 use core\functionalities;
 require_once 'core/database_conn.php';
 use core\database_connection;
+require_once 'variable/config.php';
+use core\config;
 
 class authentication{
 
@@ -48,6 +50,13 @@ class authentication{
                 $authorization = new authorization();
                 if ($authorization->validate($path, $login["Role"]))
                     return $login;
+                if ($path == (config::Url_PATH . "/" . 'post.php'))
+                {
+                    $functionalitiesInstance = new functionalities();
+                    $path = $path . '|' . $functionalitiesInstance->ifexistsidx($_GET, 'type');
+                    if ($authorization->validate($path, $login["Role"]))
+                        return $login;
+                }
                 return null;
             }
             else

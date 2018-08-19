@@ -20,5 +20,12 @@ class Users extends abstract_semi_orm
             ["Password", "'" . $new_password . "'"]
         ]);
     }
+    function GetUsernameById($Id)
+    {
+        $query = "SELECT `Username` FROM `users` WHERE `Id`='" . $Id . "';";
+        $result = mysqli_query($this->conn, $query);
+        $row = mysqli_fetch_array($result);
+        return $row['Username'];
+    }
 }
 ?>

@@ -14,6 +14,11 @@
     {
         $type = mysqli_real_escape_string($conn, $_POST['type']);
         $body = $_POST['body'];
+        $title = ($functionalitiesInstance->ifexistsidx($_POST, 'title') == NULL) ? "NULL" : "'" . mysqli_real_escape_string($conn, ($_POST['title'])) . "'";
+        if ($type  == "KWRD")
+        {
+            $title = "'#" . substr($title, 1);
+        }
         if ($type == 'ANSR_status')
         {
             // TODO: Check if needed:
@@ -61,7 +66,7 @@
         {
             $Post->Insert([
                 ["MasterId", "'" . mysqli_real_escape_string($conn, $_POST['masterid']) . "'"],
-                ["Title", ($functionalitiesInstance->ifexistsidx($_POST, 'title') == NULL) ? "NULL" : "'" . mysqli_real_escape_string($conn, ($_POST['title'])) . "'"],
+                ["Title", $title],
                 ["Submit", "'" . mysqli_real_escape_string($conn, $_POST['submit']) . "'"],
                 ["Type", "'" . $type . "'"],
                 ["Language", "'" . mysqli_real_escape_string($conn, $_POST['language']) . "'"],
@@ -98,7 +103,9 @@
         if ($type == "FILE")
             exit(header("Location: " . $npath . '/box.php'));
         else if ($type == "ANSR")
-            exit(header("Location: " . $npath . '/answer.php?lang=' . $_POST['language'] . '&id=' . $_POST['masterid']));
+        {
+            exit(header("Location: " . $npath . '/view.php?message=✓&lang=' . $_POST['language'] . '&id=' . $_POST['refrenceid']));
+        }
        
         if (isset($_POST["delete"]))
             exit(header("Location: " . $npath ));
@@ -107,6 +114,8 @@
             exit(header("Location: " . $npath . '/view.php?lang=' . $_POST['language'] . '&id=' . $_POST['masterid']));
         if ($type == "COMT")
             exit(header("Location: " . $npath . '/view.php?lang=' . $_POST['language'] . '&id=' . $_POST['refrenceid']));
+        if ($type == "KWRD")
+            exit(header("Location: " . $npath . '/post.php?lang=' . $_POST['language'] . '&id=' . $_POST['refrenceid']));
         if ($type == "POST")
             exit(header("Location: " . $npath . '/post.php?lang=' . $_POST['language'] . '&id=' . $_POST['masterid']));
     }

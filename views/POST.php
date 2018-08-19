@@ -10,12 +10,32 @@ switch ($_GET["level"])
 {
     case "view":
         echo '<article>';
-        echo '<img src="download.php?id=' . $Id . '" alt="' . $row["Title"] . '" />';
+        $content = $row["Content"];
+        $finfo = new finfo(FILEINFO_MIME);
+        $type = $finfo->buffer($content);
+        $size = strlen($content);
+        $delimiters = array("/",";"," ","=");
+        $ready = str_replace($delimiters, $delimiters[0], $type);
+        $launch = explode($delimiters[0], $ready);
+        $extension = $launch[1];
+        $os = array("png", "jpg", "jpeg", "bmp", "gif");
+        if (in_array($extension, $os)) {
+            echo '<img src="download.php?id=' . $Id . '" alt="' . $row["Title"] . '" />';
+        }
+        else if ($extension != "x-empty") {
+            echo '<a class="' . $extension . '" href="download.php?id=' . $Id . '">' . $functionalitiesInstance->label("دانلود") . '</a>';
+        }
         echo '<h1>' . $row['Title'] . '</h1>';
         include ('helper/post_edit.php');
         echo $Parsedown->text($row['Body']);
         echo '</article>';
-
+        $rows=[];
+        $rows = $post->ToList(-1, -1, "Submit", "DESC", "WHERE `Type` = 'KWRD' AND `RefrenceId`='" . mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id')) . "'");
+        foreach ($rows as $row) {
+            $_GET['masterid'] = $row['MasterID'];
+            $_GET["type"] = 'KWRD';
+            include ('views/render.php');
+        }
         $rows=[];
         $rows = $post->GetContributers("WHERE `Language`='" . $row['Language'] . "' AND `MasterID`='" . mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id')) . "'");
         foreach ($rows as $row) {
@@ -25,14 +45,6 @@ switch ($_GET["level"])
             
             echo '<a href="version.php?MasterID=' . $row['MasterID'] . '&Submit=' . $row['Submit'] . '"><em>' . $row['Username'] . ':<ins>' . $row['Submit'] . '</ins></em></a>&nbsp&nbsp&nbsp&nbsp';
             */
-        }
-
-        $rows=[];
-        $rows = $post->ToList(-1, -1, "Submit", "DESC", "WHERE `Type` = 'KWRD' AND `RefrenceId`='" . mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id')) . "'");
-        foreach ($rows as $row) {
-            $_GET['masterid'] = $row['MasterID'];
-            $_GET["type"] = 'KWRD';
-            include ('views/render.php');
         }
         include ('helper/post_comment.php');
         $rows=[];

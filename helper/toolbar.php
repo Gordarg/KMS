@@ -7,6 +7,13 @@ $UserId = $authentication->login();
 if ($UserId == null)
     return;
 ?>
+<?php
+	echo '<a href="profile.php?id=' . $UserId[0] . '" class="status">';
+	echo $functionalitiesInstance->label("کاربر");
+	echo ": ";
+	echo $functionalitiesInstance->ifexistsidx($_SESSION, 'PHP_AUTH_USER');
+	echo '</a>';
+?>	
 <div class="toolbar">
 	<img src="variable/logo.svg" alt="logo">
 	<?php
