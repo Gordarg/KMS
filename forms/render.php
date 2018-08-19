@@ -1,6 +1,5 @@
 <?php
 /* TODO: Remove me */ $parent = realpath(dirname(__FILE__) . '/..');
-require_once  $parent . '/core/secure.php';
 require_once  $parent . '/core/functionalities.php';
 use core\functionalities;
 require_once $parent . '/semi-orm/Posts.php';

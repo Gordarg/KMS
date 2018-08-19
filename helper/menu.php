@@ -16,3 +16,4 @@ if ($UserId == null)
 <a href="question.php" onclick="w3_close()"><?= $functionalitiesInstance->label("فرم‌ساز"); ?></a>
 <a href="tinyfilemanager.php?p=<?=core\config::Url_PATH?>" onclick="w3_close()"><?= $functionalitiesInstance->label("پرونده‌ها"); ?></a>
 <a href="box.php" onclick="w3_close()"><?= $functionalitiesInstance->label("جعبه"); ?></a>
+<a href="users.php" onclick="w3_close()"><?= $functionalitiesInstance->label("کاربران"); ?></a>

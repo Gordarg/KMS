@@ -1,4 +1,6 @@
 <?php
+require_once ('securitycheck.php');
+
 $Type = $_GET['type'];
 
 $MasterID = sprintf( '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',

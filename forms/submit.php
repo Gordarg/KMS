@@ -2,7 +2,7 @@
     require_once  $parent . '/core/functionalities.php';
     use core\functionalities;
     $functionalitiesInstance = new functionalities();
-    include('securitycheck.php');
+    require_once ('securitycheck.php');
     require_once ($parent . '/core/authentication.php'); /* Check before send */
     use core\authentication;
     require_once $parent . '/semi-orm/Posts.php';

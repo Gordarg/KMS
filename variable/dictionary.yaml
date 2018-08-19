@@ -158,7 +158,7 @@ ku-IQ:
 -به روز رسانی
 en-US:Update
 -جعبه
-en-US:box
+en-US:Box
 -احراز هویت ناموفق
 en-us:Login failed
 -ذخیره
@@ -166,5 +166,7 @@ en-US:Save
 -ویرایش فارسی
 en-US:Edit English
 ku-IQ:
+-کاربران
+en-US:Users
 
 -<?= $functionalitiesInstance->label("عبارت"); ?>

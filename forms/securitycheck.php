@@ -1,9 +1,9 @@
 <?php
 /* TODO:
-Check if users have permission
-if not exit with status code 401 Unauthorized
+Check if user has permission to data from values.php
+Check if user has permission to send data from submit.php
 */
-/* TODO:
-Check if values are valid
-*/
+$UserId = $authentication->login('answers_table.php');
+if ($UserId == null)
+        return;
 ?>
