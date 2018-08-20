@@ -103,14 +103,7 @@ echo '<link href="' . $npath . '/css/' . $functionalitiesInstance->ifexistsidx($
 ?>
 </head>
 <body>
-  <nav id="sidebar">
-    <div onclick="w3_close()" class="sidebar-close">☰</div>
-    <a href="./" onclick="w3_close()" class="w3-bar-item w3-button"><?= $functionalitiesInstance->label("خانه"); ?></a>
-		<a href="search.php" onclick="w3_close()" class="w3-bar-item w3-button"><?= $functionalitiesInstance->label("جستجو"); ?></a>
-		<a href="register.php" onclick="w3_close()" class="w3-bar-item w3-button"><?= $functionalitiesInstance->label("عضویت"); ?></a>
-		<a href="contactus.php" onclick="w3_close()" class="w3-bar-item w3-button"><?= $functionalitiesInstance->label("تماس با ما"); ?></a>
-    <?php include ('helper/menu.php'); ?>
-	</nav>
+  <?php include ('helper/menu.php'); ?>
   
 	<header role="banner">
     <div class="sidebar-open" onclick="w3_open()">☰</div>
