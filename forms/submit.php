@@ -53,6 +53,8 @@
         $status = 'Draft';  
     else if (isset($_POST["sent"]))
         $status = 'Sent';
+    else if (isset($_POST["insert"]))
+        $status = 'Sent';
     if (
         isset($_POST["insert"]) ||
         isset($_POST['update']) ||
@@ -103,20 +105,18 @@
         if ($type == "FILE")
             exit(header("Location: " . $npath . '/box.php'));
         else if ($type == "ANSR")
-        {
-            exit(header("Location: " . $npath . '/view.php?message=✓&lang=' . $_POST['language'] . '&id=' . $_POST['refrenceid']));
-        }
+            exit(header("Location: " . $npath . '/profile.php?message=✓&id=' . $_POST['userid']));
        
         if (isset($_POST["delete"]))
             exit(header("Location: " . $npath ));
         
         if ($type == "QUST")
             exit(header("Location: " . $npath . '/view.php?lang=' . $_POST['language'] . '&id=' . $_POST['masterid']));
-        if ($type == "COMT")
+        else if ($type == "COMT")
             exit(header("Location: " . $npath . '/view.php?lang=' . $_POST['language'] . '&id=' . $_POST['refrenceid']));
-        if ($type == "KWRD")
+        else if ($type == "KWRD")
             exit(header("Location: " . $npath . '/post.php?lang=' . $_POST['language'] . '&id=' . $_POST['refrenceid']));
-        if ($type == "POST")
+        else if ($type == "POST")
             exit(header("Location: " . $npath . '/post.php?lang=' . $_POST['language'] . '&id=' . $_POST['masterid']));
     }
 ?>

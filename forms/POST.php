@@ -36,6 +36,7 @@ if ($Id == null ) {
     echo '<input type="submit" name="update" value="' . $functionalitiesInstance->label("به‌روز رسانی") . '" />';
     echo '<input type="submit" name="delete" value="' . $functionalitiesInstance->label("حذف") . '" />';
     echo '<input type="submit" name="clear" value="' . $functionalitiesInstance->label("حذف پیوست") . '" />';
+    echo '<a href="view.php?lang=' . $_COOKIE['LANG'] . '&id=' . $row['MasterID'] . '">' . $functionalitiesInstance->label("مشاهده") . '</a>';
 }
     echo '<a href="index.php">' . $functionalitiesInstance->label("انصراف") . '</a>';
 ?>

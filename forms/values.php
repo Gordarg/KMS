@@ -14,7 +14,7 @@ $Title = '';
 $Language = 'fa-IR';
 $Index = '0';
 $Submit = $datetime;        // Comes from Init.php
-$UserID = $UserId[0];       // Comes from secure.php
+$UserID = $functionalitiesInstance->ifexistsidx($_SESSION, 'PHP_AUTH_ID');       // Comes from secure.php
                             // TODO: WHY the function recived array? [0]
 $Level = 1;
 $Body = '';

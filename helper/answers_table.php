@@ -14,7 +14,7 @@ $functionalitiesInstance->label("فرستنده") .
 $functionalitiesInstance->label("وضعیت") . 
 '</th></tr>';
 $rowws=[];
-$rowws = $post->ToList(-1, -1, "Submit", "DESC", "WHERE `Type` = 'ANSR' AND `RefrenceId`='" . mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id')) . "'");
+$rowws = $post->ToList(-1, -1, "Status", "DESC", "WHERE `Type` = 'ANSR' AND `RefrenceId`='" . mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id')) . "'");
 foreach ($rowws as $roww) {
         echo '<tr>';
         echo '<td>';

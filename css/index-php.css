@@ -1,19 +1,21 @@
 .container{
+    display: flex;
     flex-direction: row;
 }
-.container  article {
+.container > a {
+    width: 10em;
     flex: 1 20em;
-    height: 40em;
+    height: 20em;
     margin: 1em;
     padding: 1em;
     border: .1em #ffdc1d solid;
     text-align: center;
 }
-.container article h3, .container article p {
+.container > a h2, .container > a p {
     text-align: right;
     display: block;
 }
-.container article img {
+.container > a img {
     max-width: 100%;
-    max-height: 20em;
+    max-height: 10em;
 }

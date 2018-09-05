@@ -12,10 +12,12 @@ $post = new Posts($conn);
 include ('helper/post_keywords.php');
 $rows=[];
 $rows = $post->ToList(-1, -1, "Submit", "DESC", "WHERE `Type` = 'KWRD' AND `RefrenceId`='" . $RefrenceID . "'");
+echo '<div class="keywords">';
 foreach ($rows as $row) {
     $_GET['masterid'] = $row['MasterID'];
     $_GET["type"] = 'KWRD';
     include ('views/render.php');
 }
+echo '</div>';
 include ('master/public-footer.php');
 ?>

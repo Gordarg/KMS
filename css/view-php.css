@@ -1,8 +1,104 @@
-article{
-    width:70%;
-    flex: 1 70%;
-    word-wrap: break-word;
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
-article img{
-    width: 100%;
+article{
+    padding: 2em;
+    margin: 0 auto 0 auto;
+    word-wrap: break-word;
+    flex: 2 80em;
+    border-bottom: #0B93F6 solid 0.05em;
+}
+article > a{
+    padding: .125em;
+    padding-right: 2em;
+    text-decoration: none;
+    border-style: solid;
+    border-width: .05em;
+    border-radius: .25em;
+    text-align: center;
+    width: 9em;
+    background-color: white;
+    color: black;
+    display: block;
+    margin-top: 1em;
+}
+article a{
+    color: blue;
+}
+article a img{
+    width: 10em;
+    display:inline-block;
+}
+article img:nth-of-type(1) {
+    max-width: 100%;
+    max-height:40em;
+    display:block;
+    margin: 0 auto 0 auto;
+    color: transparent;
+}
+.attachment{
+    background-image: url('../drawable/download.svg');
+    background-repeat: no-repeat;
+    background-position: right;
+    padding: .125em;
+    padding-right: 2em;
+    text-decoration: none;
+    border-style: solid;
+    border-width: .05em;
+    border-radius: .25em;
+    text-align: center;
+    width: 9em;
+    background-color: white;
+    color: black;
+    display: block;
+}
+.attachment:hover,
+.attachment:focus{
+    background-color: gray;
+    color: white;
+}
+.keywords{
+    border-top: #0B93F6 solid 0.05em;
+    text-align: right;
+    padding: 2em;
+    flex: 2 80em;
+    order: 4;
+    display: block;
+}
+.keywords div{
+    display: inline-block;
+    margin: .5em;
+    padding: .25em;
+}
+.comments {
+    flex: 1 30em;
+    padding: 2em;
+}
+#gordform{
+    flex: 1 10em;
+    padding: 2em;
+    text-align: right;
+}
+#gordform textarea{
+    display: block;
+}
+.comments div{
+    display: block;
+}
+.comments div img{ 
+    height: 2em;
+    width: 2em;
+    margin-top: 1em;
+    margin-left: 1em;
+    background-color: #0B93F6;
+    border-radius: 1000%;
+}  
+.comments div span{   
+    padding: .5em 2em;
+    margin-bottom: 1em;
+	color:white;
+	background:#0B93F6;
+    border-radius: 2em;
 }

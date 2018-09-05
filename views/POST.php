@@ -23,51 +23,44 @@ switch ($_GET["level"])
             echo '<img src="download.php?id=' . $Id . '" alt="' . $row["Title"] . '" />';
         }
         else if ($extension != "x-empty") {
-            echo '<a class="' . $extension . '" href="download.php?id=' . $Id . '">' . $functionalitiesInstance->label("دانلود") . '</a>';
+             echo '<a class="attachment" href="download.php?id=' . $Id . '">' . $functionalitiesInstance->label("دانلود پیوست") . '</a>';
         }
-        echo '<h1>' . $row['Title'] . '</h1>';
         include ('helper/post_edit.php');
+        echo '<h1>' . $row['Title'] . '</h1>';
         echo $Parsedown->text($row['Body']);
         echo '</article>';
         $rows=[];
         $rows = $post->ToList(-1, -1, "Submit", "DESC", "WHERE `Type` = 'KWRD' AND `RefrenceId`='" . mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id')) . "'");
+        echo '<div class="keywords">';
         foreach ($rows as $row) {
             $_GET['masterid'] = $row['MasterID'];
             $_GET["type"] = 'KWRD';
             include ('views/render.php');
         }
-        $rows=[];
-        $rows = $post->GetContributers("WHERE `Language`='" . $row['Language'] . "' AND `MasterID`='" . mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id')) . "'");
-        foreach ($rows as $row) {
-            /*
-            TODO:
-            Use profile pic.
-            
-            echo '<a href="version.php?MasterID=' . $row['MasterID'] . '&Submit=' . $row['Submit'] . '"><em>' . $row['Username'] . ':<ins>' . $row['Submit'] . '</ins></em></a>&nbsp&nbsp&nbsp&nbsp';
-            */
-        }
+        echo '</div>';
         include ('helper/post_comment.php');
         $rows=[];
         $rows = $post->ToList(-1, -1, "Submit", "DESC", "WHERE `Type` = 'COMT' AND `RefrenceId`='" . mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'id')) . "'");
+        echo '<div class="comments">';
         foreach ($rows as $row) {
             $_GET['masterid'] = $row['MasterID'];
             $_GET["type"] = 'COMT';
             include ('views/render.php');
         }
+        echo '</div>';
         break;
     case "3":
         echo '<li><a href="view.php?lang="' . $row['Language'] . '"&id=' . $row['MasterID'] . '">';
-        echo '  <img src="download.php?id=' . $row['MasterID'] . '">';
         echo '  <h1>' . $row['Title'] . '</h1><br>';
         echo '  <span>' . $functionalitiesInstance->makeAbstract($Parsedown->text($row['Body']), 120) . '</span>';
-        echo '</a></li>';  
+        echo '</a></li>';
         break;
     case "1":
-        echo '<article>';
+        echo '<a href="view.php?lang=' . $row['Language'] . '&id=' . $row['MasterID'] . '">';
         echo '<img src="download.php?id=' . $row['MasterID'] . '" alt="' . $row["Title"] . '" >';
-        echo '<h3><a href="view.php?lang=' . $row['Language'] . '&id=' . $row['MasterID'] . '">' . $row['Title'] . '</h3></a>';
+        echo '<h2>' . $row['Title'] . '</h2>';
         echo '<p>' . $functionalitiesInstance->makeAbstract($Parsedown->text($row['Body']), 480)  . '</p>';
-        echo '</article>';
+        echo '</a>';
         break;
     case "2":
         echo '<article>';

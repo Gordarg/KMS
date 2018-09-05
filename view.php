@@ -13,6 +13,10 @@ if ($row == [])
 {
     exit(header("HTTP/1.0 404 Not Found"));
 }
+else
+{
+    require_once  'views/securitycheck.php';
+}
 include ('master/public-header.php');
 $_GET['masterid'] = $row['MasterID'];
 $_GET["level"] = 'view';

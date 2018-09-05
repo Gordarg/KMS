@@ -2,8 +2,14 @@
 en-US:Gord
 -سامانه‌ی مدیریت محتوی گرد
 en-US:Gord CMS
+-شناسه اصلی
+en-US:Master ID
+-شناسه عددی
+en-US:Numeric ID
 -خانه
 en-US:Home
+-ثبت
+en-US:Submit
 ku-IQ:
 -جستجو
 en-US:Search
@@ -128,20 +134,32 @@ ku-IQ:
 -کلمه‌ی عبور
 en-US:Password
 ku-IQ:
+-کلمه‌ی عبور قبلی نادرست است
+en-US:Wrong previous password
 -ورود
 en-US:Enter
 ku-IQ:
 -تکرار
 en-US:Confirm
 ku-IQ:
+-تراکنش های مالی
+en-US:Payments
+-پیش نیاز
+en-US:Requrements
+-تغییر کلمه‌ی عبور
+en-US:Change Password
 -فعالیت
 en-US:Activity
 -گذرواژه‌ی جدید
 en-US:New password
 ku-IQ:
+-پایگاه داده
+en-US:Database
 -گذرواژه‌ی قبلی
 en-US:Previous password
 ku-IQ:
+-لطفا پیش نیاز معتبر را ارسال فرمایید
+en-US:Please fill out the prerequested form
 -تصویر
 en-US:Image
 ku-IQ:

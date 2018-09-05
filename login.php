@@ -13,8 +13,9 @@ if (isset($_POST['login']))
     $_SESSION['PHP_AUTH_PW'] = $_POST['pass'];
     $authentication = new authentication();
     $UserId = $authentication->login();
+    $_SESSION['PHP_AUTH_ID'] = $UserId[0];
     if ($UserId != null)
-        exit(header("Location: index.php"));
+        exit(header("Location: profile.php?id=" . $UserId[0]));
 }
 include_once ('master/public-header.php');   
 if (isset($_POST['login']))

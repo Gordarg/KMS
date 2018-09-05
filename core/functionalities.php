@@ -21,7 +21,6 @@ class functionalities
         if ($LANG == "fa-IR")
         {
             return $key;
-            exit;
         }
         $dictionary = explode("\n", file_get_contents('variable/dictionary.yaml'));
         $keys = [];
@@ -48,6 +47,7 @@ class functionalities
                 }
             }
         }
+        return $key;
     }
 
     function ifexists($varname)

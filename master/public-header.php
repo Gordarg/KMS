@@ -115,3 +115,22 @@ echo '<link href="' . $npath . '/css/' . $functionalitiesInstance->ifexistsidx($
 	</header>
 
 <div class="container">
+<?php
+  switch ($functionalitiesInstance->ifexistsidx($_GET, 'message'))
+  {
+    case '✓':
+      echo '<span class="message">';
+      echo  $functionalitiesInstance->label('فرایند با موفقیت اعمال شد');
+      echo '</span>';
+      break;
+    case '⎗':
+      echo '<span class="message">';
+      echo  $functionalitiesInstance->label('لطفا پیش نیاز معتبر را ارسال فرمایید');
+      echo '</span>';
+      break;
+    case '⊥':
+      echo '<span class="message">';
+      echo  $functionalitiesInstance->label('کلمه‌ی عبور قبلی نادرست است');
+      echo '</span>';
+      break;
+  }

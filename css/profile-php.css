@@ -1,7 +1,121 @@
-.pass{
+.container{
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: stretch;
+    align-content: stretch;
+}
+
+section:nth-of-type(1)
+{
+    flex: 1 7em;
+    padding: 1.5em;
+    border-left: #655f61 solid .05em;
+    background-color: #eeeeee;
+}
+section:nth-of-type(1) img{
+    width: 5em;
+    height: 5em;
+    padding: 1em;
     display: block;
-    width: auto;
     margin:0 auto 0 auto;
+    border-radius: 1000%;
+    border: #655f61 solid .05em;
+}
+section:nth-of-type(1) a{
+    display: block;
+    margin: 1em;
+    padding: .125em;
+    border-radius: .5em;
+    color: #655f61;
+    text-align: center;
+    border: #655f61 solid .05em;
+}
+section:nth-of-type(1) a:hover,
+section:nth-of-type(1) a:focus{
+    background-color: #655f61;
+    color: white;
+}
+section:nth-of-type(2)
+{
+    flex: 4 30em;
+    padding: 1em;
+}
+section:nth-of-type(2) > div
+{
+    cursor: pointer;
+    min-width: 10em;
+    background-color: #eeeeee;
+    display: inline-block;
+    margin: 1em;
+    padding: 1em;
+    background-image: url('../drawable/sent.svg');
+    background-size: auto 30%;
+    background-position-x: .5em;
+    background-position-y: .5em;
+    background-repeat: no-repeat;
+    border:#655f61 solid 0.05em;
+    border-radius: .5em;
+
+}
+section:nth-of-type(2) div:focus,
+section:nth-of-type(2) div:hover
+{
+    background-color: #655f61;
+    color: white;
+}
+section:nth-of-type(2) div.answers{
+    display: none;
+}
+section:nth-of-type(2) div.Approve
+{
+    background-image: url('../drawable/approve.svg');
+
+}
+section:nth-of-type(2) div.Sent
+{
+    background-image: url('../drawable/sent.svg');
+}
+section:nth-of-type(2) div.Block
+{
+    background-image: url('../drawable/cancel.svg');
+}
+
+form, section:nth-of-type(2) div.answers{
+    display: none;
+    position: fixed;
+    top: -2em;
+    padding-top: 4em;
+    right: 0;
+    left: 0;
+    height: 100%;
+    z-index: 10;
+    overflow: auto;
+    background-color: #655f61;
+    color: white;
+    text-align: center;
+}
+form {
+    top: 1em;
+    height: 85%;
+}
+section:nth-of-type(2) div.answers p{
+    background-color: white;
+    color: black;
+    font-size: 1.5em;
+}
+.message{
+    display: block;
+    color: white;
+    background-color: red;
+    width: 100%;
+    flex-basis: 100%;
+    text-align: center;
+}
+.pass{
+    width: auto;
+    margin:1em auto 0 auto;
     padding: 3em;
     width: 20em;
     text-align: center;
@@ -9,7 +123,22 @@
     background-color: #0f0f0f0f;
     border-radius: 1em;
 }
-.pass input[type="password"]{
+form input[type="text"], .pass input[type="password"]{
     margin: 0 auto 0 auto;
     display: block;
+}
+
+/* The Close Button */
+#close {
+    display: block;
+    background:none;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#close:hover,
+#close:focus {
+    background-color: #eeeeee;
+    color: black;
 }
