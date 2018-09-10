@@ -38,6 +38,12 @@ switch ($Type)
     case "ANSR_status":
         include($parent . '/forms/ANSR_status.php');
         break;
+    case "COMT_delete":
+        include($parent . '/forms/COMT_delete.php');
+        break;
+    case "KWRD_delete":
+        include($parent . '/forms/KWRD_delete.php');
+        break;
 }
 ?>
 <input type="hidden" name="type" value="<?= $Type ?>" />

@@ -2,22 +2,35 @@
 include_once ('core/init.php');
 include ('core/secure.php');
 include ('forms/submit.php');
+require_once 'core/functionalities.php';
 include ('master/public-header.php');
 $_GET['type'] = "FILE";
 require_once ('forms/render.php');
 require_once 'semi-orm/Posts.php';
+require_once 'semi-orm/Users.php';
+use orm\Users;
+$user = new Users($conn);
 use orm\Posts;
 $post = new Posts($conn);
 $rows=[];
-$rows = $post->
-    ToList(0, 48, "Submit", "DESC",
-    "WHERE `UserID` = '" . $functionalitiesInstance->ifexistsidx($_SESSION, 'PHP_AUTH_ID') . "' AND `Type`='FILE'");
+use core\functionalities;
+$functionalitiesInstance = new functionalities();
+if ($functionalitiesInstance->ifexistsidx($_GET, 'id') == "" && $user->GetRoleById($functionalitiesInstance->ifexistsidx($_SESSION, 'PHP_AUTH_ID')) == 'ADMIN')
+{
+    $rows = $post->
+    ToList(-1, -1, "Submit", "DESC",
+    "WHERE `Type`='FILE'");
+}
+else if ($functionalitiesInstance->ifexistsidx($_GET, 'id') != "")
+{
+    $rows = $post->
+    ToList(-1, -1, "Submit", "DESC",
+    "WHERE `UserID` = '" . $functionalitiesInstance->ifexistsidx($_GET, 'id') . "' AND `Type`='FILE'");
+}
 
 /*
 
-TODO: if it was admin, push (WHERE UserID <> this User) to the array!
-admin can see everything
-
+TODO:
 
 require_once ($parent . '/core/authentication.php');
 use core\authentication;

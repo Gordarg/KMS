@@ -5,14 +5,15 @@ require_once 'core/functionalities.php';
 use core\functionalities;
 require_once 'semi-orm/Posts.php';
 use orm\Posts;
-$Q = (new functionalities())->ifexistsidx($_GET,'Q');
+require_once  $parent . '/plug-in/Parsedown.php';
+$functionalitiesInstance = new functionalities();
+$Parsedown = new Parsedown();
+$Q = $functionalitiesInstance->ifexistsidx($_GET,'Q');
 ?>
 <form class="example" method="GET" action="search.php">
     <input type="text" name="Q" placeholder="<?= $functionalitiesInstance->label("عبارت را وارد نمائید"); ?>" value="<?= $Q ?>" />
     <input type="submit" value = "<?= $functionalitiesInstance->label("جستجو"); ?>" />
 </form>
-<div class="line"></div>
-<div class="table">
 <?php
 if ($Q != null)
 {
@@ -34,7 +35,7 @@ if ($Q != null)
         `A`.`Type` = 'POST'
     OR  `A`.`Type` = 'COMT' 
     OR  `A`.`Type` = 'FILE' 
-    OR  `A`.`Type` = 'KWRD' 
+    -- OR  `A`.`Type` = 'KWRD' 
     OR  `A`.`Type` = 'QUST'
     )
     AND
@@ -56,7 +57,6 @@ if ($Q != null)
     $b=mysqli_query($conn,$a);
     // echo $a;
     if ($b->num_rows > 0) {
-        echo '<div class="results">';
         while($row = mysqli_fetch_array($b)){
             echo '<div class="' . $row['Type'] . '">';
             switch ($row['Type'])
@@ -68,25 +68,27 @@ if ($Q != null)
                     echo '<a href="download.php?id=' . $row['MasterID'] . '">' . $row['Title']. '</a>';
                     break;
                 case 'POST':
-                    echo '<a href="view.php?lang=' . $row['Language'] . '&id=' . $row['MasterID'] . '">' . $row['Title']. '</a>';
+                    echo '<a href="view.php?lang=' . $row['Language'] . '&id=' . $row['MasterID'] . '">' .
+                    '<img src="download.php?id=' . $row['MasterID'] . '" alt="' . $row['Title'] . '" />' .
+                    '<span>' . $row['Title'] . '</span>' .
+                    '<p>' . $functionalitiesInstance->makeAbstract($Parsedown->text($row['Body']), 480)  . '</p>' .
+                    '</a>';
                     break;
                 case 'QUST':
                     echo '<a href="view.php?lang=' . $_COOKIE['LANG'] . '&id=' . $row['MasterID'] . '">' . $row['Title']. '</a>';
                     break;
-                case 'KWRD':
-                    echo '<a href="view.php?id=' . $row['RefrenceID'] . '">' . $row['Title']. '</p>';
-                    break;
+                // case 'KWRD':
+                //     echo '<a href="view.php?id=' . $row['RefrenceID'] . '">' . $row['Title']. '</p>';
+                //     break;
             }
             echo "</div>";
         }
-        echo"</div>";
     }
     else{
         echo $functionalitiesInstance->label("نتیجه یافت نشد");
     }
 }
 ?>
-</div>
 
 <?php
 include ('master/public-footer.php');

@@ -25,6 +25,14 @@
             $body = html_entity_decode($body);
             $type = 'ANSR';
         }
+        else if ($type == 'COMT_delete')
+        {
+            $type = 'COMT';
+        }
+        else if ($type == 'KWRD_delete')
+        {
+            $type = 'KWRD';
+        }
         else if ($type  == "ANSR")
         {
             $data = array();
@@ -104,18 +112,20 @@
     {
         if ($type == "FILE")
             exit(header("Location: " . $npath . '/box.php'));
+        else if ($type == "ANSR" && (isset($_POST["delete"]) or isset($_POST["approve"]) or isset($_POST["Block"])))
+            exit(header("Location: " . $npath . '/view.php?lang=' . $_POST['language'] . '&id=' . $_POST['refrenceid']));
         else if ($type == "ANSR")
             exit(header("Location: " . $npath . '/profile.php?message=✓&id=' . $_POST['userid']));
-       
+        else if ($type == "COMT")
+            exit(header("Location: " . $npath . '/view.php?lang=' . $_POST['language'] . '&id=' . $_POST['refrenceid']));
+        else if ($type == "KWRD")
+            exit(header("Location: " . $npath . '/post.php?lang=' . $_POST['language'] . '&id=' . $_POST['refrenceid']));
+
         if (isset($_POST["delete"]))
             exit(header("Location: " . $npath ));
         
         if ($type == "QUST")
             exit(header("Location: " . $npath . '/view.php?lang=' . $_POST['language'] . '&id=' . $_POST['masterid']));
-        else if ($type == "COMT")
-            exit(header("Location: " . $npath . '/view.php?lang=' . $_POST['language'] . '&id=' . $_POST['refrenceid']));
-        else if ($type == "KWRD")
-            exit(header("Location: " . $npath . '/post.php?lang=' . $_POST['language'] . '&id=' . $_POST['refrenceid']));
         else if ($type == "POST")
             exit(header("Location: " . $npath . '/post.php?lang=' . $_POST['language'] . '&id=' . $_POST['masterid']));
     }

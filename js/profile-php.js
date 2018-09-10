@@ -20,6 +20,10 @@ window.onclick = function (event) {
     }
 }
 
+$("section div div.answers").each(function() {
+    $('<button id="close">⨯</button>').prependTo($(this));
+});
+
 $('section > div').click(function(event){
     var target = $( event.target );
     // if ( target.is( "div" ) ) {
@@ -27,7 +31,7 @@ $('section > div').click(function(event){
         target.find('.answers').show();
     // }
 });
-$('section div div.answers').click(function(event){
+$('section div div.answers button').click(function(event){
     var target = $( event.target );
-    target.hide();
+    target.parent().hide();
 });

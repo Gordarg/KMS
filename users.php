@@ -7,7 +7,7 @@ require_once 'semi-orm/Users.php';
 use orm\Users;
 $user = new Users($conn);
 $rows=[];
-$rows = $user->ToList(-1, -1, "Username", "ASC", "");
+$rows = $user->ToList(-1, -1, "ID", "DESC", "");
 foreach ($rows as $row) {
     echo '<tr>';
     echo '<td>';

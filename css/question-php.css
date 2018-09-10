@@ -2,6 +2,7 @@
 @import url("select2.css");
 
 #sjfb-wrap {
+    flex: 4 100%;
     margin: 30px auto;
     width: 800px;
     padding: 20px;

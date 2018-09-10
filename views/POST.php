@@ -11,20 +11,20 @@ switch ($_GET["level"])
     case "view":
         echo '<article>';
         $content = $row["Content"];
-        $finfo = new finfo(FILEINFO_MIME);
-        $type = $finfo->buffer($content);
-        $size = strlen($content);
-        $delimiters = array("/",";"," ","=");
-        $ready = str_replace($delimiters, $delimiters[0], $type);
-        $launch = explode($delimiters[0], $ready);
-        $extension = $launch[1];
-        $os = array("png", "jpg", "jpeg", "bmp", "gif");
-        if (in_array($extension, $os)) {
+        // $finfo = new finfo(FILEINFO_MIME);
+        // $type = $finfo->buffer($content);
+        // $size = strlen($content);
+        // $delimiters = array("/",";"," ","=");
+        // $ready = str_replace($delimiters, $delimiters[0], $type);
+        // $launch = explode($delimiters[0], $ready);
+        // $extension = $launch[1];
+        // $os = array("png", "jpg", "jpeg", "bmp", "gif");
+        // if (in_array($extension, $os)) {
             echo '<img src="download.php?id=' . $Id . '" alt="' . $row["Title"] . '" />';
-        }
-        else if ($extension != "x-empty") {
+        // }
+        // else if ($extension != "x-empty") {
              echo '<a class="attachment" href="download.php?id=' . $Id . '">' . $functionalitiesInstance->label("دانلود پیوست") . '</a>';
-        }
+        // }
         include ('helper/post_edit.php');
         echo '<h1>' . $row['Title'] . '</h1>';
         echo $Parsedown->text($row['Body']);
@@ -50,7 +50,7 @@ switch ($_GET["level"])
         echo '</div>';
         break;
     case "3":
-        echo '<li><a href="view.php?lang="' . $row['Language'] . '"&id=' . $row['MasterID'] . '">';
+        echo '<li><a href="view.php?lang=' . $row['Language'] . '&id=' . $row['MasterID'] . '">';
         echo '  <h1>' . $row['Title'] . '</h1><br>';
         echo '  <span>' . $functionalitiesInstance->makeAbstract($Parsedown->text($row['Body']), 120) . '</span>';
         echo '</a></li>';

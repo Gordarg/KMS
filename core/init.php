@@ -1,6 +1,7 @@
 <?php
 /*
-Gordarg CMS Version 1.8.0.0
+Gordarg KMS Version 1.9.0.0
+Director: MohammadReza Tayyebi, Gordarg
 
 NOTE: > git config core.fileMode false
 

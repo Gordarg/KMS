@@ -8,3 +8,4 @@
 <a href="answer.php?lang=<?= $Language ?>&id=<?= $MasterID ?>"><?= $functionalitiesInstance->label("مشاهده") ?></a>
 <input type="submit" name="Block" value="<?= $functionalitiesInstance->label("رد") ?>" />
 <input type="submit" name="approve" value="<?= $functionalitiesInstance->label("تائید") ?>" />
+<input type="submit" name="delete" value="<?= $functionalitiesInstance->label("حذف") ?>" />

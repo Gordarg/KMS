@@ -24,11 +24,10 @@ use orm\Posts;
             include ('views/render.php');
         }
         ?>
-      </ul>
+        </ul>
 	</div>
 	<div>
 		<h3><?= $functionalitiesInstance->label("واژگان کلیدی"); ?></h3>
-		<p>
         <?php
         $keywords = //file_get_contents('./keywords.txt', FILE_USE_INCLUDE_PATH);
         config::META_KEYWORDS;
@@ -37,7 +36,6 @@ use orm\Posts;
             echo '<a rel="search" href="search.php?Q=' . $keywordsArr . '"> ' . $keywordsArr . ' </a>' . ' ';
         }
         ?>
-     </p>
 	</div>
 </footer>
 </div>

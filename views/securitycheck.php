@@ -1,8 +1,17 @@
 <?php
 require_once 'semi-orm/Posts.php';
 use orm\Posts;
+/* TODO: Remove me */ $parent = realpath(dirname(__FILE__) . '/..');
+require_once ($parent . '/core/authentication.php');
+use core\authentication;
+$authentication = new authentication();
 if ($row['Type'] == 'QUST')
 {
+    $UserId = $authentication->login('view_question.php');
+    if ($UserId == null)
+    {
+        $functionalitiesInstance->error(401);
+    }
     $post = new Posts($conn);
     $refrence = $post->FirstOrDefault($row['RefrenceID'],  $row['Language']);
     if ($refrence != null)

@@ -30,7 +30,15 @@ $functionalitiesInstance->label("زبان") .
 '</th><th>' .
 $functionalitiesInstance->label("وضعیت") .
 '</th></tr>';
-$rows = $post->ToList(-1, -1, "ID", "DESC", "WHERE (`Type` = 'QUST' OR `Type` = 'POST') AND `UserID` = " . $functionalitiesInstance->ifexistsidx($_SESSION, 'PHP_AUTH_ID'));
+if ($functionalitiesInstance->ifexistsidx($_GET, 'id') == "" && $user->GetRoleById($functionalitiesInstance->ifexistsidx($_SESSION, 'PHP_AUTH_ID')) == 'ADMIN')
+{
+        $rows = $post->ToList(-1, -1, "ID", "DESC", "WHERE (`Type` = 'QUST' OR `Type` = 'POST')");
+}
+else if ($functionalitiesInstance->ifexistsidx($_GET, 'id') != "")
+{
+        $rows = $post->ToList(-1, -1, "ID", "DESC", "WHERE (`Type` = 'QUST' OR `Type` = 'POST') AND `UserID` = " . $functionalitiesInstance->ifexistsidx($_SESSION, 'PHP_AUTH_ID'));
+}
+
 foreach ($rows as $row) {
         echo '<tr>';
         echo '<td>';

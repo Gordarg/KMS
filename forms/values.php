@@ -21,6 +21,7 @@ $Body = '';
 $Status = 'Publish';
 $Content = null;
 $RefrenceID = null;
+
 switch ($Type)
 {   
     case "POST":
@@ -76,6 +77,18 @@ switch ($Type)
         $UserID = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'userid'));
         $Submit = mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'submit'));
         $Body = htmlentities(mysqli_real_escape_string($conn, $functionalitiesInstance->ifexistsidx($_GET, 'body')));
+        break;
+    case "COMT_delete":
+        $Id = $Post->GetIdByMasterId(
+            $functionalitiesInstance->ifexistsidx($_GET, 'masterid'),
+            $functionalitiesInstance->ifexistsidx($_GET, 'langauge'));
+        $RefrenceID = $functionalitiesInstance->ifexistsidx($_GET, 'refrenceid');
+        break;
+    case "KWRD_delete":
+        $Id = $Post->GetIdByMasterId(
+            $functionalitiesInstance->ifexistsidx($_GET, 'masterid'),
+            $functionalitiesInstance->ifexistsidx($_GET, 'langauge'));
+        $RefrenceID = $functionalitiesInstance->ifexistsidx($_GET, 'refrenceid');
         break;
 }
 ?>

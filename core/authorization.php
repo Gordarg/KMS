@@ -47,14 +47,20 @@ class authorization
         array_push($this->accesslevels, new accesslevel("profile.php", "ADMIN"));
         array_push($this->accesslevels, new accesslevel("post.php", "ADMIN"));
         array_push($this->accesslevels, new accesslevel("post.php|ANSR", "VSTOR"));
+        array_push($this->accesslevels, new accesslevel("post.php|COMT", "VSTOR"));
+        array_push($this->accesslevels, new accesslevel("post.php|FILE", "VSTOR"));
         array_push($this->accesslevels, new accesslevel("settings.php", "ADMIN"));
         array_push($this->accesslevels, new accesslevel("users.php", "ADMIN"));
         array_push($this->accesslevels, new accesslevel("box.php", "ADMIN"));
         array_push($this->accesslevels, new accesslevel("box.php", "VSTOR"));
+        array_push($this->accesslevels, new accesslevel("view_question.php", "VSTOR", true));
+        array_push($this->accesslevels, new accesslevel("view_question.php", "ADMIN", true));
+        array_push($this->accesslevels, new accesslevel("database.php", "VSTOR"));
         array_push($this->accesslevels, new accesslevel("database.php", "ADMIN"));
         array_push($this->accesslevels, new accesslevel("question.php", "ADMIN"));
         array_push($this->accesslevels, new accesslevel("answers_table.php", "ADMIN", true));
         array_push($this->accesslevels, new accesslevel("comment_helper.php", "ADMIN", true));
+        array_push($this->accesslevels, new accesslevel("post_comment_delete.php", "ADMIN", true));
     }
     public function validate($path, $role) // TODO: Not only path, but also paramters
                                            // Like post types (comment or post)

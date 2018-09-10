@@ -1,3 +1,24 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    align-self: flex-start;
+}
 form{
-    flex: 1 50%;
+    margin: 2em;
+    padding: 2em;
+    flex: 2 60em;   
+}
+form:nth-of-type(1){
+    border: #0B93F6 solid 0.05em;
+}
+form:nth-of-type(1) a, form:nth-of-type(1) input{
+    margin: 1em;
+}
+form:nth-of-type(2), .keywords
+{
+    padding: 2em;
+    flex: 1 30em;
+}
+.CodeMirror-scroll{
+    direction: ltr;
 }

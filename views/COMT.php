@@ -8,5 +8,6 @@
     }
     echo '<img src="drawable/profile.png" />';
     echo '<span>' . $row['Body'] . '</span>';
+    include ('helper/post_comment_delete.php');
     echo '</div>';
 ?>

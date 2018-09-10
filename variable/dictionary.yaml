@@ -136,18 +136,22 @@ en-US:Password
 ku-IQ:
 -کلمه‌ی عبور قبلی نادرست است
 en-US:Wrong previous password
+-مشاهده پاسخ‌های قبلی
+en-US:Previous answers
 -ورود
 en-US:Enter
 ku-IQ:
 -تکرار
 en-US:Confirm
 ku-IQ:
--تراکنش های مالی
+-تراکنش‌های مالی
 en-US:Payments
 -پیش نیاز
 en-US:Requrements
 -تغییر کلمه‌ی عبور
 en-US:Change Password
+-جعبه‌ی همه
+en-US:Everyone's box
 -فعالیت
 en-US:Activity
 -گذرواژه‌ی جدید
@@ -174,6 +178,8 @@ ku-IQ:
 -نتیجه یافت نشد
 en-US:No result found
 ku-IQ:
+-پایگاه داده‌ی همه
+en-US:Everyone's Database
 -ویرایش نسخه‌ی اصلی
 en-US:Edit original
 ku-IQ:
