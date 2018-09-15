@@ -29,8 +29,8 @@ function generateForm() {
             switch (fieldType)
             {
                 case "desc":
-                    $currentField.find('pre').text(v['meta']);
-                    $currentField.find('pre').attr('title', v['label']);
+                    $currentField.find('p').text(v['meta']);
+                    $currentField.find('p').attr('title', v['label']);
                     break;
                 case "link":
                     $currentField.find('a').text(v['label']);                    
@@ -91,13 +91,13 @@ function generateForm() {
             case 'desc':
                 return '' +
                     '<div id="sjfb-' + uniqueID + '" class="sjfb-field sjfb-desc">' +
-                    '<pre id="desc-' + uniqueID + '"></pre>' +
+                    '<p id="desc-' + uniqueID + '"></p>' +
                     '</div>';
 
             case 'link':
                 return '' +
                     '<div id="sjfb-' + uniqueID + '" class="sjfb-field sjfb-link">' +
-                    '<a id="desc-' + uniqueID + '"></a>' +
+                    '<a target="_blank" id="desc-' + uniqueID + '"></a>' +
                     '</div>';
             case 'text':
                 return '' +
