@@ -13,6 +13,8 @@ include ('master/public-header.php');
 <div class="add-wrap">
     <h3><?= $functionalitiesInstance->label('افزودن فیلد') ?></h3>
     <ul id="add-field">
+        <li><a id="add-link" data-type="link" href="#"><?= $functionalitiesInstance->label('لینک') ?></a></li>
+        <li><a id="add-desc" data-type="desc" href="#"><?= $functionalitiesInstance->label('توضیحات') ?></a></li>    
         <li><a id="add-text" data-type="text" href="#"><?= $functionalitiesInstance->label('متن تک خط') ?></a></li>
         <li><a id="add-textarea" data-type="textarea" href="#"><?= $functionalitiesInstance->label('متن چند خط') ?></a></li>
         <li><a id="add-select" data-type="select" href="#"><?= $functionalitiesInstance->label('لیست آبشاری') ?></a></li>

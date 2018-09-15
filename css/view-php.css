@@ -6,6 +6,21 @@ article{
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     margin: 3em;
 }
+article a{
+    display:inline-block;
+ 
+    color: blue;
+}
+article a img{
+   max-width: 10em;
+}
+article img:nth-of-type(1) {
+    width: 100%;
+    max-height: 50%;
+    display:block;
+    margin: 0 auto 0 auto;
+    color: transparent;
+}
 article > a:nth-of-type(1), article > a:nth-of-type(2){
     padding: .125em;
     padding-right: 2em;
@@ -19,20 +34,6 @@ article > a:nth-of-type(1), article > a:nth-of-type(2){
     color: black;
     display: block;
     margin-top: 1em;
-}
-article a{
-    color: blue;
-}
-article a img{
-    width: 10em;
-    display:inline-block;
-}
-article img:nth-of-type(1) {
-    width: 100%;
-    max-height: 50%;
-    display:block;
-    margin: 0 auto 0 auto;
-    color: transparent;
 }
 .attachment{
     background-image: url('../drawable/download.svg');
@@ -105,4 +106,14 @@ article img:nth-of-type(1) {
 }
 .keywords div #gordform{
     display: none;
+}
+.sjfb-desc{
+    background-color: rgb(240, 249, 255);
+    padding: 1.5em;
+    margin: 1.5em;
+    border-right: solid #0B93F6 .1em;
+}
+.sjfb-link{
+    text-decoration: underline;
+    color: #0B93F6;
 }

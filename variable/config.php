@@ -18,10 +18,10 @@ class config
     const ConnectionString_PASSWORD = "123";
     const ConnectionString_DATABASE = "gordcms";
 
-    const TITLE = "پویان زربار سینا";
+    const TITLE = "سامانه‌ی مدیریت دانش";
     const LANGUAGE = "Farsi";
     const REGION = "IR";
-    const NAME = "شرکت پویان زربار سینا";
+    const NAME = "KMS";
     const SPONSOR = "Gordarg";
     const META_KEYWORDS = "knowledge, social network, content, SEO, telecommunications, e-business";
     const META_DESCRIPTION = "";

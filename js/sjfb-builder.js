@@ -57,6 +57,9 @@ $(function(){
             //field type
             var fieldType = $this.data('type');
 
+            //field meta
+            var fieldMeta = $this.find('.meta-field').val();
+
             //field label
             var fieldLabel = $this.find('.field-label').val();
 
@@ -90,9 +93,9 @@ $(function(){
                 type: fieldType,
                 label: fieldLabel,
                 req: fieldReq,
-                choices: choices
+                choices: choices,
+                meta: fieldMeta
             });
-
         });
         
         var frontEndFormHTML = '';
@@ -108,35 +111,52 @@ $(function(){
 //Add field to builder
 function addField(fieldType) {
 
-    var hasRequired, hasChoices;
+    var hasRequired, hasChoices, hasMeta;
     var includeRequiredHTML = '';
     var includeChoicesHTML = '';
+    var includeMetaHTML = '';
 
     switch (fieldType) {
+        case 'desc':
+            hasRequired = false;
+            hasChoices = false;
+            hasMeta = true;
+            break;
+        case 'link':
+            hasRequired = false;
+            hasChoices = false;
+            hasMeta = true;
+            break;
         case 'text':
             hasRequired = true;
             hasChoices = false;
+            hasMeta = false;
             break;
         case 'textarea':
             hasRequired = true;
             hasChoices = false;
+            hasMeta = false;
             break;
         case 'select':
             hasRequired = true;
             hasChoices = true;
+            hasMeta = false;
             break;
         case 'radio':
             hasRequired = true;
             hasChoices = true;
+            hasMeta = false;
             break;
         case 'checkbox':
             hasRequired = false;
             hasChoices = true;
+            hasMeta = false;
             break;
         case 'agree':
             //required "agree to terms" checkbox
             hasRequired = false;
             hasChoices = false;
+            hasMeta = false;
             break;
     }
 
@@ -155,6 +175,13 @@ function addField(fieldType) {
             '</div>'
     }
 
+    if (hasMeta) {
+        includeMetaHTML = '' +
+            '<label>' + Hi.label('متا') + '' +
+            '<input type="text" class="meta-field">' +
+            '</label>'
+    }
+
     return '' +
         '<div class="field" data-type="' + fieldType + '">' +
         '<button type="button"  class="delete">' + Hi.label('حذف فیلد') + '</button>' +
@@ -164,6 +191,7 @@ function addField(fieldType) {
         '</label>' +
         includeRequiredHTML +
         includeChoicesHTML +
+        includeMetaHTML +
         '</div>'
 }
 
@@ -224,6 +252,9 @@ function loadForm() {
             $(addField(v['type'])).appendTo('#form-fields').hide().slideDown('fast');
             var $currentField = $('#form-fields .field').last();
             $currentField.find('.field-label').val(v['label']);
+            if (v['meta']) {
+                $currentField.find('.meta-field').val(v['meta']);
+            }
             if (v['req']) {
                 requiredField($currentField.find('.toggle-required'));
             }

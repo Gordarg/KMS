@@ -18,7 +18,7 @@ mail($to, $subject, $message, $headers);
   <label for="email"><?= $functionalitiesInstance->label("ایمیل"); ?></label>
   <input type="email" id="email" name="email">
   <label for="subject"><?= $functionalitiesInstance->label("موضوع"); ?></label>
-  <input type=" subject" id="subject" name="subject">
+  <input type="text" id="subject" name="subject">
   <label for="text"><?= $functionalitiesInstance->label("متن"); ?></label>
   <textarea id="text" name="text" ></textarea>
 
