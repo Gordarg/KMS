@@ -1,6 +1,6 @@
-# **GORD*CMS***
+# **Pressz**
 ![](variable/logo.svg)
-> Open knowledge for everyone
+> Quicken the knowledge flow
 
 ------------
 
